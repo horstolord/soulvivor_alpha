@@ -1,0 +1,1505 @@
+{
+  "EditorData": {
+    "SampleRate": 30,
+    "Duration": 2520,
+    "ExportConfig": null,
+    "Tracks": {
+      "df1a0c8e-439c-4543-aef4-e126b7e3f53c": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_glute_helper_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "-7.62939453E-06,3.81469727E-06,-3.81469727E-06",
+              "Scale": "1,1,1",
+              "Rotation": "1.10268593E-06,7.59959221E-07,0.707105696,-0.707108021"
+            }
+          }
+        ]
+      },
+      "4a388ff1-15b3-4efb-a690-5f250fca3ca0": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_elbow_helper_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3OMUsCYQCH8ee8u87tmoQwbHBwdHMosCAdnNr9Eq6NfYAGt1aXW+4TRFJTQ5s0BQ2VhCgIeYFw3t3b+xdx7YHf/kiSA1TYd3Pde2JcPMLigYvolK+fM0juK8HHb3CbeS99Px4s6q1suIrvpuP35dSdz1uv31fPm/ZncJK5oSev/Gd9mzuklo0p5YVjTYnOLB3Zt4HcYxQ1RnSLldaSmhyycwRUgSZwuZ5QMyEHJqRQSCopl4SRXBL5QEAib/98/p8tMPsGndoAAAA="
+          }
+        ]
+      },
+      "b9aa3a7b-18f3-4ab4-808b-b9990da8cae8": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "eye_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCDghetehom6JwwFmfwdk9v+/z+2hSkDAgYGB4QASHxngk8OirsEeGwYAFd0EJJgAAAA="
+          }
+        ]
+      },
+      "c25398cf-4363-42da-8b5b-4f41201d8e46": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "face_lid_upper_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "6.90893936,5.14047813,-3.23462677",
+              "Scale": "1,1,1",
+              "Rotation": "0.897509873,0.418465137,-0.0587880015,0.126122206"
+            }
+          }
+        ]
+      },
+      "7f0eb18e-8a53-4e48-b2b5-4e51363e7fe8": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "ear_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "5.62155151,-0.415430069,-5.92926025",
+              "Scale": "1,1,1",
+              "Rotation": "0.0462275818,-0.693499565,0.137905777,-0.705622554"
+            }
+          }
+        ]
+      },
+      "adc13393-4f6c-4cfe-a5ac-d40bf7af5e64": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_upper_R_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3KQQ3CYBiD4QcHnHZGAg6wgIRJQMIvYRKQwIldueGATAYGti5fGAkHmrxp0zZJduh8NY20O+/xN2d+vrBwDWfcQh8eYY+DT1/0aBhw2bbj5kX9S+Xt9I8VFNAbJZgAAAA="
+          }
+        ]
+      },
+      "73646462-90cd-4fce-989c-5c74e773a5c7": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hold_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "5.36111546,0.621715546,-3.39444351",
+              "Scale": "1,1,1",
+              "Rotation": "-0.576441705,0.392869562,0.170407504,0.695938289"
+            }
+          }
+        ]
+      },
+      "c5a130fa-d532-4d76-8d4d-48fe5c1bf1e5": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_thumb_1_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCHjw/7M9A8OC7QwMCduR2ZaTpj2AKqEyaLDHhgGNJWWjmAAAAA=="
+          }
+        ]
+      },
+      "a34ec08f-de10-45bc-86e7-5b899f75a2fb": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_upper_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3MvUsCYQCA8edFzQ8ChSA5FFzFpTERISncRKdXV3cH/wCHO8FNIpocGsLVWyWlQJ2aBLccM3S4QbgLEgRPXyFXH/itj1JKCeCaUxX3MwcMwBikK+scDG/BeIMeDZOWzNd4pyzmEg0CkplEM/kCB+4lI4HWwzbJwDdgYv9/F/SL8WX/4dX/GCt627r+l00V9tOX7oWWfPYdor/i50owjDb3HXuy+2hU3U2CQ9AbUZfuWIW2YYJOHb+l47Oe8KxKeKwbhBMGjLtzjvMophLaAAAA"
+          }
+        ]
+      },
+      "4ecca321-2223-4911-83a1-ccd0c6b83e43": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_1_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCOi4r+zAwHDAnIFhx44fYLaCBQODgMX//PcnDThUHBjyFWZMdCj4fnCGkL3Dd4YPdxgOqDBUMARsYGDQWGqww3NDweQPEZMNVr758L7xQ8HtCz/MJQIYBD403mgI+fM9HmoJlUGDPTYMAGlWoLbaAAAA"
+          }
+        ]
+      },
+      "8f0d022f-1424-44dd-bde9-c62f1469dc70": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_2_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCDgQc92egcFiBwPDjR0NCSD2A3MGhgbzT0rfTgbXKh21vJi+jGWmlx9LSv2hYk4uhvd/3rtYO7lcjj7huvWW3XHz3ZbXovY/Ct5n49q8eUut0hbL93w/PvPeZ2Dn/B/5/z7UEiqDBntsGAA6LwFv2gAAAA=="
+          }
+        ]
+      },
+      "fdd243d0-0171-46d4-b6f6-3644eff3b669": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_elbow_helper_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3OP0sCcQCH8a/cDUqUQqBQgg0ugpOJgw7W+UJ8B72BlnsF0doQCEI5ikhO166LQTT5J4d0ie4GA8X72SNhYw88+wcgIimpfW69/qx748kdli/uHjxtXj25icqNNtVKv3DdnDSf2o8f3Vrs7SrjX+a3h05sVEq3ptnOy+nYP/7OHZh0VBlb55YCCWQkC81O5r3GIO7ybkkpW3KityoqoTMDRwYsA+tVwOcqYAF8hbAE1kAYwhb4AWTvpb/qP3P1v3d6KVjt2gAAAA=="
+          }
+        ]
+      },
+      "89b1a576-71ad-41e8-a988-9dc9664caf96": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_0_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.82421589,-3.81469727E-06,2.28881836E-05",
+              "Scale": "1,1,1",
+              "Rotation": "0.0111792106,0.553047299,0.127589777,0.82324636"
+            }
+          }
+        ]
+      },
+      "20950031-7fdc-4771-acf0-b8aa6a67cd54": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "clavicle_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCLCwaHRoeNxj98C31x6ZPTnV4dnD7/xM6+2ictm/9P9nfjD/P+OF/f//397//8/z/f9//T7/P6Tw2vTX9h/+vbJ3+PdLPOEf94v7/wSP6P8XOdD/X+AKPwPnh3gGBp4Ghv/8BQwMHA4MjBwCDAwMDfbYMAA32OqOmAAAAA=="
+          }
+        ]
+      },
+      "f44ece30-2dfe-4f61-a91f-9d23ce8e3138": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_2_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCFhQc8SegeHPdgYGkZ0KDSB2gwUDw4Lt/0X+n03I0DzqcHBq5PeC/mC1irI5CUIsDHd4P+TqZvB9E7geuuM39wPzVQWXsifcCTthllVwrrtDfKvHd9EPn14zPHA48D/x/32oJVQGDSBXYmAAx19W6doAAAA="
+          }
+        ]
+      },
+      "aa54a4e4-ec95-4eaa-89b4-02f955f404bd": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "LocalPosition",
+        "TargetType": "Vector3",
+        "ParentId": "ce89f87e-120d-425c-97ac-213080352397",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAAChNjYGAQEdFyurH4gZnei4+OI5kNAGzGpG8MAQAA"
+          }
+        ]
+      },
+      "c04a0ed1-6cd6-4925-bf4a-b037f8354816": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "face_lid_lower_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "6.90893936,5.14047813,-3.23462677",
+              "Scale": "1,1,1",
+              "Rotation": "-0.338656783,0.930567503,-0.130740672,-0.0475655794"
+            }
+          }
+        ]
+      },
+      "5e773ea1-d563-4270-827a-b90f1c9555b9": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_lower_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3KMSvEcQCH8c9JEtkkizKg3A0ugyy6brDxJi6jDAarn01WL4D5yqiLxWBQBtv/3sANVoM4yn0lRk89w1NPktQw55elm8U2zR6Xvb39wzY7m5QNW11rHFXbC24fT2rXXSvFeMMDV3XDhuXqJ+/rZvtWi5fKVPHWN8/o2LTzvF88J3lNcobTUVqDJAfoYB1N7GKQ3D39vROYwSTG8JXkI8kwyWcSSus/vwFsSnQR2gAAAA=="
+          }
+        ]
+      },
+      "39f79dde-d569-49ab-a5a8-a88141e6cb5a": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hand_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCFCZ+82BgeHDdgYGhp0RYHbDdgaGBdutJh57rCrDsF3i26TVb/Oi1CffE2b4Y+3xjeHO23nbDKzzbjEwqL25c+FmrmXZ5Bnqd54k57YkbZ9xU0VNxJPhzR3OjQwu/GbqTwR5HjJyvZjA+O85//+/h+///blZ/u+31ff/fNnM//fL4f1/f1zf/+/fc3kG5i/rGdl+yDOz/7BnZvuSz8T6JZ+R+ct6BqY/+gwMf+7/Z/gz/z8Dw4T//5kP/GdgaLDHhgEH7k052gAAAA=="
+          }
+        ]
+      },
+      "a339544b-4b0b-4f08-8d69-d313574d6d53": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_2_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCHCoOWLPwMCwjYFhwg6GBhD7gTkDQ8P2/6H/V4duV7unMs14qUucyp7nl7UEObUFVa5KMoRqx0wyjjG+5/HM+A7ne6HOtMnfZ92ZuefELMGl2koqDO8ZBN8zVBhv/z/zw32oJVQGDfbYMAAx68t+2gAAAA=="
+          }
+        ]
+      },
+      "dedc2b38-56ab-4ad8-b9e6-d1bdbb954085": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_2_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCHD4c9qegeHAdgaGDTse/AexGcwZGBh2/K//39uQl3iiLFKjK6JA5e6By98fMkSY23+X4RIykZ7P0JAo0DD/R4OUgvlGhqWHL9xZLzCr9cAcaQU9tw/2zxQuT2NY9//th/tQS6gMGuyxYQChogxY2gAAAA=="
+          }
+        ]
+      },
+      "96f903a9-5dd4-46ff-8342-812155143542": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_thumb_2_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.13633919,2.28881836E-05,-2.28881836E-05",
+              "Scale": "1,1,1",
+              "Rotation": "-3.7252903E-08,0.489338756,0,0.872093797"
+            }
+          }
+        ]
+      },
+      "2750fe7f-66fb-439f-871f-65c91cdd6511": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_meta_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.07528687,1.20410728,0.37758255",
+              "Scale": "1,1,1",
+              "Rotation": "-0.0412206724,-0.217282429,-0.113777623,-0.968578279"
+            }
+          }
+        ]
+      },
+      "0d8ca8fa-d630-4f18-a717-e11c474c75e3": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hand_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCLgz55sDAwODOQPDge3I7MymFy+/yS/4/45ZgeG5+nrmX6vnMxlecPjtd4T/Oz+HAMMf4QDGF+oOTPeVC5jecgcw/v1vDzWREGiwx4YBAeKd05gAAAA="
+          }
+        ]
+      },
+      "37e97d2b-225a-4b6f-a3da-06c5ff50f879": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "spine_2",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm2OMQsBcQDF3+VMl+5KuUkGbj4L2Vgvi82nEAP7Lbcpl/sAlO+AyBdQ6m9SjhgUprvBpH896Yxevd7vbT+SVADkkORWnDcAfwGUa0bvy24V8Gvb+zFen2QxnMDy9qF17j7Q2dihN1seVmz2ncrzlDednA0dJW3QTYt5ajiG7SirAE8H64C79kVmW6Q2pSoiZMRISb0KUCRJRpS64NvsUZouqQlCvRKICTVm4mYkI/Wf6+/Drf/rB+b7iPXaAAAA"
+          }
+        ]
+      },
+      "25d0bb0b-9c55-4827-b815-b8d43bdcd47b": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "neck_clothing",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCHhgu8uBoXn/XoYGl93I7HO6y1+yyDQw8vgcYPiYf+DPufiG33/EE/6x/NH/z36Cn4FthjwjR8d+Rp45+xl5ztgzcr3Zz8D2J5+BmcOBgUHEgOGftADDH2kBhn/iCgz/uRUYGFhAWICBgaHBHhsGAFxDeJ+YAAAA"
+          }
+        ]
+      },
+      "998cf0b5-4397-473c-9b4d-9549817aeb55": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "ankle_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCJhg7+HIwJCwnYFhx3ZktuT0ikeKJfx/jDkS/jG8KWBa3S/Aev+2PvO/2/sZBF6s/y/0wv8/74P//zju7P/HdGf+vz+Pz//78Tn+/8//6///Zf7w/x+zAQMjSwAEMxgwMDIoMDAyCDAwMDTYY8MA9Sbt05gAAAA="
+          }
+        ]
+      },
+      "008443aa-f230-4910-a8cf-42c8127d4844": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "clavicle_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCBDQb3Rw2NFjp3Czdz8yO6zv3Mu97Q6/zpQz/LF6cZ7VaY8+m9QWfybuDf8ZWPfEM/zf//7/3+v1/3++l///if3Cv7fCG/59Emb4/53b4f9f7gn/GXgu/GcVEGBgFzBgYBNQYGARUGBg5hBgYGBosMeGATlS+GyYAAAA"
+          }
+        ]
+      },
+      "9daebec7-9922-4695-8ba0-d568a8e15f7b": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "ball_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCKjY3evAMGH2LgYGrl2zQGyGD2YMDAzmDH//9zH9YPjHqMvIkMXws4GBzYaBhZ2BSZzh/x6Gfx8Z/l9m+GvDwMzPwDD9/y8ORoYgBo7G/z+DGJk5GJhViyuX9fdK/f9+/z/UNhgNA/j46HLIACTHwNBgjw0DAIlbTOfaAAAA"
+          }
+        ]
+      },
+      "6aedc27c-6664-45db-9e81-49409bf58ba7": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hold_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "5.36108398,0.621803284,3.39447403",
+              "Scale": "1,1,1",
+              "Rotation": "0.695937991,0.170407474,0.392869473,-0.576441646"
+            }
+          }
+        ]
+      },
+      "ca8aa408-94f5-4394-b426-b504005ce442": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_meta_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.10066128,-0.159095764,-0.285890579",
+              "Scale": "1,1,1",
+              "Rotation": "-0.0148912035,-0.186377794,-0.00129491091,0.982364655"
+            }
+          }
+        ]
+      },
+      "30e1350c-b50b-4fef-86ea-cdaa551bc307": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_lower_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCFjWlu7IwBCwg4Hhw3Zk9pE/3+9rMTAwXPv////7////P/z//z8vAwMDCwMDAzMDAwMrAwMDG5TNhIRBfJgYCIDsQgUN9tgwAFPYg+eYAAAA"
+          }
+        ]
+      },
+      "386831c3-3647-456e-a861-4ae421269f4c": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "pelvis",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCPjVs/bA5j9u+yXqjzvusbaxvWmb4+A2/6pj6clLsz69/LjctWCeRn9k3/cQz0cWH++K3brPcu/5r1fvvn3/8Y35/3detp8iHH+E2f7yMv9lZ/zHzPCf4f//f//+//vP8P+O7Ks9/Ef8GbgfyDM8ar/w/8zzgP83pxv8f6+d8P/35/X/mW7c/891QJ5BaE08g8SKfgapNfMZxA7kM/A90Gdg/cLPwPjn////zAwMf9kZGP4jAQaGBntsGADfNcRv2gAAAA=="
+          }
+        ]
+      },
+      "09039891-2bcc-4860-b7d2-070420437f92": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_upper_L_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3HPQ2DYAAG4QcHTOhgY4SxI5KQUAlI6NQwfhIQUQEYgLdpSH+GXnLJXZJUaHxYmO5clt/O3j3YDsrBGgbMoYRrzr6FGgVtdbpifD22fH0z9f98Aoh3IGqYAAAA"
+          }
+        ]
+      },
+      "c4666a53-0924-4215-b467-5d5434d1f20a": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "aim_matrix_01",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "4.63892508,-7.15255737E-07,11.8109999",
+              "Scale": "1,1,1",
+              "Rotation": "0,0,0,1"
+            }
+          }
+        ]
+      },
+      "8f95096f-da62-4672-a293-6efb58b965eb": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_lower_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3NIQrCAABG4W+yMEQsglEEQWSXcN7MY9g8glFty+IZzLuBwfCLbGHBBw9ee0lSYKlnd18faK+cbuN+5X0uaR5JtpjSXpI8k3RJPknm2KDGCgvMUKHEBL9XBvrjcf/PL+rcR7uYAAAA"
+          }
+        ]
+      },
+      "9d39ac3e-61b7-45f2-b8ed-05fa3f8147fe": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_meta_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.10066223,-0.159070969,0.285915375",
+              "Scale": "1,1,1",
+              "Rotation": "-0.0148912147,-0.186377734,0.00129489601,-0.982364476"
+            }
+          }
+        ]
+      },
+      "c644099f-7fde-4832-947a-6952d7b32501": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_thumb_1_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "1.90625095,-1.52587891E-05,-7.62939453E-06",
+              "Scale": "1,1,1",
+              "Rotation": "-0.0140711367,0.125388473,0.0806716084,0.988722324"
+            }
+          }
+        ]
+      },
+      "db912003-2b92-4382-9d05-a3cc1a350db5": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_1_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.28321171,-4.95910645E-05,7.62939453E-06",
+              "Scale": "1,1,1",
+              "Rotation": "0,-0.832977951,3.7252903E-08,-0.553306341"
+            }
+          }
+        ]
+      },
+      "bc19f3b5-7890-43c0-801c-1ab2b1efc4af": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "ear_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "5.62160873,-0.415521622,5.92895889",
+              "Scale": "1,1,1",
+              "Rotation": "0.70561403,-0.137948841,0.693499625,-0.0462275445"
+            }
+          }
+        ]
+      },
+      "795f0bc7-3c22-49c2-ab69-a6514b7c7183": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_1_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCPCYz+PAwNBgzsAwY4fAAhBbwoKBocDiQcz/s7HL5C457yyZHx7r/fDSPK5LcgJ6Nq/1LtsxJK27NF0kNug6wzLNXTYTMkK+vXzUsvvhLL1C+Uu6IuLib8Qf1Sh3eP75Hg+1hMqgwR4bBgCPlyOk2gAAAA=="
+          }
+        ]
+      },
+      "adf94688-e4a0-4c4c-9510-759c0a48749f": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_thumb_0_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "1.12793636,1.64863396,-0.866838455",
+              "Scale": "1,1,1",
+              "Rotation": "-0.802278817,-0.0504144058,0.252632976,0.538501441"
+            }
+          }
+        ]
+      },
+      "5d792c03-0a6f-4b45-8ffd-c1aef3bdab5b": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_upper_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGKGibvO9ExK19Gmt7HZDZNTNfpryd3v/vQ7P9f+4P+f+VJAyYBR/EM/E/qGfkvHOegfmGPsP/x+v//2QP+P/ZmeH/h+IH/z4Xf/j3y9vh/3/5Cf8ZBC78Z/jz/z/jD3kGhj/yDP//8zOA+AwMDfbYMAAj4DaqmAAAAA=="
+          }
+        ]
+      },
+      "b9f4c824-0f5a-40b5-ae82-6c702f4b1f6c": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_1_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.19726849,-3.05175781E-05,-5.7220459E-06",
+              "Scale": "1,1,1",
+              "Rotation": "5.96046448E-08,-0.796213806,4.31463122E-05,-0.605015635"
+            }
+          }
+        ]
+      },
+      "601d2715-8f90-4738-a8ec-423e559634f5": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_meta_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.10487461,-1.44452858,-0.223293304",
+              "Scale": "1,1,1",
+              "Rotation": "0.0452348441,-0.100526609,-0.129186824,0.98547411"
+            }
+          }
+        ]
+      },
+      "069e401d-0158-400c-9cab-db0dc1bf54a4": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "aim_matrix_02b",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "3.93700194,-4.76837158E-07,-1.90734863E-06",
+              "Scale": "1,1,1",
+              "Rotation": "0,0,0,1"
+            }
+          }
+        ]
+      },
+      "cc26b42e-f69a-4644-bd80-b0979192eeed": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_lower_R_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3NMQ3CUABF0VMw0Im5Er6DfimVUAlIYKsHJjYsMFYCOMBAeYS0QwdecpObu7wkaXCy7to/Kt39x96zTC/GhfnDrWE44sCIZ7iEIZTQhrq1ObxDh4Jq9XZ7PPf/+AICF60dmAAAAA=="
+          }
+        ]
+      },
+      "b3949aac-dec6-4685-9649-afe0f97eb1e7": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_lower_L_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "-1.62124634E-05,-4.76837158E-06,-1.33514404E-05",
+              "Scale": "1,1,1",
+              "Rotation": "0,0,-7.4505806E-09,-1"
+            }
+          }
+        ]
+      },
+      "1837cc82-b1a3-4239-bb49-615c6ac955f4": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_upper_R_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCGjsfu7AwNCyg4HhwTZk9v+/7fcYGDb8Z2D48J+BQYABQsMwCIDEYDQMK6CJYwMN9tgwAIDbNUKYAAAA"
+          }
+        ]
+      },
+      "6b506d40-5f09-406d-b1cf-4c22c31600fc": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "eye_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCNghetdhS90Shwss/geQ2f//PreHKiEEHBgYGA4Qr67BHhsGAGkUAxGYAAAA"
+          }
+        ]
+      },
+      "2ef1b85c-3ea7-49a3-95d5-fd866c409d19": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "ball_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCLDZ3evAwNCxnYFhwTZktuT/7/dB6v7///8fpA7Epg5osMeGAcN9NJ+YAAAA"
+          }
+        ]
+      },
+      "4eecd69e-c2a5-42ec-9005-d026c603f8d3": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_thumb_0_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "1.1279335,1.6484375,0.866691589",
+              "Scale": "1,1,1",
+              "Rotation": "-0.802278817,-0.0504143313,-0.252632946,-0.538501382"
+            }
+          }
+        ]
+      },
+      "f36759c9-ef5b-4df7-9416-c6f86cd73abf": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "ankle_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCJhu7+HIwNBgxsDQsB2ZnRcfdvPO7vd/5Dvk/6kLNDAJrxFgfey9gOmN/ASGz9/9//94vf7fn+f6/5he5P9jeaP/n+3L/f+sf/wZWBgcGBhYDBgYGRQYGBgEGP7///+f4Q8/hAaDBntsGADBxXo6mAAAAA=="
+          }
+        ]
+      },
+      "4ea2962e-0244-4f37-8926-ed76efc4b98b": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_upper_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCFjw55gDA8OB7QwMCTt2gdkK2xkYCiz8bu0wvLPrqJAt1+1d6u+kuiefUd+W4HeH4eakwze3ZyYtWSHM8MNa+LSN2c7OU1nWkw41LmkxjGk9mhdhvfTZt2jlBq/sN7mbT2501mc6vno9U9id8wxBIgcYpDQW/OdRCPj/T/zCvx/ME/59fm///8Pj+QyvPvMzvhU3YPhqrfD/b/CBf8wBD/5xGCT85+R48J/9iT0D2xN9BqYv/Az/f7//z8DQYI8NAwAnX+WV2gAAAA=="
+          }
+        ]
+      },
+      "f5234529-e81d-4658-a562-97d56008cc98": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "spine_0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCPD4X+XAYKK4m4GBbScyO+3f9vs/H/P/+/35/T+WH/zMnCILWJjezGdgeKPP8J/5wP9/4gb//wsr/GPgSfjHwBDwn4Fhw38Ghgv/GRke/AcbzCLAwMCgAKVhGAQa7LFhAC1O5WKYAAAA"
+          }
+        ]
+      },
+      "93297820-2eea-4d95-8e68-b2c60e904018": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_glute_helper_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "-1.14440918E-05,0,-1.04904175E-05",
+              "Scale": "1,1,1",
+              "Rotation": "1.21444464E-06,6.55651093E-07,0.707105279,-0.707108378"
+            }
+          }
+        ]
+      },
+      "11675768-f205-4041-9080-ea30977b7561": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_lower_R_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "-1.62124634E-05,5.7220459E-06,-8.58306885E-06",
+              "Scale": "1,1,1",
+              "Rotation": "7.4505806E-09,0,-1.49011612E-08,-0.99999994"
+            }
+          }
+        ]
+      },
+      "0426e6f3-033d-4e42-92ed-3bb8c058e3f2": {
+        "$type": "Reference",
+        "Metadata": {
+          "ReferenceId": "b6bdd189-7b68-424a-ab63-0dd03286349e"
+        },
+        "Name": "SkinnedModelRenderer",
+        "TargetType": "Sandbox.SkinnedModelRenderer",
+        "ParentId": "ce89f87e-120d-425c-97ac-213080352397"
+      },
+      "18a9b86f-7df4-48cd-9c5d-84e4264201bc": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_thumb_2_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.13632584,1.14440918E-05,-2.28881836E-05",
+              "Scale": "1,1,1",
+              "Rotation": "-1.49011612E-08,0.489338756,0,-0.872093737"
+            }
+          }
+        ]
+      },
+      "fd47e73b-d757-4454-87c5-0c671f022bcf": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_1_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCKiQF3JgYFhgzsDwYweHAoitYsHA8MD8/8T/RYnFWi/C+1WnLJ5k+yn/KQPDT9FE55/P37Abah5/UezOMGsuT5q2WfjqI1Oubr8xJ3ph0d5GPmnpUN64a2xP+89U5f/5Hg+1hMqgwR4bBgDE8leQ2gAAAA=="
+          }
+        ]
+      },
+      "f9e40608-858e-4db4-87b1-04f5a8474057": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "foot_R_IK_target",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCOCxyziY9Fjx4LtNxQ7NewQOzp6y5QDrtWKHTlOGND4GgUjtvuQrxUsZOdYyyp1gUH7FqPj3nyQrgxAXAwcXAyMnwy92hh8sDL+YGf4yM/xnYmBgZGBkZGBiZGBkYDh0sacNagkDA8OH/wwMAgguRaDBHhsGAF6riWPaAAAA"
+          }
+        ]
+      },
+      "509a2bc0-c858-4c38-8b0e-6e5edeeb525a": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_meta_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.10488892,-1.44449806,0.223339081",
+              "Scale": "1,1,1",
+              "Rotation": "0.0452347919,-0.100526586,0.129186809,-0.98547399"
+            }
+          }
+        ]
+      },
+      "f7460656-4c4f-487f-b44e-4a0dbc42dda9": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "head",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCOjwnuDAwBC5i4HhxY6CKBBbZicDwwPzVyKz7yk53FRT+fv/+GH9/sfCqx8IiX7k+/RdXOabdMU/AQf2P3f53zNIPudTusegcXWT0gM/pduvZZ4xiL66yv5bhfPbgSW8zz/z/uBnlpFpYPwlfODn99P7v73OLvjzvN/h31t/B4Z3v+OZ3h7uZ/62uZ75//54JvYr8Yzcd84z8L/oZ+D/EM/A/8OegZvFgYGdwYGBjcGBgfmPPQMTgwIDA0ODPTYMAPT0JpTaAAAA"
+          }
+        ]
+      },
+      "2511ebec-20fc-4200-9c5f-1c0d1fed9f76": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_lower_L_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm2OPwsBARyGn5M/A+kWZ2C4UsTEpJTcIpvFFxC7SeYb7FhQzKxGymAQI5tYruQDXFKS3E+X1VtvPe8zvSIiCqDxizrpGBBagbEypy53l7DJN2VXKEcbR+2cnQ3XNX/MuiW8duz+eD23rUrutA8ST6UvViBZZayFrUFg1I73rEPxncF389UiJfnMr2AooCpQF+g7oDuAA6rz21kBFdDdUx7QPdBXwAZM1wO2wEZgIXAUMEv/+gWNmiai2gAAAA=="
+          }
+        ]
+      },
+      "61daadd1-25df-4372-bed6-3a86ac368bb9": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_upper_L_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm2OvwsBARzFPzdgMdxkPRmMspAiJiyUMlrYbpf9RuONSukGDCYD+fkP2G65xSA3X3ILRfGVLptXr9fnMz0REQWI8ctiDaygvwFjBXoOrLWTuu58p3PJ69Fh09c8LVxz097jdko6zWN2l3omXA51uzyuDLrDfXE56lnTyqS4zZzUe0QLtWYFeVV9UAXa72AbAmnAAGwgroAFmF8vYAuYwJzAtwEVOAv4Erz9slH61w8qBFCO2gAAAA=="
+          }
+        ]
+      },
+      "7ca0cb43-10b9-4e32-9d96-f399bc8a238a": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_upper_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCGjonLyvJuzWPp+1vQeQ2TfObcl5EryekfuDPaOhiMEf8Rv9v37vrv/L+mU9AyfPBUYWmQ+M/+QfMH6Tb2D8IC3A+F6+geGjtgDDT/kL//9xX/jPwHPhPyPPg/8MHB/+M3CAbBJgYGAB22iPDQMAetjpt5gAAAA="
+          }
+        ]
+      },
+      "839d8930-94be-4b2e-9248-2c9659c2037c": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_lower_L_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3KMQ3CUABF0VNqgIm5EnBQNmxUAhIqgaFa6NoRDyyVgAH+Iz+FhIGb3Lw7vCRpcLAx9fcT641h/u28zg8UhsK1YWmx44IxdGEprPUTnuFos8P+Y+W7lbH/5xstXYwvmAAAAA=="
+          }
+        ]
+      },
+      "a6691c62-3f48-4302-a854-cbe83c4f332e": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_2_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCGj4e9qegYFhBwODwk4HhjP2DAwTLBgYGrb9V/q/xWy6+AOpS0nJBybVLGE+5npRykpYl0fws7iYBrckmxAXw8qCFtfFoe813mxNr/Oe0rTVc7/3dutLEjffiTzleaT4n/f/faglVAYN9tgwAND1C+PaAAAA"
+          }
+        ]
+      },
+      "ce89f87e-120d-425c-97ac-213080352397": {
+        "$type": "Reference",
+        "Metadata": {
+          "ReferenceId": "c3f29ab8-1bb6-4d2d-8f1e-f923c9f196ab"
+        },
+        "Name": "Body",
+        "TargetType": "Sandbox.GameObject"
+      },
+      "d64bc79e-dc1c-4b23-b285-3b8709284937": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_meta_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.07528973,1.2040863,-0.377559662",
+              "Scale": "1,1,1",
+              "Rotation": "-0.0412206873,-0.217282519,0.113777637,0.968578398"
+            }
+          }
+        ]
+      },
+      "897478f8-1cf9-40ca-8f2d-303165bbfcd5": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hand_L_to_R_ikrule",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCJDQ9D3owL7DjvnS/oMdLCsdq1xvOf65bnfwP/ez25lS67pDKs6s1+VZy3XlnfeHBIlTbzjefORlfSvK/ETmBYvwKzHO71xMDH8ZmH/8//f3/y/W/z84GX/wMPzgYfzNPunW4S/GjiE6/LMXCMXVFLC5Sig+8RDY8NvZSuPh9svnvolyXPidsEDhf4SAIYPwkgAGJh8BJp6ABUy8HgpM7BoJjH9fr2f4ul+e4fPy/v+f19v//3bY/v/vx/3/GRga7LFhAL9fa7vaAAAA"
+          }
+        ]
+      },
+      "17473c45-58c4-44df-9bfa-78c35afe4da1": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "aim_matrix_02a",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "4.63892508,-7.15255737E-07,9.84249973",
+              "Scale": "1,1,1",
+              "Rotation": "0,0,0,1"
+            }
+          }
+        ]
+      },
+      "3a74b6dc-1153-4ab0-bf5b-5b23272ef360": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_2_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "1.68260193,5.7220459E-06,-4.57763672E-05",
+              "Scale": "1,1,1",
+              "Rotation": "-3.7252903E-09,0.65158838,-2.98023224E-08,-0.758572698"
+            }
+          }
+        ]
+      },
+      "05c772b5-71b0-47b4-a8f1-5f22ffd18954": {
+        "$type": "Property",
+        "Format": "Editor",
+        "Name": "Bones",
+        "TargetType": "Sandbox.MovieMaker.Properties.BoneAccessor",
+        "ParentId": "0426e6f3-033d-4e42-92ed-3bb8c058e3f2"
+      },
+      "43876f98-303c-4aba-a2b6-7edf7d024fee": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "LocalRotation",
+        "TargetType": "Rotation",
+        "ParentId": "ce89f87e-120d-425c-97ac-213080352397",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAAChNjQAcN9qN8BqqGBwDFJnOPZAEAAA=="
+          }
+        ]
+      },
+      "9df61eb4-94f0-4b23-85fd-a29ed4565572": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "foot_L_IK_target",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCNhsKei4RbDX4WpOsYPGgQxHfh4+R6YlxQ6dpofS+E0FIjj7kh8ULxPjWJMjdyJB+RWDwl8GKVZ2Ia6/HFwWjJwNv9jNvrMY/2b2/MM86T8TAyMjCDGBLGDoej1JGWoJBPz5/5+BBUWETNBgjw0DAOkFPHLaAAAA"
+          }
+        ]
+      },
+      "d16ce93e-8b96-4a63-9fb0-2f6e866dd0ca": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_0_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "3.06835556,0,4.19616699E-05",
+              "Scale": "1,1,1",
+              "Rotation": "0.0298256129,0.618525565,0.0618957132,-0.782755136"
+            }
+          }
+        ]
+      },
+      "2ab1757a-d14e-4562-a6fb-bc2b2bdab005": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_upper_L_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCFDYucCBgeHODgYGk506u0DsD9sZGA6YF9lfZxa+HMEeuka52fWt5BdnVt+Xuj8+fNz/64j4WrfT7L8Z3vCf0r2hddzmtOWG48G70hN7Dhct09ql+1CK9Y8a18bJTv//tj9iYHjwn4Fhw38IDcICDBCswMDAYAClP/xnYLjwH+IemBwIg9gwAFIDk2+wx4YBsWM7RtoAAAA="
+          }
+        ]
+      },
+      "1fa48206-eefb-4c2f-8ee6-1f27aaf56c32": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_index_0_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCHgQ7+LAwOCwg4HBYTsy+9LPuIdQJVQGDfbYMADyaBl4mAAAAA=="
+          }
+        ]
+      },
+      "730d2c72-c6c3-453c-8bd2-10f2f338258f": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_lower_R_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCEiaXebAwOCwnYEhYMeHOSD2HQsGBgEL52mue29NN5/BIPJjl/HFTIEPi4O+Tpd/cfzrX6UdXC8Pv9d7+4+BwYzn3kYeTqsX4s5f76+wkvdh+PH6pcB7cU7Rl3yqX/7/bX/GwHDgPwODAAMDQwETA8MBRgaGB38YGBR+QcQegMQZGRgWMDIwXGBgYDCAuokQaLDHhgGvYLxq2gAAAA=="
+          }
+        ]
+      },
+      "87c84f17-98d9-4b33-b8ab-d0e774568c60": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_0_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.9992218,1.90734863E-06,5.34057617E-05",
+              "Scale": "1,1,1",
+              "Rotation": "0.0151502192,0.593188882,-0.0225310996,-0.804605365"
+            }
+          }
+        ]
+      },
+      "0385faa6-bbe2-4186-87c5-c83600d52f24": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hand_R_IK_target",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCJj6s/Ige0TzwXIvOadnJpcdU3Zvcdi2z8YpnkX4oFTvg8gwg1erzstafTT498Vd7jMXx5/L77/OXX5/Zf/dF3dfMHB8ZOb6ycTy7/8/xn//Wf4zsjAwMzMxMTIyMzIxzms69p2pn+8L6/MPX97E3+fQ3nbov6WGA/NTHfm/x0/fP8T85TzTd/0C5yz1C8wHbt9nfLSdn+H+4fP/n9x+///D+///GX68/8//4/5/8R/3/4v9Of9f8M/5/9x/7v9nYGiwx4YBZp9XotoAAAA="
+          }
+        ]
+      },
+      "958ea51b-3692-4948-b633-3ae842ea3166": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "spine_1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCPigvM2BgWHBNgYGAYsX+SC2ghkDQ4HFqf//P6Sv/lsuOk+QoTV9mqqx6It7oXvSHFr3TL0hmO3l8sqMYZrs6tdiLvUC9w5y3VvNqhTKfO8VY6gYw3stBqXXDEKOtdvC73+5vv7Pj/f2/9ifyLMKilxgZ7nxnuH/Y3+G///n//+rv+HfH/UHf/4LO/xl5Hjwj4Gh4D8Dw4L/DAwX/oOdxqLAwMhiwMAAxgoMDAwCUDc32GPDACJ1pN3aAAAA"
+          }
+        ]
+      },
+      "ff6549ae-de25-460a-8c66-b9ffdb2dcf15": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "root_IK",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCPjVs/bA5j9u+89/rza/Ym1je9M2xwHELj35f9Ynho/LGQrmMfRHMnwPYXhkwXBXjOE+C8PzXwzvvjH8+Mbw/zsD208Gjj8MbH8ZmP8yMP5jYPjP8P8/w7//DP8ZGP7//X4fagmVQYM9NgwAMGpQlNoAAAA="
+          }
+        ]
+      },
+      "3d74594b-f908-4108-8cc3-4789648c9ea3": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_knee_helper_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm2OTwvBcACG39nopzRbSRzl6CQOU/4dfRffwGkXdz6BlIsvIIqvsKNCipKdbFLaVmuvVpOLp57e5/iSpASgiATD2qG/6QCFNUa3renrXeCymo/PVl1MB3bVaS6GjrH0vDxOLRwa2WvFdXQ9VIQIfPUl1NdeeGUlBOhT8iK5xtSdkj2hPXvQ5ZEuc9DQhoYSgJDkM/FNlwHJiKQMIAMgDQ1xxy+/kORvzd4/P4MIwwraAAAA"
+          }
+        ]
+      },
+      "101eacc6-9989-4480-956a-03da98c00ed9": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_0_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.99921989,-2.47955322E-05,4.57763672E-05",
+              "Scale": "1,1,1",
+              "Rotation": "0.0151933301,0.593189061,0.0225310326,0.804604828"
+            }
+          }
+        ]
+      },
+      "ec6031a2-3994-4b9d-84d6-281867c09be0": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hand_L_IK_target",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCNjFWewgseqXXc9yXqdTk/sdvYsqHFm+mTt94/zI+b39hVTH7QSh6qb4q0xy737wM3wWEX6lZHlV2uY8j+Z9FrlHf0Wf/uF9+5vtx2/mf78ZGP//Z2H6x8z0n5HpPyPjdb9VvJY6+uyvg/3Z2R4IsOy/rcjGklDwV5TjwR+hD+f/cL25/1tuCv8v2RT9Pxxr7P9/fL7+/3P2hv+v+Tf8f89+4f/nz+//f3/+/v+f1/wMjB/e/2f58f4/E9jNDfbYMADZjwt62gAAAA=="
+          }
+        ]
+      },
+      "250175f4-86f4-44cf-9dfd-326f2ea47a51": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "hand_R_to_L_ikrule",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCHik/eTgnzuCDgxztx2w2JTsqGZ+1tHm03rHycc3rrfYt+/gRBU+l11cHbx7WESWP/l7/d2P97zv/6s9kVd9bMryzvjtN7VnvyXeMPJ8YWb9zfLvH8tvJuZfTAx/mBj+MuYo6pw+++116Mc5C4QWVRew7RZXfLKDf8PvvbyXV3nqGHK+/q7PsiD+PsOK9+f+v41e///f5vd/v6yP//t5+/2/P6/P/8csEvCf2+HBf96IAgbegAMMXDYHGFhlChgYGBrssWEAA9t4SdoAAAA="
+          }
+        ]
+      },
+      "b04aef25-07c2-4c34-8d24-2a2a967e06b6": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "neck_0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCDhhu8uBoXH/XgYH593I7I+F7M8ZVAQYmT0mMHzO3vD3QvmCP4wf3v/jORL/n3fN/f88M+Yz8E+RZ+TfwM/Ie+c8A8eXfgYmjgKG/8IJDL/lHRh+yisw/JI3YPgtrsDwl9+A4T+zAsN/ZgEGBoYGe2wYABlgRLmYAAAA"
+          }
+        ]
+      },
+      "d0176720-0ffd-43b9-87e0-16eec502bd1e": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "face_lid_lower_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "6.90893555,5.14044571,3.23464203",
+              "Scale": "1,1,1",
+              "Rotation": "-0.338656753,0.930567503,0.130740732,0.0475656092"
+            }
+          }
+        ]
+      },
+      "9a906f2d-78ce-4c1d-9a66-a7068c444eb6": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_lower_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm2MoQ2DUAAFjzTF4NFIJsCSTtMN0ChmYBMYoFsQwNZXYIAjhC8QveSSl5eXpxoBKRdt835B3kPW3fNnXeZB7dVzWwEFsKijOqlf9adu6hNIgjHwCP8GdvVq6vKfBzqCtF+YAAAA"
+          }
+        ]
+      },
+      "ea4c2aea-18d4-4cd6-9244-29166fbd2fdc": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_upper_R_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3IoQ3CUBgA4e8VgUWhGQFXWUZghI7ACB2BEZ5ggDoq3yIkHQFd0v4IIKngkksuFxGRsPfjNnCq2Q3rjvn+oEx0M3lLTowT5xftwgFtxXVDqbgkehzxDPogfy3BGJ/fNf98A11TeOuYAAAA"
+          }
+        ]
+      },
+      "e6e8e0dc-e30d-447a-9743-d1e9f9a35725": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_upper_R_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACm3OIQvCUBiF4ffOMFAQLFpFsBkGA7F5DTbr+n6CTWyLi2uCaV3sl7ngHxiYBMusBmGCwaDyGeaw+MKTzxERUUCbssTEGg4GfDM4dSYQjiAY0gzpL5jlUztNli11z6inXDKOPbYuO3gWPODq0cipbSBErbFc7JyXh1XIe3UGRyAWcBRoQEtpL+W+D0TAHHCA7vdX1U1+qoLxPx/15HI22gAAAA=="
+          }
+        ]
+      },
+      "c7b9bf71-ffac-49fc-8753-961f6938bdff": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_knee_helper_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGKJgydW/Drmu2DAwOOxiYVfc2BLPaMTAkbJ/QeDivnn1So/hZg6TFvu3qj17xfJPj/s4v8ElO4NNl7q8fWX9fZvutyvbrEccPfs4fISy//zP9W8vAwMHIIPaf4REDw5FKdo0FIn/e/3/z////78wCDB+ZBRjYPqz/z8TAwMDEwsAAopk5HMA0yEUwjMzHDhrssWEApl2jwtoAAAA="
+          }
+        ]
+      },
+      "51e8e5ee-1920-473e-a611-adb6483d3cd3": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "leg_upper_L_twist1",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "SampleRate": 30,
+            "Samples": "H4sIAAAAAAAACvv///9/RgYGBjEGCKjpfu7AwDBhBwNDwA5k9v+/yx8wMFz4D8Ef/jMwCDBAaGQMAwpQbAClQWpBGASQ1YFAgz02DAAZ08n0mAAAAA=="
+          }
+        ]
+      },
+      "0c2303e2-a032-4432-8ef6-ab83c194eebe": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_ring_0_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.82422256,1.90734863E-06,3.05175781E-05",
+              "Scale": "1,1,1",
+              "Rotation": "0.011179246,0.553047299,-0.127589762,-0.82324636"
+            }
+          }
+        ]
+      },
+      "4256e726-8d0e-40e8-b5eb-00d1489f36a4": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "finger_middle_1_R",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "2.56054783,-6.29425049E-05,3.81469727E-06",
+              "Scale": "1,1,1",
+              "Rotation": "-2.98023224E-08,-0.807312608,-7.4505806E-09,-0.590124488"
+            }
+          }
+        ]
+      },
+      "79f36871-2284-495a-a208-284656c84a01": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "face_lid_upper_L",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "6.90893555,5.14044571,3.23464203",
+              "Scale": "1,1,1",
+              "Rotation": "0.897509873,0.418465137,0.0587879717,-0.126122251"
+            }
+          }
+        ]
+      },
+      "d73217f2-e5a1-4dbf-8135-90591a54f7bb": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_lower_L_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "-2.67028809E-05,0,-0.000183105469",
+              "Scale": "1,1,1",
+              "Rotation": "0,-1.49011612E-08,1.49011612E-08,-1"
+            }
+          }
+        ]
+      },
+      "919199a4-e6b3-486b-aa07-33e7478a2245": {
+        "$type": "Property",
+        "Format": "Compiled",
+        "Name": "arm_lower_R_twist0",
+        "TargetType": "Transform",
+        "ParentId": "05c772b5-71b0-47b4-a8f1-5f22ffd18954",
+        "Blocks": [
+          {
+            "TimeRange": "0,2520",
+            "Value": {
+              "Position": "-3.57627869E-05,4.95910645E-05,0",
+              "Scale": "1,1,1",
+              "Rotation": "0,2.79396772E-09,0,1.00000012"
+            }
+          }
+        ]
+      }
+    },
+    "References": []
+  },
+  "__references": [],
+  "__version": 0
+}

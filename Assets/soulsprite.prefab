@@ -1,0 +1,91 @@
+{
+  "RootObject": {
+    "__guid": "84f2d8df-2137-4c56-9d8b-66a1c57bafce",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "soulsprite",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "3.40000105,3.40000105,3.40000105",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.SpriteRenderer",
+        "__guid": "9f36df7a-6775-4ebb-b900-b4d7ae4998f9",
+        "__enabled": true,
+        "Flags": 0,
+        "__version": 2,
+        "Additive": false,
+        "AlphaCutoff": 0.87830687,
+        "Billboard": "Always",
+        "Color": "0.49767,0.30231,0.00926,1",
+        "DepthFeather": 0,
+        "FlipHorizontal": false,
+        "FlipVertical": false,
+        "FogStrength": 1,
+        "IsSorted": false,
+        "Lighting": false,
+        "OnAnimationEnd": null,
+        "OnAnimationStart": null,
+        "OnBroadcastMessage": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Opaque": true,
+        "OverlayColor": "0.88837,0.4979,0.02066,0",
+        "PlaybackSpeed": 1,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "Shadows": false,
+        "Size": "10,10",
+        "Sprite": {
+          "$compiler": "embed",
+          "$source": null,
+          "data": {
+            "Animations": [
+              {
+                "Name": "Default",
+                "FrameRate": 15,
+                "Origin": "0.5,0.5",
+                "LoopMode": "Loop",
+                "LoopStart": -1,
+                "LoopEnd": -1,
+                "Frames": [
+                  {
+                    "Texture": "textures/shapes/splotch2.vtex",
+                    "BroadcastMessages": []
+                  }
+                ]
+              }
+            ],
+            "__references": null
+          },
+          "compiled": null
+        },
+        "StartingAnimationName": "Default",
+        "TextureFilter": "Bilinear"
+      }
+    ],
+    "Children": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

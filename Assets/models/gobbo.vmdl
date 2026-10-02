@@ -1,0 +1,575 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc30:version{8c2d7a91-9c42-4bf0-883a-5a3b1762d4f1} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "upperarm_r"
+						surface_prop = "flesh"
+						collision_tags = "solid"
+						radius = 0.137168
+						point0 = [ -0.110016, 0.578124, 0.092107 ]
+						point1 = [ -0.000961, -0.171717, 0.304478 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "lowerarm_r"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.181274
+						point0 = [ 0.051533, 0.895813, -0.0046 ]
+						point1 = [ 0.090581, 0.295393, -0.036967 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "head"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.41775
+						point0 = [ 0.000068, 0.760572, -0.037525 ]
+						point1 = [ 0.058366, 1.325375, -0.024648 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "upperarm_l"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.259982
+						point0 = [ -0.022303, 0.160498, -0.075238 ]
+						point1 = [ 0.204539, -0.440185, -0.444255 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "lowerarm_l"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.139391
+						point0 = [ 0.127487, 0.596868, -0.085778 ]
+						point1 = [ 0.03924, 1.36103, -0.101215 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Thigh_r"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.21175
+						point0 = [ 0.080213, 0.302435, -0.2137 ]
+						point1 = [ 0.202251, 0.869231, -0.127072 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Shin_r"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.12227
+						point0 = [ 0.066053, 1.386769, -0.045719 ]
+						point1 = [ 0.185861, 0.5566, 0.043985 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Thigh_l"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.263004
+						point0 = [ -0.141155, 1.34982, -0.046843 ]
+						point1 = [ 0.071833, 0.421947, -0.05599 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Shin_l"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.149417
+						point0 = [ -0.087638, -0.038913, -0.069944 ]
+						point1 = [ -0.191983, 0.949078, 0.062573 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "chest"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.233619
+						point0 = [ -0.090847, -0.062867, 0.013287 ]
+						point1 = [ 0.12755, -1.049885, 0.021128 ]
+					},
+					{
+						_class = "PhysicsShapeCapsule"
+						parent_bone = "Pelvis"
+						surface_prop = "default"
+						collision_tags = "solid"
+						radius = 0.34048
+						point0 = [ 0.108779, 0.089983, -0.152807 ]
+						point1 = [ 0.549904, 0.512342, 0.096143 ]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/gobbo.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"Cube",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "gobbo_mat.vmat"
+								to = "materials/gobbo.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "gobbo_idle"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/gobbo.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 1
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gobbo_walk"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/gobbo.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 4
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gobbo_punch"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.8
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/gobbo.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 2
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gobbo_hit"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/gobbo.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "gobbo_stun"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						disable_interpolation = false
+						enable_scale = false
+						source_filename = "models/gobbo.fbx"
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						take = 3
+						reverse = false
+					},
+				]
+				default_root_bone_name = "Pelvis"
+			},
+			{
+				_class = "PhysicsJointList"
+				children = 
+				[
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "chest"
+						child_body = "upperarm_l"
+						anchor_origin = [ -0.181266, -0.050359, 0.784886 ]
+						anchor_angles = [ 0.0, 0.0, 0.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 3.0
+						enable_swing_limit = true
+						swing_limit = 90.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -39.34
+						max_twist_angle = 45.290001
+					},
+					{
+						_class = "PhysicsJointRevolute"
+						parent_body = "Thigh_l"
+						child_body = "Shin_l"
+						anchor_origin = [ -0.029794, 0.165856, 0.011025 ]
+						anchor_angles = [ 0.0, 0.0, 0.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 3.4
+						enable_limit = true
+						min_angle = -130.699997
+						max_angle = 133.5
+					},
+					{
+						_class = "PhysicsJointRevolute"
+						parent_body = "Thigh_r"
+						child_body = "Shin_r"
+						anchor_origin = [ 0.031852, 0.170744, -0.093881 ]
+						anchor_angles = [ 0.0, 0.0, 0.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 3.03
+						enable_limit = true
+						min_angle = -134.699997
+						max_angle = 141.600006
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "chest"
+						child_body = "upperarm_r"
+						anchor_origin = [ -0.109921, 0.333663, -0.776961 ]
+						anchor_angles = [ 0.0, 0.0, 178.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 3.0
+						enable_swing_limit = true
+						swing_limit = 90.0
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -44.669998
+						max_twist_angle = 44.119999
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "chest"
+						child_body = "head"
+						anchor_origin = [ -0.10668, 0.851266, 0.0158 ]
+						anchor_angles = [ 0.0, -1.0, 271.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 2.0
+						enable_swing_limit = true
+						swing_limit = 30.190001
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -45.34
+						max_twist_angle = 27.290001
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Pelvis"
+						child_body = "chest"
+						anchor_origin = [ 0.393512, 0.190056, -0.075343 ]
+						anchor_angles = [ 11.0, -30.0, -70.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 2.0
+						enable_swing_limit = true
+						swing_limit = 27.290001
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -50.0
+						max_twist_angle = 24.959999
+					},
+					{
+						_class = "PhysicsJointRevolute"
+						parent_body = "upperarm_r"
+						child_body = "lowerarm_r"
+						anchor_origin = [ -0.188487, 1.35534, -0.175869 ]
+						anchor_angles = [ 0.0, 0.0, 45.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 2.29
+						enable_limit = true
+						min_angle = -101.400002
+						max_angle = 132.300003
+					},
+					{
+						_class = "PhysicsJointRevolute"
+						parent_body = "upperarm_l"
+						child_body = "lowerarm_l"
+						anchor_origin = [ 0.105248, 0.805236, -0.070405 ]
+						anchor_angles = [ -49.0, 154.0, 115.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 2.37
+						enable_limit = true
+						min_angle = -116.0
+						max_angle = 125.400002
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Pelvis"
+						child_body = "Thigh_l"
+						anchor_origin = [ -0.079629, -0.756207, -0.014957 ]
+						anchor_angles = [ -11.0, -5.0, 70.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 2.0
+						enable_swing_limit = true
+						swing_limit = 65.029999
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = 0.0
+						max_twist_angle = 30.190001
+					},
+					{
+						_class = "PhysicsJointConical"
+						parent_body = "Pelvis"
+						child_body = "Thigh_r"
+						anchor_origin = [ 0.145072, -0.608565, -0.743337 ]
+						anchor_angles = [ 7.0, 7.0, -219.0 ]
+						collision_enabled = false
+						linear_strength = 0.0
+						angular_strength = 0.0
+						friction = 2.0
+						enable_swing_limit = true
+						swing_limit = 61.540001
+						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
+						enable_twist_limit = true
+						min_twist_angle = -39.34
+						max_twist_angle = 27.870001
+					},
+				]
+			},
+			{
+				_class = "PhysicsBodyMarkupList"
+				children = 
+				[
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "chest"
+						mass_override = 20.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "head"
+						mass_override = 8.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "lowerarm_l"
+						mass_override = 5.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "lowerarm_r"
+						mass_override = 6.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "Pelvis"
+						mass_override = 8.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "Shin_l"
+						mass_override = 5.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "Shin_r"
+						mass_override = 5.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "Thigh_l"
+						mass_override = 5.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "Thigh_r"
+						mass_override = 5.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "upperarm_l"
+						mass_override = 5.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+					{
+						_class = "PhysicsBodyMarkup"
+						target_body = "upperarm_r"
+						mass_override = 5.0
+						inertia_scale = 1.0
+						linear_damping = 0.0
+						angular_damping = 0.0
+						use_mass_center_override = false
+						mass_center_override = [ 0.0, 0.0, 0.0 ]
+						gravity_scale = 1.0
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

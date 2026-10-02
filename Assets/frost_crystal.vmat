@@ -1,0 +1,22 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "frost_permafrost_spire.shader"
+
+	//---- Color Settings ----
+	g_vFacetEdgeColor "[0.643137 0.874510 0.952941 0.000000]"
+	g_vFrostRimeColor "[0.254902 0.478431 0.035294 0.000000]"
+	g_vGlacialCoreColor "[0.349020 0.850980 0.980392 0.000000]"
+	g_vSpecularGlintColor "[0.000000 0.000000 0.803922 1.000000]"
+
+	//---- Crystalline Facets ----
+	g_flCrystalFacetScale "13.260"
+
+	//---- Glacial Optics ----
+	g_flDendriticBranching "0.898"
+	g_flIceRefraction "1.136"
+	g_flSpecularGlintPower "1.110"
+	g_flSubsurfaceScatter "3.000"
+	g_flThinFilmIridescence "0.390"
+}

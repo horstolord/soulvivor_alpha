@@ -1,0 +1,20 @@
+{
+  "files.associations": {
+    "*.shader": "slang",
+    "*.hlsl": "slang"
+  },
+  "slang.additionalSearchPaths": [
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\core\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\addons\\base\\Assets\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\addons\\menu\\Assets\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\addons\\tools\\Assets\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\editor\\ShaderGraph\\Assets\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\editor\\ActionGraph\\Assets\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\editor\\MovieMaker\\Assets\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\editor\\Hammer\\Assets\\shaders",
+    "E:\\SteamLibrary\\steamapps\\common\\sbox 590830\\editor\\DooEditor\\Assets\\shaders",
+    "C:\\Users\\Kami\\Documents\\s\u0026box projects\\blenderbridge\\Assets\\shaders"
+  ],
+  "slang.predefinedMacros": [],
+  "slang.workspaceFlavor": "vfx"
+}

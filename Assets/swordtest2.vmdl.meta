@@ -1,0 +1,22 @@
+{
+  "guid": "b096c6a9-7b94-442c-aca0-0b7d0bf164c7",
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "Swordtest 2",
+      "Type": "model",
+      "Org": "local",
+      "Ident": "swordtest2",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": [],
+      "Mounts": null,
+      "IsStandaloneOnly": false,
+      "Metadata": {
+        "SingleAssetSource": "swordtest2.vmdl"
+      }
+    }
+  }
+}

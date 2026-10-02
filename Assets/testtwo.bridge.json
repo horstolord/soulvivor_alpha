@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "savedAt": "2026-09-20T19:26:30.2186636Z",
+  "objects": {
+    "b_0fe8c873": {
+      "name": "Block",
+      "vertexCount": 8,
+      "faceCount": 6,
+      "position": {
+        "x": -97.87334,
+        "y": 38.749035,
+        "z": 64
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_d8ef55d0": {
+      "name": "Block",
+      "vertexCount": 61,
+      "faceCount": 64,
+      "position": {
+        "x": 20.892456,
+        "y": 69.936584,
+        "z": -216.34352
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_c8140456": {
+      "name": "Block",
+      "vertexCount": 17,
+      "faceCount": 17,
+      "position": {
+        "x": -239.98468,
+        "y": 687.5055,
+        "z": 158.76213
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_8db23788": {
+      "name": "Block",
+      "vertexCount": 8,
+      "faceCount": 6,
+      "position": {
+        "x": -442.67514,
+        "y": 524.17615,
+        "z": 31.526497
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_d1f6fd16": {
+      "name": "Block (1)",
+      "vertexCount": 8,
+      "faceCount": 6,
+      "position": {
+        "x": -1227.7059,
+        "y": -1026.7,
+        "z": 158.42636
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_463a3a2f": {
+      "name": "Block",
+      "vertexCount": 4,
+      "faceCount": 1,
+      "position": {
+        "x": 82.93945,
+        "y": -64.63098,
+        "z": 0
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_55ae2783": {
+      "name": "Block",
+      "vertexCount": 4,
+      "faceCount": 1,
+      "position": {
+        "x": -782.4083,
+        "y": 39.783287,
+        "z": -283.95428
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_923846e0": {
+      "name": "Block",
+      "vertexCount": 4,
+      "faceCount": 1,
+      "position": {
+        "x": -931.09955,
+        "y": 498.33426,
+        "z": 0
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_500b5dfd": {
+      "name": "Cube",
+      "vertexCount": 252,
+      "faceCount": 209,
+      "position": {
+        "x": 135.87271,
+        "y": -978.8613,
+        "z": -39.91234
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    }
+  }
+}

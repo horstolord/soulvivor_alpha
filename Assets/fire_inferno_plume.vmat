@@ -1,0 +1,22 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "fire_inferno_plume.shader"
+
+	//---- Blending ----
+	F_ADDITIVE_BLEND 1
+
+	//---- Color Settings ----
+	CombustionEdgeColor "[0.545098 0.000000 0.000000 1.000000]"
+	InnerFlameColor "[1.000000 0.701961 0.101961 0.000000]"
+	OuterFlameColor "[1.000000 0.149020 0.000000 0.000000]"
+
+	//---- Flame Dynamics ----
+	DissolveAmount "0.349"
+	EmissionOverdrive "0.975"
+	FlameLength "0.474"
+	ThermalBuoyancy "2.000"
+	TurbulenceSpeed "2.693"
+	WarpStrength "5.000"
+}

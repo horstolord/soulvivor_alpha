@@ -1,0 +1,22 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "earth_geode.shader"
+
+	//---- Color Settings ----
+	g_vBedrockColor "[0.219608 0.180392 0.149020 0.000000]"
+	g_vCavityAoColor "[0.058824 0.050980 0.039216 0.000000]"
+	g_vMineralVeinColor "[0.000000 0.000000 0.000000 1.000000]"
+	g_vStrataLayerColor "[0.478431 0.380392 0.278431 0.000000]"
+
+	//---- Geological Structure ----
+	g_flBasaltScale "20.000"
+	g_flCavityAoStrength "0.847"
+	g_flDisplacementAmount "2.000"
+	g_flGraniteGrain "2.000"
+	g_flMineralVeinIntensity "0.819"
+	g_flStrataBanding "2.814"
+	g_flStrataFrequency "10.588"
+	g_flVeinScale "4.757"
+}

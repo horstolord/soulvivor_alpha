@@ -1,0 +1,33 @@
+{
+  "Title": "Claude Bridge",
+  "Type": "library",
+  "Org": "sboxskinsgg",
+  "Ident": "claudebridge",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Mounts": null,
+  "IsStandaloneOnly": false,
+  "Metadata": {
+    "Summary": "Let Claude AI build s&box games for you — 152 tools (v1.5.2) for scenes, scripts, physics, UI, networking, terrain, lighting and atmosphere, characters, navmesh and spatial queries, particles, reflections, library detection, and self-diagnosis (Claude reads its own logs and can restart the editor itself)",
+    "Public": true,
+    "Tags": "ai,claude,mcp,tool,editor,bridge,automation,code-generation,terrain,worldgen,characters,lighting,stable",
+    "Compiler": {
+      "RootNamespace": "Sandbox",
+      "DefineConstants": "SANDBOX",
+      "NoWarn": "1701;1702;1591;",
+      "WarningsAsErrors": "",
+      "TreatWarningsAsErrors": false,
+      "Nullables": false,
+      "ReleaseMode": "Debug",
+      "AssemblyReferences": [],
+      "ReplacementDirectives": {
+        ".Server.cs": "SERVER"
+      },
+      "IgnoreFolders": [],
+      "DistinctAssemblyReferences": []
+    }
+  }
+}

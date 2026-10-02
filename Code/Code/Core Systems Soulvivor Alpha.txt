@@ -1,0 +1,174 @@
+Core Systems Summary (Foundational Layer – Soulvivor--->Godyssey)
+
+Design Philosophy:
+
+• Systemic first  
+• Same rules for player & enemies
+• Power Fantasy, wield forces, break rules 
+• Gameplay Pillars: Combat – Exploration – Character Development  
+• Scales from rogue‑lite slice release → overworld → shared‑world/MMO  
+• Optimized for modularity + future content updates, shared dynamics and recognizable franchise-features
+
+Combat/Movement:
+
+• Interact->Grab items, staggered enemies, (climb onto big foes?) 
+• Walk, Run, Crouch->Slide(short invuln)
+• Jump, Climb, Wallrun/jump,
+• (Magical) Levitate, Teleport, Fly 
+• Dodge (invuln frames + perfect window)  
+• Block (windup + perfect block), Hit-based parries  
+• Channel for mana, absorb energy, parry spells(timing)
+• Light Combos, Charged Heavy, Kick, Throw
+• Techniques, martial equivalent to spells 
+• Later: Comprehensive Melee System(directional attacks, sophisticated parrying)
+
+Magic:
+
+Wield your minds power, influenced by elements. later: Divines(light/dark)
+Split into 2 main aspects:
+
+1. Contextual "Force Action"/Cantrip. Gather your Energy and use it depending on the circumstance,
+   e.g. Sprint->Buff Mobility, Sheathe->Buff your weapon, Click->Attack with it. Interact
+   with the world, depending on your mind's power. Can grab some energy instant (acuity)
+   and channel for more power(will), from your pool(wisdom). Attune yourself to your force
+   of choice via actions, gear, casting. These are in essence simple 2 rune effects. (force+method)
+
+2. Rune Magic. Each spell effect consists of a combination of runes that must be invoked.
+   Cast spells via catalyst or hand by weaving words in a ring.
+   Power required, complexity * player ability determine cast speed, difficulty, spell level etc..
+   On items, these grant mods and can be runewords, inferring additional effects.
+   Engraved in the world, these activate effects/traps, move platforms etc.
+   Come in 10 base levels, corresponding to the skill required. Some runes stay the same or start high.
+   All manner of magical effects should be made available one way or another when possible
+
+3. Later: Leave permanent effects in the world, e.g. teleporters, catalysts, influence biomes.
+   Construct these effects with runes that work off seals/rings. Contraptions and crazy effects! 
+   "Mindvision"-> Magic sense, lets you navigate, leads to content, solve puzzles, see energies
+   Planes, like webway or the fire realm, leylines as objects that influence the zone your in.
+   Attunement mechanic that rewards manipulation of game mechanics to your favor
+   
+   
+
+Statistics:
+
+Level - gained between runs, grant attribute points for player, modify base stats for monsters
+
+Skills - measure of ability in a certain field from 1-100. Each skill governs a tree of talents.
+         Use-based progression. These come in tiers. Players have a few slots for each.
+       - Gain Attribute and skill points per level 
+Later: Ascendancy(multi) classes depending on allocations
+
+Attributes (Universal: Player + Monsters)
+Six expandable core attributes split into Body and Mind.
+
+BODY  
+• Might – physical power, stagger, melee scaling  
+• Swiftness – speed, timing, dodge quality, 
+• Endurance – vitality, physical defense, resistance to body effects  
+
+MIND  
+• Will – mental strength, spell potency, force capacity  
+• Acuity – mental speed, perception, insight layer (Witcher‑sense), 
+• Wisdom – mental depth, rune complexity  
+
+Consideration 3rd Domain/7th stat "Divinity"  
+
+- fate, providence, luck
+
+Attributes are raw data. They drive other stats.
+
+Derived Stats
+Generated from attributes + equipment + modifiers.
+
+Includes:  
+• Max Health / Stamina / Energy / Poise 
+• Regen rates  
+• PhysicalPower / SpellPower / Attunement  
+• Resists
+• frame / perfect window bonuses  
+• Insight radius & perception level for the vision layer
+• Movespeed
+• Buffs
+• Miscellaneous Modifiers
+
+Runtime Stats (Mutable Resources)  
+Always reflect moment‑to‑moment gameplay.
+
+- Health/Stamina/Energy/Poise 
+- divinity meter (limitbreak style power mode)
+- specialty resource like rage 
+
+Spent by movement, combat, dodge/block, casting, etc.
+
+Damage Types & Resistances
+Two categories:  
+Physical: Slash / Stab / Smash  
+Elemental: Fire / Air / Water / Earth  
+	   Light/life/order - Dark/death/chaos
+
+Universal damage pipeline:  
+PhysicalResist → ElementalResist → (level/tier delta?) → Block/Dodge → Final Damage  
+Identical logic for players and monsters.
+
+Items(WIP)
+Equipment Modifiers
+  
+• Attributes  
+• Derived Stats  
+• Resistances  
+• Skill XP gain / Bonuses / + levels
+• Special tags (e.g., Fire Attunement, Air Dash)
+• more to come
+
+Items come in different types depending on use case such as:
+- Key items (eventually)
+- Equipment
+- Consumables
+
+Item Slots:
+- Multiple hand slots to switch between
+- Helmet, Gauntlet, Armor, Legs
+- Belt, Ring1, Ring2, Amulet, Accessory
+- Casting Focus (can be staff/wand or empty)
+- Potion1, Potion2
+
+Equipment Types and stats.
+
+Base statistics for all gear:
+- ID
+- Class
+- Level
+- Quality
+- Base Value (Defense/Offense)
+- Material
+- Weight
+- Tags
+
+Weapon specific:
+- Range
+- Speed
+
+Consumable specific:
+- Uses/Charges
+- Duration
+
+Keep itemization systemic and expandable.
+
+Supports:  
+• Free‑form buildcraft  
+• No class/FOMO pressure  
+• Natural growth via playstyle  
+
+Progression Currencies
+• Attribute Points (level-ups)  
+• Meta Runes (rogue‑lite currency from runs)
+• Crafting Mats
+
+General Gameplay Loop:
+
+- The player themselves is a soul first and foremost. To actually play, they will take control of a vessel that will die if they do. new corpses appear on the heap of heroes between rounds.
+- trapped in the nexus, the player can do excursions into maps with different objectives. usually they are required to survive and beat an boss. then they can choose between a more difficult wave and boss up to 3 times. Later: Add additional extraction mechanics/endless mode
+-between rounds, spend currencies acquired to gain attributes and better starting gear/vessels
+
+
+

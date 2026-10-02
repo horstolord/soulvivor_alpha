@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "savedAt": "2026-09-20T19:14:30.2528176Z",
+  "objects": {
+    "b_0fed6973": {
+      "name": "Block",
+      "vertexCount": 16,
+      "faceCount": 12,
+      "position": {
+        "x": -2257.6125,
+        "y": -690.1934,
+        "z": -163.11185
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_8c5074d5": {
+      "name": "Cube",
+      "vertexCount": 258,
+      "faceCount": 209,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "pitch": -0,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "b_cd1baf6a": {
+      "name": "Light",
+      "vertexCount": 0,
+      "faceCount": 0,
+      "position": {
+        "x": 1.005454,
+        "y": -4.0762453,
+        "z": 5.903862
+      },
+      "rotation": {
+        "pitch": 37.261047,
+        "yaw": 106.93632,
+        "roll": 3.1637094
+      }
+    }
+  }
+}

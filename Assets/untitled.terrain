@@ -1,0 +1,38 @@
+{
+  "Maps": {
+    "$blob": "8f881287-8e52-8125-9d14-a536d783158c"
+  },
+  "Resolution": 512,
+  "TerrainSize": 19968,
+  "TerrainHeight": 10000,
+  "Materials": [
+    {
+      "Id": "883ad5f8-6da2-444e-a58b-397b25741afc",
+      "Path": "materials/clicker/rock_boulder_dry.tmat"
+    },
+    {
+      "Id": "e3938557-fa7f-4c0e-81b5-efe3451c4908",
+      "Path": "materials/clicker/forest_ground_04.tmat"
+    }
+  ],
+  "MaterialSettings": {
+    "HeightBlendEnabled": true,
+    "HeightBlendSharpness": 0.87,
+    "Sampler": {
+      "Filter": "Anisotropic",
+      "AddressModeU": "Wrap",
+      "AddressModeV": "Wrap",
+      "AddressModeW": "Wrap",
+      "MipLodBias": 0,
+      "MaxAnisotropy": 8,
+      "BorderColor": "0,0,0,0",
+      "Index": 13
+    }
+  },
+  "ResourceVersion": 3,
+  "__references": [
+    "clicker.forestground04#106110",
+    "clicker.rockboulderdry#106111"
+  ],
+  "__version": 3
+}

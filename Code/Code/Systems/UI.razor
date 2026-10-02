@@ -1,0 +1,196 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@using Sandbox.Code.Actors
+@using Sandbox.Code.Systems;
+@inherits PanelComponent
+
+<root class="hud-container">
+	@if ( PlayerObject != null && PlayerObject.StatSheet != null )
+	{
+		var stats = PlayerObject.StatSheet;
+
+		// Calculate current percentages cleanly inline
+		var maxHp = stats.MaxHealth?.Value ?? 100f;
+		var hpPct = maxHp > 0 ? (stats.CurrentHealth / maxHp) * 100f : 0f;
+
+		var maxStam = stats.MaxStamina?.Value ?? 100f;
+		var stamPct = maxStam > 0 ? (stats.CurrentStamina / maxStam) * 100f : 0f;
+
+		var maxNrg = stats.MaxEnergy?.Value ?? 100f;
+		var nrgPct = maxNrg > 0 ? (stats.CurrentEnergy / maxNrg) * 100f : 0f;
+
+		<!-- HEALTH BAR -->
+		<div class="hud-bar-wrapper">
+			<div class="hud-bar-header">
+				<div class="hud-bar-label">❤️ Health</div>
+				<div class="hud-bar-text">@((int)stats.CurrentHealth) / @((int)maxHp) (@((int)HealthWidth)%)</div>
+			</div>
+			<div class="hud-bar-bg">
+				<!-- We use the smoothed Lerp property for the visual width style -->
+				<div class="hud-bar-fill health" style="width: @(HealthWidth)%;"></div>
+			</div>
+		</div>
+
+		<!-- STAMINA BAR -->
+		<div class="hud-bar-wrapper">
+			<div class="hud-bar-header">
+				<div class="hud-bar-label">⚡ Stamina</div>
+				<div class="hud-bar-text">@((int)stats.CurrentStamina) / @((int)maxStam) (@((int)StaminaWidth)%)</div>
+			</div>
+			<div class="hud-bar-bg">
+				<div class="hud-bar-fill stamina" style="width: @(StaminaWidth)%;"></div>
+			</div>
+		</div>
+
+		<!-- MANA BAR -->
+		<div class="hud-bar-wrapper">
+			<div class="hud-bar-header">
+				<div class="hud-bar-label">✨ Mana</div>
+				<div class="hud-bar-text">@((int)stats.CurrentEnergy) / @((int)maxNrg) (@((int)EnergyWidth)%)</div>
+			</div>
+			<div class="hud-bar-bg">
+				<div class="hud-bar-fill mana" style="width: @(EnergyWidth)%;"></div>
+			</div>
+		</div>
+	}
+	else
+	{
+		<div class="hud-bar-label">Searching for Player Stats...</div>
+	}
+</root>
+
+@code
+{
+	[Property] public Player PlayerObject { get; set; }
+	[Property]private float HealthWidth { get; set; } = 100f;
+	[Property]private float StaminaWidth { get; set; } = 100f;
+	[Property]private float EnergyWidth { get; set; } = 100f;
+
+	protected override void OnStart()
+	{
+		base.OnStart();
+		PlayerObject = Player.Local;
+
+	}
+	protected override void OnUpdate()
+	{
+		if ( PlayerObject == null )
+			PlayerObject = Player.Local;
+		
+		if ( PlayerObject == null || PlayerObject.StatSheet == null ) 
+			return;
+
+		var stats = PlayerObject.StatSheet;
+		
+		// Calculate targets directly
+		float maxHp = stats.MaxHealth?.Value ?? 100f;
+		float targetHp = maxHp > 0 ? ( stats.CurrentHealth / maxHp ) * 100f : 0f;
+
+		float maxStam = stats.MaxStamina?.Value ?? 100f;
+		float targetStam = maxStam > 0 ? ( stats.CurrentStamina / maxStam ) * 100f : 0f;
+
+		float maxNrg = stats.MaxEnergy?.Value ?? 100f;
+		float targetNrg = maxNrg > 0 ? ( stats.CurrentEnergy / maxNrg ) * 100f : 0f;
+
+		// Smoothly lerp visual values inside OnUpdate
+		float lerpSpeed = 8.0f;
+		HealthWidth = HealthWidth.LerpTo( targetHp, Time.Delta * lerpSpeed );
+		StaminaWidth = StaminaWidth.LerpTo( targetStam, Time.Delta * lerpSpeed );
+		EnergyWidth = EnergyWidth.LerpTo( targetNrg, Time.Delta * lerpSpeed );
+	}
+	protected override int BuildHash()
+	{
+		// If null, we hash a fallback flag so it changes the moment the player becomes valid
+		if ( PlayerObject?.StatSheet == null ) 
+			return System.HashCode.Combine( false );
+
+		var stats = PlayerObject.StatSheet;
+
+		// We include BOTH the visual width AND the raw current numbers.
+		// If any of these shift by even 1 digit, the text and bars will re-render instantly.
+		return System.HashCode.Combine( 
+			true,
+			HealthWidth, 
+			StaminaWidth, 
+			EnergyWidth, 
+			stats.CurrentHealth, 
+			stats.CurrentStamina, 
+			stats.CurrentEnergy 
+		);
+	}
+	
+}
+<style>
+.hud-container {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-family: 'Cinzel', 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: rgba(12, 10, 8, 0.85);
+    border: 2px solid #5a4a3a;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(90, 74, 58, 0.3);
+    min-width: 320px;
+}
+
+.hud-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hud-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hud-bar-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #dfd5c6;
+    text-shadow: 1px 1px 2px black;
+}
+
+.hud-bar-bg {
+    height: 14px;
+    background-color: rgba(15, 12, 10, 0.9);
+    border: 1px solid #4a3e31;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hud-bar-fill {
+    height: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+.hud-bar-fill.health {
+    background: linear-gradient(to right, #6b0c0c, #b31414, #ff2a2a);
+}
+
+.hud-bar-fill.stamina {
+    background: linear-gradient(to right, #1b4d1b, #2e8b2e, #47d147);
+}
+
+.hud-bar-fill.mana {
+    background: linear-gradient(to right, #0a3d6b, #1063b3, #1e90ff);
+}
+
+.hud-bar-text {
+    font-size: 11px;
+    color: #dfd5c6;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px black;
+}
+</style>
