@@ -56,7 +56,7 @@ public static class CombatMath
 		};
 	}
 
-	public static void ApplyKnockback( GameObject target, Vector3 direction, float force, bool addUpwardBias = true, bool preventGrounding = false )
+	public static void ApplyKnockback( GameObject target, Vector3 direction, float force, bool addUpwardBias = true, bool preventGrounding = false, Vector3? hitPoint = null )
 	{
 		if ( target == null || force <= 0f )
 			return;
@@ -70,7 +70,7 @@ public static class CombatMath
 		var actor = target.Components.GetInAncestorsOrSelf<Actor>();
 		var ragdoll = target.Components.GetInAncestorsOrSelf<IRagdollHandler>()
 			?? actor?.Components.GetInChildren<IRagdollHandler>();
-		if ( ragdoll?.TryApplyImpulse( impulse ) == true )
+		if ( ragdoll?.TryApplyImpulse( impulse, hitPoint ) == true )
 			return;
 
 		var controller = target.Components.GetInAncestorsOrSelf<CharacterController>();

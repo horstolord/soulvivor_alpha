@@ -129,11 +129,6 @@ public sealed class EnemyRagdollHandler : Component, IRagdollHandler
 		_pendingPoint = null;
 	}
 
-	bool IRagdollHandler.TryApplyImpulse( Vector3 impulse )
-	{
-		return TryApplyImpulse( impulse, null );
-	}
-
 	public bool TryApplyImpulse( Vector3 impulse, Vector3? hitPoint = null )
 	{
 		if ( !_isRagdolled ) return false;

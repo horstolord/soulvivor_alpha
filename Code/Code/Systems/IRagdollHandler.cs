@@ -4,5 +4,5 @@ public interface IRagdollHandler
 {
 	void EnterRagdoll();
 	void ExitRagdoll();
-	bool TryApplyImpulse( Vector3 impulse );
+	bool TryApplyImpulse( Vector3 impulse, Vector3? hitPoint = null );
 }

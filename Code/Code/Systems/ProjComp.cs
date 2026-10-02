@@ -114,7 +114,7 @@ public sealed class Projectile : Component
 	    var knockbackDirection = (GameObject.WorldRotation.Forward + Vector3.Up / 2f).Normal;
 	    actor?.ApplyDamage( Payload.Damage );
 
-	    CombatMath.ApplyKnockback( target, knockbackDirection, Payload.Damage.KnockbackForce, addUpwardBias: false );
+	    CombatMath.ApplyKnockback( target, knockbackDirection, Payload.Damage.KnockbackForce, addUpwardBias: false, hitPoint: GameObject.WorldPosition );
 	    SpellEffectApplier.Apply( Payload?.SourceContext as SpellContext, target, GameObject.WorldPosition );
  
 	    _hitCount++;

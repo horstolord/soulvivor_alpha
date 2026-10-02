@@ -31,9 +31,9 @@ public sealed class PlayerRagdollHandler : Component, IRagdollHandler
 		_isRagdolled = true;
 	}
 
-	public bool TryApplyImpulse( Vector3 impulse )
+	public bool TryApplyImpulse( Vector3 impulse, Vector3? hitPoint = null )
 	{
-		return _isRagdolled && RagdollImpulseApplier.TryApply( Physics, impulse );
+		return _isRagdolled && RagdollImpulseApplier.TryApply( Physics, impulse, hitPoint );
 	}
 
 	public void ExitRagdoll()

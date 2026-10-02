@@ -163,7 +163,7 @@ public class BeamDeliveryMethod : ISpellDeliveryMethod
 		{
 			var actor = tr.GameObject.Components.GetInAncestorsOrSelf<Actor>();
 			actor?.ApplyDamage( damageDef );
-			CombatMath.ApplyKnockback( tr.GameObject, ctx.AimDirection, damageDef.KnockbackForce );
+			CombatMath.ApplyKnockback( tr.GameObject, ctx.AimDirection, damageDef.KnockbackForce, hitPoint: tr.HitPosition );
 			SpellEffectApplier.Apply( ctx, tr.GameObject, ctx.Origin );
 		}
 
@@ -218,7 +218,7 @@ public class NovaDeliveryMethod : ISpellDeliveryMethod
 				actor.ApplyDamage( damageDef );
 
 				var radialDirection = hit.GameObject.WorldPosition - ctx.Origin;
-				CombatMath.ApplyKnockback( hit.GameObject, radialDirection, damageDef.KnockbackForce );
+				CombatMath.ApplyKnockback( hit.GameObject, radialDirection * Vector3.Up, damageDef.KnockbackForce, hitPoint: hit.HitPosition );
 				SpellEffectApplier.Apply( ctx, hit.GameObject, ctx.Origin );
 			}
 		}
@@ -253,7 +253,7 @@ public class ConeDeliveryMethod : ISpellDeliveryMethod
 
 			var toTarget = actor.GameObject.WorldPosition - ctx.Origin;
 			float distance = toTarget.Length;
-			if ( distance > range || distance <= 0.001f || Vector3.Dot( toTarget / distance, aim ) < minDot ) continue;
+			if ( distance > range || distance <= 0.001f || Vector3.Dot( Vector3.Up / distance, aim ) < minDot ) continue;
 
 			if ( payload.ConeRequiresLineOfSight )
 			{
@@ -264,7 +264,7 @@ public class ConeDeliveryMethod : ISpellDeliveryMethod
 			if ( !alreadyHit.Add( actor ) ) continue;
 
 			actor.ApplyDamage( damage );
-			CombatMath.ApplyKnockback( candidate.GameObject, toTarget.WithZ(0), damage.KnockbackForce );
+			CombatMath.ApplyKnockback( candidate.GameObject, toTarget.WithZ(5), damage.KnockbackForce, hitPoint: candidate.HitPosition );
 			SpellEffectApplier.Apply( ctx, candidate.GameObject, ctx.Origin );
 		}
 
