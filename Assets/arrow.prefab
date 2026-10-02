@@ -5,8 +5,8 @@
     "Flags": 0,
     "Name": "arrow",
     "Position": "0,0,0",
-    "Rotation": "0,0,0,1",
-    "Scale": "1,0.100000001,0.100000001",
+    "Rotation": "-0.297375172,-0,0,0.95476073",
+    "Scale": "1,0.0200004615,0.0399999991",
     "Tags": "noarrow",
     "Enabled": true,
     "NetworkMode": 2,
@@ -24,7 +24,10 @@
         "CreateAttachments": false,
         "LodOverride": null,
         "MaterialGroup": null,
-        "MaterialOverride": "models/citizen_props/broom01.vmat",
+        "MaterialOverride": {
+          "Id": "a852075b-e4b8-4299-b65d-d22ade5ca22d",
+          "Path": "models/citizen_props/broom01.vmat"
+        },
         "Materials": null,
         "Model": "models/dev/box.vmdl",
         "OnComponentDestroy": null,
@@ -132,6 +135,7 @@
     "Children": [],
     "__properties": {
       "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
       "TimeScale": 1,
       "WantsSystemScene": true,
       "Metadata": {},

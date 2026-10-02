@@ -158,7 +158,10 @@
               "Yaw": false,
               "Roll": false
             },
-            "Model": "models/citizen/citizen.vmdl",
+            "Model": {
+              "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+              "Path": "models/citizen/citizen.vmdl"
+            },
             "MotionEnabled": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -190,7 +193,10 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/citizen/citizen.vmdl",
+            "Model": {
+              "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+              "Path": "models/citizen/citizen.vmdl"
+            },
             "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -232,6 +238,9 @@
               "go": "1f789af0-34ec-4414-9676-f3276f572e3c",
               "component_type": "NavMeshAgent"
             },
+            "Enemy": null,
+            "FocusBoost": 1.5,
+            "ModelCollider": null,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -260,7 +269,10 @@
             "Elasticity": null,
             "Friction": null,
             "IsTrigger": false,
-            "Model": "models/citizen/citizen.vmdl",
+            "Model": {
+              "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+              "Path": "models/citizen/citizen.vmdl"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,

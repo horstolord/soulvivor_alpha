@@ -141,7 +141,7 @@ VS
 PS
 {
 	RenderState( BlendEnable, false );
-	RenderState( DepthWriteEnable, true );
+	RenderState( DepthWriteEnable, false );
 	RenderState( CullMode, BACK );
 
 	float4 MainPs( PixelInput i ) : SV_Target0

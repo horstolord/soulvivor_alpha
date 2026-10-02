@@ -34,9 +34,19 @@
         "Flags": 0,
         "DissolveParameter": "Appearance",
         "Effect": null,
-        "GrowthDuration": 1,
-        "Light": null,
-        "MainRenderer": null,
+        "GrowthDuration": 1.6799998,
+        "Light": {
+          "_type": "component",
+          "component_id": "fbc2c4e7-db1b-41a1-b10f-249755ba2355",
+          "go": "d0ba34fd-96e6-4718-befe-b6a86406ce23",
+          "component_type": "PointLight"
+        },
+        "MainRenderer": {
+          "_type": "component",
+          "component_id": "97f48d81-35e9-49be-9476-dab7446cef9d",
+          "go": "ab91ab12-ea4d-488b-bbdb-f9bbd7746163",
+          "component_type": "ModelRenderer"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -65,7 +75,7 @@
         "Name": "Sphere",
         "Position": "0,0,0",
         "Rotation": "0,0.707106769,0,0.707106769",
-        "Scale": "1,1,1",
+        "Scale": "0.950000525,0.840000331,1.34999955",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -167,7 +177,7 @@
                 "ReverbEnabled": false,
                 "ReverbOverride": false,
                 "SoundEvent": {
-                  "Id": "ba23c7bd-9519-4d7c-971d-26d1ccf33346",
+                  "Id": "d61401e5-2fd7-4d3d-a2cb-039d8c91e7d6",
                   "Path": "sounds/effects/fire/fire_burn_loop01.sound"
                 },
                 "SoundOverride": false,
@@ -226,9 +236,9 @@
             "__version": 2,
             "Flags": 0,
             "Name": "Plane (1)",
-            "Position": "-0.0308609009,-1.1159935,-27.1766129",
-            "Rotation": "-0.49999997,0.49999997,0.49999997,0.49999997",
-            "Scale": "0.800000012,0.600000024,1",
+            "Position": "-13.0809603,13.7445717,-23.2355938",
+            "Rotation": "-0.65328145,0.270598054,0.65328145,0.270598054",
+            "Scale": "0.710000157,0.360000432,1",
             "Tags": "",
             "Enabled": true,
             "NetworkMode": 2,
@@ -250,8 +260,8 @@
                 "Materials": {
                   "indexed": {
                     "0": {
-                      "Id": "39bca75d-cdac-4131-ba56-d4e56024cb16",
-                      "Path": "karmanfire.vmat"
+                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
+                      "Path": "karmanfiresheath.vmat"
                     }
                   }
                 },
@@ -275,13 +285,13 @@
             "Children": []
           },
           {
-            "__guid": "a69a72d7-e989-476f-86d0-2b9fa4da1056",
+            "__guid": "6fa65642-c74f-4966-bbed-2970f6f518f7",
             "__version": 2,
             "Flags": 0,
-            "Name": "Plane",
-            "Position": "-1.21194077,-0.448328972,-31.3799438",
-            "Rotation": "0,0.707106769,0,0.707106769",
-            "Scale": "0.800000012,0.600000024,1",
+            "Name": "Plane (1)",
+            "Position": "9.58067608,12.9576292,-23.4478493",
+            "Rotation": "-0.270598054,0.65328145,0.270598054,0.65328145",
+            "Scale": "0.710000157,0.360000432,1",
             "Tags": "",
             "Enabled": true,
             "NetworkMode": 2,
@@ -292,7 +302,7 @@
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
-                "__guid": "33d8c7e8-c861-4b6d-af9d-f694a8fc2846",
+                "__guid": "641ac28a-2c17-488e-960e-908f2bdbd62e",
                 "__enabled": true,
                 "Flags": 0,
                 "BodyGroups": 18446744073709551615,
@@ -303,8 +313,114 @@
                 "Materials": {
                   "indexed": {
                     "0": {
-                      "Id": "39bca75d-cdac-4131-ba56-d4e56024cb16",
-                      "Path": "karmanfire.vmat"
+                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
+                      "Path": "karmanfiresheath.vmat"
+                    }
+                  }
+                },
+                "Model": "models/dev/plane.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ],
+            "Children": []
+          },
+          {
+            "__guid": "0850344a-cc60-4f2a-bdad-fab45da9507f",
+            "__version": 2,
+            "Flags": 0,
+            "Name": "Plane (1)",
+            "Position": "-13.075695,-11.8124847,-23.8097858",
+            "Rotation": "-0.270597994,0.65328151,0.270597994,0.65328151",
+            "Scale": "0.710000157,0.360000432,1",
+            "Tags": "",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkFlags": 0,
+            "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
+            "OwnerTransfer": 1,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "01f50faa-1626-432d-9534-16f5a4d9007c",
+                "__enabled": true,
+                "Flags": 0,
+                "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "LodOverride": null,
+                "MaterialGroup": null,
+                "MaterialOverride": null,
+                "Materials": {
+                  "indexed": {
+                    "0": {
+                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
+                      "Path": "karmanfiresheath.vmat"
+                    }
+                  }
+                },
+                "Model": "models/dev/plane.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ],
+            "Children": []
+          },
+          {
+            "__guid": "bea4854a-74ce-47be-bcfc-b69993c8de1b",
+            "__version": 2,
+            "Flags": 0,
+            "Name": "Plane (1)",
+            "Position": "9.34406376,-11.7686882,-24.6170712",
+            "Rotation": "0.270598054,0.65328145,-0.270598054,0.65328145",
+            "Scale": "0.710000157,0.360000432,1",
+            "Tags": "",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkFlags": 0,
+            "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
+            "OwnerTransfer": 1,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "65ad13bc-12a9-40af-a506-f9036b9d4fcd",
+                "__enabled": true,
+                "Flags": 0,
+                "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "LodOverride": null,
+                "MaterialGroup": null,
+                "MaterialOverride": null,
+                "Materials": {
+                  "indexed": {
+                    "0": {
+                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
+                      "Path": "karmanfiresheath.vmat"
                     }
                   }
                 },
@@ -583,7 +699,7 @@
         "Name": "Burst",
         "Position": "0,0,0",
         "Rotation": "0,0.99999994,0,0",
-        "Scale": "1,1,1",
+        "Scale": "1,0.630000532,1",
         "Tags": "particles",
         "Enabled": true,
         "NetworkMode": 2,

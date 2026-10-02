@@ -11,12 +11,12 @@ Layer0
 	g_vStrataLayerColor "[0.478431 0.380392 0.278431 0.000000]"
 
 	//---- Geological Structure ----
-	g_flBasaltScale "20.000"
-	g_flCavityAoStrength "0.847"
+	g_flBasaltScale "1.000"
+	g_flCavityAoStrength "5.000"
 	g_flDisplacementAmount "2.000"
 	g_flGraniteGrain "2.000"
-	g_flMineralVeinIntensity "0.819"
-	g_flStrataBanding "2.814"
-	g_flStrataFrequency "10.588"
-	g_flVeinScale "4.757"
+	g_flMineralVeinIntensity "5.000"
+	g_flStrataBanding "3.000"
+	g_flStrataFrequency "40.000"
+	g_flVeinScale "20.000"
 }

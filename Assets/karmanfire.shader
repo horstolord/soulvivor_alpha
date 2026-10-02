@@ -14,8 +14,16 @@ MODES
 }
 
 COMMON
-{
+{	
+	#ifndef S_TRANSLUCENT
+        #define S_TRANSLUCENT 1
+    #endif
+
+    #ifndef S_ALPHA_TEST
+        #define S_ALPHA_TEST 0
+    #endif
 	#include "common/shared.hlsl"
+	
 
 	// ── Color Settings ────────────────────────────────────────────────────────
 	float3 g_vInnerFlameColor     < UiGroup( "Color Settings,10/1" ); UiType( Color );  Default3( 0.15, 0.85, 0.95 ); >;
@@ -122,12 +130,10 @@ VS
 
 PS
 {
-	RenderState( BlendEnable, true);
-	RenderState( SrcBlend, SRC_ALPHA  );
-	RenderState( DstBlend, ONE ); // Additive combustion glow
-	RenderState( DepthEnable, true);
-	RenderState( DepthWriteEnable, true );
-	RenderState( CullMode, BACK ); // Double sided
+	#include "common/pixel.hlsl"
+	
+	
+	RenderState( CullMode, NONE ); // Double sided
 
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
@@ -158,7 +164,6 @@ PS
 		tendrilNoise = lerp( tendrilNoise, tendrilNoise * tongueSplit, saturate( g_flFrayStrength * 0.4 ) );
 
 		// 4. Solid Combustion Core & Vertical Decay
-		// Works cleanly on spheres and quads alike
 		float verticalDecay = saturate( 1.0 - ( uv.y / max( 0.2, g_flFlameLength ) ) );
 		float analyticalCore = pow( verticalDecay, 1.2 ) * ( g_flCoreDensity * 0.6 );
 
@@ -186,7 +191,9 @@ PS
 		// Sparks color
 		finalEmission += g_vCombustionEdgeColor * sparks * 3.0;
 
+		// Finale Transparenzberechnung
 		float alpha = saturate( flameMask * 1.4 + sparks );
+		
 		return float4( finalEmission, alpha );
 	}
 }
