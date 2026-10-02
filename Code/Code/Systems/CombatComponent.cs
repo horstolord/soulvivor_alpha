@@ -333,8 +333,8 @@ public sealed class CombatComponent : Component
 			damage.KnockbackForce *= attackerActor.StatSheet.PhysicalForce.Value / 100f;
 		}
 		
-		actor?.ApplyDamage( damage );
 		CombatMath.ApplyKnockback( target, context.Facing.Forward, damage.KnockbackForce );
+		actor?.ApplyDamage( damage );
 	}
 
 	private Actor ResolveActor( GameObject gameObject )

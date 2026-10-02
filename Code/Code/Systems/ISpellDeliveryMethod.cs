@@ -162,8 +162,8 @@ public class BeamDeliveryMethod : ISpellDeliveryMethod
 		if ( tr.Hit && tr.GameObject.IsValid() )
 		{
 			var actor = tr.GameObject.Components.GetInAncestorsOrSelf<Actor>();
-			actor?.ApplyDamage( damageDef );
 			CombatMath.ApplyKnockback( tr.GameObject, ctx.AimDirection, damageDef.KnockbackForce, hitPoint: tr.HitPosition );
+			actor?.ApplyDamage( damageDef );
 			SpellEffectApplier.Apply( ctx, tr.GameObject, ctx.Origin );
 		}
 
@@ -208,18 +208,19 @@ public class NovaDeliveryMethod : ISpellDeliveryMethod
 		var casterSheet = ctx.Caster.Components.GetInAncestorsOrSelf<Actor>()?.StatSheet;
 		damageDef = CombatMath.RollCrit( casterSheet, damageDef );
 
-		var alreadyHit = new HashSet<Actor>();
+		var alreadyHit = new HashSet<GameObject>();
 		foreach ( var hit in hits )
 		{
 			if ( hit.GameObject.IsValid() )
 			{
 				var actor = hit.GameObject.Components.GetInAncestorsOrSelf<Actor>();
-				if ( actor == null || !alreadyHit.Add( actor ) ) continue;
-				actor.ApplyDamage( damageDef );
+				var targetRoot = CombatMath.GetKnockbackRoot( hit.GameObject );
+				if ( targetRoot == null || !alreadyHit.Add( targetRoot ) ) continue;
 
-				var radialDirection = hit.GameObject.WorldPosition - ctx.Origin;
-				CombatMath.ApplyKnockback( hit.GameObject, radialDirection * Vector3.Up, damageDef.KnockbackForce, hitPoint: hit.HitPosition );
+				var radialDirection = targetRoot.WorldPosition - ctx.Origin;
+				CombatMath.ApplyKnockback( targetRoot, radialDirection, damageDef.KnockbackForce, hitPoint: hit.HitPosition );
 				SpellEffectApplier.Apply( ctx, hit.GameObject, ctx.Origin );
+				actor?.ApplyDamage( damageDef );
 			}
 		}
 
@@ -243,28 +244,29 @@ public class ConeDeliveryMethod : ISpellDeliveryMethod
 		var candidates = ctx.Caster.Scene.Trace.Sphere( range, ctx.Origin, ctx.Origin )
 			.IgnoreGameObjectHierarchy( ctx.Caster ).RunAll();
 		var damage = BuildDamage( ctx );
-		var alreadyHit = new HashSet<Actor>();
+		var alreadyHit = new HashSet<GameObject>();
 
 		foreach ( var candidate in candidates )
 		{
 			if ( !candidate.GameObject.IsValid() ) continue;
 			var actor = candidate.GameObject.Components.GetInAncestorsOrSelf<Actor>();
-			if ( actor == null || alreadyHit.Contains( actor ) ) continue;
+			var targetRoot = CombatMath.GetKnockbackRoot( candidate.GameObject );
+			if ( targetRoot == null || alreadyHit.Contains( targetRoot ) ) continue;
 
-			var toTarget = actor.GameObject.WorldPosition - ctx.Origin;
+			var toTarget = targetRoot.WorldPosition - ctx.Origin;
 			float distance = toTarget.Length;
-			if ( distance > range || distance <= 0.001f || Vector3.Dot( Vector3.Up / distance, aim ) < minDot ) continue;
+			if ( distance > range || distance <= 0.001f || Vector3.Dot( toTarget / distance, aim ) < minDot ) continue;
 
 			if ( payload.ConeRequiresLineOfSight )
 			{
-				var sight = ctx.Caster.Scene.Trace.Ray( ctx.Origin, actor.GameObject.WorldPosition )
+				var sight = ctx.Caster.Scene.Trace.Ray( ctx.Origin, targetRoot.WorldPosition )
 					.IgnoreGameObjectHierarchy( ctx.Caster ).Run();
-				if ( sight.Hit && (!sight.GameObject.IsValid() || sight.GameObject.Components.GetInAncestorsOrSelf<Actor>() != actor) ) continue;
+				if ( sight.Hit && (!sight.GameObject.IsValid() || CombatMath.GetKnockbackRoot( sight.GameObject ) != targetRoot) ) continue;
 			}
-			if ( !alreadyHit.Add( actor ) ) continue;
+			if ( !alreadyHit.Add( targetRoot ) ) continue;
 
-			actor.ApplyDamage( damage );
-			CombatMath.ApplyKnockback( candidate.GameObject, toTarget.WithZ(5), damage.KnockbackForce, hitPoint: candidate.HitPosition );
+			CombatMath.ApplyKnockback( targetRoot, toTarget.WithZ( 0f ), damage.KnockbackForce, hitPoint: candidate.HitPosition );
+			actor?.ApplyDamage( damage );
 			SpellEffectApplier.Apply( ctx, candidate.GameObject, ctx.Origin );
 		}
 

@@ -85,4 +85,18 @@ public static class CombatMath
 		var rigidbody = target.Components.GetInAncestorsOrSelf<Rigidbody>();
 		rigidbody?.ApplyImpulse( impulse );
 	}
+
+	/// <summary>Returns one stable object for deduplicating actor and compound-rigidbody hits.</summary>
+	public static GameObject GetKnockbackRoot( GameObject target )
+	{
+		if ( target == null ) return null;
+
+		var actor = target.Components.GetInAncestorsOrSelf<Actor>();
+		if ( actor != null ) return actor.GameObject;
+
+		var controller = target.Components.GetInAncestorsOrSelf<CharacterController>();
+		if ( controller != null ) return controller.GameObject;
+
+		return target.Components.GetInAncestorsOrSelf<Rigidbody>()?.GameObject;
+	}
 }
