@@ -195,18 +195,13 @@ public sealed class CombatComponent : Component
 		if ( attacker != null )
 			template.Lifetime *= attacker.StatSheet.EffectDuration.Value / 100f;
 
-		var damage = context.Damage;
-		if ( attacker?.StatSheet != null )
-		{
-			damage = CombatMath.RollCrit( attacker.StatSheet, damage );
-			damage.KnockbackForce *= attacker.StatSheet.PhysicalForce.Value / 100f;
-		}
-
 		projectile.Template = template;
 		projectile.Payload = new ProjectilePayload
 		{
 			Caster = context.Attacker,
-			Damage = damage,
+			// Base profile (pre-crit, pre-PhysicalForce). HitResolver.Apply resolves outgoing mods per hit,
+			// so a piercing arrow rolls crit independently per target — matching spell projectile behavior.
+			Damage = context.Damage,
 			SourceContext = context
 		};
 
@@ -321,40 +316,20 @@ public sealed class CombatComponent : Component
 
 	private void ApplyHit( AttackContext context, GameObject target )
 	{
-		var actor = ResolveActor( target );
-		var attackerActor = ResolveActor( context.Attacker );
-		var damage = context.Damage;
-		//var _playercontroller = GameObject.Components.GetInAncestorsOrSelf<PlayerController>(); relic for now
-		
- 
-		if ( attackerActor?.StatSheet != null )
-		{
-			damage = CombatMath.RollCrit( attackerActor.StatSheet, damage );
-			damage.KnockbackForce *= attackerActor.StatSheet.PhysicalForce.Value / 100f;
-		}
-		
-		CombatMath.ApplyKnockback( target, context.Facing.Forward, damage.KnockbackForce );
-		actor?.ApplyDamage( damage );
+		// Dedup by actor-root is already guaranteed before this call (ExecuteHitShape checks _hitObjects).
+		// Pass null for alreadyHit — HitResolver handles crit, PhysicalForce, damage, and knockback.
+		HitResolver.Apply( context.Attacker, target, context.Damage, context.Facing.Forward,
+			alreadyHit: null );
 	}
 
-	private Actor ResolveActor( GameObject gameObject )
-	{
-		return gameObject.Components.GetAll<Actor>()
-			.OrderByDescending( actor => actor.GetType() != typeof(Actor) )
-			.FirstOrDefault()
-			?? gameObject.Components.GetInAncestorsOrSelf<Actor>();
-	}
+	// Thin wrappers so the rest of this class is unaffected — real logic lives in CombatMath.
+	private Actor ResolveActor( GameObject gameObject ) => CombatMath.ResolveActor( gameObject );
 
 	/// <summary>
 	/// Returns the root GameObject that owns the Actor component, used for hit deduplication.
 	/// Returns null if no Actor is found in the hierarchy.
 	/// </summary>
-	private GameObject ResolveActorRoot( GameObject gameObject )
-	{
-		var actor = gameObject.Components.GetAll<Actor>().FirstOrDefault()
-		             ?? gameObject.Components.GetInAncestorsOrSelf<Actor>();
-		return actor?.GameObject;
-	}
+	private GameObject ResolveActorRoot( GameObject gameObject ) => CombatMath.ResolveActorRoot( gameObject );
 
 	/// <summary>
 	/// Total locked time of the attack: startup + latest phase end + recovery.

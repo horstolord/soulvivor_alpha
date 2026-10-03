@@ -50,6 +50,22 @@ public class SpellContext : ICostable
 	public int RecursionDepth = 0;
 	public const int MaxRecursionDepth = 4;
 
+	/// <summary>
+	/// Constructs the base (pre-crit, pre-PhysicalForce) damage profile from this context.
+	/// Delivery methods call this once and pass the result to HitResolver.Apply, which
+	/// then applies attacker-side outgoing modifiers per hit.
+	/// </summary>
+	public DamageProfileDef BuildDamageProfile()
+	{
+		return new DamageProfileDef
+		{
+			HealthDamage  = AccumulatedDamage.HealthDamage * DamageMultiplier,
+			StaminaDamage = AccumulatedDamage.StaminaDamage,
+			KnockbackForce = AccumulatedDamage.KnockbackForce,
+			Tags = AttackTags
+		};
+	}
+
 	public void ApplyCharge( float charge01, ChargeScalingDef scaling, float will )
 	{
 		Charge01 = Math.Clamp( charge01, 0f, 1f );

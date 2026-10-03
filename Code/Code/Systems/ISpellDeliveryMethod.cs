@@ -85,20 +85,15 @@ public class ProjectileDeliveryMethod : ISpellDeliveryMethod
 			return;
 		}
 
-		var damageDef = new DamageProfileDef
-		{
-			HealthDamage = ctx.AccumulatedDamage.HealthDamage * ctx.DamageMultiplier,
-			StaminaDamage = ctx.AccumulatedDamage.StaminaDamage,
-			KnockbackForce = ctx.AccumulatedDamage.KnockbackForce,
-			Tags = ctx.AttackTags
-		};
-		var casterSheet = ctx.Caster.Components.GetInAncestorsOrSelf<Actor>()?.StatSheet;
-		damageDef = CombatMath.RollCrit( casterSheet, damageDef );
-
 		projComp.Template = template;
 		projComp.Payload = new ProjectilePayload
 		{
-			Caster = ctx.Caster, Damage = damageDef, AttackTags = ctx.AttackTags, SourceContext = ctx
+			Caster = ctx.Caster,
+			// Base profile (pre-crit, pre-PhysicalForce). HitResolver.Apply resolves outgoing mods per hit,
+			// so a piercing projectile rolls crit independently for each target it passes through.
+			Damage = ctx.BuildDamageProfile(),
+			AttackTags = ctx.AttackTags,
+			SourceContext = ctx
 		};
 
 		if ( ctx.VisualMaterial != null )
@@ -131,15 +126,7 @@ public class BeamDeliveryMethod : ISpellDeliveryMethod
 
 		var targetPos = tr.Hit ? tr.EndPosition : endPos;
 
-		var damageDef = new DamageProfileDef
-		{
-			HealthDamage = ctx.AccumulatedDamage.HealthDamage * ctx.DamageMultiplier,
-			StaminaDamage = ctx.AccumulatedDamage.StaminaDamage,
-			KnockbackForce = ctx.AccumulatedDamage.KnockbackForce,
-			Tags = ctx.AttackTags
-		};
-		var casterSheet = ctx.Caster.Components.GetInAncestorsOrSelf<Actor>()?.StatSheet;
-		damageDef = CombatMath.RollCrit( casterSheet, damageDef );
+		var baseDamage = ctx.BuildDamageProfile();
 		// ResourceLibrary.Get throws if not found; TryGet returns false silently.
 		if ( ResourceLibrary.TryGet<PrefabFile>( "beamblue.prefab", out var prefabFile ) )
 		{
@@ -161,9 +148,10 @@ public class BeamDeliveryMethod : ISpellDeliveryMethod
 
 		if ( tr.Hit && tr.GameObject.IsValid() )
 		{
-			var actor = tr.GameObject.Components.GetInAncestorsOrSelf<Actor>();
-			CombatMath.ApplyKnockback( tr.GameObject, ctx.AimDirection, damageDef.KnockbackForce, hitPoint: tr.HitPosition );
-			actor?.ApplyDamage( damageDef );
+			// HitResolver handles crit, PhysicalForce, damage, and knockback in one place.
+			// Single-target ray hit — no dedup set needed (null).
+			HitResolver.Apply( ctx.Caster, tr.GameObject, baseDamage, ctx.AimDirection,
+				alreadyHit: null, hitPoint: tr.HitPosition );
 			SpellEffectApplier.Apply( ctx, tr.GameObject, ctx.Origin );
 		}
 
@@ -198,30 +186,20 @@ public class NovaDeliveryMethod : ISpellDeliveryMethod
 			.IgnoreGameObjectHierarchy( ctx.Caster )
 			.RunAll();
 
-		var damageDef = new DamageProfileDef
-		{
-			HealthDamage = ctx.AccumulatedDamage.HealthDamage * ctx.DamageMultiplier,
-			StaminaDamage = ctx.AccumulatedDamage.StaminaDamage,
-			KnockbackForce = ctx.AccumulatedDamage.KnockbackForce,
-			Tags = ctx.AttackTags
-		};
-		var casterSheet = ctx.Caster.Components.GetInAncestorsOrSelf<Actor>()?.StatSheet;
-		damageDef = CombatMath.RollCrit( casterSheet, damageDef );
+		var baseDamage = ctx.BuildDamageProfile();
 
 		var alreadyHit = new HashSet<GameObject>();
 		foreach ( var hit in hits )
 		{
-			if ( hit.GameObject.IsValid() )
-			{
-				var actor = hit.GameObject.Components.GetInAncestorsOrSelf<Actor>();
-				var targetRoot = CombatMath.GetKnockbackRoot( hit.GameObject );
-				if ( targetRoot == null || !alreadyHit.Add( targetRoot ) ) continue;
+			if ( !hit.GameObject.IsValid() ) continue;
 
-				var radialDirection = targetRoot.WorldPosition - ctx.Origin;
-				CombatMath.ApplyKnockback( targetRoot, radialDirection, damageDef.KnockbackForce, hitPoint: hit.HitPosition );
+			// Radial direction away from the blast origin, z preserved (upward bias added by ApplyKnockback).
+			var root = CombatMath.GetKnockbackRoot( hit.GameObject ) ?? hit.GameObject;
+			var radialDirection = root.WorldPosition - ctx.Origin;
+
+			// HitResolver deduplicates by actor-root via alreadyHit, fixing the multi-collider bug.
+			if ( HitResolver.Apply( ctx.Caster, hit.GameObject, baseDamage, radialDirection, alreadyHit, hit.HitPosition ) )
 				SpellEffectApplier.Apply( ctx, hit.GameObject, ctx.Origin );
-				actor?.ApplyDamage( damageDef );
-			}
 		}
 
 		if ( ctx.TriggerPayloadRunes != null && ctx.TriggerPayloadRunes.Count > 0 )
@@ -243,13 +221,12 @@ public class ConeDeliveryMethod : ISpellDeliveryMethod
 		var aim = ctx.AimDirection.LengthSquared > 0.001f ? ctx.AimDirection.Normal : ctx.Caster.WorldRotation.Forward;
 		var candidates = ctx.Caster.Scene.Trace.Sphere( range, ctx.Origin, ctx.Origin )
 			.IgnoreGameObjectHierarchy( ctx.Caster ).RunAll();
-		var damage = BuildDamage( ctx );
+		var baseDamage = ctx.BuildDamageProfile();
 		var alreadyHit = new HashSet<GameObject>();
 
 		foreach ( var candidate in candidates )
 		{
 			if ( !candidate.GameObject.IsValid() ) continue;
-			var actor = candidate.GameObject.Components.GetInAncestorsOrSelf<Actor>();
 			var targetRoot = CombatMath.GetKnockbackRoot( candidate.GameObject );
 			if ( targetRoot == null || alreadyHit.Contains( targetRoot ) ) continue;
 
@@ -263,27 +240,15 @@ public class ConeDeliveryMethod : ISpellDeliveryMethod
 					.IgnoreGameObjectHierarchy( ctx.Caster ).Run();
 				if ( sight.Hit && (!sight.GameObject.IsValid() || CombatMath.GetKnockbackRoot( sight.GameObject ) != targetRoot) ) continue;
 			}
-			if ( !alreadyHit.Add( targetRoot ) ) continue;
 
-			CombatMath.ApplyKnockback( targetRoot, toTarget.WithZ( 0f ), damage.KnockbackForce, hitPoint: candidate.HitPosition );
-			actor?.ApplyDamage( damage );
-			SpellEffectApplier.Apply( ctx, candidate.GameObject, ctx.Origin );
+			// HitResolver handles dedup (adds to alreadyHit), crit, PhysicalForce, damage, knockback.
+			// toTarget.WithZ(0) keeps knockback horizontal; ApplyKnockback adds the upward bias.
+			if ( HitResolver.Apply( ctx.Caster, candidate.GameObject, baseDamage, toTarget.WithZ( 0f ), alreadyHit, candidate.HitPosition ) )
+				SpellEffectApplier.Apply( ctx, candidate.GameObject, ctx.Origin );
 		}
 
 		if ( ctx.TriggerPayloadRunes != null && ctx.TriggerPayloadRunes.Count > 0 )
 			RuneEvaluator.ExecuteTriggerPayload( ctx, ctx.Origin, aim, null );
-	}
-
-	private static DamageProfileDef BuildDamage( SpellContext ctx )
-	{
-		var damage = new DamageProfileDef
-		{
-			HealthDamage = ctx.AccumulatedDamage.HealthDamage * ctx.DamageMultiplier,
-			StaminaDamage = ctx.AccumulatedDamage.StaminaDamage,
-			KnockbackForce = ctx.AccumulatedDamage.KnockbackForce,
-			Tags = ctx.AttackTags
-		};
-		return CombatMath.RollCrit( ctx.Caster.Components.GetInAncestorsOrSelf<Actor>()?.StatSheet, damage );
 	}
 
 }

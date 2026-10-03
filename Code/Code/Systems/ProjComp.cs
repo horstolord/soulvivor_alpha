@@ -109,11 +109,11 @@ public sealed class Projectile : Component
 
     private void OnHit( GameObject target )
     {
-	    var actor = target.Components.GetInAncestorsOrSelf<Actor>();
-  
-	    var knockbackDirection = (GameObject.WorldRotation.Forward + Vector3.Up / 2f).Normal;
-	    CombatMath.ApplyKnockback( target, knockbackDirection, Payload.Damage.KnockbackForce, addUpwardBias: false, hitPoint: GameObject.WorldPosition );
-	    actor?.ApplyDamage( Payload.Damage );
+	    // HitResolver applies crit + PhysicalForce per hit (correct for piercing), deduplicates,
+	    // and calls ApplyDamage + ApplyKnockback. Pass raw Forward — ApplyKnockback adds upward bias.
+	    HitResolver.Apply( Payload.Caster, target, Payload.Damage,
+		    GameObject.WorldRotation.Forward, alreadyHit: null, hitPoint: GameObject.WorldPosition );
+
 	    SpellEffectApplier.Apply( Payload?.SourceContext as SpellContext, target, GameObject.WorldPosition );
  
 	    _hitCount++;

@@ -170,11 +170,9 @@ public class Actor : Component
 			return;
 		}
 		
-		var damageMultiplier = StatSheet.DamageMultiplier.Value / 100f;
-		var rawHealthDamage     = damage.HealthDamage * damageMultiplier;
-		
-		// Mitigation
-		float finalHealthDamage = rawHealthDamage;
+		// DamageMultiplier belongs on the attacker side (applied in CombatMath.BuildOutgoing).
+		// Reading it here on the target would make DamageBoost/Berserk raise incoming damage instead.
+		float finalHealthDamage = damage.HealthDamage;
 		
 		if ( damage.Tags != null )
 		{
