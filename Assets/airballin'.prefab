@@ -65,7 +65,7 @@
         "Name": "Sphere",
         "Position": "0,0,0",
         "Rotation": "0,0.707106769,0,0.707106769",
-        "Scale": "1,1,1",
+        "Scale": "1,1,2.13999939",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -83,12 +83,11 @@
             "CreateAttachments": false,
             "LodOverride": null,
             "MaterialGroup": null,
-            "MaterialOverride": null,
-            "Materials": {
-              "indexed": {
-                "0": "tornado.vmat"
-              }
+            "MaterialOverride": {
+              "Id": "313f0485-0eb2-413b-ae84-8c946aca4582",
+              "Path": "airforce.vmat"
             },
+            "Materials": null,
             "Model": "models/dev/sphere.vmdl",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -163,7 +162,10 @@
                 "Repeat": false,
                 "ReverbEnabled": false,
                 "ReverbOverride": false,
-                "SoundEvent": "sounds/impacts/bullets/impact-bullet-cloth.sound",
+                "SoundEvent": {
+                  "Id": "cb091f56-9a05-47f2-bc2b-2028de94fdc3",
+                  "Path": "sounds/impacts/bullets/impact-bullet-cloth.sound"
+                },
                 "SoundOverride": false,
                 "StopOnNew": false,
                 "TargetMixer": {
@@ -211,106 +213,6 @@
                 "ShadowBias": 0,
                 "ShadowHardness": 0,
                 "Shadows": true
-              }
-            ],
-            "Children": []
-          },
-          {
-            "__guid": "0d836101-ade3-4de9-b02b-9b9a1a56dda1",
-            "__version": 2,
-            "Flags": 0,
-            "Name": "Plane (1)",
-            "Position": "-0.0308608729,-1.11599362,-79.4807434",
-            "Rotation": "-0.49999997,0.49999997,0.49999997,0.49999997",
-            "Scale": "0.800000012,0.400000006,0.600000024",
-            "Tags": "",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkFlags": 0,
-            "NetworkOrphaned": 0,
-            "NetworkTransmit": true,
-            "OwnerTransfer": 1,
-            "Components": [
-              {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "793a59b1-f7c3-4c18-b31b-c56a6ebdfaef",
-                "__enabled": true,
-                "Flags": 0,
-                "BodyGroups": 18446744073709551615,
-                "CreateAttachments": false,
-                "LodOverride": null,
-                "MaterialGroup": null,
-                "MaterialOverride": null,
-                "Materials": {
-                  "indexed": {
-                    "0": "tornado.vmat"
-                  }
-                },
-                "Model": "models/dev/plane.vmdl",
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
-              }
-            ],
-            "Children": []
-          },
-          {
-            "__guid": "a69a72d7-e989-476f-86d0-2b9fa4da1056",
-            "__version": 2,
-            "Flags": 0,
-            "Name": "Plane",
-            "Position": "-2.92680573,-0.448328972,-77.7310638",
-            "Rotation": "0,0.707106769,0,0.707106769",
-            "Scale": "0.800000012,0.400000006,1",
-            "Tags": "",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkFlags": 0,
-            "NetworkOrphaned": 0,
-            "NetworkTransmit": true,
-            "OwnerTransfer": 1,
-            "Components": [
-              {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "33d8c7e8-c861-4b6d-af9d-f694a8fc2846",
-                "__enabled": true,
-                "Flags": 0,
-                "BodyGroups": 18446744073709551615,
-                "CreateAttachments": false,
-                "LodOverride": null,
-                "MaterialGroup": null,
-                "MaterialOverride": null,
-                "Materials": {
-                  "indexed": {
-                    "0": "tornado.vmat"
-                  }
-                },
-                "Model": "models/dev/plane.vmdl",
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
               }
             ],
             "Children": []
@@ -396,11 +298,15 @@
                 "ForceSpace": "World",
                 "Friction": 1,
                 "Gradient": "1,1,1,1",
+                "InitialPitch": 0,
+                "InitialRoll": 0,
+                "InitialScale": 1,
                 "InitialVelocity": {
                   "X": 0,
                   "Y": 0,
                   "Z": 0
                 },
+                "InitialYaw": 0,
                 "Lifetime": {
                   "Type": "Range",
                   "Evaluation": "Seed",
@@ -463,6 +369,7 @@
                     }
                   ]
                 },
+                "SequenceFitToLifetime": false,
                 "SequenceId": 0,
                 "SequenceSpeed": 1,
                 "SequenceTime": 1,
@@ -510,7 +417,7 @@
                 "OnComponentFixedUpdate": null,
                 "OnComponentStart": null,
                 "OnComponentUpdate": null,
-                "Opaque": false,
+                "Opaque": true,
                 "PlaybackSpeed": 1,
                 "RenderOptions": {
                   "GameLayer": true,
@@ -540,7 +447,7 @@
                               "$compiler": "texture",
                               "$source": "imagefile",
                               "data": {
-                                "FilePath": "tools/images/assettypes/particles_lg.png",
+                                "FilePath": "textures/particles/flame/fleck_ash1.tga",
                                 "MaxSize": 4096,
                                 "ConvertHeightToNormals": false,
                                 "NormalScale": 1,
@@ -572,7 +479,7 @@
                                 "CacheToDisk": true,
                                 "FormatOverride": "RGBA8888"
                               },
-                              "compiled": "textures/generated/imagefile/3895fd8af2b67cba.vtex"
+                              "compiled": "textures/generated/imagefile/eb49b3c4339b42fe.vtex"
                             },
                             "BroadcastMessages": []
                           }
@@ -613,95 +520,6 @@
                 "RateOverDistance": 20,
                 "VelocityMultiplier": 2,
                 "VelocityRandom": 0.9
-              },
-              {
-                "__type": "Sandbox.ParticleTrailRenderer",
-                "__guid": "a16d66e4-82d5-46a9-8a5e-0766beeb4761",
-                "__enabled": true,
-                "Flags": 0,
-                "BlendMode": "Normal",
-                "CastShadows": false,
-                "Color": {
-                  "blend": "Linear",
-                  "color": [
-                    {
-                      "t": 0,
-                      "c": "1,0,0,1"
-                    },
-                    {
-                      "t": 0.87184876,
-                      "c": "1,1,0,1"
-                    },
-                    {
-                      "t": 0.99369746,
-                      "c": "1,0.64706,0,1"
-                    }
-                  ],
-                  "alpha": [
-                    {
-                      "t": 0,
-                      "a": 1
-                    },
-                    {
-                      "t": 1,
-                      "a": 1
-                    }
-                  ]
-                },
-                "LifeTime": 2,
-                "MaxPoints": 64,
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "Opaque": true,
-                "PointDistance": 8,
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "ScaleFromParticle": true,
-                "Texturing": {
-                  "Texture": null,
-                  "Material": "tornado.vmat",
-                  "WorldSpace": true,
-                  "UnitsPerTexture": 5,
-                  "Scale": 1,
-                  "Offset": 0,
-                  "Scroll": 0,
-                  "FilterMode": "Anisotropic",
-                  "TextureAddressMode": "Wrap",
-                  "Clamp": false
-                },
-                "TintFromParticle": true,
-                "Width": [
-                  {
-                    "x": 0,
-                    "y": 1,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  },
-                  {
-                    "x": 0.5,
-                    "y": 0,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  },
-                  {
-                    "x": 1,
-                    "y": 1,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "Wireframe": false
               }
             ],
             "Children": []
@@ -711,6 +529,7 @@
     ],
     "__properties": {
       "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
       "TimeScale": 1,
       "WantsSystemScene": true,
       "Metadata": {},

@@ -4,6 +4,9 @@ Layer0
 {
 	shader "karmanfire.shader"
 
+	//---- Rendering ----
+	F_TRANSLUCENT 1
+
 	//---- Base Dynamics ----
 	g_flDissolveAmount "0.860"
 	g_flEmissionOverdrive "1.539"

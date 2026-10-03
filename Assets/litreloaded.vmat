@@ -1,0 +1,34 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "firerino.shader"
+
+	//---- Color Palette ----
+	g_vInnerPlasmaColor "[1.000000 0.270588 0.000000 1.000000]"
+	g_vOuterCombustionColor "[1.000000 0.270588 0.000000 1.000000]"
+	g_vSootSmokeColor "[1.000000 0.000000 0.000000 1.000000]"
+	g_vWhiteHotCoreColor "[1.000000 1.000000 0.949020 0.000000]"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Lofi HD Quantization ----
+	g_flCelEdgeCrispness "5.000"
+	g_flPinchOffFrequency "2.573"
+	g_flPinchOffIntensity "1.571"
+
+	//---- Motion ----
+	g_vMotionVelocity "[0.000 0.000 0.000]"
+
+	//---- Sparks & Embers ----
+	g_flEmissionOverdrive "1.461"
+	g_flSparkDensity "3.018"
+	g_flSparkElongation "6.500"
+
+	//---- Vortex Dynamics ----
+	g_flAscentSpeed "0.500"
+	g_flBuoyancySpread "2.678"
+	g_flCurlTurbulence "1.398"
+	g_flFlameTaper "1.072"
+}

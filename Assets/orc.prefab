@@ -150,6 +150,7 @@
               "component_type": "NavMeshAgent"
             },
             "Enemy": null,
+            "FocusBoost": 1.5,
             "ModelCollider": null,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -245,6 +246,7 @@
             "BoneMergeTarget": null,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
+            "DeformationMode": "Normal",
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": null,
@@ -260,13 +262,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "Parameters": {
-              "bools": {},
-              "ints": {},
-              "floats": {},
-              "vectors": {},
-              "rotations": {}
-            },
+            "Parameters": {},
             "PlaybackRate": 1,
             "RenderOptions": {
               "GameLayer": true,

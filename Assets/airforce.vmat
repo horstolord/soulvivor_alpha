@@ -1,0 +1,32 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "airforce.shader"
+
+	//---- Color Settings ----
+	g_vCoreEyeColor "[0.113725 0.113725 0.113725 1.000000]"
+	g_vDustDebrisColor "[0.729412 0.729412 0.729412 1.000000]"
+	g_vStaticLightningColor "[0.109804 0.109804 0.117647 1.000000]"
+	g_vVaporAlbedoColor "[0.729412 0.729412 0.729412 1.000000]"
+
+	//---- Debris & Surface ----
+	g_flDebrisDensity "0.000"
+	g_flStaticFlickerPower "3.000"
+	g_flSwirlNormalBump "2.000"
+	g_flWindFrayStrength "1.250"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Motion ----
+	g_vMotionVelocity "[0.000 0.000 0.000]"
+
+	//---- Vortex Physics ----
+	g_flEyeHollowness "0.700"
+	g_flFunnelTwist "5.500"
+	g_flFunnelWidth "2.500"
+	g_flSuctionLift "0.500"
+	g_flVortexShear "3.000"
+	g_flVortexSpeed "0.500"
+}

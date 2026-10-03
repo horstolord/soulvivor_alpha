@@ -10,7 +10,10 @@ FEATURES
 
 MODES
 {
-	VrForward();
+	Default();
+	Forward();
+	Depth();
+	ToolsVis( true );
 }
 
 COMMON
@@ -121,12 +124,10 @@ VS
 
 	PixelInput MainVs( VertexInput i )
 	{
-		// 1. Basalt columnar displacement on object vertices (breaks the smooth sphere silhouette)
 		float4 vor = Voronoi2D( i.vTexCoord.xy * g_flBasaltScale );
 		float cellHash = frac( sin( dot( vor.zw, float2( 12.9898, 78.233 ) ) ) * 43758.5453 );
 		float steppedHeight = floor( cellHash * 5.0 ) / 5.0;
 		
-		// Crevice depression at column boundaries
 		float borderDist = vor.y - vor.x;
 		float edgeBevel = smoothstep( 0.02, 0.18, borderDist );
 
@@ -140,12 +141,16 @@ VS
 
 PS
 {
+	#include "common/pixel.hlsl"
+
 	RenderState( BlendEnable, false );
-	RenderState( DepthWriteEnable, false );
+	RenderState( DepthWriteEnable, true );
 	RenderState( CullMode, BACK );
 
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
+		Material m = Material::Init( i );
+
 		float2 uv = i.vTextureCoords.xy;
 
 		// 1. Basalt Cell & Crevice System
@@ -153,11 +158,11 @@ PS
 		float borderDist = vor.y - vor.x;
 		float crackMask = 1.0 - smoothstep( 0.01, 0.16, borderDist );
 
-		// Facet normal perturbation for sharp columnar lighting
+		// Facet normal perturbation (passed to engine for lighting)
 		float2 facetSlope = ( frac( uv * g_flBasaltScale ) - 0.5 ) * 1.8;
 		float3 facetNormal = normalize( i.vNormalWs + float3( facetSlope.x, facetSlope.y, 0.0 ) * 0.6 );
 
-		// 2. High-Frequency Dendritic Gold Veins (Fractal Ridge Turbulence)
+		// 2. Dendritic Gold Veins
 		float2 veinUv = uv * g_flVeinScale;
 		float warpA = FbmNoise( veinUv * 1.2 );
 		float warpB = FbmNoise( veinUv * 2.4 + float2( 3.2, 7.1 ) );
@@ -166,8 +171,6 @@ PS
 		float rawVein = abs( FbmNoise( warpedVeinCoords ) * 2.0 - 1.0 );
 		float sharpVein = 1.0 - smoothstep( 0.0, 0.14, rawVein );
 		float goldVeinMask = saturate( sharpVein * g_flMineralVeinIntensity );
-		
-		// Dark border contour around the gold vein
 		float veinContour = smoothstep( 0.14, 0.28, rawVein ) * ( 1.0 - smoothstep( 0.28, 0.45, rawVein ) );
 
 		// 3. Folded Strata Banding
@@ -175,34 +178,30 @@ PS
 		float strataPattern = sin( ( uv.y + strataWarp ) * g_flStrataFrequency );
 		float strataBand = pow( strataPattern * 0.5 + 0.5, 2.0 ) * g_flStrataBanding;
 
-		// 4. Granite Micro-Grain & Matte Chalkiness
+		// 4. Granite Micro-Grain
 		float grain = ( Hash22( uv * 280.0 ).x * 0.5 + 0.5 ) * g_flGraniteGrain;
 
 		// 5. Crevice Ambient Occlusion
 		float cavityAO = saturate( crackMask * g_flCavityAoStrength );
 
-		// 6. Direct & Diffuse Lighting (Half-Lambert + Hard Facet Normals)
-		float3 lightDir = normalize( float3( 0.5, 0.8, 0.6 ) );
-		float NdotL = saturate( ( dot( facetNormal, lightDir ) + 0.35 ) / 1.35 );
+		// 6. Base Albedo Composition
+		float3 rockAlbedo = lerp( g_vBedrockColor, g_vStrataLayerColor, saturate( strataBand * 0.75 ) );
+		rockAlbedo = lerp( rockAlbedo * 0.85, rockAlbedo * 1.25, grain );
+		rockAlbedo = lerp( rockAlbedo, g_vCavityAoColor, cavityAO * 0.95 );
+		rockAlbedo = lerp( rockAlbedo, g_vCavityAoColor * 0.5, veinContour * 0.7 );
 
-		// 7. Layer Composition
-		// Base rock + strata
-		float3 rockColor = lerp( g_vBedrockColor, g_vStrataLayerColor, saturate( strataBand * 0.75 ) );
-		
-		// Apply matte granite grain noise
-		rockColor = lerp( rockColor * 0.85, rockColor * 1.25, grain );
+		// Blend in gold vein color
+		float3 goldAlbedo = g_vMineralVeinColor * ( 1.0 + grain * 0.2 );
+		float3 finalAlbedo = lerp( rockAlbedo, goldAlbedo, goldVeinMask );
 
-		// Dark edge wear and crevice AO
-		rockColor = lerp( rockColor, g_vCavityAoColor, cavityAO * 0.95 );
-		rockColor = lerp( rockColor, g_vCavityAoColor * 0.5, veinContour * 0.7 );
+		// 7. Feed S&box PBR Engine Properties
+		m.Albedo = finalAlbedo;
+		m.Normal = facetNormal;
+		m.Roughness = lerp( 0.88, 0.22, goldVeinMask ); // Matte rock, shiny metallic gold
+		m.Metalness = goldVeinMask;                     // Pure metal for veins, dielectric for rock
+		m.AmbientOcclusion = saturate( 1.0 - cavityAO * 0.85 );
 
-		// Apply Gold Mineral Dykes
-		float3 goldColor = g_vMineralVeinColor * ( 1.2 + grain * 0.4 );
-		rockColor = lerp( rockColor, goldColor, goldVeinMask );
-
-		// Apply directional lighting
-		rockColor *= NdotL;
-
-		return float4( rockColor, 1.0 );
+		// Engine calculates all dynamic lights, shadows, and darkness
+		return ShadingModelStandard::Shade( i, m );
 	}
 }

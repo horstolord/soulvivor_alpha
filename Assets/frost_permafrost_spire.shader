@@ -6,15 +6,18 @@ HEADER
 FEATURES
 {
 	#include "common/features.hlsl"
+	Feature( F_TRANSLUCENT, 0..1, "Rendering" );
 }
 
 MODES
 {
 	VrForward();
+	Depth();
 }
 
 COMMON
-{
+{	
+	#define S_TRANSLUCENT 1
 	#include "common/shared.hlsl"
 
 	float3 g_vGlacialCoreColor     < UiGroup( "Color Settings,10/1" ); UiType( Color );  Default3( 0.35, 0.85, 0.98 ); >;
@@ -123,9 +126,10 @@ PS
 {
 	RenderState( BlendEnable, true );
 	RenderState( SrcBlend, SRC_ALPHA );
-	RenderState( DstBlend, ONE_MINUS_SRC_ALPHA );
+	RenderState( DstBlend, INV_SRC_ALPHA );
 	RenderState( DepthWriteEnable, true );
-	RenderState( CullMode, NONE );
+	
+	RenderState( CullMode, BACK );
 
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{

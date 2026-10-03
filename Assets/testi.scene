@@ -1721,7 +1721,7 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               }
             }
@@ -2346,6 +2346,7 @@
               "BoneMergeTarget": null,
               "CreateAttachments": true,
               "CreateBoneObjects": true,
+              "DeformationMode": "Normal",
               "LodOverride": null,
               "MaterialGroup": "default",
               "MaterialOverride": null,
@@ -2362,11 +2363,10 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "Parameters": {
-                "bools": {},
-                "ints": {},
-                "floats": {},
-                "vectors": {},
-                "rotations": {}
+                "floats": {
+                  "scale_height": 1.2,
+                  "scale_heel": 0
+                }
               },
               "PlaybackRate": 1,
               "RenderOptions": {
@@ -4815,7 +4815,7 @@
               "Children": []
             },
             {
-              "__guid": "9db38411-46fd-4893-88fe-5a4805960d20",
+              "__guid": "0d425984-f003-4a01-8f4b-7751eb6ebfd5",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -4832,7 +4832,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "a4ca7625-a3ec-4596-9d22-9c0a6dca689d",
+                  "__guid": "19c9821e-7602-4215-8630-0bed8c2b39bb",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4845,6 +4845,7 @@
                   },
                   "CreateAttachments": false,
                   "CreateBoneObjects": false,
+                  "DeformationMode": "Normal",
                   "LodOverride": null,
                   "MaterialGroup": null,
                   "MaterialOverride": null,
@@ -4860,13 +4861,7 @@
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
-                  "Parameters": {
-                    "bools": {},
-                    "ints": {},
-                    "floats": {},
-                    "vectors": {},
-                    "rotations": {}
-                  },
+                  "Parameters": {},
                   "PlaybackRate": 1,
                   "RenderOptions": {
                     "GameLayer": true,
@@ -4887,7 +4882,7 @@
               "Children": []
             },
             {
-              "__guid": "217b3e3f-ad94-45f8-b224-b00ec2ec55e2",
+              "__guid": "923a321f-a9bd-4450-a7f8-696ef26f4766",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -4904,7 +4899,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "66641b13-b973-48ae-ba4f-a4d71579038d",
+                  "__guid": "2d586189-b31a-4052-93fe-5eb8a5dbb812",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4917,6 +4912,7 @@
                   },
                   "CreateAttachments": false,
                   "CreateBoneObjects": false,
+                  "DeformationMode": "Normal",
                   "LodOverride": null,
                   "MaterialGroup": null,
                   "MaterialOverride": null,
@@ -4932,13 +4928,7 @@
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
-                  "Parameters": {
-                    "bools": {},
-                    "ints": {},
-                    "floats": {},
-                    "vectors": {},
-                    "rotations": {}
-                  },
+                  "Parameters": {},
                   "PlaybackRate": 1,
                   "RenderOptions": {
                     "GameLayer": true,
@@ -4959,7 +4949,7 @@
               "Children": []
             },
             {
-              "__guid": "146d8f90-8caa-4205-bf9b-f051d5c696d5",
+              "__guid": "32adfd43-3d81-4ddc-89ab-59c1fbe9571a",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -4976,7 +4966,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "47042ecc-68bc-4565-a83e-74c9021521a7",
+                  "__guid": "8a49f825-2f18-4271-8308-089a12e270ef",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4989,6 +4979,7 @@
                   },
                   "CreateAttachments": false,
                   "CreateBoneObjects": false,
+                  "DeformationMode": "Normal",
                   "LodOverride": null,
                   "MaterialGroup": null,
                   "MaterialOverride": null,
@@ -5004,13 +4995,7 @@
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
-                  "Parameters": {
-                    "bools": {},
-                    "ints": {},
-                    "floats": {},
-                    "vectors": {},
-                    "rotations": {}
-                  },
+                  "Parameters": {},
                   "PlaybackRate": 1,
                   "RenderOptions": {
                     "GameLayer": true,
@@ -5031,7 +5016,7 @@
               "Children": []
             },
             {
-              "__guid": "0edc2810-76b8-418e-b5e3-7efe7cfcc777",
+              "__guid": "61d380db-0fc6-4aea-91a7-175d5091a384",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -5048,7 +5033,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "55c06c3e-4b75-4fa5-b6dd-0d507650d0b1",
+                  "__guid": "b10a63b7-a95b-44cc-be43-d4b7c9a8691b",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5061,6 +5046,7 @@
                   },
                   "CreateAttachments": false,
                   "CreateBoneObjects": false,
+                  "DeformationMode": "Normal",
                   "LodOverride": null,
                   "MaterialGroup": null,
                   "MaterialOverride": null,
@@ -5076,13 +5062,7 @@
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
-                  "Parameters": {
-                    "bools": {},
-                    "ints": {},
-                    "floats": {},
-                    "vectors": {},
-                    "rotations": {}
-                  },
+                  "Parameters": {},
                   "PlaybackRate": 1,
                   "RenderOptions": {
                     "GameLayer": true,
@@ -5103,7 +5083,7 @@
               "Children": []
             },
             {
-              "__guid": "960ff962-dea6-4651-bd64-cdac5057b4a2",
+              "__guid": "254b1661-028c-4a64-8273-036b5f760acb",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -5120,7 +5100,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "08a10e67-f81f-46b2-876c-dd98ac617cc2",
+                  "__guid": "06dceec5-bcae-4ca5-9944-2994896f9317",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5133,6 +5113,7 @@
                   },
                   "CreateAttachments": false,
                   "CreateBoneObjects": false,
+                  "DeformationMode": "Normal",
                   "LodOverride": null,
                   "MaterialGroup": null,
                   "MaterialOverride": null,
@@ -5148,13 +5129,7 @@
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
-                  "Parameters": {
-                    "bools": {},
-                    "ints": {},
-                    "floats": {},
-                    "vectors": {},
-                    "rotations": {}
-                  },
+                  "Parameters": {},
                   "PlaybackRate": 1,
                   "RenderOptions": {
                     "GameLayer": true,
@@ -5314,7 +5289,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "8c5de130-18a8-42b5-a4a7-12df490a98a3": "4effc2d1-51c2-82e4-9cd4-761444cb91c6"
+            "85326289-23df-4c30-891b-cb74d8d45ccf": "5e655da0-0beb-87aa-ab72-785ca671253e"
           }
         }
       ]
@@ -5565,7 +5540,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5614,7 +5589,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5693,7 +5668,7 @@
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                    "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                     "Path": "models/props/rock_scatter/rock_scatter.vmat"
                   }
                 }
@@ -5770,13 +5745,13 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "07a99537-17c8-4cae-97ec-a143a55e0959",
+                    "Id": "ffcffb96-3da2-4983-bc3d-396d558b3f02",
                     "Path": "models/sbox_props/metal_wheely_bin/metal_wheely_bin_parts.vmat"
                   }
                 }
@@ -5853,7 +5828,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5928,7 +5903,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -6003,7 +5978,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -6078,7 +6053,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0f3f14cb-81b4-41d2-9be6-43ccfd836bbd",
+                "Id": "25c9595f-9f83-4605-a4e8-58487176bc5e",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -6482,15 +6457,11 @@
           "CreateAttachments": false,
           "LodOverride": null,
           "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": {
-            "indexed": {
-              "0": {
-                "Id": "302f5040-5bc3-4a3b-b5dd-d47c82683f98",
-                "Path": "fire_inferno_plume.vmat"
-              }
-            }
+          "MaterialOverride": {
+            "Id": "ec4d34e1-1457-491b-9c34-94c122a3614f",
+            "Path": "tornado.vmat"
           },
+          "Materials": null,
           "Model": "models/dev/sphere.vmdl",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,

@@ -1,0 +1,30 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "ice.shader"
+
+	//---- Rendering ----
+	F_RENDER_BACKFACES 1
+
+	//---- Color Settings ----
+	g_vDeepIceColor "[0.078431 0.349020 0.549020 0.000000]"
+	g_vFrostColor "[0.921569 0.968628 1.000000 0.000000]"
+	g_vInternalCrackColor "[0.749020 0.949020 1.000000 0.000000]"
+	g_vSurfaceIceColor "[0.549020 0.850980 0.980392 0.000000]"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Ice Structure ----
+	g_flChiseledFacetBump "0.600"
+	g_flCrackIntensity "1.500"
+	g_flCrackScale "8.000"
+	g_flFrostCoverage "0.350"
+	g_flSubsurfaceGlow "0.400"
+
+	//---- Surface ----
+	g_flBaseRoughness "0.080"
+	g_flFrostRoughness "0.750"
+	g_flIceOpacity "0.850"
+}

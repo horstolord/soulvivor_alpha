@@ -75,7 +75,7 @@
         "Name": "Sphere",
         "Position": "0,0,0",
         "Rotation": "0,0.707106769,0,0.707106769",
-        "Scale": "0.950000525,0.840000331,1.34999955",
+        "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -93,15 +93,11 @@
             "CreateAttachments": false,
             "LodOverride": null,
             "MaterialGroup": null,
-            "MaterialOverride": null,
-            "Materials": {
-              "indexed": {
-                "0": {
-                  "Id": "39bca75d-cdac-4131-ba56-d4e56024cb16",
-                  "Path": "karmanfire.vmat"
-                }
-              }
+            "MaterialOverride": {
+              "Id": "afb2f138-5060-44a5-b41e-69da4f4d74d7",
+              "Path": "litreloaded.vmat"
             },
+            "Materials": null,
             "Model": "models/dev/sphere.vmdl",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -177,7 +173,7 @@
                 "ReverbEnabled": false,
                 "ReverbOverride": false,
                 "SoundEvent": {
-                  "Id": "d61401e5-2fd7-4d3d-a2cb-039d8c91e7d6",
+                  "Id": "531a4586-4865-4c61-be6b-ccff0e9d67dc",
                   "Path": "sounds/effects/fire/fire_burn_loop01.sound"
                 },
                 "SoundOverride": false,
@@ -232,223 +228,11 @@
             "Children": []
           },
           {
-            "__guid": "0d836101-ade3-4de9-b02b-9b9a1a56dda1",
-            "__version": 2,
-            "Flags": 0,
-            "Name": "Plane (1)",
-            "Position": "-13.0809603,13.7445717,-23.2355938",
-            "Rotation": "-0.65328145,0.270598054,0.65328145,0.270598054",
-            "Scale": "0.710000157,0.360000432,1",
-            "Tags": "",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkFlags": 0,
-            "NetworkOrphaned": 0,
-            "NetworkTransmit": true,
-            "OwnerTransfer": 1,
-            "Components": [
-              {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "793a59b1-f7c3-4c18-b31b-c56a6ebdfaef",
-                "__enabled": true,
-                "Flags": 0,
-                "BodyGroups": 18446744073709551615,
-                "CreateAttachments": false,
-                "LodOverride": null,
-                "MaterialGroup": null,
-                "MaterialOverride": null,
-                "Materials": {
-                  "indexed": {
-                    "0": {
-                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
-                      "Path": "karmanfiresheath.vmat"
-                    }
-                  }
-                },
-                "Model": "models/dev/plane.vmdl",
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
-              }
-            ],
-            "Children": []
-          },
-          {
-            "__guid": "6fa65642-c74f-4966-bbed-2970f6f518f7",
-            "__version": 2,
-            "Flags": 0,
-            "Name": "Plane (1)",
-            "Position": "9.58067608,12.9576292,-23.4478493",
-            "Rotation": "-0.270598054,0.65328145,0.270598054,0.65328145",
-            "Scale": "0.710000157,0.360000432,1",
-            "Tags": "",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkFlags": 0,
-            "NetworkOrphaned": 0,
-            "NetworkTransmit": true,
-            "OwnerTransfer": 1,
-            "Components": [
-              {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "641ac28a-2c17-488e-960e-908f2bdbd62e",
-                "__enabled": true,
-                "Flags": 0,
-                "BodyGroups": 18446744073709551615,
-                "CreateAttachments": false,
-                "LodOverride": null,
-                "MaterialGroup": null,
-                "MaterialOverride": null,
-                "Materials": {
-                  "indexed": {
-                    "0": {
-                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
-                      "Path": "karmanfiresheath.vmat"
-                    }
-                  }
-                },
-                "Model": "models/dev/plane.vmdl",
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
-              }
-            ],
-            "Children": []
-          },
-          {
-            "__guid": "0850344a-cc60-4f2a-bdad-fab45da9507f",
-            "__version": 2,
-            "Flags": 0,
-            "Name": "Plane (1)",
-            "Position": "-13.075695,-11.8124847,-23.8097858",
-            "Rotation": "-0.270597994,0.65328151,0.270597994,0.65328151",
-            "Scale": "0.710000157,0.360000432,1",
-            "Tags": "",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkFlags": 0,
-            "NetworkOrphaned": 0,
-            "NetworkTransmit": true,
-            "OwnerTransfer": 1,
-            "Components": [
-              {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "01f50faa-1626-432d-9534-16f5a4d9007c",
-                "__enabled": true,
-                "Flags": 0,
-                "BodyGroups": 18446744073709551615,
-                "CreateAttachments": false,
-                "LodOverride": null,
-                "MaterialGroup": null,
-                "MaterialOverride": null,
-                "Materials": {
-                  "indexed": {
-                    "0": {
-                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
-                      "Path": "karmanfiresheath.vmat"
-                    }
-                  }
-                },
-                "Model": "models/dev/plane.vmdl",
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
-              }
-            ],
-            "Children": []
-          },
-          {
-            "__guid": "bea4854a-74ce-47be-bcfc-b69993c8de1b",
-            "__version": 2,
-            "Flags": 0,
-            "Name": "Plane (1)",
-            "Position": "9.34406376,-11.7686882,-24.6170712",
-            "Rotation": "0.270598054,0.65328145,-0.270598054,0.65328145",
-            "Scale": "0.710000157,0.360000432,1",
-            "Tags": "",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkFlags": 0,
-            "NetworkOrphaned": 0,
-            "NetworkTransmit": true,
-            "OwnerTransfer": 1,
-            "Components": [
-              {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "65ad13bc-12a9-40af-a506-f9036b9d4fcd",
-                "__enabled": true,
-                "Flags": 0,
-                "BodyGroups": 18446744073709551615,
-                "CreateAttachments": false,
-                "LodOverride": null,
-                "MaterialGroup": null,
-                "MaterialOverride": null,
-                "Materials": {
-                  "indexed": {
-                    "0": {
-                      "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
-                      "Path": "karmanfiresheath.vmat"
-                    }
-                  }
-                },
-                "Model": "models/dev/plane.vmdl",
-                "OnComponentDestroy": null,
-                "OnComponentDisabled": null,
-                "OnComponentEnabled": null,
-                "OnComponentFixedUpdate": null,
-                "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "RenderOptions": {
-                  "GameLayer": true,
-                  "OverlayLayer": false,
-                  "BloomLayer": false,
-                  "AfterUILayer": false
-                },
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
-              }
-            ],
-            "Children": []
-          },
-          {
-            "__guid": "270ef783-85f0-4cb3-8ef5-2c11ba444cf0",
+            "__guid": "4a554f82-5a91-408b-948c-a8cd1da6189a",
             "__version": 2,
             "Flags": 0,
             "Name": "Smoke",
-            "Position": "0,0,0",
+            "Position": "0,0,0.0642269477",
             "Rotation": "0,0,0,1",
             "Scale": "1,1,1",
             "Tags": "particles",
@@ -461,7 +245,7 @@
             "Components": [
               {
                 "__type": "Sandbox.ParticleEffect",
-                "__guid": "99696dc1-ed8d-434b-853d-323f3924f2a9",
+                "__guid": "5e71168e-8f67-43e0-b099-527b8c437fc6",
                 "__enabled": true,
                 "Flags": 0,
                 "__version": 3,
@@ -538,7 +322,7 @@
                 },
                 "InitialPitch": 0,
                 "InitialRoll": 0,
-                "InitialScale": 1,
+                "InitialScale": 0.499999,
                 "InitialVelocity": {
                   "X": 0,
                   "Y": 0,
@@ -601,7 +385,7 @@
               },
               {
                 "__type": "Sandbox.ParticleSpriteRenderer",
-                "__guid": "273680d6-cd4e-4830-9a44-17e8a763f456",
+                "__guid": "cbcb42b4-3156-42d9-a0dc-c8b33b45940c",
                 "__enabled": true,
                 "Flags": 0,
                 "__version": 2,
@@ -613,10 +397,10 @@
                 "CameraFadeFar": 0,
                 "CameraFadeNear": 0,
                 "DepthFeather": 0,
-                "FaceVelocity": true,
+                "FaceVelocity": false,
                 "FogStrength": 1,
                 "LeadingTrail": true,
-                "Lighting": false,
+                "Lighting": true,
                 "MotionBlur": false,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
@@ -634,7 +418,7 @@
                 },
                 "RotationOffset": 0,
                 "Scale": 1,
-                "Shadows": true,
+                "Shadows": false,
                 "SortMode": "Unsorted",
                 "Sprite": {
                   "$compiler": "embed",
@@ -665,7 +449,7 @@
               },
               {
                 "__type": "Sandbox.ParticleSphereEmitter",
-                "__guid": "14e3b1f6-49d5-44f3-a4d6-43d2135056d2",
+                "__guid": "7547fcb4-8cc9-4aa6-afa9-85818ed726b8",
                 "__enabled": true,
                 "Flags": 0,
                 "Burst": 0,
@@ -683,7 +467,7 @@
                 "OnEdge": false,
                 "OneSidedAxes": "None",
                 "Radius": 23.6,
-                "Rate": 5,
+                "Rate": 10,
                 "RateOverDistance": 0,
                 "Velocity": 0
               }
@@ -691,405 +475,6 @@
             "Children": []
           }
         ]
-      },
-      {
-        "__guid": "6cc7691c-4404-4bc1-97d6-cb28064a4f77",
-        "__version": 2,
-        "Flags": 0,
-        "Name": "Burst",
-        "Position": "0,0,0",
-        "Rotation": "0,0.99999994,0,0",
-        "Scale": "1,0.630000532,1",
-        "Tags": "particles",
-        "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkFlags": 0,
-        "NetworkOrphaned": 0,
-        "NetworkTransmit": true,
-        "OwnerTransfer": 1,
-        "Components": [
-          {
-            "__type": "Sandbox.ParticleEffect",
-            "__guid": "0e8e715e-f40b-4ec4-8b6a-52827c62097b",
-            "__enabled": true,
-            "Flags": 0,
-            "__version": 3,
-            "Alpha": {
-              "Type": "Curve",
-              "Evaluation": "Life",
-              "CurveA": [
-                {
-                  "x": 0,
-                  "y": 1,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                },
-                {
-                  "x": 1,
-                  "y": 0,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                }
-              ],
-              "CurveB": [
-                {
-                  "x": 0.5,
-                  "y": 0.5,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                }
-              ]
-            },
-            "ApplyAlpha": false,
-            "ApplyColor": false,
-            "ApplyRotation": false,
-            "ApplyShape": true,
-            "Bounce": 1,
-            "Brightness": 1,
-            "Bumpiness": 0,
-            "Collision": false,
-            "CollisionIgnore": null,
-            "CollisionPrefab": null,
-            "CollisionPrefabAlign": false,
-            "CollisionPrefabChance": 1,
-            "CollisionPrefabRotation": 0,
-            "CollisionRadius": 1,
-            "ConstantMovement": {
-              "X": 0,
-              "Y": 0,
-              "Z": 0
-            },
-            "Damping": 0,
-            "DieOnCollisionChance": 0,
-            "FollowerPrefab": null,
-            "FollowerPrefabChance": 1,
-            "FollowerPrefabKill": true,
-            "Force": false,
-            "ForceDirection": "0,0,-800",
-            "ForceScale": 1,
-            "ForceSpace": "World",
-            "Friction": 1,
-            "Gradient": "1,1,1,1",
-            "InitialPitch": 0,
-            "InitialRoll": 0,
-            "InitialScale": 1,
-            "InitialVelocity": {
-              "X": 0,
-              "Y": 0,
-              "Z": 0
-            },
-            "InitialYaw": 0,
-            "Lifetime": {
-              "Type": "Range",
-              "Evaluation": "Seed",
-              "Constants": "1,2,0,0"
-            },
-            "LocalSpace": 0,
-            "MaxParticles": 5000,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "OnParticleCreated": null,
-            "OnParticleDestroyed": null,
-            "OrbitalForce": {
-              "X": 0,
-              "Y": 0,
-              "Z": 0
-            },
-            "OrbitalPull": 0,
-            "PerParticleTimeScale": 1,
-            "Pitch": 0,
-            "PreWarm": 0,
-            "PushStrength": 0,
-            "Roll": 0,
-            "Scale": {
-              "Type": "Curve",
-              "Evaluation": "Life",
-              "CurveA": [
-                {
-                  "x": 0,
-                  "y": 0,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                },
-                {
-                  "x": 0.5,
-                  "y": 1,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                },
-                {
-                  "x": 1,
-                  "y": 0,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                }
-              ],
-              "CurveB": [
-                {
-                  "x": 0.5,
-                  "y": 0.5,
-                  "in": 0,
-                  "out": 0,
-                  "mode": "Mirrored"
-                }
-              ]
-            },
-            "SequenceFitToLifetime": false,
-            "SequenceId": 0,
-            "SequenceSpeed": 1,
-            "SequenceTime": 1,
-            "SheetSequence": false,
-            "SnapToFrame": false,
-            "StartDelay": 0,
-            "StartVelocity": {
-              "Type": "Range",
-              "Evaluation": "Seed",
-              "Constants": "10,70,0,0"
-            },
-            "Stretch": 1,
-            "TimeScale": 1,
-            "Timing": "GameTime",
-            "Tint": "1,1,1,1",
-            "UsePrefabFeature": false,
-            "Yaw": {
-              "Type": "Range",
-              "Evaluation": "Seed",
-              "Constants": "0,360,0,0"
-            }
-          },
-          {
-            "__type": "Sandbox.ParticleSpriteRenderer",
-            "__guid": "af2acc32-4278-420b-93a3-810d30d6dff4",
-            "__enabled": true,
-            "Flags": 0,
-            "__version": 2,
-            "Additive": false,
-            "Alignment": "Object",
-            "BlurAmount": 0.5641026,
-            "BlurOpacity": 0.61538464,
-            "BlurSpacing": 0.73,
-            "CameraFadeFar": 0,
-            "CameraFadeNear": 0,
-            "DepthFeather": 0,
-            "FaceVelocity": false,
-            "FogStrength": 1,
-            "LeadingTrail": true,
-            "Lighting": false,
-            "MotionBlur": true,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "Opaque": false,
-            "PlaybackSpeed": 1,
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
-            },
-            "RotationOffset": 0,
-            "Scale": 1,
-            "Shadows": false,
-            "SortMode": "Unsorted",
-            "Sprite": {
-              "$compiler": "embed",
-              "$source": null,
-              "data": {
-                "Animations": [
-                  {
-                    "Name": "Default",
-                    "FrameRate": 15,
-                    "Origin": "0.5,0.5",
-                    "LoopMode": "Loop",
-                    "LoopStart": -1,
-                    "LoopEnd": -1,
-                    "Frames": [
-                      {
-                        "Texture": {
-                          "$compiler": "texture",
-                          "$source": "imagefile",
-                          "data": {
-                            "FilePath": "tools/images/assettypes/particles_lg.png",
-                            "MaxSize": 4096,
-                            "ConvertHeightToNormals": false,
-                            "NormalScale": 1,
-                            "Rotate": 0,
-                            "FlipVertical": false,
-                            "FlipHorizontal": false,
-                            "Cropping": {
-                              "Left": 0,
-                              "Top": 0,
-                              "Right": 0,
-                              "Bottom": 0
-                            },
-                            "Padding": {
-                              "Left": 0,
-                              "Top": 0,
-                              "Right": 0,
-                              "Bottom": 0
-                            },
-                            "InvertColor": false,
-                            "Tint": "1,1,1,1",
-                            "Blur": 0,
-                            "Sharpen": 0,
-                            "Brightness": 1,
-                            "Contrast": 1,
-                            "Saturation": 1,
-                            "Hue": 0,
-                            "Colorize": false,
-                            "TargetColor": "0,1,0,1",
-                            "CacheToDisk": true,
-                            "FormatOverride": "RGBA8888"
-                          },
-                          "compiled": "textures/generated/imagefile/3895fd8af2b67cba.vtex"
-                        },
-                        "BroadcastMessages": []
-                      }
-                    ]
-                  }
-                ],
-                "__references": null
-              },
-              "compiled": null
-            },
-            "StartingAnimationName": "Default",
-            "TextureFilter": "Bilinear"
-          },
-          {
-            "__type": "Sandbox.ParticleConeEmitter",
-            "__guid": "7392d342-c2fd-4408-82e8-712055c130e4",
-            "__enabled": true,
-            "Flags": 0,
-            "Burst": 100,
-            "CenterBias": 0,
-            "CenterBiasVelocity": 0,
-            "ConeAngle": 30,
-            "ConeFar": 50,
-            "ConeNear": 1,
-            "Delay": 0,
-            "DestroyOnEnd": false,
-            "Duration": 1,
-            "InVolume": true,
-            "Loop": true,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "OnEdge": true,
-            "Rate": 0,
-            "RateOverDistance": 20,
-            "VelocityMultiplier": 2,
-            "VelocityRandom": 0.9
-          },
-          {
-            "__type": "Sandbox.ParticleTrailRenderer",
-            "__guid": "5e2fb07d-0d22-4ba0-9900-d0967facc4fc",
-            "__enabled": true,
-            "Flags": 0,
-            "BlendMode": "Normal",
-            "CastShadows": false,
-            "Color": {
-              "blend": "Linear",
-              "color": [
-                {
-                  "t": 0,
-                  "c": "1,0,0,1"
-                },
-                {
-                  "t": 0.87184876,
-                  "c": "1,1,0,1"
-                },
-                {
-                  "t": 0.99369746,
-                  "c": "1,0.64706,0,1"
-                }
-              ],
-              "alpha": [
-                {
-                  "t": 0,
-                  "a": 1
-                },
-                {
-                  "t": 1,
-                  "a": 1
-                }
-              ]
-            },
-            "LifeTime": 2,
-            "MaxPoints": 64,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "Opaque": true,
-            "PointDistance": 8,
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
-            },
-            "ScaleFromParticle": true,
-            "Texturing": {
-              "Texture": null,
-              "Material": {
-                "Id": "39bca75d-cdac-4131-ba56-d4e56024cb16",
-                "Path": "karmanfire.vmat"
-              },
-              "WorldSpace": true,
-              "UnitsPerTexture": 5,
-              "Scale": 1,
-              "Offset": 0,
-              "Scroll": 0,
-              "FilterMode": "Anisotropic",
-              "TextureAddressMode": "Wrap",
-              "Clamp": false
-            },
-            "TintFromParticle": true,
-            "Width": [
-              {
-                "x": 0,
-                "y": 1,
-                "in": 0,
-                "out": 0,
-                "mode": "Mirrored"
-              },
-              {
-                "x": 0.5,
-                "y": 0,
-                "in": 0,
-                "out": 0,
-                "mode": "Mirrored"
-              },
-              {
-                "x": 1,
-                "y": 1,
-                "in": 0,
-                "out": 0,
-                "mode": "Mirrored"
-              }
-            ],
-            "Wireframe": false
-          }
-        ],
-        "Children": []
       }
     ],
     "__properties": {

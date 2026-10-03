@@ -4,6 +4,9 @@ Layer0
 {
 	shader "karmanfire.shader"
 
+	//---- Rendering ----
+	F_DO_NOT_CAST_SHADOWS 1
+
 	//---- Base Dynamics ----
 	g_flDissolveAmount "0.855"
 	g_flEmissionOverdrive "1.164"
@@ -21,6 +24,9 @@ Layer0
 	//---- Flame Substance ----
 	g_flCoreDensity "1.737"
 	g_flSubstanceContrast "0.841"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
 
 	//---- Frayed Tendrils ----
 	g_flAnisotropicStretch "1.000"

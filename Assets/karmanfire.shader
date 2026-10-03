@@ -1,29 +1,26 @@
 HEADER
 {
-	Description = "Soulvivor Volumetric Fire Plume with Frayed Tendrils & Aerodynamic Motion";
+	Description = "Soulvivor Volumetric Fire Plume";
 }
 
 FEATURES
 {
 	#include "common/features.hlsl"
+	Feature( F_TRANSLUCENT, 0..1, "Rendering" );
 }
 
 MODES
 {
-	VrForward();
+	Default();
+	Forward();
+	Depth();
+	ToolsVis( true );
 }
 
 COMMON
-{	
-	#ifndef S_TRANSLUCENT
-        #define S_TRANSLUCENT 1
-    #endif
-
-    #ifndef S_ALPHA_TEST
-        #define S_ALPHA_TEST 0
-    #endif
+{
+	#define S_TRANSLUCENT 1
 	#include "common/shared.hlsl"
-	
 
 	// ── Color Settings ────────────────────────────────────────────────────────
 	float3 g_vInnerFlameColor     < UiGroup( "Color Settings,10/1" ); UiType( Color );  Default3( 0.15, 0.85, 0.95 ); >;
@@ -112,14 +109,12 @@ VS
 
 	PixelInput MainVs( VertexInput i )
 	{
-		// Gentle thermal displacement safely modulated along vertex normal (like fire_inferno_plume)
 		float wave = sin( g_flTime * ( g_flTurbulenceSpeed * 2.0 ) + i.vPositionOs.z * 0.1 );
 		float thermalLift = max( 0.0, wave ) * ( g_flThermalBuoyancy * 2.0 );
 
 		i.vPositionOs.z += thermalLift;
 		i.vPositionOs.xy += i.vNormalOs.xy * ( wave * 0.3 * g_flThermalBuoyancy );
 
-		// Aerodynamic drag lag from velocity
 		float dragFactor = saturate( 1.0 - i.vTexCoord.y ) * 0.2;
 		i.vPositionOs.xy -= clamp( g_vMotionVelocity.xy, -20.0, 20.0 ) * dragFactor;
 
@@ -132,11 +127,18 @@ PS
 {
 	#include "common/pixel.hlsl"
 	
-	
-	RenderState( CullMode, NONE ); // Double sided
+	RenderState( BlendEnable, true );
+	RenderState( SrcBlend, SRC_ALPHA );
+	RenderState( DstBlend, INV_SRC_ALPHA );
+
+	RenderState( DepthEnable, true );
+	RenderState( DepthWriteEnable, false );
+	RenderState( CullMode, NONE );
 
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
+		Material m = Material::Init( i );
+
 		float2 uv = i.vTextureCoords.xy;
 
 		// 1. Upward Flow & Domain Warping
@@ -191,9 +193,17 @@ PS
 		// Sparks color
 		finalEmission += g_vCombustionEdgeColor * sparks * 3.0;
 
-		// Finale Transparenzberechnung
 		float alpha = saturate( flameMask * 1.4 + sparks );
+
 		
-		return float4( finalEmission, alpha );
+
+		// 8. Feed S&box Material Pipeline
+		m.Albedo = baseFlame * 0.2; // Subtle ambient smoke body
+		m.Emission = finalEmission;  // Fire core and sparks self-illuminate & bloom
+		m.Opacity = alpha;
+		m.Roughness = 1.0;
+		m.Metalness = 0.0;
+
+		return ShadingModelStandard::Shade( i, m );
 	}
 }

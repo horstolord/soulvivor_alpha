@@ -4,25 +4,28 @@ Layer0
 {
 	shader "tornado.shader"
 
+	//---- Rendering ----
+	F_TRANSLUCENT 1
+
 	//---- Color Settings ----
-	g_vCoreEyeColor "[0.000000 0.000000 0.000000 0.000000]"
+	g_vCoreEyeColor "[1.000000 0.890196 0.890196 0.000000]"
 	g_vDustDebrisColor "[0.729412 0.729412 0.729412 1.000000]"
-	g_vInnerVortexColor "[0.000000 0.000000 0.000000 0.000000]"
+	g_vInnerVortexColor "[0.125490 0.125490 0.125490 0.000000]"
 	g_vOuterVortexColor "[0.317647 0.317647 0.372549 1.000000]"
 
 	//---- Debris & Gusts ----
-	g_flAirDistortion "0.661"
+	g_flAirDistortion "0.727"
 	g_flDebrisDensity "0.000"
-	g_flWindFrayStrength "2.005"
+	g_flWindFrayStrength "2.409"
 
 	//---- Motion ----
 	g_vMotionVelocity "[0.000 0.000 0.000]"
 
 	//---- Vortex Physics ----
-	g_flEyeHollowness "0.628"
-	g_flFunnelTwist "5.042"
-	g_flFunnelWidth "1.792"
+	g_flEyeHollowness "0.700"
+	g_flFunnelTwist "4.436"
+	g_flFunnelWidth "1.793"
 	g_flSuctionLift "0.500"
-	g_flVortexShear "1.220"
-	g_flVortexSpeed "1.008"
+	g_flVortexShear "0.200"
+	g_flVortexSpeed "0.955"
 }

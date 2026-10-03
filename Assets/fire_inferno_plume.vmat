@@ -4,8 +4,10 @@ Layer0
 {
 	shader "fire_inferno_plume.shader"
 
-	//---- Blending ----
-	F_ADDITIVE_BLEND 1
+	//---- Rendering ----
+	F_DO_NOT_CAST_SHADOWS 1
+	F_RENDER_BACKFACES 1
+	F_TRANSLUCENT 1
 
 	//---- Color Settings ----
 	CombustionEdgeColor "[0.545098 0.000000 0.000000 1.000000]"

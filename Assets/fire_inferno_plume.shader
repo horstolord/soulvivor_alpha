@@ -6,15 +6,19 @@ HEADER
 FEATURES
 {
 	#include "common/features.hlsl"
+	Feature( F_TRANSLUCENT, 0..1, "Rendering" );
 }
 
 MODES
 {
 	VrForward();
+	Depth();
+	ToolsVis(True);
 }
 
 COMMON
 {
+	#define S_TRANSLUCENT 1
 	#include "common/shared.hlsl"
 
 	// Colors
@@ -96,12 +100,19 @@ VS
 PS
 {
 	#include "common/pixel.hlsl"
-
+	
 	RenderState( BlendEnable, true );
+
+	// 1. Premultiplied Linear Blend:
 	RenderState( SrcBlend, SRC_ALPHA );
-	RenderState( DstBlend, ONE ); // Additive combustion glow
+	RenderState( DstBlend, INV_SRC_ALPHA );
+
+	// 2. Explicit Reversed-Z Depth Testing:
+	RenderState( DepthEnable, true)
 	RenderState( DepthWriteEnable, false );
-	RenderState( CullMode, NONE ); // Two-sided rendering
+	RenderState( DepthFunc, GREATER_EQUAL );
+
+	RenderState( CullMode, BACK );
 
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
