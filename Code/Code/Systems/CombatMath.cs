@@ -197,9 +197,8 @@ public static class HitResolver
 		CombatMath.ApplyKnockback( target, direction, damage.KnockbackForce, preventGrounding: true, hitPoint: hitPoint );
 
 		var actor = CombatMath.ResolveActor( target );
-		actor?.ApplyDamage( damage );
+		actor?.ApplyDamage( damage, attacker );
 
 		return true;
 	}
 }
-

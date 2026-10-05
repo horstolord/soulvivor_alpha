@@ -8,7 +8,9 @@ namespace Sandbox.Code.Systems;
 public enum SpellEffectType
 {
 	Buff,
-	Impulse
+	Impulse,
+	/// <summary>Strength = fraction of the cast's Force damage added to each weapon hit for Duration seconds.</summary>
+	Imbue
 }
 
 public enum SpellImpulseDirection
@@ -73,6 +75,20 @@ public static class SpellEffectApplier
 					if ( direction.LengthSquared <= 0.001f ) direction = Vector3.Up;
 					direction = direction.Normal;
 					CombatMath.ApplyKnockback( target, direction, effect.Strength, addUpwardBias: false, preventGrounding: true );
+					break;
+
+				case SpellEffectType.Imbue:
+					var imbue = actor.Components.GetOrCreate<WeaponImbueControl>();
+					float forceDamage = context.AccumulatedDamage.HealthDamage * context.DamageMultiplier;
+					imbue.Apply( new ImbueSpec
+					{
+						Tags = new HashSet<AttackTag>( context.AttackTags ),
+						BonusHealthDamage = forceDamage * effect.Strength,
+						BonusKnockback = context.AccumulatedDamage.KnockbackForce * effect.Strength,
+						Duration = effect.Duration,
+						FxPrefabPath = SpellVisualResolver.ResolvePrefab( context.PrimaryElement, SpellShape.Imbue ),
+						FxMaterial = SpellVisualResolver.ResolveMaterial( context )
+					} );
 					break;
 			}
 		}

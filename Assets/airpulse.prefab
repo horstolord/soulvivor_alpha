@@ -1,0 +1,173 @@
+{
+  "RootObject": {
+    "__guid": "65c18e11-e1e7-414b-a8e7-f4ca5c85c968",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "airpulse",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "7978090f-cd28-4b07-a659-770feaff0cf2",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torch",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.100000001,0.100000001,0.100000001",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "8fd21c53-2f60-48d3-85eb-55b368de3eb4",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "313f0485-0eb2-413b-ae84-8c946aca4582",
+              "Path": "airforce.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "bfdf475c-c574-40ad-8384-f5c12bbe9d36",
+              "Path": "models/torch.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "146bfe5d-d310-4d59-ab40-46cbc1c69cfa",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Sound Point",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.SoundPointComponent",
+            "__guid": "c5352447-a757-4d43-827f-f4dcab781294",
+            "__enabled": true,
+            "Flags": 0,
+            "Distance": 1000,
+            "DistanceAttenuation": true,
+            "DistanceAttenuationOverride": true,
+            "Falloff": [
+              {
+                "x": 0,
+                "y": 1,
+                "in": 3.1415927,
+                "out": -3.1415927,
+                "mode": "Mirrored"
+              },
+              {
+                "x": 1,
+                "y": 0,
+                "in": 0,
+                "out": 0,
+                "mode": "Mirrored"
+              }
+            ],
+            "Force2d": false,
+            "MaxRepeatTime": 1,
+            "MinRepeatTime": 1,
+            "OcclusionEnabled": false,
+            "OcclusionOverride": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Pitch": 1,
+            "PlayOnStart": true,
+            "Repeat": false,
+            "ReverbEnabled": false,
+            "ReverbOverride": false,
+            "SoundEvent": {
+              "Id": "3d86cefa-ed99-46fc-8bcb-ecf5ae1f940f",
+              "Path": "sounds/impacts/melee/impact-melee-cloth.sound"
+            },
+            "SoundOverride": false,
+            "StopOnNew": false,
+            "TargetMixer": {
+              "Name": "unknown",
+              "Id": "00000000-0000-0000-0000-000000000000"
+            },
+            "Volume": 1
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

@@ -1,0 +1,304 @@
+{
+  "RootObject": {
+    "__guid": "6893ec59-e510-49d2-ae48-49c8ff8819ea",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "earthnova",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "e42ab7c8-db1b-4752-8597-377e7752f838",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torus",
+        "Position": "0,0,-6.12326908",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.300000012,0.300000012,0.100000001",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "68551870-6afc-4206-80e3-f3c631376579",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
+              "Path": "rocksolid.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "d97088c3-b828-4dbf-9d34-3f31986e5b3c",
+              "Path": "models/torus.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "5900fa78-6927-464e-8344-bcd8e135d5b6",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torus (3)",
+        "Position": "0,0,-6.12326908",
+        "Rotation": "0,0,0,1",
+        "Scale": "6.0199995,4.54999924,0.270001084",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "de6f4d59-7418-4ad1-995e-48a611260ab4",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
+              "Path": "rocksolid.vmat"
+            },
+            "Materials": null,
+            "Model": "models/editor/sun.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "ea7cbc1b-7f60-4f2f-9dd2-0b72933d995c",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torus (4)",
+        "Position": "0,0,-6.12326908",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.519999921,0.499999851,-0.0600000136",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "e50317f6-5632-4076-b51f-33c621c3daa2",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "aff4354b-e951-4b9b-9a54-1337b80f3450",
+              "Path": "earth_geode.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "d97088c3-b828-4dbf-9d34-3f31986e5b3c",
+              "Path": "models/torus.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "bcc46483-be0b-471d-b9e9-7773b8c4d81f",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torus (1)",
+        "Position": "0,0,-6.12326908",
+        "Rotation": "0,0,0,1",
+        "Scale": "-0.10999997,-0.10999997,-0.10999997",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "76481f23-2551-492f-a10d-1d5730083457",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
+              "Path": "rocksolid.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "d97088c3-b828-4dbf-9d34-3f31986e5b3c",
+              "Path": "models/torus.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "0ede687d-4d8d-4924-9561-7a2e98fd5032",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torus (2)",
+        "Position": "0,0,-6.12326908",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.959999382,0.749999762,0.0899998099",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "59db7cfb-e720-43a8-8f9f-5669fa2a8df4",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
+              "Path": "rocksolid.vmat"
+            },
+            "Materials": null,
+            "Model": "models/editor/sun.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

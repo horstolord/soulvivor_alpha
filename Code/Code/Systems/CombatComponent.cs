@@ -73,6 +73,9 @@ public sealed class CombatComponent : Component
 			KnockbackForce = attack.Damage.KnockbackForce * attack.Scaling.MightToKnockbackForce,
 			Tags = [..(attack.Tags ?? new HashSet<AttackTag>())]
 		};
+		// Timed weapon enchant (Ember Weapon etc.) only augments weapon attacks, not punches/kicks.
+		if ( attack.WeaponDamageEffectiveness > 0f )
+			baseDamage = attackerActor?.Components.Get<WeaponImbueControl>()?.Augment( baseDamage ) ?? baseDamage;
 		// Charge01 is 0 for a normal tap attack, so this is a no-op unless the swing was charged.
 		var chargeBonus = attackerMight * attack.Scaling.MightToChargeBonus;
 		var chargeKnockbackBonus = attackerMight * attack.Scaling.MightToChargeKnockback;

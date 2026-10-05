@@ -1,0 +1,154 @@
+{
+  "RootObject": {
+    "__guid": "8313a02b-9cce-4d72-b3f2-2efc667801f5",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "airimbue",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "022cf89e-0e60-4565-a324-ecf0093de222",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torus",
+        "Position": "0,0,7.85000086",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.00999999978,0.00999999978,0.279999971",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "01df5c34-f1de-4702-92ca-c4cd07338654",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "aa4b0aa6-f12d-45a6-8688-61119a6feedd",
+              "Path": "lightning.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "d97088c3-b828-4dbf-9d34-3f31986e5b3c",
+              "Path": "models/torus.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "61d2ee92-0eb7-43b0-aae8-46c685f06178",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torus (1)",
+        "Position": "0.0091728149,0.503689408,8.354002",
+        "Rotation": "1,0,0,-4.37113883E-08",
+        "Scale": "0.00999999978,0.00999999978,0.279999971",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "a9102004-b2cb-4f61-b107-7a3e5624372d",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "313f0485-0eb2-413b-ae84-8c946aca4582",
+              "Path": "airforce.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "d97088c3-b828-4dbf-9d34-3f31986e5b3c",
+              "Path": "models/torus.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

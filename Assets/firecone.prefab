@@ -1,0 +1,154 @@
+{
+  "RootObject": {
+    "__guid": "e013a241-ac36-4eba-89ff-6bade290449c",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "firecone",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "6cdb442a-db8c-4d7c-98d9-7c2249920b6c",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "cone (1)",
+        "Position": "0,0,-47.3486176",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "1.18999982,0.980000019,0.647452056",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "ea2ce413-393a-4cae-8023-1fba8df44001",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "302f5040-5bc3-4a3b-b5dd-d47c82683f98",
+              "Path": "fire_inferno_plume.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "329b8323-fec9-41b5-a4e3-3e25f0456b43",
+              "Path": "models/cone.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "Off",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "62d25fae-ae0b-433d-b3c5-d39092a5667b",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "cone",
+        "Position": "0,0,-47.3486176",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "1.18999982,0.980000019,0.647452056",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "1b1da676-dffb-4f0b-8a04-003ff2f8c965",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
+              "Path": "karmanfiresheath.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "329b8323-fec9-41b5-a4e3-3e25f0456b43",
+              "Path": "models/cone.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "Off",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

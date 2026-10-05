@@ -1,0 +1,24 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "fire_inferno_plume.shader"
+
+	//---- Rendering ----
+	F_DO_NOT_CAST_SHADOWS 1
+	F_RENDER_BACKFACES 1
+	F_TRANSLUCENT 1
+
+	//---- Color Settings ----
+	CombustionEdgeColor "[0.274510 0.509804 0.705882 1.000000]"
+	InnerFlameColor "[0.000000 1.000000 1.000000 1.000000]"
+	OuterFlameColor "[0.000000 0.000000 0.501961 1.000000]"
+
+	//---- Flame Dynamics ----
+	DissolveAmount "0.349"
+	EmissionOverdrive "0.975"
+	FlameLength "0.474"
+	ThermalBuoyancy "2.000"
+	TurbulenceSpeed "2.693"
+	WarpStrength "5.000"
+}

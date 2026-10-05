@@ -1,0 +1,227 @@
+{
+  "RootObject": {
+    "__guid": "9b1bc897-f3ce-492b-8a48-dcd465650877",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "airbeam",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.Code.Presentation.SpellVisuals",
+        "__guid": "edc2a482-a9bc-4cc2-9e5c-70173ac9f779",
+        "__enabled": true,
+        "Flags": 0,
+        "DissolveParameter": "Appearance",
+        "Effect": null,
+        "GrowthDuration": 0.25,
+        "Light": null,
+        "MainRenderer": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.Code.Systems.Projectile",
+        "__guid": "bbcaf3d2-c642-43f9-8f8d-801e039c0cca",
+        "__enabled": false,
+        "Flags": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "d316bcc6-5435-4bd2-878c-a4714c78d12a",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "beam",
+        "Position": "13.582655,-15.0866032,25.37883",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "0.300000012,0.400000006,-0.0900000334",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "686471c0-657b-4dc6-af1b-5999437515eb",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "313f0485-0eb2-413b-ae84-8c946aca4582",
+              "Path": "airforce.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "39b1a69c-fc22-4d09-87da-00c6a842b81b",
+              "Path": "models/beam.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "b4cecb18-f531-4966-864d-1cd618cdc367",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "beam (1)",
+        "Position": "13.582655,-15.0866032,26.4361038",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "0.400000006,0.400000006,-0.170000076",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "cfed2ac0-52e0-48d8-9548-e5fe9fc8351f",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "aa4b0aa6-f12d-45a6-8688-61119a6feedd",
+              "Path": "lightning.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "39b1a69c-fc22-4d09-87da-00c6a842b81b",
+              "Path": "models/beam.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "a236c9cb-106c-4620-bc66-0fefc584aee8",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Spot Light",
+        "Position": "13.582655,-15.0866032,25.37883",
+        "Rotation": "0,0,0,-0.99999994",
+        "Scale": "0.359999955,0.95999974,-0.0900000334",
+        "Tags": "light_spot,light",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.SpotLight",
+            "__guid": "263f69f6-f94a-47e1-969e-29acc8183452",
+            "__enabled": true,
+            "Flags": 0,
+            "Attenuation": 1,
+            "ConeInner": 15,
+            "ConeOuter": 45,
+            "Contribution": "Diffuse, Specular, Transmissive",
+            "Cookie": null,
+            "FogMode": "Enabled",
+            "FogStrength": 1,
+            "LightColor": "0.91373,0.98039,1,1",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Radius": 658.3302,
+            "ShadowBias": 0,
+            "ShadowHardness": 0,
+            "Shadows": true
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

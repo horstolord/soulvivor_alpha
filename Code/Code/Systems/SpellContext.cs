@@ -33,6 +33,8 @@ public class SpellContext : ICostable
 	public bool EnableHoming = false;
 	public float HomingStrength = 0f;
 	public HashSet<RuneElementTag> ElementTags = new();
+	/// <summary>First Force rune's element (first wins). Drives prefab/effect variants. Force runes must precede the Method rune.</summary>
+	public RuneElementTag? PrimaryElement;
 	public HashSet<AttackTag> AttackTags = new();
 	public Material VisualMaterial; // Set by whichever Force rune supplies one (first wins)
 
@@ -82,6 +84,8 @@ public class SpellContext : ICostable
 		foreach ( var effect in Effects )
 		{
 			if ( effect == null ) continue;
+			// Imbue is a ratio of the (already charge-scaled) Force damage; scaling it again would square the bonus.
+			if ( effect.Type == SpellEffectType.Imbue ) continue;
 			effect.Strength *= damageMultiplier;
 			effect.PotencyMultiplier *= damageMultiplier;
 		}
@@ -110,6 +114,7 @@ public class SpellContext : ICostable
 			EnableHoming = EnableHoming,
 			HomingStrength = HomingStrength,
 			ElementTags = new HashSet<RuneElementTag>( ElementTags ),
+			PrimaryElement = PrimaryElement,
 			AttackTags = new HashSet<AttackTag>( AttackTags ),
 			VisualMaterial = VisualMaterial,
 			AccumulatedDamage = new DamageProfileDef

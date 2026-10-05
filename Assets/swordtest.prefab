@@ -413,7 +413,7 @@
                   {
                     "__type": "Sandbox.ParticleSpriteRenderer",
                     "__guid": "728f1f30-4769-4964-9e09-3cb3cc03d11a",
-                    "__enabled": true,
+                    "__enabled": false,
                     "Flags": 0,
                     "__version": 2,
                     "Additive": true,
@@ -477,7 +477,7 @@
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
                     "__guid": "4d8d6219-33d2-4d3f-98c3-143dd5b0b04a",
-                    "__enabled": true,
+                    "__enabled": false,
                     "Flags": 0,
                     "Burst": 0,
                     "Delay": 0,
@@ -559,7 +559,7 @@
               {
                 "__type": "Sandbox.ParticleEffect",
                 "__guid": "b5fe7b72-ffcb-4167-a52e-6286990f6717",
-                "__enabled": true,
+                "__enabled": false,
                 "Flags": 0,
                 "__version": 3,
                 "Alpha": {
@@ -1623,7 +1623,7 @@
             "Name": "longswordoverlay",
             "Position": "7.45058237E-09,-1.2904783E-08,0",
             "Rotation": "0,0,0,1",
-            "Scale": "1,1,1",
+            "Scale": "1.1099999,1.06999993,1",
             "Tags": "",
             "Enabled": true,
             "NetworkMode": 2,
@@ -1642,8 +1642,8 @@
                 "LodOverride": null,
                 "MaterialGroup": null,
                 "MaterialOverride": {
-                  "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
-                  "Path": "karmanfiresheath.vmat"
+                  "Id": "aa4b0aa6-f12d-45a6-8688-61119a6feedd",
+                  "Path": "lightning.vmat"
                 },
                 "Materials": null,
                 "Model": {
@@ -1662,7 +1662,7 @@
                   "BloomLayer": false,
                   "AfterUILayer": false
                 },
-                "RenderType": "On",
+                "RenderType": "Off",
                 "Tint": "1,1,1,1"
               }
             ],

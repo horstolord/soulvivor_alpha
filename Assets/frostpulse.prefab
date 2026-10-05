@@ -1,0 +1,222 @@
+{
+  "RootObject": {
+    "__guid": "e67838cf-3569-486c-abf8-8269f6e9837c",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "frostpulse",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "cd35bf88-53a6-4a98-be15-74945aba9c3c",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "torch",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.120000042,0.100000001,0.0500000045",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "cf1339f6-2ba3-47ee-8242-40f03757155d",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "c7e1ff68-5327-40ee-a3fc-c8d5c15aa497",
+              "Path": "cold_plume.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "bfdf475c-c574-40ad-8384-f5c12bbe9d36",
+              "Path": "models/torch.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "bea4cb3d-a638-4fbd-bbde-18fecf2f2835",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Sound Point",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.SoundPointComponent",
+            "__guid": "32036844-6c9e-4be0-bdd3-0f2fee56b70d",
+            "__enabled": true,
+            "Flags": 0,
+            "Distance": 1000,
+            "DistanceAttenuation": true,
+            "DistanceAttenuationOverride": true,
+            "Falloff": [
+              {
+                "x": 0,
+                "y": 1,
+                "in": 3.1415927,
+                "out": -3.1415927,
+                "mode": "Mirrored"
+              },
+              {
+                "x": 1,
+                "y": 0,
+                "in": 0,
+                "out": 0,
+                "mode": "Mirrored"
+              }
+            ],
+            "Force2d": false,
+            "MaxRepeatTime": 1,
+            "MinRepeatTime": 1,
+            "OcclusionEnabled": false,
+            "OcclusionOverride": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Pitch": 1,
+            "PlayOnStart": true,
+            "Repeat": false,
+            "ReverbEnabled": false,
+            "ReverbOverride": false,
+            "SoundEvent": {
+              "Id": "7d207f87-b374-4327-9c3a-c9dad37cb36b",
+              "Path": "sounds/impacts/melee/impact-melee-glass.sound"
+            },
+            "SoundOverride": false,
+            "StopOnNew": false,
+            "TargetMixer": {
+              "Name": "unknown",
+              "Id": "00000000-0000-0000-0000-000000000000"
+            },
+            "Volume": 1
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "57a69592-0acb-4c96-a3ad-1c707c774eca",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Sphere",
+        "Position": "0,0,0.381463528",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.293175399,0.232683823,0.089757219",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "e1a810dd-13a2-4b5f-b572-57b47a8abb89",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "0eb34f0d-7112-4ffd-bedc-fc62620796b6",
+              "Path": "ice.vmat"
+            },
+            "Materials": null,
+            "Model": "models/dev/sphere.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

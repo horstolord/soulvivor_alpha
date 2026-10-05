@@ -1,0 +1,6 @@
+
+Layer0
+{
+	shader "lightning particle.shader_c"
+
+}

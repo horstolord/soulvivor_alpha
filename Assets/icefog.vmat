@@ -1,0 +1,47 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "karmanfire.shader"
+
+	//---- Blending ----
+	F_ADDITIVE_BLEND 1
+
+	//---- Rendering ----
+	F_RENDER_BACKFACES 1
+	F_TRANSLUCENT 1
+
+	//---- Base Dynamics ----
+	g_flDissolveAmount "0.647"
+	g_flEmissionOverdrive "1.270"
+	g_flFlameLength "3.501"
+	g_flThermalBuoyancy "0.000"
+	g_flTurbulenceSpeed "0.500"
+	g_flWarpStrength "2.263"
+
+	//---- Color Settings ----
+	g_vCombustionEdgeColor "[0.113725 0.113725 0.113725 1.000000]"
+	g_vInnerFlameColor "[0.113725 0.113725 0.113725 1.000000]"
+	g_vOuterFlameColor "[0.274510 0.509804 0.705882 1.000000]"
+	g_vWhiteHotCoreColor "[0.000000 0.000000 0.803922 1.000000]"
+
+	//---- Flame Substance ----
+	g_flCoreDensity "2.068"
+	g_flSubstanceContrast "0.813"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Frayed Tendrils ----
+	g_flAnisotropicStretch "1.000"
+	g_flFrayStrength "3.000"
+	g_flTongueSeparation "0.000"
+
+	//---- Motion ----
+	g_vMotionVelocity "[0.000 0.000 0.000]"
+
+	//---- Motion Trail ----
+	g_flEmberDensity "0.000"
+	g_flTrailLength "1.167"
+	g_flWakeTurbulence "0.000"
+}

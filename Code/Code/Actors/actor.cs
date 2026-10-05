@@ -158,7 +158,11 @@ public class Actor : Component
 	}
 
 	// ============ DAMAGE ============
-	public void ApplyDamage( DamageProfileDef damage )
+	/// <summary>Raised once per hit with the final, post-mitigation result. Handlers must not throw.</summary>
+	public static event Action<DamageEvent> Damaged;
+
+	/// <param name="source">Attacker, if known. Optional so existing call sites keep compiling.</param>
+	public void ApplyDamage( DamageProfileDef damage, GameObject source = null )
 	{
 		if (StatSheet == null) return;
 		
@@ -167,6 +171,7 @@ public class Actor : Component
 		if ( evasion > 0f && Random.Shared.NextSingle() * 100f < evasion )
 		{
 			Log.Info( $"{GameObject.Name} EVADED the attack!" );
+			Damaged?.Invoke( new DamageEvent { Victim = this, Source = source, Evaded = true } );
 			return;
 		}
 		
@@ -188,11 +193,15 @@ public class Actor : Component
 			finalHealthDamage *= (1f-armorReduction);
 		}
 		// Block mitigation — only Health is reduced; Stagger/Stamina still land through a guard.
+		bool blocked = false;
 		if ( StateComp != null && StateComp.CurrentState == ActorStateType.Blocking )
 		{
 			float blockReduction = StatSheet.BlockReduction.Value;
 			if ( blockReduction > 0f )
+			{
 				finalHealthDamage *= MathF.Max( 0f, 1f - blockReduction / 100f );
+				blocked = true;
+			}
 		}
 
 		// Apply health, stamina, and poise damage
@@ -220,7 +229,19 @@ public class Actor : Component
 		}
 
 		Log.Info( $"{GameObject.Name} took {finalHealthDamage:F1} dmg — HP={StatSheet.CurrentHealth:F1}/{StatSheet.MaxHealth.Value:F1}" );
-		if ( StatSheet.CurrentHealth <= 0f )
+		bool killed = StatSheet.CurrentHealth <= 0f;
+		Damaged?.Invoke( new DamageEvent
+		{
+			Victim = this,
+			Source = source,
+			Amount = finalHealthDamage,
+			Tags = damage.Tags,
+			IsCrit = damage.IsCrit,
+			Blocked = blocked,
+			Killed = killed
+		} );
+
+		if ( killed )
 		{
 			OnKilled();
 			if (!IsStaggered) Ragdoll();

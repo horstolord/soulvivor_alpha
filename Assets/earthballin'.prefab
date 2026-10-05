@@ -55,6 +55,25 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.Code.Systems.BlastProjectile",
+        "__guid": "d4e7f501-9b63-4ec4-bd85-a603c4e9f278",
+        "__enabled": false,
+        "Flags": 0,
+        "GravityScale": 1,
+        "LaunchAngleDegrees": 35,
+        "ColliderRadius": 12,
+        "BlastRadius": 180,
+        "FuseSeconds": 8,
+        "BounceCount": 1,
+        "BounceElasticity": 0.65,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [

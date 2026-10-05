@@ -55,6 +55,25 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.Code.Systems.BlastProjectile",
+        "__guid": "c3d6e4f0-8a52-4db3-ac74-95f2b3d8e167",
+        "__enabled": false,
+        "Flags": 0,
+        "GravityScale": 1,
+        "LaunchAngleDegrees": 35,
+        "ColliderRadius": 12,
+        "BlastRadius": 180,
+        "FuseSeconds": 8,
+        "BounceCount": 0,
+        "BounceElasticity": 0.5,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -163,7 +182,7 @@
                 "ReverbEnabled": false,
                 "ReverbOverride": false,
                 "SoundEvent": {
-                  "Id": "cb091f56-9a05-47f2-bc2b-2028de94fdc3",
+                  "Id": "6f8c5b1e-0b5b-4c0f-9d95-2f142d75e816",
                   "Path": "sounds/impacts/bullets/impact-bullet-cloth.sound"
                 },
                 "SoundOverride": false,
@@ -520,6 +539,55 @@
                 "RateOverDistance": 20,
                 "VelocityMultiplier": 2,
                 "VelocityRandom": 0.9
+              }
+            ],
+            "Children": []
+          },
+          {
+            "__guid": "1720922e-4843-4f4e-aa8a-e13e11158f11",
+            "__version": 2,
+            "Flags": 0,
+            "Name": "Sphere",
+            "Position": "-2.36710501,-1.59924185,7.21626139",
+            "Rotation": "-0.534555078,0.395325959,0.0225393027,0.746632576",
+            "Scale": "1.14999998,-1.77999997,-0.390001327",
+            "Tags": "",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkFlags": 0,
+            "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
+            "OwnerTransfer": 1,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "c71d8b29-5da7-4713-9e46-1a47cd57c8b9",
+                "__enabled": true,
+                "Flags": 0,
+                "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "LodOverride": null,
+                "MaterialGroup": null,
+                "MaterialOverride": {
+                  "Id": "aa4b0aa6-f12d-45a6-8688-61119a6feedd",
+                  "Path": "lightning.vmat"
+                },
+                "Materials": null,
+                "Model": "models/dev/sphere.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
               }
             ],
             "Children": []

@@ -62,6 +62,9 @@ public static class RuneLibrary
 		Scaling = new RuneScalingDef { WillToPower = 2f }
 	};
  
+	// Method runes are element-agnostic: the Force rune in the sequence picks the element, and
+	// SpellVisualResolver / ElementEffects resolve prefabs and variants from it. Force runes must
+	// come BEFORE the Method rune (payload contexts are cloned when the Method rune is walked).
 	public static readonly RuneDef ProjectileMethod = new RuneDef
 	{
 		Id = "method_projectile",
@@ -71,49 +74,21 @@ public static class RuneLibrary
 		CastDelay = 0.15f,
 		EnergyCost = 2f,
 		ProjectileTemplate = new ProjectileTemplate { Speed = 1200f, Lifetime = 4f },
-		ProjectilePrefabPath = "fireballin'.prefab", 
 		Scaling = new RuneScalingDef { AcuityToCastSpeed = 2f }
 	};
 
-	public static readonly RuneDef AirProjectileMethod = new RuneDef
+	public static readonly RuneDef BlastMethod = new RuneDef
 	{
-		Id = "method_projectile_air",
-		DisplayName = "Air Projectile Method",
+		Id = "method_blast",
+		DisplayName = "Blast Method",
 		Category = RuneCategory.Method,
-		DeliveryType = RuneDeliveryType.Projectile,
-		CastDelay = 0.15f,
-		EnergyCost = 2f,
-		ProjectileTemplate = new ProjectileTemplate { Speed = 1200f, Lifetime = 4f },
-		ProjectilePrefabPath = "airballin'.prefab",
+		DeliveryType = RuneDeliveryType.Blast,
+		CastDelay = 0.25f,
+		EnergyCost = 8f,
+		ProjectileTemplate = new ProjectileTemplate { Speed = 1000f, Lifetime = 8f },
 		Scaling = new RuneScalingDef { AcuityToCastSpeed = 2f }
 	};
 
-	public static readonly RuneDef FrostProjectileMethod = new RuneDef
-	{
-		Id = "method_projectile_frost",
-		DisplayName = "Frost Projectile Method",
-		Category = RuneCategory.Method,
-		DeliveryType = RuneDeliveryType.Projectile,
-		CastDelay = 0.15f,
-		EnergyCost = 2f,
-		ProjectileTemplate = new ProjectileTemplate { Speed = 1200f, Lifetime = 4f },
-		ProjectilePrefabPath = "frostballin'.prefab",
-		Scaling = new RuneScalingDef { AcuityToCastSpeed = 2f }
-	};
-
-	public static readonly RuneDef EarthProjectileMethod = new RuneDef
-	{
-		Id = "method_projectile_earth",
-		DisplayName = "Earth Projectile Method",
-		Category = RuneCategory.Method,
-		DeliveryType = RuneDeliveryType.Projectile,
-		CastDelay = 0.15f,
-		EnergyCost = 2f,
-		ProjectileTemplate = new ProjectileTemplate { Speed = 1000f, Lifetime = 4f },
-		ProjectilePrefabPath = "earthballin'.prefab",
-		Scaling = new RuneScalingDef { AcuityToCastSpeed = 2f }
-	};
- 
 	public static readonly RuneDef BeamMethod = new RuneDef
 	{
 		Id = "method_beam",
@@ -123,20 +98,35 @@ public static class RuneLibrary
 		Range = 1500f,
 		CastDelay = 0.10f,
 		EnergyCost = 3f,
-		BeamPrefabPath = "beamblue.prefab",
 		Scaling = new RuneScalingDef { AcuityToCastSpeed = 2f }
 	};
 
-	private static BuffDef FleetnessBuff => new( "cantrip_fleetness", "Fleetness", 5f )
+	public static readonly RuneDef NovaMethod = new RuneDef
 	{
-		Modifiers = new() { new BuffModifier( "MoveSpeed", 35f, ModifierType.Percent ) }
+		Id = "method_nova",
+		DisplayName = "Nova Method",
+		Category = RuneCategory.Method,
+		DeliveryType = RuneDeliveryType.Nova,
+		AoERadius = 750f,
+		CastDelay = 0.5f,
+		EnergyCost = 20f,
+		Scaling = new RuneScalingDef { AcuityToRange = 1f }
 	};
 
-	private static BuffDef EmberWeaponBuff => new( "cantrip_ember_weapon", "Ember Weapon", 8f )
+	// Named helpers instead of lambdas — see the hotreload note further down.
+	private static SpellEffect FleetnessEffect( string id, string name, float moveSpeedPercent, float jumpPercent = 0f, float flatPoise = 0f )
 	{
-		Modifiers = new() { new BuffModifier( "WeaponDamage", 12f ) }
-	};
+		var buff = new BuffDef( id, name, 20f );
+		buff.Modifiers.Add( new BuffModifier( "MoveSpeed", moveSpeedPercent, ModifierType.Percent ) );
+		if ( jumpPercent != 0f ) buff.Modifiers.Add( new BuffModifier( "JumpPower", jumpPercent, ModifierType.Percent ) );
+		if ( flatPoise != 0f ) buff.Modifiers.Add( new BuffModifier( "MaxPoise", flatPoise ) );
+		return new SpellEffect { Type = SpellEffectType.Buff, Buff = buff, Duration = buff.Duration };
+	}
 
+	private static SpellEffect LaunchEffect( SpellImpulseDirection direction, float strength )
+		=> new SpellEffect { Type = SpellEffectType.Impulse, Direction = direction, Strength = strength };
+
+	// Base Effect = neutral version (no Force rune). All numbers are placeholders to tune.
 	public static readonly RuneDef Fleetness = new()
 	{
 		Id = "cantrip_fleetness",
@@ -145,19 +135,14 @@ public static class RuneLibrary
 		DeliveryType = RuneDeliveryType.Self,
 		CastDelay = 1f,
 		EnergyCost = 30f,
-		Effect = new SpellEffect { Type = SpellEffectType.Buff, Buff = FleetnessBuff, Duration = FleetnessBuff.Duration },
-		Scaling = new RuneScalingDef { WillToEffectPotency = 1f, WisdomToDuration = 1f }
-	};
-
-	public static readonly RuneDef EmberWeapon = new()
-	{
-		Id = "cantrip_ember_weapon",
-		DisplayName = "Ember Weapon",
-		Category = RuneCategory.Method,
-		DeliveryType = RuneDeliveryType.Self,
-		CastDelay = 0.25f,
-		EnergyCost = 4f,
-		Effect = new SpellEffect { Type = SpellEffectType.Buff, Buff = EmberWeaponBuff, Duration = EmberWeaponBuff.Duration },
+		Effect = FleetnessEffect( "cantrip_fleetness", "Fleetness", 35f ),
+		ElementEffects = new()
+		{
+			[RuneElementTag.Air] = FleetnessEffect( "fleetness_air", "Gale Step", 40f, jumpPercent: 30f ),
+			[RuneElementTag.Fire] = FleetnessEffect( "fleetness_fire", "Ember Rush", 45f ),
+			[RuneElementTag.Frost] = FleetnessEffect( "fleetness_frost", "Ice Skate", 30f ), // TODO longer slide: needs a SlideControl hook
+			[RuneElementTag.Earth] = FleetnessEffect( "fleetness_earth", "Stone Stride", 20f, flatPoise: 20f )
+		},
 		Scaling = new RuneScalingDef { WillToEffectPotency = 1f, WisdomToDuration = 1f }
 	};
 
@@ -169,8 +154,30 @@ public static class RuneLibrary
 		DeliveryType = RuneDeliveryType.Self,
 		CastDelay = 0.05f,
 		EnergyCost = 30f,
-		Effect = new SpellEffect { Type = SpellEffectType.Impulse, Direction = SpellImpulseDirection.WorldUp, Strength = 9000f },
+		Effect = LaunchEffect( SpellImpulseDirection.WorldUp, 9000f ),
+		ElementEffects = new()
+		{
+			[RuneElementTag.Air] = LaunchEffect( SpellImpulseDirection.WorldUp, 11000f ), // highest jump
+			[RuneElementTag.Fire] = LaunchEffect( SpellImpulseDirection.Aim, 8000f ),     // blast dash
+			[RuneElementTag.Frost] = LaunchEffect( SpellImpulseDirection.Aim, 6000f ),    // ice skid
+			[RuneElementTag.Earth] = LaunchEffect( SpellImpulseDirection.WorldUp, 7000f ) // TODO slam on landing
+		},
 		Scaling = new RuneScalingDef { WillToEffectPotency = 1f }
+	};
+
+	// Imbue: the Force rune supplies element + damage; each weapon hit gets Strength x that damage
+	// (and the element tag) for Duration seconds. Replaces the old flat WeaponDamage "Ember Weapon" buff.
+	public static readonly RuneDef ImbueMethod = new()
+	{
+		Id = "method_imbue",
+		DisplayName = "Imbue Method",
+		Category = RuneCategory.Method,
+		DeliveryType = RuneDeliveryType.Imbue,
+		CastDelay = 0.25f,
+		EnergyCost = 4f,
+		Effect = new SpellEffect { Type = SpellEffectType.Imbue, Strength = 0.3f, Duration = 20f },
+		// No WillToEffectPotency: Will already scales the Force damage the imbue is a ratio of.
+		Scaling = new RuneScalingDef { WisdomToDuration = 1f }
 	};
 
 	public static readonly RuneDef ConeMethod = new()
@@ -230,22 +237,61 @@ public static class RuneLibrary
 		}
 	};
  
+	private static RuneDef ForceFor( string element ) => element switch
+	{
+		"fire" => FireForce,
+		"frost" => FrostForce,
+		"air" => AirForce,
+		"earth" => EarthForce,
+		_ => null
+	};
+
+	private static RuneDef MethodFor( string kind ) => kind switch
+	{
+		"ball" => ProjectileMethod,
+		"blast" => BlastMethod,
+		"beam" => BeamMethod,
+		"nova" => NovaMethod,
+		"cone" => ConeMethod,
+		"fleetness" => Fleetness,
+		"launch" => Launch,
+		"weapon" => ImbueMethod,
+		_ => null
+	};
+
+	/// <summary>"fire_nova", "air_launch", "frost_weapon" ... = that element's Force rune + that Method rune.</summary>
+	private static bool TryBuildElementPreset( string key, out List<RuneDef> runes )
+	{
+		runes = null;
+		var parts = key.Split( '_' );
+		if ( parts.Length != 2 ) return false;
+		var force = ForceFor( parts[0] );
+		var method = MethodFor( parts[1] );
+		if ( force == null || method == null ) return false;
+		runes = new List<RuneDef> { force, method };
+		return true;
+	}
+
 	public static List<RuneDef> GetPreset( string presetName )
 	{
-		return presetName.ToLower() switch
+		var key = presetName.ToLower();
+		if ( TryBuildElementPreset( key, out var elemental ) ) return elemental;
+
+		return key switch
 		{
 			"fireball" => new List<RuneDef> { FireForce, ProjectileMethod },
 			"empowered_fireball" => new List<RuneDef> { EmpowerModifier, FireForce, ProjectileMethod },
 			"dual_frost_beam" => new List<RuneDef> { DualCast, FrostForce, BeamMethod },
-			"cluster_bomb" => new List<RuneDef> { DualCast, ClusterTrigger, FireForce, ProjectileMethod },
-			"raw_force" => new List<RuneDef> { FireForce },
-			"airball" => new List<RuneDef> { AirForce, AirProjectileMethod },
-			"frostball" => new List<RuneDef> { FrostForce, FrostProjectileMethod },
-			"earthball" => new List<RuneDef> { EarthForce, EarthProjectileMethod },
-			"fleetness" => new List<RuneDef> { Fleetness },
-			"ember_weapon" => new List<RuneDef> {  EmberWeapon },
-			"launch" => new List<RuneDef> { Launch },
-			"shockwave" => new List<RuneDef> { AirForce, ConeMethod },
+			"cluster_bomb" => new List<RuneDef> { DualCast, ClusterTrigger, FrostForce, ProjectileMethod },
+			"raw_force" => new List<RuneDef> { FrostForce, NovaMethod },
+			"airball" => new List<RuneDef> { AirForce, ProjectileMethod },
+			"frostball" => new List<RuneDef> { FrostForce, ProjectileMethod },
+			"earthball" => new List<RuneDef> { EarthForce, ProjectileMethod },
+			"blast" => new List<RuneDef> { FireForce, BlastMethod },
+			"fleetness" => new List<RuneDef> { FrostForce, Fleetness },
+			"launch" => new List<RuneDef> { FrostForce, Launch },
+			"ember_weapon" => new List<RuneDef> { FrostForce, ImbueMethod },
+			"shockwave" => new List<RuneDef> { FrostForce, ConeMethod },
 			_ => new List<RuneDef> { FireForce, ProjectileMethod }
 		};
 	}

@@ -65,6 +65,26 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.Code.Systems.BlastProjectile",
+        "__guid": "a1f4c2d8-6e30-4b91-8a52-73d0f1b6c945",
+        "__enabled": true,
+        "Flags": 0,
+        "BlastRadius": 750,
+        "BounceCount": 0,
+        "BounceElasticity": 1,
+        "ColliderRadius": 22.37004,
+        "FuseSeconds": 2,
+        "GravityScale": 0.5,
+        "LaunchAngleDegrees": 0,
+        "MaxAimDeviationDegrees": 35,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -173,7 +193,7 @@
                 "ReverbEnabled": false,
                 "ReverbOverride": false,
                 "SoundEvent": {
-                  "Id": "531a4586-4865-4c61-be6b-ccff0e9d67dc",
+                  "Id": "539db856-d8a7-462d-b647-5dd38ec167c4",
                   "Path": "sounds/effects/fire/fire_burn_loop01.sound"
                 },
                 "SoundOverride": false,

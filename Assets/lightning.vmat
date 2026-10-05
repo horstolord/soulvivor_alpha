@@ -1,0 +1,31 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "lightning.shader"
+
+	//---- Bolt Geometry ----
+	g_flCoronaGlowRadius "0.089"
+	g_flForkThickness "0.0395"
+	g_flJaggedWidth "0.050"
+	g_flSegmentDensity "22.171"
+	g_flTrunkThickness "0.080"
+
+	//---- Branching ----
+	g_flBranchIntensity "1.200"
+	g_flForkSpread "0.280"
+	g_flForkStartPoint "0.250"
+
+	//---- Color Settings ----
+	g_vBranchForkColor "[0.254902 0.411765 0.882353 1.000000]"
+	g_vCoreColor "[1.000000 1.000000 1.000000 0.000000]"
+	g_vCoronaGlowColor "[0.200000 0.749020 1.000000 0.000000]"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Temporal Dynamics ----
+	g_flCrackleSpeed "13.176"
+	g_flEmissionOverdrive "1.000"
+	g_flStrobeFlicker "0.000"
+}

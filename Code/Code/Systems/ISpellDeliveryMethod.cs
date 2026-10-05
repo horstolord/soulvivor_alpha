@@ -11,9 +11,11 @@ public struct SpellPayload
 	public SpellContext Context;
 	public RuneDeliveryType DeliveryType;
 	public ProjectileTemplate ProjectileTemplate;
-	public string ProjectilePrefabPath;
+	/// <summary>Resolved at evaluation: rune override, then element override, then shared shape prefab.</summary>
+	public string PrefabPath;
 	public float BeamRange;
 	public float BeamVisualLength;
+	public float BeamRadius;
 	public float AoERadius;
 	public float ConeAngle;
 	public bool ConeRequiresLineOfSight;
@@ -32,7 +34,7 @@ public class ProjectileDeliveryMethod : ISpellDeliveryMethod
 		if ( ctx == null || !ctx.Caster.IsValid() ) return;
 
 		var template = payload.ProjectileTemplate?.Clone() ?? new ProjectileTemplate();
-		template.Speed *= ctx.SpeedMultiplier;
+		template.Speed *= ctx.SpeedMultiplier * ElementLibrary.Get( ctx.PrimaryElement ).ProjectileSpeedMultiplier;
 		template.PierceCount += ctx.BonusPierce;
 
 		var rot = Rotation.LookAt( ctx.AimDirection );
@@ -45,10 +47,10 @@ public class ProjectileDeliveryMethod : ISpellDeliveryMethod
 
 		var spawnTransform = new Transform( ctx.Origin, rot );
 
-		var prefabPath = payload.ProjectilePrefabPath;
+		var prefabPath = payload.PrefabPath;
 		if ( string.IsNullOrWhiteSpace( prefabPath ) )
 		{
-			Log.Warning( "[ProjectileDelivery] Method rune has no ProjectilePrefabPath set." );
+			Log.Warning( "[ProjectileDelivery] No prefab resolved for this projectile." );
 			return;
 		}
 
@@ -115,50 +117,56 @@ public class BeamDeliveryMethod : ISpellDeliveryMethod
 		
 		var ctx = payload.Context;
 		if ( ctx == null || !ctx.Caster.IsValid() ) return;
-		var spawnTransform = new Transform(ctx.Origin, Rotation.LookAt(ctx.AimDirection));
 		var range = payload.BeamRange > 0 ? payload.BeamRange : 3000f;
-		var endPos = ctx.Origin + ctx.AimDirection * range;
-		var config = new CloneConfig( spawnTransform , ctx.Caster, false );
-		var tr = ctx.Caster.Scene.Trace
-			.Ray( ctx.Origin, endPos )
+		var aim = ctx.AimDirection.LengthSquared > 0.001f
+			? ctx.AimDirection.Normal
+			: ctx.Caster.WorldRotation.Forward;
+		var endPos = ctx.Origin + aim * range;
+		float hitRadius = MathF.Max( 0.01f, payload.BeamRadius );
+		var hits = ctx.Caster.Scene.Trace
+			.Sphere( hitRadius, ctx.Origin, endPos )
 			.IgnoreGameObjectHierarchy( ctx.Caster )
-			.Run();
+			.RunAll();
 
-		var targetPos = tr.Hit ? tr.EndPosition : endPos;
+		float visibleDistance = range;
+		Vector3 endNormal = -aim;
+		GameObject blockingObject = null;
+		foreach ( var hit in hits )
+		{
+			if ( !hit.GameObject.IsValid() ) continue;
+			if ( CombatMath.ResolveActorRoot( hit.GameObject ).IsValid() ) continue;
+
+			float distance = Vector3.Dot( hit.HitPosition - ctx.Origin, aim );
+			if ( distance < 0f || distance >= visibleDistance ) continue;
+
+			visibleDistance = distance;
+			endNormal = hit.Normal;
+			blockingObject = hit.GameObject;
+		}
+		var targetPos = ctx.Origin + aim * visibleDistance;
 
 		var baseDamage = ctx.BuildDamageProfile();
-		// ResourceLibrary.Get throws if not found; TryGet returns false silently.
-		if ( ResourceLibrary.TryGet<PrefabFile>( "beamblue.prefab", out var prefabFile ) )
-		{
-			var beamInstance = SceneUtility.GetPrefabScene( prefabFile ).Clone( config );
-			beamInstance.WorldPosition = ctx.Origin;
-			
+		float refLength = payload.BeamVisualLength > 0f ? payload.BeamVisualLength : SpellVfx.RefSize;
+		float beamScale = MathF.Max( 0.01f, visibleDistance / refLength );
+		SpellVfx.Spawn( payload.PrefabPath, ctx.Origin, Rotation.LookAt( aim ), new Vector3( beamScale, 1f, 1f ),
+			SpellVisualResolver.ResolveMaterial( ctx ), ctx.Caster, autoBurst: true );
 
-			float hitDistance = (targetPos - ctx.Origin).Length;
-			float refLength = payload.BeamVisualLength > 0f ? payload.BeamVisualLength : 100f;
-			float scale = MathF.Max( 0.01f, hitDistance / refLength );
-			beamInstance.LocalScale = beamInstance.LocalScale.WithX( scale );
-
-			beamInstance.Enabled = true;
-		}
-		else
+		var alreadyHit = new HashSet<GameObject>();
+		foreach ( var hit in hits )
 		{
-			Log.Warning( $"[BeamDelivery] Could not find beamblue.prefab in ResourceLibrary!" );
-		}
+			if ( !hit.GameObject.IsValid() ) continue;
+			var actorRoot = CombatMath.ResolveActorRoot( hit.GameObject );
+			if ( !actorRoot.IsValid() || alreadyHit.Contains( actorRoot ) ) continue;
 
-		if ( tr.Hit && tr.GameObject.IsValid() )
-		{
-			// HitResolver handles crit, PhysicalForce, damage, and knockback in one place.
-			// Single-target ray hit — no dedup set needed (null).
-			HitResolver.Apply( ctx.Caster, tr.GameObject, baseDamage, ctx.AimDirection,
-				alreadyHit: null, hitPoint: tr.HitPosition );
-			SpellEffectApplier.Apply( ctx, tr.GameObject, ctx.Origin );
+			float distance = Vector3.Dot( hit.HitPosition - ctx.Origin, aim );
+			if ( distance < 0f || distance > visibleDistance ) continue;
+
+			if ( HitResolver.Apply( ctx.Caster, hit.GameObject, baseDamage, aim, alreadyHit, hit.HitPosition ) )
+				SpellEffectApplier.Apply( ctx, actorRoot, hit.HitPosition );
 		}
 
 		if ( ctx.TriggerPayloadRunes != null && ctx.TriggerPayloadRunes.Count > 0 )
-		{
-			RuneEvaluator.ExecuteTriggerPayload( ctx, targetPos, tr.Normal, tr.GameObject );
-		}
+			RuneEvaluator.ExecuteTriggerPayload( ctx, targetPos, endNormal, blockingObject );
 	}
 }
 
@@ -168,6 +176,17 @@ public class SelfDeliveryMethod : ISpellDeliveryMethod
 	{
 		var ctx = payload.Context;
 		if ( ctx == null || !ctx.Caster.IsValid() ) return;
+
+		float? visualLifetime = null;
+		foreach ( var effect in ctx.Effects )
+		{
+			if ( effect?.Type != SpellEffectType.Buff || effect.Duration <= 0f ) continue;
+			if ( !visualLifetime.HasValue || effect.Duration > visualLifetime.Value )
+				visualLifetime = effect.Duration;
+		}
+
+		SpellVfx.Spawn( payload.PrefabPath, ctx.Caster.WorldPosition, ctx.Caster.WorldRotation, Vector3.One,
+			SpellVisualResolver.ResolveMaterial( ctx ), ctx.Caster, lifetime: visualLifetime );
 		SpellEffectApplier.Apply( ctx, ctx.Caster, ctx.Origin );
 		if ( ctx.TriggerPayloadRunes != null && ctx.TriggerPayloadRunes.Count > 0 )
 			RuneEvaluator.ExecuteTriggerPayload( ctx, ctx.Origin, Vector3.Up, ctx.Caster );
@@ -181,6 +200,9 @@ public class NovaDeliveryMethod : ISpellDeliveryMethod
 		var ctx = payload.Context;
 		if ( ctx == null || !ctx.Caster.IsValid() ) return;
 		var radius = payload.AoERadius > 0 ? payload.AoERadius : 150f;
+		// Shape prefab is authored with a 100-unit radius at scale 1.
+		SpellVfx.Spawn( payload.PrefabPath, ctx.Origin, Rotation.Identity, Vector3.One * (radius / SpellVfx.RefSize),
+			SpellVisualResolver.ResolveMaterial( ctx ) );
 		var hits = ctx.Caster.Scene.Trace
 			.Sphere( radius, ctx.Origin, ctx.Origin )
 			.IgnoreGameObjectHierarchy( ctx.Caster )
@@ -219,6 +241,9 @@ public class ConeDeliveryMethod : ISpellDeliveryMethod
 		float halfAngle = Math.Clamp( payload.ConeAngle, 1f, 179f ) * 0.5f;
 		float minDot = MathF.Cos( halfAngle * MathF.PI / 180f );
 		var aim = ctx.AimDirection.LengthSquared > 0.001f ? ctx.AimDirection.Normal : ctx.Caster.WorldRotation.Forward;
+		float spread = MathF.Tan( halfAngle * MathF.PI / 180f ) * range / SpellVfx.RefSize;
+		SpellVfx.Spawn( payload.PrefabPath, ctx.Origin, Rotation.LookAt( aim ), new Vector3( range / SpellVfx.RefSize, spread, spread ),
+			SpellVisualResolver.ResolveMaterial( ctx ) );
 		var candidates = ctx.Caster.Scene.Trace.Sphere( range, ctx.Origin, ctx.Origin )
 			.IgnoreGameObjectHierarchy( ctx.Caster ).RunAll();
 		var baseDamage = ctx.BuildDamageProfile();
@@ -251,4 +276,15 @@ public class ConeDeliveryMethod : ISpellDeliveryMethod
 			RuneEvaluator.ExecuteTriggerPayload( ctx, ctx.Origin, aim, null );
 	}
 
+}
+
+/// <summary>Applies the cast's effects to the caster; an Imbue effect hooks the weapon (see WeaponImbueControl).</summary>
+public class ImbueDeliveryMethod : ISpellDeliveryMethod
+{
+	public void Deliver( SpellPayload payload )
+	{
+		var ctx = payload.Context;
+		if ( ctx == null || !ctx.Caster.IsValid() ) return;
+		SpellEffectApplier.Apply( ctx, ctx.Caster, ctx.Origin );
+	}
 }

@@ -1,0 +1,198 @@
+{
+  "RootObject": {
+    "__guid": "1fa3b847-8588-4c60-92c1-4be1db124268",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "frostbeam",
+    "Position": "19.9854946,15.6127472,11.4902182",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "8735892e-62e3-46e2-800c-79ee2c9e774a",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "beam (1)",
+        "Position": "13.582655,-15.0866032,26.4361038",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "0.640000224,0.959999919,0.210000232",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "d6414a35-4a2d-4338-b220-1d2c046f7140",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "c7e1ff68-5327-40ee-a3fc-c8d5c15aa497",
+              "Path": "cold_plume.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "39b1a69c-fc22-4d09-87da-00c6a842b81b",
+              "Path": "models/beam.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "ca34d4d7-4722-46de-b781-646c37035e70",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "beam",
+        "Position": "13.582655,-15.0866032,25.37883",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "0.359999955,0.95999974,-0.0900000334",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "1c3dca2b-b307-4e40-968f-6297e2046c36",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "3389b3dc-4321-4391-8508-e9201df8138c",
+              "Path": "icefog.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "39b1a69c-fc22-4d09-87da-00c6a842b81b",
+              "Path": "models/beam.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "9410b9a2-a482-4934-941f-82c428d4be38",
+            "__version": 2,
+            "Flags": 0,
+            "Name": "Spot Light",
+            "Position": "0,0,0",
+            "Rotation": "0,0,0.707106769,-0.707106769",
+            "Scale": "1,1,1",
+            "Tags": "light_spot,light",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkFlags": 0,
+            "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
+            "OwnerTransfer": 1,
+            "Components": [
+              {
+                "__type": "Sandbox.SpotLight",
+                "__guid": "30c20bf2-1ddb-4bd3-9aeb-36e2fad01ab9",
+                "__enabled": true,
+                "Flags": 0,
+                "Attenuation": 1,
+                "ConeInner": 15,
+                "ConeOuter": 45,
+                "Contribution": "Diffuse, Specular, Transmissive",
+                "Cookie": null,
+                "FogMode": "Enabled",
+                "FogStrength": 1,
+                "LightColor": "0.91373,0.98039,1,1",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 658.3302,
+                "ShadowBias": 0,
+                "ShadowHardness": 0,
+                "Shadows": true
+              }
+            ],
+            "Children": []
+          }
+        ]
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

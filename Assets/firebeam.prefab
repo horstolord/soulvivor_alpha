@@ -4,9 +4,9 @@
     "__version": 2,
     "Flags": 0,
     "Name": "firebeam",
-    "Position": "0,0,0",
+    "Position": "0,0,-2.10424995",
     "Rotation": "0,0,0,1",
-    "Scale": "0.5,10,1",
+    "Scale": "1,1,1",
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
@@ -14,40 +14,135 @@
     "NetworkOrphaned": 0,
     "NetworkTransmit": true,
     "OwnerTransfer": 1,
-    "Components": [
+    "Components": [],
+    "Children": [
       {
-        "__type": "Sandbox.ModelRenderer",
-        "__guid": "431d3707-954c-4b71-b223-6aab11221174",
-        "__enabled": true,
+        "__guid": "448e0d92-79be-4682-b9e1-e6f1a12582f9",
+        "__version": 2,
         "Flags": 0,
-        "BodyGroups": 18446744073709551615,
-        "CreateAttachments": false,
-        "LodOverride": null,
-        "MaterialGroup": null,
-        "MaterialOverride": null,
-        "Materials": {
-          "indexed": {
-            "0": "karmanfire.vmat"
+        "Name": "beam",
+        "Position": "13.582655,-15.0866032,-1.72056198",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "0.359999955,0.95999974,-0.0900000334",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "ab8189c8-145a-4795-832a-ebed7fd1687e",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "6c74036b-aa9a-41a5-807f-418f441651dc",
+              "Path": "karmanfiresheath.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "39b1a69c-fc22-4d09-87da-00c6a842b81b",
+              "Path": "models/beam.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
           }
-        },
-        "Model": "models/dev/sphere.vmdl",
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "RenderOptions": {
-          "GameLayer": true,
-          "OverlayLayer": false,
-          "BloomLayer": false,
-          "AfterUILayer": false
-        },
-        "RenderType": "On",
-        "Tint": "1,1,1,1"
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "77613469-47f8-4c6b-a2fa-f93fd92c5318",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "beam (1)",
+        "Position": "13.582655,-15.0866032,-0.663288116",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "0.640000224,0.959999919,0.210000232",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "324fbac9-142e-42f8-89ab-5e5dcd2e7de9",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "302f5040-5bc3-4a3b-b5dd-d47c82683f98",
+              "Path": "fire_inferno_plume.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "39b1a69c-fc22-4d09-87da-00c6a842b81b",
+              "Path": "models/beam.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
       }
     ],
-    "Children": []
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
   },
   "ResourceVersion": 2,
   "ShowInMenu": false,

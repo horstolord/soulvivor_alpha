@@ -362,7 +362,7 @@
           "__guid": "b9654ba3-6ea1-43b6-82ab-52e06611f5d2",
           "__enabled": true,
           "Flags": 0,
-          "AccelerationTime": 0,
+          "AccelerationTime": 2,
           "AimStrengthBody": 1,
           "AimStrengthEyes": 1,
           "AimStrengthHead": 1,
@@ -385,7 +385,7 @@
             "_type": "gameobject",
             "go": "04c481d3-665f-4cd9-8239-69d37768fa56"
           },
-          "DeaccelerationTime": 0,
+          "DeaccelerationTime": 2,
           "DuckedHeight": 36,
           "DuckedSpeed": 70,
           "EnableFootstepSounds": true,
@@ -3374,7 +3374,7 @@
               "Children": []
             },
             {
-              "__guid": "7f54018f-a0df-4a2a-ac60-f4fae0aa4e9d",
+              "__guid": "6f365317-0bba-48df-8859-f7ecfb9702e5",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -3391,7 +3391,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "2a3dcee5-bc74-44e4-b6e1-51ef434d716d",
+                  "__guid": "5e7dfe23-b4a2-4c46-8cd6-3492f1ad751e",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -3441,7 +3441,7 @@
               "Children": []
             },
             {
-              "__guid": "310973ce-82e6-4d2a-a361-e5591b7ac616",
+              "__guid": "ce8a8da7-8f94-410d-b083-e4e4584d36c9",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -3458,7 +3458,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "6a857938-417e-4160-8ec0-0f3e1062301e",
+                  "__guid": "a5ede21c-eda8-49c1-bb02-12716f1bac30",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -3508,7 +3508,7 @@
               "Children": []
             },
             {
-              "__guid": "ca66d055-5528-464c-9152-e2f36dd4f82f",
+              "__guid": "dee8731d-e146-4c93-9bcb-410d068fea87",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -3525,7 +3525,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "918e990e-4bcf-48ab-a018-66ecf36efe0a",
+                  "__guid": "6c4d7a0b-63f1-4658-b651-1c9303675fd6",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -3575,7 +3575,7 @@
               "Children": []
             },
             {
-              "__guid": "16682194-a4b9-410a-ac19-40c1097d02dd",
+              "__guid": "68d6708b-2500-486c-8374-dda7a4ab1025",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -3592,7 +3592,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "bec30b88-4f16-4089-8f40-a93f51be998c",
+                  "__guid": "88b50664-114d-40b8-894b-d47639f14497",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -3642,7 +3642,7 @@
               "Children": []
             },
             {
-              "__guid": "08ed965d-061a-4cf2-bf26-1bcc57b75b84",
+              "__guid": "1d7ca18a-cdc8-409c-a6d5-8c4f9d9706fe",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -3659,7 +3659,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "d5aeb715-20d9-4fe2-b656-94e44ca1ebb7",
+                  "__guid": "ff8bab29-d2fc-46e4-87c8-7e8f45b83723",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -3810,6 +3810,14 @@
             },
             "Property": "Position",
             "Value": "-70.1636963,-562.224548,32.0000305"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "d4e7f501-9b63-4ec4-bd85-a603c4e9f278"
+            },
+            "Property": "MaxAimDeviationDegrees",
+            "Value": 35
           }
         ],
         "MovedObjects": []
@@ -3821,17 +3829,18 @@
         "0d836101-ade3-4de9-b02b-9b9a1a56dda1": "3c30c950-1c60-48b8-a7bb-498c08b40123",
         "a69a72d7-e989-476f-86d0-2b9fa4da1056": "f22172b9-ff60-4067-8acb-2c40a41b0cf1",
         "e5d95d22-cb3c-4c13-8d74-d67f25cd2140": "7bdb10df-5238-40b8-947d-4610db4f7f55",
-        "668c28de-f33c-418f-a88a-7e7e66d0ad27": "1b847a94-de67-4c76-a7e6-c6d7ff5b6998",
-        "2c621679-67eb-424f-b9e1-7e49f39478ba": "114f7251-f585-4b44-b22e-efd16b290a96",
-        "7be613dd-a1ba-4824-a30b-da4128391c22": "5cc0b250-1543-451b-b50c-56e687ffeb5e",
         "97f48d81-35e9-49be-9476-dab7446cef9d": "3b7d9fe5-dc6b-4afb-8673-d22b8028d07f",
         "fa61376d-9e26-403c-9f98-281656542f5d": "8228222e-b561-4bc8-9795-27b7192de488",
         "793a59b1-f7c3-4c18-b31b-c56a6ebdfaef": "92811d11-124c-4372-9ad6-515386fd0bb3",
-        "33d8c7e8-c861-4b6d-af9d-f694a8fc2846": "9c2b5560-aba3-4379-b07d-2c6daf193d3e",
+        "e2d29430-d5df-4cac-aa09-baed63e83845": "881b6697-144b-4eaf-9626-b0f98813be15",
         "65f3a517-8feb-4a45-b8c4-6976dbf5d636": "8c01757c-d25c-4d07-ad17-683d92deea41",
         "af35655b-33fb-42dc-ae77-ff5d84c8f139": "770aef44-023a-47ef-a710-76aee51f17c9",
         "468449bc-3354-480a-846b-fc3dfa71cd30": "5157f577-c226-47a2-a50a-aedb235381a1",
-        "e2d29430-d5df-4cac-aa09-baed63e83845": "881b6697-144b-4eaf-9626-b0f98813be15"
+        "66a1f682-a6aa-4f9f-98cb-35d825597bd6": "b17975db-9dc2-8195-8de7-dd05d612cc3f",
+        "668c28de-f33c-418f-a88a-7e7e66d0ad27": "1b847a94-de67-4c76-a7e6-c6d7ff5b6998",
+        "2c621679-67eb-424f-b9e1-7e49f39478ba": "114f7251-f585-4b44-b22e-efd16b290a96",
+        "7be613dd-a1ba-4824-a30b-da4128391c22": "5cc0b250-1543-451b-b50c-56e687ffeb5e",
+        "33d8c7e8-c861-4b6d-af9d-f694a8fc2846": "9c2b5560-aba3-4379-b07d-2c6daf193d3e"
       }
     },
     {
@@ -3870,15 +3879,16 @@
         "66bb4a12-2587-4729-b8af-a42109ea4a8b": "e88e41ac-5d79-427d-961a-62c9ba87fc5d",
         "d0ba34fd-96e6-4718-befe-b6a86406ce23": "6d96e3ec-43f2-4ffe-8298-b5cd8e8a1a30",
         "4a554f82-5a91-408b-948c-a8cd1da6189a": "e1da69d5-c0ff-8c1e-bc5d-719ccb1392c3",
+        "7547fcb4-8cc9-4aa6-afa9-85818ed726b8": "f902d3e9-e9f1-873f-bb10-7fc53fbf6f25",
+        "fa61376d-9e26-403c-9f98-281656542f5d": "4ace9e41-dc35-40ef-871a-dbad6f49a09e",
+        "fbc2c4e7-db1b-41a1-b10f-249755ba2355": "d046036c-6c5c-4ed8-bef5-86563fd1a3f2",
+        "cbcb42b4-3156-42d9-a0dc-c8b33b45940c": "23b64085-1cbc-8334-ace0-77ccabc1ff5a",
+        "a1f4c2d8-6e30-4b91-8a52-73d0f1b6c945": "9345ab3a-ead9-86f8-abc0-31b350d23028",
         "97f48d81-35e9-49be-9476-dab7446cef9d": "f04da5a9-debe-4058-9f3e-dd0ce909a9ba",
         "668c28de-f33c-418f-a88a-7e7e66d0ad27": "c45bb280-307f-4873-9a5a-4473b4b7bbee",
-        "7be613dd-a1ba-4824-a30b-da4128391c22": "ed8116c3-2b09-4d39-8721-2d70278c59a3",
-        "fa61376d-9e26-403c-9f98-281656542f5d": "4ace9e41-dc35-40ef-871a-dbad6f49a09e",
-        "5e71168e-8f67-43e0-b099-527b8c437fc6": "6a373111-b65f-8d4f-bb10-4ea92c8f5d31",
-        "7547fcb4-8cc9-4aa6-afa9-85818ed726b8": "f902d3e9-e9f1-873f-bb10-7fc53fbf6f25",
         "2c621679-67eb-424f-b9e1-7e49f39478ba": "b9ab4374-6369-458c-bcc0-ac7a10041607",
-        "fbc2c4e7-db1b-41a1-b10f-249755ba2355": "d046036c-6c5c-4ed8-bef5-86563fd1a3f2",
-        "cbcb42b4-3156-42d9-a0dc-c8b33b45940c": "23b64085-1cbc-8334-ace0-77ccabc1ff5a"
+        "7be613dd-a1ba-4824-a30b-da4128391c22": "ed8116c3-2b09-4d39-8721-2d70278c59a3",
+        "5e71168e-8f67-43e0-b099-527b8c437fc6": "6a373111-b65f-8d4f-bb10-4ea92c8f5d31"
       }
     },
     {
@@ -3907,6 +3917,14 @@
             },
             "Property": "Position",
             "Value": "-299.661652,-363.995117,32"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "b2c5d3e9-7f41-4ca2-9b63-84e1a2c7d056"
+            },
+            "Property": "MaxAimDeviationDegrees",
+            "Value": 35
           }
         ],
         "MovedObjects": []
@@ -3917,12 +3935,13 @@
         "e4d64014-06fe-4695-b96b-685df15597df": "76f49552-c997-4610-aa35-cba7c138ff8e",
         "7dc281be-9742-48c1-b869-1594994adb38": "9dec16bf-e291-4643-af5d-08da69bfad1d",
         "9af1995f-a4e7-47fe-9092-756abc02f167": "b15c3dfe-4ca2-4bec-8c5b-5e673b820ded",
-        "50a2a931-4af7-44ab-b01b-36930c01edc8": "27b1d7af-fea0-41ea-a44f-e6523c3b3bbd",
-        "2e61847f-fda8-4000-984f-8b27b9d669f8": "d2b4ea85-9ab7-44a0-a10c-4600fb6a3ecc",
-        "03e42f48-8a37-4700-af7c-0e72fcd10f84": "ffd7b89c-a097-45bd-8c4d-daf57645ee5c",
-        "16f3edd9-ef87-4a6a-86ec-fd9bf9ce5af6": "e27300f7-da50-4180-883f-34332e2043a1",
+        "0c4f03cd-bfd6-4951-bc33-29a672a22edc": "a7e2bb92-bd8c-8044-8896-736c994d59e8",
         "a1e8c4f2-3b7d-4e91-9c2a-5f6d8e0b1a43": "cefb1f4e-3614-48b9-80b5-c7d83bc69ad5",
         "b2f9d5e3-4c8e-5f02-ad3b-6e7f9a1c2b54": "a27880e2-169a-4a89-89ad-80fdb1518914",
+        "16f3edd9-ef87-4a6a-86ec-fd9bf9ce5af6": "e27300f7-da50-4180-883f-34332e2043a1",
+        "2e61847f-fda8-4000-984f-8b27b9d669f8": "d2b4ea85-9ab7-44a0-a10c-4600fb6a3ecc",
+        "50a2a931-4af7-44ab-b01b-36930c01edc8": "27b1d7af-fea0-41ea-a44f-e6523c3b3bbd",
+        "03e42f48-8a37-4700-af7c-0e72fcd10f84": "ffd7b89c-a097-45bd-8c4d-daf57645ee5c",
         "c3a0e6f4-5d9f-6013-be4c-7f8a0b2d3c65": "8b5e38c6-777b-4935-a5ca-033491a866b0"
       }
     },
@@ -3952,6 +3971,14 @@
             },
             "Property": "Position",
             "Value": "-142.281754,-798.781128,31.9999962"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "c3d6e4f0-8a52-4db3-ac74-95f2b3d8e167"
+            },
+            "Property": "MaxAimDeviationDegrees",
+            "Value": 35
           }
         ],
         "MovedObjects": []
@@ -3962,16 +3989,18 @@
         "66bb4a12-2587-4729-b8af-a42109ea4a8b": "51978a16-d3e8-4e8a-b550-44f29c9ce003",
         "d0ba34fd-96e6-4718-befe-b6a86406ce23": "5228721a-3307-48af-8aaf-8239300d16b1",
         "ed10a53f-931a-4253-afc2-42482853fa99": "50af3e7e-b506-4415-a185-07d8705993fc",
-        "fa61376d-9e26-403c-9f98-281656542f5d": "03cdf0c7-2be0-4a52-8aec-9d725bfbc12e",
-        "2c621679-67eb-424f-b9e1-7e49f39478ba": "94621d9d-9967-47fe-b741-309f8606bcdc",
-        "fbc2c4e7-db1b-41a1-b10f-249755ba2355": "f3ef8848-3d53-4f95-9622-ddc629647032",
+        "1720922e-4843-4f4e-aa8a-e13e11158f11": "310c419b-1a9b-8ac9-95b3-6ec97895fea0",
+        "7be613dd-a1ba-4824-a30b-da4128391c22": "6cfc6064-1f71-4795-9833-18a8191eea35",
+        "bc0d3b7b-3e1a-43af-86cb-0dae6f52d460": "0142a211-3519-8fa3-8d88-3d7ffe965b29",
         "97f48d81-35e9-49be-9476-dab7446cef9d": "82bc0eeb-6606-4157-b91f-ab7a6dd4edfe",
-        "ad72f49a-752a-43e2-a8bb-2cf8e443705b": "256a93fb-f2da-4151-a994-ec499781c97d",
-        "a218d62a-e857-41ec-a04d-29a4dfa29114": "54bd358c-837d-4ab1-b271-1477c8fec1f6",
+        "2c621679-67eb-424f-b9e1-7e49f39478ba": "94621d9d-9967-47fe-b741-309f8606bcdc",
         "358527d0-6ef1-4250-a875-bba690854bcc": "c5afde6a-7a34-4e5a-b497-ea359fac70bd",
-        "668c28de-f33c-418f-a88a-7e7e66d0ad27": "c674997d-e1cd-47f9-b12a-63aeb2dad62a",
         "856f1c7c-e717-450b-937f-0e4ba1db2860": "a78b4b92-4d44-4d0f-a4e6-6bbb2fee9e9b",
-        "7be613dd-a1ba-4824-a30b-da4128391c22": "6cfc6064-1f71-4795-9833-18a8191eea35"
+        "ad72f49a-752a-43e2-a8bb-2cf8e443705b": "256a93fb-f2da-4151-a994-ec499781c97d",
+        "c71d8b29-5da7-4713-9e46-1a47cd57c8b9": "5f5cca6a-11ba-8225-ac8f-bbadd09dc1e8",
+        "fbc2c4e7-db1b-41a1-b10f-249755ba2355": "f3ef8848-3d53-4f95-9622-ddc629647032",
+        "668c28de-f33c-418f-a88a-7e7e66d0ad27": "c674997d-e1cd-47f9-b12a-63aeb2dad62a",
+        "fa61376d-9e26-403c-9f98-281656542f5d": "03cdf0c7-2be0-4a52-8aec-9d725bfbc12e"
       }
     }
   ],

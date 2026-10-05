@@ -95,15 +95,17 @@ public static class RuneEvaluator
 					ctx.AccumulatedDamage.StaminaDamage += rune.StaminaDamage;
 					ctx.AccumulatedDamage.KnockbackForce += rune.KnockbackForce;
 					if ( rune.ElementTag.HasValue ) ctx.ElementTags.Add( rune.ElementTag.Value );
+					ctx.PrimaryElement ??= rune.ElementTag;
 					ctx.VisualMaterial ??= rune.VisualMaterial;
 					foreach ( var tag in rune.SpellTags ) ctx.AttackTags.Add( tag );
 					break;
 
 				case RuneCategory.Method:
 					hasMethod = true;
-					if ( rune.Effect != null )
+					var baseEffect = ResolveEffect( rune, ctx.PrimaryElement );
+					if ( baseEffect != null )
 					{
-						var effect = rune.Effect.Clone();
+						var effect = baseEffect.Clone();
 						var scaling = rune.Scaling;
 						float potency = 1f + MathF.Max( 0f, will * (scaling?.WillToEffectPotency ?? 0f) / 100f );
 						potency *= (statSheet?.EffectPotency.Value ?? 100f) / 100f;
@@ -145,7 +147,8 @@ public static class RuneEvaluator
 			{
 				Context = ctx.Clone(),
 				DeliveryType = RuneDeliveryType.Nova,
-				AoERadius = 120f
+				AoERadius = 120f,
+				PrefabPath = SpellVisualResolver.ResolvePrefab( ctx.PrimaryElement, SpellShape.Nova )
 			};
 			result.Payloads.Add( fallbackPayload );
 		}
@@ -170,6 +173,15 @@ public static class RuneEvaluator
 		return ChargeScalingDef.Default;
 	}
 
+	/// <summary>The Method rune's element-specific effect if the Force rune picked an element it defines one for.</summary>
+	private static SpellEffect ResolveEffect( RuneDef rune, RuneElementTag? element )
+	{
+		if ( element.HasValue && rune.ElementEffects != null
+			&& rune.ElementEffects.TryGetValue( element.Value, out var variant ) && variant != null )
+			return variant;
+		return rune.Effect;
+	}
+
 	private static void CreatePayloadsForMethod( SpellContext ctx, RuneDef methodRune, List<SpellPayload> outPayloads )
 	{
 		int count = Math.Max( 1, ctx.MulticastCount );
@@ -181,9 +193,10 @@ public static class RuneEvaluator
 				Context = payloadCtx,
 				DeliveryType = methodRune.DeliveryType,
 				ProjectileTemplate = methodRune.ProjectileTemplate,
-				ProjectilePrefabPath = methodRune.ProjectilePrefabPath,
+				PrefabPath = SpellVisualResolver.ResolvePrefab( payloadCtx.PrimaryElement, SpellVisualResolver.ShapeOf( methodRune.DeliveryType ), methodRune ),
 				BeamRange = methodRune.Range,
-				BeamVisualLength = methodRune.BeamVisualLength, 
+				BeamVisualLength = methodRune.BeamVisualLength,
+				BeamRadius = methodRune.BeamRadius,
 				AoERadius = methodRune.AoERadius,
 				ConeAngle = methodRune.ConeAngle,
 				ConeRequiresLineOfSight = methodRune.ConeRequiresLineOfSight
@@ -225,10 +238,12 @@ public static class RuneEvaluator
 		ISpellDeliveryMethod deliveryMethod = payload.DeliveryType switch
 		{
 			RuneDeliveryType.Projectile => new ProjectileDeliveryMethod(),
+			RuneDeliveryType.Blast => new BlastDeliveryMethod(),
 			RuneDeliveryType.Beam => new BeamDeliveryMethod(),
 			RuneDeliveryType.Nova => new NovaDeliveryMethod(),
 			RuneDeliveryType.Self => new SelfDeliveryMethod(),
 			RuneDeliveryType.Cone => new ConeDeliveryMethod(),
+			RuneDeliveryType.Imbue => new ImbueDeliveryMethod(),
 			RuneDeliveryType.AoE => null,
 			_ => null
 		};

@@ -25,13 +25,13 @@ Layer0
 	g_vMotionVelocity "[0.000 0.000 0.000]"
 
 	//---- Sparks & Embers ----
-	g_flEmissionOverdrive "1.515"
+	g_flEmissionOverdrive "0.688"
 	g_flSparkDensity "1.600"
-	g_flSparkElongation "6.000"
+	g_flSparkElongation "5.239"
 
 	//---- Vortex Dynamics ----
-	g_flAscentSpeed "0.500"
+	g_flAscentSpeed "2.841"
 	g_flBuoyancySpread "0.943"
 	g_flCurlTurbulence "3.000"
-	g_flFlameTaper "3.627"
+	g_flFlameTaper "1.224"
 }

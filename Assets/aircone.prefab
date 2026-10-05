@@ -1,0 +1,197 @@
+{
+  "RootObject": {
+    "__guid": "a586651c-ba40-42be-b41d-889f165275a5",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "aircone",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0.707106769,0.707106769",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [],
+    "Children": [
+      {
+        "__guid": "9909321a-af89-4889-b348-1c4dd51b9a4e",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "cone",
+        "Position": "0,0,-47.3486176",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "1.18999982,0.980000019,0.650000215",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "a32e2588-346d-40ef-aff1-53a811501cc1",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "313f0485-0eb2-413b-ae84-8c946aca4582",
+              "Path": "airforce.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "329b8323-fec9-41b5-a4e3-3e25f0456b43",
+              "Path": "models/cone.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "Off",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "ed009041-11ae-455c-88c1-fac10f4ca3af",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "cone (1)",
+        "Position": "0,0,-47.3486176",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "1.18999982,0.980000019,0.650000215",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "71c02890-68b5-431c-a7e0-1061efe0c35e",
+            "__enabled": true,
+            "Flags": 0,
+            "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": {
+              "Id": "aa4b0aa6-f12d-45a6-8688-61119a6feedd",
+              "Path": "lightning.vmat"
+            },
+            "Materials": null,
+            "Model": {
+              "Id": "329b8323-fec9-41b5-a4e3-3e25f0456b43",
+              "Path": "models/cone.vmdl"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "Off",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "d0e609ab-7728-4cfd-b0b3-f7c29fbbfcb0",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Spot Light",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0.707106769,0.707106769",
+        "Scale": "1,1,1",
+        "Tags": "light_spot,light",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.SpotLight",
+            "__guid": "08cfe559-d491-41c0-b4d9-db8d3a770d88",
+            "__enabled": true,
+            "Flags": 0,
+            "Attenuation": 1,
+            "ConeInner": 15,
+            "ConeOuter": 47.623318,
+            "Contribution": "Diffuse, Specular, Transmissive",
+            "Cookie": null,
+            "FogMode": "Enabled",
+            "FogStrength": 1,
+            "LightColor": "0.91373,0.98039,1,1",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Radius": 1000,
+            "ShadowBias": 0,
+            "ShadowHardness": 0,
+            "Shadows": true
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

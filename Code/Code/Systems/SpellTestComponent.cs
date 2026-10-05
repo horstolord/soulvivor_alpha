@@ -39,6 +39,7 @@ public sealed class SpellTestComponent : Component
 		if ( Input.Keyboard.Pressed( "Q" ) ) LoadPreset( "ember_weapon" );
 		if ( Input.Keyboard.Pressed( "E" ) ) LoadPreset( "launch" );
 		if ( Input.Keyboard.Pressed( "R" ) ) LoadPreset( "shockwave" );
+		if ( Input.Keyboard.Pressed( "B" ) ) LoadPreset( "blast" );
 
 		// Cast on 'C' key
 		if ( Input.Keyboard.Pressed( "C" )  )

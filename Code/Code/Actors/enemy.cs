@@ -55,6 +55,8 @@ public sealed class Enemy : Actor
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
+		bodyRenderer?.Set( "b_hit", StateComp?.CurrentState == ActorStateType.Staggered );
+
 		if ( Target == null )
 		{
 			FindPlayerTarget();

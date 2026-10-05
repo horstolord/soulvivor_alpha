@@ -272,9 +272,10 @@ public sealed class SpellComponent : Component
 
 		foreach ( var payload in _pendingCast.Payloads )
 		{
-			if ( payload.DeliveryType != RuneDeliveryType.Projectile || string.IsNullOrWhiteSpace( payload.ProjectilePrefabPath ) )
+			if ( (payload.DeliveryType != RuneDeliveryType.Projectile && payload.DeliveryType != RuneDeliveryType.Blast)
+				|| string.IsNullOrWhiteSpace( payload.PrefabPath ) )
 				continue;
-			if ( !ResourceLibrary.TryGet<PrefabFile>( payload.ProjectilePrefabPath, out var prefabFile ) )
+			if ( !ResourceLibrary.TryGet<PrefabFile>( payload.PrefabPath, out var prefabFile ) )
 				continue;
 
 			var ctx = payload.Context;

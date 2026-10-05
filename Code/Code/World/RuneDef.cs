@@ -9,7 +9,7 @@ public enum RuneCategory { Force, Method, Modifier, Multicast, Trigger }
 public enum RuneElementTag { Fire, Frost, Air, Earth, Light, Dark }
 
 // Keep existing serialized values stable: SelfTouch was the old Nova behaviour.
-public enum RuneDeliveryType { Projectile = 0, Beam = 1, Nova = 2, AoE = 3, Self = 4, Cone = 5 }
+public enum RuneDeliveryType { Projectile = 0, Beam = 1, Nova = 2, AoE = 3, Self = 4, Cone = 5, Imbue = 6, Blast = 7 }
 
 public class RuneScalingDef
 {
@@ -70,9 +70,16 @@ public class RuneDef : ICostable
 	public string ProjectilePrefabPath; // Self-contained prefab: mesh/particles + motion + Projectile
 
 	public string BeamPrefabPath;
+	/// <summary>Explicit prefab for any delivery shape. Leave empty to resolve per element (SpellVisualResolver).</summary>
+	public string PrefabPath;
+	/// <summary>Beam mesh length at scale 1; the mesh should extend along local X from its origin.</summary>
 	public float BeamVisualLength = 100f;
+	/// <summary>Beam hit radius in world units; author the mesh to approximately twice this width at scale 1.</summary>
+	public float BeamRadius = 16f;
 	/// <summary>Optional resolved effect carried by a Method rune; this is not a player-facing rune category.</summary>
 	public SpellEffect Effect;
+	/// <summary>Per-element replacements for Effect, picked by the Force rune's element (SpellContext.PrimaryElement).</summary>
+	public Dictionary<RuneElementTag, SpellEffect> ElementEffects;
 	// Modifier Runes: Mutator action for active SpellContext
 	public Action<SpellContext> ModifierEffect;
 
