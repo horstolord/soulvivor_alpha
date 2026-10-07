@@ -28,6 +28,7 @@ public sealed class CombatComponent : Component
 	private float AttackElapsed;
 	private float _cooldownTimer;
 	private HashSet<GameObject> _hitObjects = new();
+	private readonly Dictionary<HitPhaseDef, (Vector3 Origin, Rotation Facing)> _phasePoses = new();
 
 	[Property] public GameObject ArrowPrefab { get; set; }
 	[Property] public Vector3 ProjectileSpawnOffset { get; set; } = new Vector3( 0f, 0f, 60f );
@@ -61,6 +62,7 @@ public sealed class CombatComponent : Component
 		var attack = request.Attack;
 		var attackerActor = ResolveActor( request.Attacker );
 		var attackerMight = attackerActor?.StatSheet?.Might.Value ?? 0f;
+		var attackerSwiftness = attackerActor?.StatSheet?.Swiftness.Value ?? 0f;
 		// Live off StatSheet.AttackSpeed (buffs, loot affixes, etc.) rather than baked into the
 		// AttackDef at build time — mirrors how SpellComponent already reads CastSpeed live at cast time.
 		var attackSpeedMultiplier = MathF.Max( 0.01f, (attackerActor?.StatSheet?.AttackSpeed.Value ?? 100f) / 100f );
@@ -68,6 +70,7 @@ public sealed class CombatComponent : Component
 		var baseDamage = new DamageProfileDef
 		{
 			HealthDamage = attack.Damage.HealthDamage + attackerMight * attack.Scaling.MightToHealthDamage
+				+ attackerSwiftness * attack.Scaling.SwiftnessToHealthDamage
 				+ (attackerActor?.StatSheet?.WeaponDamage.Value ?? 0f) * attack.WeaponDamageEffectiveness,
 			StaminaDamage = attack.Damage.StaminaDamage,
 			KnockbackForce = attack.Damage.KnockbackForce * attack.Scaling.MightToKnockbackForce,
@@ -161,34 +164,53 @@ public sealed class CombatComponent : Component
 		CurrentAttack = context;
 		AttackElapsed = 0f;
 		_hitObjects.Clear();
+		_phasePoses.Clear();
 
 		var attacker = ResolveActor( context.Attacker );
 		attacker?.PayCost( context.Attack );
 		if ( attacker?.StateComp != null )
 			attacker.StateComp.CurrentState = ActorStateType.Attacking;
 
-		if ( context.Attack.ProjectileTemplate != null )
-			SpawnProjectile( context );
-
 		Log.Info( $"Starting attack: {context.Attack.DisplayName} (startup={context.StartupTime:F2}s, recovery={context.RecoveryTime:F2}s, cooldown={context.CooldownTime:F2}s)" );
 	}
 
 	private void SpawnProjectile( AttackContext context )
 	{
-		if ( ArrowPrefab == null || !ArrowPrefab.IsValid() )
+		var camera = context.TriggerType == AttackTriggerType.PlayerInput ? Scene.Camera : null;
+		var facing = camera?.WorldRotation ?? context.Facing;
+		var origin = camera != null
+			? camera.WorldPosition + facing.Forward * 20f
+			: context.Origin + ProjectileSpawnOffset;
+		var spawnTransform = new Transform( origin, facing );
+		var config = new CloneConfig( spawnTransform, null, true );
+
+		GameObject projGO;
+		if ( !string.IsNullOrWhiteSpace( context.Attack.ProjectilePrefabPath ) )
 		{
-			Log.Warning( "[CombatComponent] No ArrowPrefab assigned for projectile attack." );
-			return;
+			if ( !ResourceLibrary.TryGet<PrefabFile>( context.Attack.ProjectilePrefabPath, out var prefabFile ) )
+			{
+				Log.Warning( $"[CombatComponent] Could not find projectile prefab '{context.Attack.ProjectilePrefabPath}'." );
+				return;
+			}
+
+			projGO = SceneUtility.GetPrefabScene( prefabFile ).Clone( config );
+		}
+		else
+		{
+			if ( ArrowPrefab == null || !ArrowPrefab.IsValid() )
+			{
+				Log.Warning( "[CombatComponent] No projectile prefab path or ArrowPrefab assigned." );
+				return;
+			}
+
+			projGO = ArrowPrefab.Clone( config );
 		}
 
-		var spawnTransform = new Transform( context.Origin + ProjectileSpawnOffset, context.Facing );
-		var config = new CloneConfig( spawnTransform, null, true );
-		var projGO = ArrowPrefab.Clone( config );
 		Log.Info( $"Cloned: {projGO.Name}, valid={projGO.IsValid()}" );
 		var projectile = projGO.Components.Get<Projectile>( FindMode.EnabledInSelfAndDescendants );
 		if ( projectile == null )
 		{
-			Log.Warning( "[CombatComponent] ArrowPrefab has no Projectile component." );
+			Log.Warning( "[CombatComponent] Projectile prefab has no Projectile component." );
 			projGO.Destroy();
 			return;
 		}
@@ -221,6 +243,14 @@ public sealed class CombatComponent : Component
 			return;
  
 		AttackElapsed += Time.Delta;
+
+		if ( CurrentAttack.Attack.ProjectileTemplate != null
+			&& !CurrentAttack.ProjectileSpawned
+			&& AttackElapsed >= CurrentAttack.StartupTime )
+		{
+			CurrentAttack.ProjectileSpawned = true;
+			SpawnProjectile( CurrentAttack );
+		}
  
 		// Hit phases are authored relative to the end of startup, so offset by StartupTime.
 		// A phase with StartTime=0.18 on a StartupTime=0.4 attack fires at t=0.58 from input.
@@ -232,7 +262,13 @@ public sealed class CombatComponent : Component
 			{
 				if ( activeElapsed >= phase.StartTime && activeElapsed <= phase.EndTime )
 				{
-					ExecuteHitPhase( CurrentAttack, phase );
+					if ( !_phasePoses.TryGetValue( phase, out var pose ) )
+					{
+						pose = CaptureHitPhasePose( CurrentAttack );
+						_phasePoses.Add( phase, pose );
+					}
+
+					ExecuteHitPhase( CurrentAttack, phase, pose );
 				}
 			}
 		}
@@ -253,10 +289,28 @@ public sealed class CombatComponent : Component
 			var renderer = Components.GetInParentOrSelf<SkinnedModelRenderer>() ?? Components.GetInChildren<SkinnedModelRenderer>();
 			renderer?.Set( "b_attack", false );
 			_hitObjects.Clear();
+			_phasePoses.Clear();
 		}
 	}
 
-	private void ExecuteHitPhase( AttackContext context, HitPhaseDef phase )
+	private (Vector3 Origin, Rotation Facing) CaptureHitPhasePose( AttackContext context )
+	{
+		var attacker = context.Attacker;
+		var origin = attacker.IsValid() ? attacker.WorldPosition : context.Origin;
+		var facing = context.Facing;
+
+		if ( attacker.IsValid() )
+		{
+			facing = context.TriggerType == AttackTriggerType.PlayerInput && Scene.Camera != null
+				? Scene.Camera.WorldRotation
+				: attacker.WorldRotation;
+		}
+
+		facing = Rotation.From( facing.Pitch(), facing.Yaw(), 0f );
+		return (origin, facing);
+	}
+
+	private void ExecuteHitPhase( AttackContext context, HitPhaseDef phase, (Vector3 Origin, Rotation Facing) pose )
 	{
 		bool hitLanded = false;
 		foreach ( var shape in phase.Shapes )
@@ -264,32 +318,32 @@ public sealed class CombatComponent : Component
 			if ( phase.StopAfterFirstHit && hitLanded )
 				break;
 
-			hitLanded |= ExecuteHitShape( context, shape );
+			hitLanded |= ExecuteHitShape( context, shape, pose );
 		}
 	}
 
 	/// <summary>Returns true if at least one new target was hit this call.</summary>
-	private bool ExecuteHitShape( AttackContext context, HitShapeDef shape )
+	private bool ExecuteHitShape( AttackContext context, HitShapeDef shape, (Vector3 Origin, Rotation Facing) pose )
 	{
-		var rotation = context.Facing;
+		var rotation = pose.Facing;
 		var worldOffset = rotation * shape.LocalOffset;
-		var center = context.Origin + worldOffset;
+		var center = pose.Origin + worldOffset;
 		var sweep = rotation * shape.SweepOffset;
 		var start = shape.CastType == HitShapeCastType.Sweep ? center - sweep * 0.5f : center;
 		var end = shape.CastType == HitShapeCastType.Sweep ? center + sweep * 0.5f : center;
 
-		// Draw the box at the starting position (Cyan outline, stays for 2 seconds)
-		DebugOverlay.Box( start, shape.BoxSize, Color.Cyan, duration: 2.0f );
+		// Draw the oriented box at each end of the sweep.
+		DebugOverlay.Box( Vector3.Zero, shape.BoxSize, Color.Cyan, 2.0f, new Transform( start, rotation ) );
 
 		if ( shape.CastType == HitShapeCastType.Sweep )
 		{
-			// Draw the destination box if it's a sweep (Red outline)
-			DebugOverlay.Box( end, shape.BoxSize, Color.Red, duration: 2.0f );
+			DebugOverlay.Box( Vector3.Zero, shape.BoxSize, Color.Red, 2.0f, new Transform( end, rotation ) );
 			// Connect the sweep path with a line
 			DebugOverlay.Line( start, end, Color.Yellow, duration: 2.0f );
 		}
 
 		var hits = Scene.Trace
+			.Rotated( rotation )
 			.Box( shape.BoxSize, start, end )
 			.IgnoreGameObjectHierarchy( context.Attacker )
 			.RunAll()
@@ -310,19 +364,19 @@ public sealed class CombatComponent : Component
 				continue;
 
 			_hitObjects.Add( dedupKey );
-			ApplyHit( context, target );
+			ApplyHit( context, target, rotation.Forward, hit.HitPosition );
 			hitLanded = true;
 		}
 
 		return hitLanded;
 	}
 
-	private void ApplyHit( AttackContext context, GameObject target )
+	private void ApplyHit( AttackContext context, GameObject target, Vector3 facing, Vector3 hitPoint )
 	{
 		// Dedup by actor-root is already guaranteed before this call (ExecuteHitShape checks _hitObjects).
 		// Pass null for alreadyHit — HitResolver handles crit, PhysicalForce, damage, and knockback.
-		HitResolver.Apply( context.Attacker, target, context.Damage, context.Facing.Forward,
-			alreadyHit: null );
+		HitResolver.Apply( context.Attacker, target, context.Damage, facing,
+			alreadyHit: null, hitPoint: hitPoint );
 	}
 
 	// Thin wrappers so the rest of this class is unaffected — real logic lives in CombatMath.

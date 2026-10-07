@@ -29,4 +29,5 @@ public class AttackContext
 	public bool LockFacing;
 	public bool CanMoveDuringStartup;
 	public bool CanMoveDuringRecovery;
+	public bool ProjectileSpawned;
 }

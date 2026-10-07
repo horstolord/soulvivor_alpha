@@ -14,7 +14,7 @@ namespace Sandbox.Code.Systems;
 public sealed class PlayerRespawnManager : Component
 {
 	/// <summary>How long (seconds) after death before the player is teleported back.</summary>
-	[Property] public float RespawnDelay { get; set; } = 2.5f;
+	[Property] public float RespawnDelay { get; set; } = 0f;
 
 	/// <summary>
 	/// Vertical uplift applied on top of this object's position so the player doesn't

@@ -6,7 +6,7 @@
     "Name": "frostbeam",
     "Position": "19.9854946,15.6127472,11.4902182",
     "Rotation": "0,0,0,1",
-    "Scale": "1,1,1",
+    "Scale": "0.329999954,0.750000238,0.730000138",
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
@@ -21,9 +21,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "beam (1)",
-        "Position": "13.582655,-15.0866032,26.4361038",
+        "Position": "2.20860028,-14.4290075,-27.576889",
         "Rotation": "0,0,0.707106769,0.707106769",
-        "Scale": "0.640000224,0.959999919,0.210000232",
+        "Scale": "0.229999974,0.879999936,0.100000001",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -73,9 +73,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "beam",
-        "Position": "13.582655,-15.0866032,25.37883",
+        "Position": "2.20860028,-14.4290075,-27.576889",
         "Rotation": "0,0,0.707106769,0.707106769",
-        "Scale": "0.359999955,0.95999974,-0.0900000334",
+        "Scale": "0.229999974,0.879999936,0.100000001",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -94,8 +94,8 @@
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": {
-              "Id": "3389b3dc-4321-4391-8508-e9201df8138c",
-              "Path": "icefog.vmat"
+              "Id": "c7e1ff68-5327-40ee-a3fc-c8d5c15aa497",
+              "Path": "cold_plume.vmat"
             },
             "Materials": null,
             "Model": {

@@ -10,9 +10,6 @@ public sealed class EnemyRagdollHandler : Component, IRagdollHandler
 	[Property] public Actor Enemy { get; set; }
 	[Property] public ModelCollider ModelCollider { get; set; }
 
-	/// <summary>Extra velocity (as a multiple of the uniform knockback) given to the bone nearest the hit.</summary>
-	[Property] public float FocusBoost { get; set; } = 1.5f;
-
 	private bool _modelColliderWasEnabled;
 	private bool _isRagdolled;
 
@@ -120,7 +117,7 @@ public sealed class EnemyRagdollHandler : Component, IRagdollHandler
 			RagdollImpulseApplier.SetVelocity( Physics, _pendingVelocity );
 
 		if ( _pendingImpulse.LengthSquared > 0.0001f )
-			RagdollImpulseApplier.TryApply( Physics, _pendingImpulse, _pendingPoint, FocusBoost );
+			RagdollImpulseApplier.TryApply( Physics, _pendingImpulse, _pendingPoint );
 
 		_hasPending = false;
 		_hasPendingVelocity = false;
@@ -142,7 +139,7 @@ public sealed class EnemyRagdollHandler : Component, IRagdollHandler
 			return true;
 		}
 
-		return RagdollImpulseApplier.TryApply( Physics, impulse, hitPoint, FocusBoost );
+		return RagdollImpulseApplier.TryApply( Physics, impulse, hitPoint );
 	}
 
 	public void ExitRagdoll()

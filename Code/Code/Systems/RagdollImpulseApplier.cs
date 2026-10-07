@@ -22,18 +22,12 @@ public static class RagdollImpulseApplier
 		}
 	}
 
-	/// <summary>
-	/// Applies a knockback impulse to the whole ragdoll. Every bone gets the same velocity change
-	/// (impulse / totalMass), so the knockback feels the same as it did on the living actor.
-	/// If hitPoint is given, the bone nearest to it gets an extra kick of
-	/// focusBoost * that velocity change, which is what makes the body tumble/spin instead of
-	/// sliding as one rigid lump. focusBoost = 0 gives the old uniform behaviour.
-	/// </summary>
-	public static bool TryApply( ModelPhysics physics, Vector3 impulse, Vector3? hitPoint = null, float focusBoost = 1.5f )
+	/// <summary>Applies the full impulse to the ragdoll body nearest the hit point.</summary>
+	public static bool TryApply( ModelPhysics physics, Vector3 impulse, Vector3? hitPoint = null )
 	{
 		if ( !BodiesReady( physics ) ) return false;
 
-		float totalMass = 0f;
+		var referencePoint = hitPoint ?? physics.GameObject.WorldPosition;
 		Rigidbody nearest = null;
 		float bestDistSq = float.MaxValue;
 
@@ -42,33 +36,17 @@ public static class RagdollImpulseApplier
 			var rb = body.Component;
 			if ( !rb.IsValid() || rb.Mass <= 0f ) continue;
 
-			totalMass += rb.Mass;
-
-			if ( hitPoint.HasValue )
+			float distSq = (rb.WorldPosition - referencePoint).LengthSquared;
+			if ( distSq < bestDistSq )
 			{
-				float distSq = (rb.WorldPosition - hitPoint.Value).LengthSquared;
-				if ( distSq < bestDistSq )
-				{
-					bestDistSq = distSq;
-					nearest = rb;
-				}
+				bestDistSq = distSq;
+				nearest = rb;
 			}
 		}
 
-		if ( totalMass <= 0f ) return false;
+		if ( nearest == null ) return false;
 
-		var deltaV = impulse / totalMass;
-
-		foreach ( var body in physics.Bodies )
-		{
-			var rb = body.Component;
-			if ( rb.IsValid() && rb.Mass > 0f )
-				rb.ApplyImpulse( deltaV * rb.Mass );
-		}
-
-		if ( nearest != null && focusBoost > 0f )
-			nearest.ApplyImpulse( deltaV * nearest.Mass * focusBoost );
-
+		nearest.ApplyImpulse( impulse );
 		return true;
 	}
 }

@@ -7,7 +7,7 @@ namespace Sandbox.Code.Systems;
 
 public static class LootGenerator
 {
-	// ===== TUNING — placeholders, mine to adjust, do not treat as final balance =====
+	// ===== TUNING  =====
 	private const float BaseDropChance = 0.15f;        // TODO tune
 	private const float MobValueToDropChance = 0.01f;  // TODO tune — added per point of BaseSoulValue
 	private const float BonusRollMobValueThreshold = 15f; // TODO tune — mobs above this get 2 rarity rolls, keep better
@@ -43,9 +43,14 @@ public static class LootGenerator
 		var baseItem = PickBaseItem( sourceLevel );
 		if ( baseItem == null ) return null;
 
-		var rarity = RollRarity( mobValue );
-		var affixes = RollAffixes( baseItem, rarity, sourceLevel );
+		// Equipped consumable flasks keep authored rarity and do not roll gear affixes.
+		bool isGear = baseItem.Category == ItemCategory.Equipment && baseItem.Consumable == null;
+		var rarity = isGear ? RollRarity( mobValue ) : baseItem.Rarity;
+		var affixes = isGear ? RollAffixes( baseItem, rarity, sourceLevel ) : new List<ModData>();
 		int charges = baseItem.Consumable?.Charges ?? 0;
+		
+		
+		
 
 		return new ItemInstance
 		{
@@ -53,6 +58,8 @@ public static class LootGenerator
 			StackCount = 1,
 			RemainingCharges = charges,
 			MaxCharges = charges,
+			Rarity = rarity,
+			ImplicitMods = ItemInstance.CloneImplicits( baseItem ),
 			RolledMods = affixes
 		};
 	}

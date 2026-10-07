@@ -109,7 +109,7 @@ public static class CombatMath
  
 		var normalizedDirection = direction.LengthSquared > 0.0001f ? direction.Normal : Vector3.Up;
 		var knockbackDirection = addUpwardBias
-			? (normalizedDirection + Vector3.Up / 2f).Normal
+			? (normalizedDirection + Vector3.Up / 4f).Normal
 			: normalizedDirection;
 		var impulse = knockbackDirection * force;
 
@@ -192,12 +192,12 @@ public static class HitResolver
 
 		Log.Info( $"[HitResolver] target={target.Name} health={damage.HealthDamage:F1} knockback={damage.KnockbackForce:F1} dir={direction} crit={damage.IsCrit}" );
 
-		// preventGrounding: true so the target's PlayerController doesn't snap back to ground
-		// immediately after the impulse — fixes the "doesn't work if hit only once" issue.
-		CombatMath.ApplyKnockback( target, direction, damage.KnockbackForce, preventGrounding: true, hitPoint: hitPoint );
-
 		var actor = CombatMath.ResolveActor( target );
 		actor?.ApplyDamage( damage, attacker );
+
+		// Damage may enter ragdoll; apply afterward so lethal/staggering hits reach its bone bodies.
+		// Active targets still receive the normal controller/rigidbody knockback.
+		CombatMath.ApplyKnockback( target, direction, damage.KnockbackForce, preventGrounding: true, hitPoint: hitPoint );
 
 		return true;
 	}

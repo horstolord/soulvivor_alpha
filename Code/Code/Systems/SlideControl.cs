@@ -9,10 +9,10 @@ namespace Sandbox.Code.Systems;
 public sealed class SlideControl : Component
 {
 	[Property] public float SlideDuration { get; set; } = 5f;
-	[Property] public float BurstWindow { get; set; } = 0.2f;
+	[Property] public float BurstWindow { get; set; } = 1f;
 	[Property] public float SpeedBoost { get; set; } = 750f;
-	[Property] public float SlideDuckedSpeed { get; set; } = 10f;
-	[Property] public float MinSpeedThreshold { get; set; } = 10f;
+	[Property] public float SlideDuckedSpeed { get; set; } = 5000f;
+	[Property] public float MinSpeedThreshold { get; set; } = 0f;
 	[Property] public float Cooldown { get; set; } = 0.6f;
 	[Property] public float StaminaCost { get; set; } = 0f;
 

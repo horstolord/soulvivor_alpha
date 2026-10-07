@@ -1,0 +1,262 @@
+{
+  "RootObject": {
+    "__guid": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "footsteps-carpet",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.SoundPointComponent",
+        "__guid": "0f4dd6a7-a975-4314-ad52-5bc9cf6d05c1",
+        "__enabled": true,
+        "Flags": 0,
+        "Distance": 512,
+        "DistanceAttenuation": false,
+        "DistanceAttenuationOverride": false,
+        "Falloff": [
+          {
+            "x": 0,
+            "y": 1,
+            "in": 3.1415927,
+            "out": -3.1415927,
+            "mode": "Mirrored"
+          },
+          {
+            "x": 1,
+            "y": 0,
+            "in": 0,
+            "out": 0,
+            "mode": "Mirrored"
+          }
+        ],
+        "Force2d": false,
+        "MaxRepeatTime": 1,
+        "MinRepeatTime": 1,
+        "OcclusionEnabled": false,
+        "OcclusionOverride": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Pitch": 1,
+        "PlayOnStart": true,
+        "Repeat": false,
+        "ReverbEnabled": false,
+        "ReverbOverride": false,
+        "SoundEvent": {
+          "Id": "eeec4c01-16b9-4c76-821a-ba4b71d82fbd",
+          "Path": "sounds/footsteps/carpet/footsteps-carpet.sound"
+        },
+        "SoundOverride": false,
+        "StopOnNew": false,
+        "TargetMixer": {
+          "Name": "unknown",
+          "Id": "00000000-0000-0000-0000-000000000000"
+        },
+        "Volume": 1
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "b2129d46-5ff8-43d6-aded-32485b3de42e",
+        "__version": 2,
+        "__Prefab": {
+          "Id": "b1c334b2-cb49-4d4b-ad3e-056e2d77b015",
+          "Path": "footsteps-carpet.prefab"
+        },
+        "__PrefabInstancePatch": {
+          "AddedObjects": [],
+          "RemovedObjects": [
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "b2129d46-5ff8-43d6-aded-32485b3de42e"
+              }
+            },
+            {
+              "Id": {
+                "Type": "Component",
+                "IdValue": "2b584cc2-9dfd-4039-b313-b11bf3767e73"
+              }
+            }
+          ],
+          "PropertyOverrides": [],
+          "MovedObjects": [
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "63584eb9-9da5-460e-bad9-335c725fe2e9"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": null
+            },
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "8185ac1e-57ee-4366-98a4-695084fb3ac4"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": {
+                "Type": "GameObject",
+                "IdValue": "63584eb9-9da5-460e-bad9-335c725fe2e9"
+              }
+            },
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "5a7a7493-9f83-4d79-9caa-ae45dc4151c2"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": {
+                "Type": "GameObject",
+                "IdValue": "8185ac1e-57ee-4366-98a4-695084fb3ac4"
+              }
+            },
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "96daf2f2-0540-4a38-8ad8-4111ee6dd53a"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": {
+                "Type": "GameObject",
+                "IdValue": "5a7a7493-9f83-4d79-9caa-ae45dc4151c2"
+              }
+            },
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "5b059383-c6eb-4582-b96b-0033ccddc558"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": {
+                "Type": "GameObject",
+                "IdValue": "96daf2f2-0540-4a38-8ad8-4111ee6dd53a"
+              }
+            },
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "6ee87ccd-00c0-4b4e-8889-1f12f0d3864a"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": {
+                "Type": "GameObject",
+                "IdValue": "5b059383-c6eb-4582-b96b-0033ccddc558"
+              }
+            },
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "0c6b7b1b-867d-49f4-98da-57d1f7cca11c"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": {
+                "Type": "GameObject",
+                "IdValue": "6ee87ccd-00c0-4b4e-8889-1f12f0d3864a"
+              }
+            },
+            {
+              "Id": {
+                "Type": "GameObject",
+                "IdValue": "a7fbe850-1294-43b5-9cf4-7e8ffd361281"
+              },
+              "NewParent": {
+                "Type": "GameObject",
+                "IdValue": "86c84571-dcad-4d9b-bbef-fe9d1b0592a3"
+              },
+              "NewContainerProperty": "Children",
+              "IsNewContainerArray": true,
+              "NewPreviousElement": {
+                "Type": "GameObject",
+                "IdValue": "0c6b7b1b-867d-49f4-98da-57d1f7cca11c"
+              }
+            }
+          ]
+        },
+        "__PrefabIdToInstanceId": {
+          "86c84571-dcad-4d9b-bbef-fe9d1b0592a3": "b2129d46-5ff8-43d6-aded-32485b3de42e",
+          "0f4dd6a7-a975-4314-ad52-5bc9cf6d05c1": "2b584cc2-9dfd-4039-b313-b11bf3767e73"
+        }
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [
+    "publicdomainmats.footsteps-carpet#17674"
+  ],
+  "__version": 2
+}

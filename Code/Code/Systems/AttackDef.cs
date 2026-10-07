@@ -46,7 +46,9 @@ public enum AttackTag
 	Frost,
 	Air,
 	Earth,
-	Physical
+	Physical,
+	Stab,
+	Smash
 }
 public class AttackDef : ICostable
 {
@@ -68,6 +70,7 @@ public class AttackDef : ICostable
 	public bool LockFacing;
 	public bool CanMoveDuringStartup;
 	public bool CanMoveDuringRecovery;
+	public string ProjectilePrefabPath;
 	public ProjectileTemplate ProjectileTemplate; //null=melee
 }
 public class AttributeScalingDef
@@ -77,7 +80,7 @@ public class AttributeScalingDef
 	public float MightToStaggerDamage;
 	public float MightToKnockbackForce;
 
-	public float AgilityToHealthDamage;
+	public float SwiftnessToHealthDamage;
 	public float AcuityToEnergyDamage;
 
 	/// <summary>Extra HealthDamage at Charge01=1 per point of Might.</summary>

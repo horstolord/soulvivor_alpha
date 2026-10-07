@@ -46,6 +46,7 @@ public sealed class LootTestComponent : Component
 			? string.Join( ", ", item.RolledMods.Select( m => $"{m.StatName}: +{m.Value:F2} ({m.Type})" ) )
 			: "None (Common / 0 Affixes)";
 
-		Log.Info( $"[LootTest] Rolled '{item.Definition?.Name ?? "Unknown"}' (Level={SourceLevel}, MobValue={MobValue:F1}) | Affixes count={item.RolledMods.Count}: [{modsStr}]" );
+		var implicitStr = string.Join( ", ", item.ImplicitMods.Select( m => $"{m.StatName}: +{m.Value:F2}" ) );
+		Log.Info( $"[LootTest] Rolled {item.Rarity} '{item.Definition?.Name ?? "Unknown"}' implicits=[{implicitStr}] (Level={SourceLevel}, MobValue={MobValue:F1}) | Affixes count={item.RolledMods.Count}: [{modsStr}]" );
 	}
 }

@@ -88,7 +88,7 @@
             <div class="equipment-root">
                 <div class="equipment-header">
                     <span class="title">Character Equipment</span>
-                    <span class="subtitle">Equipment & Flask System</span>
+                    <span class="subtitle">Equipment, Weapon Sets & Flasks</span>
                 </div>
 
                 <div class="paperdoll-container">
@@ -341,12 +341,28 @@
                 </div>
             }
 
-            @if ( item.Mods != null && item.Mods.Count > 0 )
+            @if ( item.ImplicitMods.Count > 0 )
+            {
+                <div class="popup-section mods-section">
+                    <div class="popup-section-title">Implicit</div>
+                    <div class="popup-mods-list">
+                        @foreach ( var mod in item.ImplicitMods )
+                        {
+                            <div class="popup-mod-item implicit">
+                                <span class="mod-bullet">&#x25C6;</span>
+                                <span class="mod-text">@InventoryItem.FormatMod( mod )</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            @if ( item.AffixMods.Count > 0 )
             {
                 <div class="popup-section mods-section">
                     <div class="popup-section-title">Modifiers</div>
                     <div class="popup-mods-list">
-                        @foreach ( var mod in item.Mods )
+                        @foreach ( var mod in item.AffixMods )
                         {
                             <div class="popup-mod-item">
                                 <span class="mod-bullet">&#x25C6;</span>
@@ -419,8 +435,9 @@
 
     private readonly EquipmentSlotView[] RightEquipmentSlots =
     {
-        new( EquipmentSlot.MainHand1, "Main Hand", "MH" ),
-        new( EquipmentSlot.OffHand1, "Off Hand", "OH" ),
+        new( EquipmentSlot.Melee, "Melee Weapon", "MW" ),
+        new( EquipmentSlot.Ranged, "Ranged Weapon", "RW" ),
+        new( EquipmentSlot.OffHand, "Off Hand", "OH" ),
         new( EquipmentSlot.Ring1, "Ring 1", "R1" ),
         new( EquipmentSlot.Ring2, "Ring 2", "R2" )
     };
@@ -918,25 +935,31 @@
 }
 
 .common {
-    border-color: #80786c;
+    border-color: #D9D4C7;
 }
 
 .magic {
-    border-color: #3f8dc5;
+    border-color: #4A9EFF;
 }
 
 .rare {
-    border-color: #c5a13f;
+    border-color: #F4EC3A;
 }
 
 .epic {
-    border-color: #8e59cc;
+    border-color: #A855F7;
 }
 
-.legendary,
-.mythical,
+.legendary {
+    border-color: #FF7A1A;
+}
+
+.mythical {
+    border-color: #E02828;
+}
+
 .divine {
-    border-color: #d07b39;
+    border-color: #f5c242;
 }
 
 .stats-summary {
@@ -981,30 +1004,38 @@
 }
 
 .item-popup-window.common {
-    border-color: #7a7266;
+    border-color: #D9D4C7;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 12px rgba(120, 110, 100, 0.25);
 }
 
 .item-popup-window.magic {
-    border-color: #3f8dc5;
+    border-color: #4A9EFF;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 16px rgba(63, 141, 197, 0.4);
 }
 
 .item-popup-window.rare {
-    border-color: #d4af37;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 18px rgba(212, 175, 55, 0.45);
+    border-color: #f4ec3a;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 18px rgba(244, 236, 58, 0.45);
 }
 
 .item-popup-window.epic {
-    border-color: #9d5fe8;
+    border-color: #A855F7;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 20px rgba(157, 95, 232, 0.45);
 }
 
-.item-popup-window.legendary,
-.item-popup-window.mythical,
+.item-popup-window.legendary {
+    border-color: #ff7a1a;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 22px rgba(255, 122, 26, 0.5);
+}
+
+.item-popup-window.mythical {
+    border-color: #e02828;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 22px rgba(224, 40, 40, 0.5);
+}
+
 .item-popup-window.divine {
-    border-color: #e67e22;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 22px rgba(230, 126, 34, 0.5);
+    border-color: #f5c242;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.92), 0 0 26px rgba(245, 194, 66, 0.6);
 }
 
 .popup-header {
@@ -1026,17 +1057,23 @@
 }
 
 .popup-title.rare {
-    color: #ffd700;
+    color: #f7f06a;
 }
 
 .popup-title.epic {
     color: #c996ff;
 }
 
-.popup-title.legendary,
-.popup-title.mythical,
-.popup-title.divine {
+.popup-title.legendary {
     color: #ff9944;
+}
+
+.popup-title.mythical {
+    color: #ff6b6b;
+}
+
+.popup-title.divine {
+    color: #ffd978;
 }
 
 .popup-badge-row {
@@ -1058,33 +1095,43 @@
 
 .popup-rarity-badge.common {
     color: #a8a095;
-    border-color: #70685c;
+    border-color: #D9D4C7;
 }
 
 .popup-rarity-badge.magic {
     color: #7dc4ff;
-    border-color: #3f8dc5;
+    border-color: #4A9EFF;
     background: rgba(20, 45, 70, 0.6);
 }
 
 .popup-rarity-badge.rare {
-    color: #ffd700;
-    border-color: #d4af37;
-    background: rgba(60, 50, 20, 0.6);
+    color: #f7f06a;
+    border-color: #f4ec3a;
+    background: rgba(60, 58, 15, 0.6);
 }
 
 .popup-rarity-badge.epic {
     color: #c996ff;
-    border-color: #9d5fe8;
+    border-color: #A855F7;
     background: rgba(50, 25, 75, 0.6);
 }
 
-.popup-rarity-badge.legendary,
-.popup-rarity-badge.mythical,
-.popup-rarity-badge.divine {
+.popup-rarity-badge.legendary {
     color: #ffaa55;
-    border-color: #e67e22;
+    border-color: #ff7a1a;
     background: rgba(70, 35, 15, 0.6);
+}
+
+.popup-rarity-badge.mythical {
+    color: #ff6b6b;
+    border-color: #e02828;
+    background: rgba(70, 15, 15, 0.6);
+}
+
+.popup-rarity-badge.divine {
+    color: #ffd978;
+    border-color: #f5c242;
+    background: rgba(70, 55, 15, 0.6);
 }
 
 .popup-type-badge {
@@ -1213,6 +1260,14 @@
     font-weight: 600;
     color: #8ad2ff;
     letter-spacing: 0.3px;
+}
+
+.popup-mod-item.implicit .mod-bullet {
+    color: #c9b27a;
+}
+
+.popup-mod-item.implicit .mod-text {
+    color: #e6d7b0;
 }
 
 .popup-footer {

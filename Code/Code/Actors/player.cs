@@ -147,66 +147,97 @@ public sealed class Player : Actor
 			}
 		}
 	}
-	// Cached at charge-start so the swing that fires on release matches whatever weapon
-	// was equipped when the hold began, even if the loadout changes mid-charge.
-	private AttackDef _chargingWeaponAttack;
+	private enum ChargeInput
+	{
+		None,
+		Weapon,
+		Kick
+	}
+
+	private AttackDef _chargingAttack;
+	private ChargeInput _chargeInput;
 
 	private void HandleCombatInput()
 	{
 		if ( Combat == null )
 			return;
 
-		HandleWeaponSwingInput();
+		HandleChargedAttackInput();
 
-		// Tap-only for now — same hold pattern as the weapon swing below whenever these get charging too.
-		if ( Input.Keyboard.Pressed( "F" ) )
-		{
-			TryPerformAttack( AttackData.Kick );
-		}
+		// R fires the equipped ranged weapon as an immediate tap.
 		if ( Input.Keyboard.Pressed( "R" ) )
 		{
-			TryPerformAttack( AttackData.Shoot );
+			var rangedWeapon = Equipment?.GetRangedWeapon();
+			if ( rangedWeapon == null )
+			{
+				Log.Info( "[Player] Ranged attack ignored: no ranged weapon is equipped." );
+				return;
+			}
+
+			var rangedAttack = Equipment?.GetRangedWeaponAttackDef();
+			if ( rangedAttack == null )
+			{
+				Log.Warning( $"[Player] Ranged weapon '{rangedWeapon.Definition?.Name}' has no ranged attack data." );
+				return;
+			}
+
+			TryPerformAttack( rangedAttack );
 		}
 	}
 
-	private void HandleWeaponSwingInput()
+	private void HandleChargedAttackInput()
 	{
 		if ( Charge == null ) return;
 
-		bool held = Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" );
-
 		if ( Charge.IsCharging )
 		{
+			bool held = _chargeInput switch
+			{
+				ChargeInput.Kick => Input.Keyboard.Down( "F" ),
+				ChargeInput.Weapon => Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" ),
+				_ => false
+			};
 			if ( held ) return; // still holding — keep ramping via ChargeControl.OnUpdate
 
-			// Released. charge01 is 0 if let go instantly, which is exactly today's tap-attack case.
 			float charge01 = Charge.ReleaseCharge();
-			var attack = _chargingWeaponAttack;
-			_chargingWeaponAttack = null;
-			if ( attack == null ) return;
+			var releasedAttack = _chargingAttack;
+			var releasedInput = _chargeInput;
+			_chargingAttack = null;
+			_chargeInput = ChargeInput.None;
+			if ( releasedAttack == null ) return;
 
-			TryPerformAttack( attack, charge01 );
-			Held?.EnterUnarmedStance();
-			BodyRenderer.Set( "b_attack", true );
+			TryPerformAttack( releasedAttack, charge01 );
+			if ( releasedInput == ChargeInput.Weapon )
+			{
+				Held?.EnterUnarmedStance();
+				BodyRenderer?.Set( "b_attack", true );
+			}
 			return;
 		}
 
-		if ( !held || !Charge.CanStartCharge() ) return;
+		if ( !Charge.CanStartCharge() ) return;
 
-		// Use equipped weapon attack; fall back to unarmed punch.
-		var weaponAttack = Equipment?.GetWeaponAttackDef() ?? AttackData.Punch;
+		bool weaponHeld = Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" );
+		bool kickHeld = Input.Keyboard.Down( "F" );
+		if ( !weaponHeld && !kickHeld ) return;
+
+		// Resolve and cache the attack at charge start so equipment changes cannot alter a held swing.
+		var attack = weaponHeld
+			? Equipment?.GetWeaponAttackDef() ?? AttackData.Punch
+			: AttackData.Kick;
+		var chargeInput = weaponHeld ? ChargeInput.Weapon : ChargeInput.Kick;
 
 		float swiftness = StatSheet?.Swiftness.Value ?? 0f;
-		float swiftnessScale = weaponAttack.Scaling?.SwiftnessToChargeSpeed ?? 0f;
+		float swiftnessScale = attack.Scaling?.SwiftnessToChargeSpeed ?? 0f;
 		const float baseChargeSeconds = 1.0f; // TODO tune: time to max charge at 0 Swiftness scaling
 		float chargeSeconds = baseChargeSeconds / (1f + swiftness * swiftnessScale / 100f);
 		float rampRate = 1f / System.MathF.Max( 0.05f, chargeSeconds );
 
-		// Charging has its own cost, additive to the swing's own cost paid as usual on release —
-		// currently half the swing's stamina/energy cost, gradually over the hold. TODO tune.
-		if ( Charge.StartCharge( rampRate, weaponAttack.StaminaCost * 0.5f, weaponAttack.EnergyCost * 0.5f ) )
+		// Charge cost is incremental and additive to the attack cost paid on release.
+		if ( Charge.StartCharge( rampRate, attack.StaminaCost * 0.5f, attack.EnergyCost * 0.5f ) )
 		{
-			_chargingWeaponAttack = weaponAttack;
+			_chargingAttack = attack;
+			_chargeInput = chargeInput;
 		}
 	}
 

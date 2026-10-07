@@ -8,19 +8,26 @@ using Sandbox.Code.Systems;
 
 public static class AttackData
 {
+	private enum MeleeWeaponStyle
+	{
+		Slash,
+		Stab,
+		Smash
+	}
+
 	public static AttackDef Kick => new AttackDef
 	{
 		Id = "kick",
 		DisplayName = "Kick",
-		StartupTime = 0.18f,
-		RecoveryTime = 0.35f,
-		CooldownTime = 0.10f,
+		StartupTime = 0.1f,
+		RecoveryTime = 0.25f,
+		CooldownTime = 0.01f,
 		StaminaCost = 10f,
 		Damage = new DamageProfileDef
 		{
 			HealthDamage = 10f,
 			StaminaDamage = 24f,
-			KnockbackForce = 100f
+			KnockbackForce = 200f
 		},
 		Scaling = new AttributeScalingDef
 		{
@@ -32,9 +39,9 @@ public static class AttackData
 			SwiftnessToChargeSpeed = 1.5f // TODO tune
 		},
 		AnimationName = "attack_kick",
-		LockFacing = true,
-		CanMoveDuringStartup = false,
-		CanMoveDuringRecovery = false,
+		LockFacing = false,
+		CanMoveDuringStartup = true,
+		CanMoveDuringRecovery = true,
 		Tags = new HashSet<AttackTag>
 		{
 			AttackTag.Melee,
@@ -47,17 +54,17 @@ public static class AttackData
 		{
 			new HitPhaseDef
 			{
-				StartTime = 0.3f,
-				EndTime = 0.6f,
-				StopAfterFirstHit = true,
+				StartTime = 0.15f,
+				EndTime = 0.3f,
+				StopAfterFirstHit = false,
 				Shapes = new List<HitShapeDef>
 				{
 					new HitShapeDef
 					{
 						CastType = HitShapeCastType.Sweep,
-						LocalOffset = new Vector3( 45f, 0f, 40f ),
+						LocalOffset = new Vector3( 45f, 0f, 55f ),
 						SweepOffset = new Vector3( 60f, 0f, 0f ),
-						BoxSize = new Vector3( 60f, 60f, 60f )
+						BoxSize = new Vector3( 100f, 60f, 60f )
 					}
 				}
 			}
@@ -68,7 +75,7 @@ public static class AttackData
 	{
 		Id = "punch",
 		DisplayName = "Punch",
-		StartupTime = 0f,
+		StartupTime = 0.1f,
 		RecoveryTime = 0.2f,
 		CooldownTime = 0.2f,
 		StaminaCost = 5f,
@@ -117,14 +124,14 @@ public static class AttackData
 	{
 		Id = "shoot",
 		DisplayName = "Shoot Arrow",
-		StartupTime = 0.15f,
+		StartupTime = 0.3f,
 		RecoveryTime = 0.05f,
-		CooldownTime = 0.2f,
+		CooldownTime = 0.3f,
 		StaminaCost = 8f,
 		Damage = new DamageProfileDef
 		{
 			HealthDamage = 8f,
-			KnockbackForce = 100f
+			KnockbackForce = 500f
 		},
 		Scaling = new AttributeScalingDef
 		{
@@ -141,7 +148,8 @@ public static class AttackData
 		HitPhases = new List<HitPhaseDef>(),
 		ProjectileTemplate = new ProjectileTemplate
 		{
-			Termination = ProjectileTerminationType.FirstHit,
+			Termination = ProjectileTerminationType.PierceCount,
+			PierceCount = 2,
 			CollisionBoxSize = new Vector3( 6f, 6f, 6f ),
 			Speed = 2000f
 		}
@@ -156,16 +164,82 @@ public static class AttackData
 	{
 		var stats = weapon.Equipment?.Stats ?? new EquipmentStatBlock();
 		float speed = MathF.Max( 0.1f, stats.BaseAttackSpeed > 0f ? stats.BaseAttackSpeed : 1.0f );
+		var equipment = weapon.Equipment;
+
+		if ( equipment?.RangedWeapon is { } ranged )
+		{
+			return new AttackDef
+			{
+				Id = $"weapon_{weapon.Id}",
+				DisplayName = weapon.Name,
+				StartupTime = ranged.DrawTime,
+				RecoveryTime = 0.2f / speed,
+				CooldownTime = 0.3f / speed,
+				StaminaCost = 8f,
+				Damage = new DamageProfileDef
+				{
+					HealthDamage = stats.BaseDamage,
+					StaminaDamage = 12f,
+					KnockbackForce = 100f
+				},
+				WeaponDamageEffectiveness = 1f,
+				Scaling = equipment.Scaling ?? new AttributeScalingDef
+				{
+					MightToHealthDamage = 1f,
+					SwiftnessToHealthDamage = 1f
+				},
+				AnimationName = "attack_shoot",
+				LockFacing = true,
+				CanMoveDuringStartup = false,
+				CanMoveDuringRecovery = false,
+				Tags = new HashSet<AttackTag> { AttackTag.Ranged, AttackTag.Projectile, AttackTag.Pierce, AttackTag.Physical },
+				HitPhases = new List<HitPhaseDef>(),
+				ProjectilePrefabPath = ranged.ProjectilePrefabPath,
+				ProjectileTemplate = ranged.ProjectileTemplate?.Clone()
+			};
+		}
+
+		var style = GetMeleeWeaponStyle( equipment?.WeaponClass ?? WeaponClass.None );
+		var styleTag = style switch
+		{
+			MeleeWeaponStyle.Stab => AttackTag.Stab,
+			MeleeWeaponStyle.Smash => AttackTag.Smash,
+			_ => AttackTag.Slash
+		};
+		var hitShape = style switch
+		{
+			MeleeWeaponStyle.Stab => new HitShapeDef
+			{
+				CastType = HitShapeCastType.Sweep,
+				LocalOffset = new Vector3( 80f, 0f, 48f ),
+				SweepOffset = new Vector3( 45f, 0f, 0f ),
+				BoxSize = new Vector3( 90f, 32f, 40f )
+			},
+			MeleeWeaponStyle.Smash => new HitShapeDef
+			{
+				CastType = HitShapeCastType.Sweep,
+				LocalOffset = new Vector3( 42f, 0f, 88f ),
+				SweepOffset = new Vector3( 0f, 0f, -110f ),
+				BoxSize = new Vector3( 120f, 120f, 80f )
+			},
+			_ => new HitShapeDef
+			{
+				CastType = HitShapeCastType.Sweep,
+				LocalOffset = new Vector3( 100f, -40f, 60f ),
+				SweepOffset = new Vector3( 10f, 230f, 0f ),
+				BoxSize = new Vector3( 100f, 100f, 70f )
+			}
+		};
 
 		// Scale timing: higher attack speed → shorter windows
 		float startup  = 0.25f / speed;
-		float active   = 0.18f / speed;   // half width of the hit window
+		float active   = 0.25f / speed;   // half width of the hit window
 		float recovery = 0.2f / speed;
-		float cooldown = 0.3f / speed;
+		float cooldown = 0.2f / speed;
 
 		return new AttackDef
 		{
-			Id          = $"weapon_{weapon.Id}",
+			Id          = $"weapon_{weapon.Id}_{style.ToString().ToLowerInvariant()}",
 			DisplayName = weapon.Name,
 			StartupTime  = startup,
 			RecoveryTime = recovery,
@@ -178,7 +252,7 @@ public static class AttackData
 				KnockbackForce = 100f
 			},
 			WeaponDamageEffectiveness = 1f,
-			Scaling = new AttributeScalingDef
+			Scaling = equipment?.Scaling ?? new AttributeScalingDef
 			{
 				MightToHealthDamage    = 2f,
 				MightToStaggerDamage   = 1f,
@@ -192,7 +266,9 @@ public static class AttackData
 			LockFacing     = true,
 			CanMoveDuringStartup  = false,
 			CanMoveDuringRecovery = false,
-			Tags = new HashSet<AttackTag> { AttackTag.Melee, AttackTag.Strike, AttackTag.Slash, AttackTag.Physical },
+			Tags = style == MeleeWeaponStyle.Stab
+				? new HashSet<AttackTag> { AttackTag.Melee, AttackTag.Strike, AttackTag.Stab, AttackTag.Pierce, AttackTag.Physical }
+				: new HashSet<AttackTag> { AttackTag.Melee, AttackTag.Strike, styleTag, AttackTag.Physical },
 			HitPhases = new List<HitPhaseDef>
 			{
 				new HitPhaseDef
@@ -202,16 +278,17 @@ public static class AttackData
 					StopAfterFirstHit = false,
 					Shapes = new List<HitShapeDef>
 					{
-						new HitShapeDef
-						{
-							CastType    = HitShapeCastType.Sweep,
-							LocalOffset = new Vector3( 40f, 0f, 40f ),
-							SweepOffset = new Vector3( 100f, 0f, 0f ),
-							BoxSize     = new Vector3( 70f, 70f, 50f )
-						}
+						hitShape
 					}
 				}
 			}
 		};
 	}
+
+	private static MeleeWeaponStyle GetMeleeWeaponStyle( WeaponClass weaponClass ) => weaponClass switch
+	{
+		WeaponClass.Spear => MeleeWeaponStyle.Stab,
+		WeaponClass.Hammer or WeaponClass.Mace => MeleeWeaponStyle.Smash,
+		_ => MeleeWeaponStyle.Slash
+	};
 }

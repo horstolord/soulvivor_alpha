@@ -10,6 +10,7 @@ public class ProjectileTemplate
     public float Lifetime = 5f;
     public ProjectileTerminationType Termination = ProjectileTerminationType.FirstHit;
     public int PierceCount = 1;
+    public bool StickOnHit;
     public Vector3 CollisionBoxSize = new Vector3( 12f, 12f, 12f );
     public float Speed = 1000f; // motion components read this too
     public ProjectileTemplate Clone() => new ProjectileTemplate
@@ -17,6 +18,7 @@ public class ProjectileTemplate
 	    Lifetime = Lifetime,
 	    Termination = Termination,
 	    PierceCount = PierceCount,
+	    StickOnHit = StickOnHit,
 	    CollisionBoxSize = CollisionBoxSize,
 	    Speed = Speed
     };
@@ -38,6 +40,7 @@ public sealed class Projectile : Component
     private float _age;
     private int _hitCount;
     private Vector3 _lastPosition;
+    private readonly HashSet<GameObject> _hitTargets = new();
 
     public bool IsStuck { get; private set; }
 
@@ -49,14 +52,17 @@ public sealed class Projectile : Component
 
     protected override void OnFixedUpdate()
     {
-        if ( Template == null || Payload == null || IsStuck ) return;
+        if ( Template == null || Payload == null ) return;
 
+        // Keep aging after impact so stuck projectiles still reach their lifetime cleanup.
         _age += Time.Delta;
         if ( Template.Termination != ProjectileTerminationType.Infinite && _age >= Template.Lifetime )
         {
 	        GameObject.Destroy();
 	        return;
         }
+
+        if ( IsStuck ) return;
 
         Components.Get<IProjectileMotion>()?.Tick( this, Time.Delta );
 
@@ -70,19 +76,25 @@ public sealed class Projectile : Component
         var hits = Scene.Trace
 	        .Box( Template.CollisionBoxSize, _lastPosition, GameObject.WorldPosition )
 	        .IgnoreGameObjectHierarchy( Payload.Caster )
+	        .IgnoreGameObjectHierarchy( GameObject )
 	        .RunAll();
-
 
         foreach ( var hit in hits )
         {
-            if ( hit.GameObject == null || hit.GameObject.Tags.Has( "noarrow" )  ) continue; 
-            OnHit( hit.GameObject );
-            if ( ShouldTerminateAfterHit() && GameObject.Tags.Has( "noarrow" ) )
+            if ( hit.GameObject == null || !hit.GameObject.IsValid() || hit.GameObject.Tags.Has( "noarrow" ) )
+                continue;
+
+            if ( !OnHit( hit.GameObject ) )
+                continue;
+
+            if ( ShouldTerminateAfterHit() )
             {
-                StickTo( hit.GameObject );
-                break;
+                if ( Template.StickOnHit )
+                    StickTo( hit.GameObject );
+                else
+                    GameObject.Destroy();
+                return;
             }
-            GameObject.Destroy();
         }
 
         _lastPosition = GameObject.WorldPosition;
@@ -107,12 +119,13 @@ public sealed class Projectile : Component
         }
     }
 
-    private void OnHit( GameObject target )
+    private bool OnHit( GameObject target )
     {
 	    // HitResolver applies crit + PhysicalForce per hit (correct for piercing), deduplicates,
 	    // and calls ApplyDamage + ApplyKnockback. Pass raw Forward — ApplyKnockback adds upward bias.
-	    HitResolver.Apply( Payload.Caster, target, Payload.Damage,
-		    GameObject.WorldRotation.Forward, alreadyHit: null, hitPoint: GameObject.WorldPosition );
+	    if ( !HitResolver.Apply( Payload.Caster, target, Payload.Damage,
+		    GameObject.WorldRotation.Forward, alreadyHit: _hitTargets, hitPoint: GameObject.WorldPosition ) )
+		    return false;
 
 	    SpellEffectApplier.Apply( Payload?.SourceContext as SpellContext, target, GameObject.WorldPosition );
  
@@ -125,8 +138,9 @@ public sealed class Projectile : Component
 		    var hitNormal = -GameObject.WorldRotation.Forward;
 		    RuneEvaluator.ExecuteTriggerPayload( spellCtx, hitPos, hitNormal, target );
 	    }
- 
+  
 	    // TODO: MaterialData / InteractionOverrides lookup goes here later
+	    return true;
     }
 
     private bool ShouldTerminateAfterHit()

@@ -6,7 +6,7 @@ namespace Sandbox.Code.Systems;
 /// Owns what an actor visibly holds: spawns/removes the main-hand weapon model on the hand bone
 /// and drives the citizen animgraph's "holdtype" from equipment state.
 ///
-/// Listens to EquipmentControl.OnEquipped / OnUnequipped (main-hand slot only). Data comes from
+/// Listens to EquipmentControl.OnEquipped / OnUnequipped for the melee slot. Data comes from
 /// ItemDef.Equipment.WeaponVisual. Works on any Actor with a citizen-graph SkinnedModelRenderer.
 ///
 /// Requires CreateBoneObjects = true on the body SkinnedModelRenderer, otherwise the hold bone
@@ -29,7 +29,7 @@ public sealed class HeldWeaponControl : Component
 	/// <summary>The spawned weapon model, or null.</summary>
 	public GameObject HeldModel { get; private set; }
 
-	/// <summary>True while an equipped main-hand item has WeaponVisual data.</summary>
+	/// <summary>True while an equipped melee item has WeaponVisual data.</summary>
 	public bool HasWeaponVisual => _visual != null;
 
 	private const float RetryInterval = 0.25f;
@@ -97,17 +97,17 @@ public sealed class HeldWeaponControl : Component
 
 	private void HandleEquipped( EquipmentSlot slot, ItemInstance instance )
 	{
-		if ( slot != EquipmentSlot.MainHand1 ) return;
+		if ( slot != EquipmentSlot.Melee ) return;
 		Refresh( instance );
 	}
 
 	private void HandleUnequipped( EquipmentSlot slot, ItemInstance instance )
 	{
-		if ( slot != EquipmentSlot.MainHand1 ) return;
+		if ( slot != EquipmentSlot.Melee ) return;
 		Refresh( null );
 	}
 
-	/// <summary>Rebuilds the held state from the given main-hand item (null = empty hand).</summary>
+	/// <summary>Rebuilds the held state from the given melee item (null = empty hand).</summary>
 	private void Refresh( ItemInstance weapon )
 	{
 		DestroyModel();

@@ -149,6 +149,13 @@ public sealed class Enemy : Actor
 
 	public AttackDef GetAttackType()
 	{
+		bool prefersRanged = AttackType?.Tags?.Contains( AttackTag.Ranged ) == true;
+		var weaponAttack = prefersRanged
+			? Equipment?.GetRangedWeaponAttackDef() ?? Equipment?.GetWeaponAttackDef()
+			: Equipment?.GetWeaponAttackDef() ?? Equipment?.GetRangedWeaponAttackDef();
+		if ( weaponAttack != null )
+			return weaponAttack;
+
 		return IsConfiguredAttack( AttackType ) ? AttackType : AttackData.Punch;
 	}
 

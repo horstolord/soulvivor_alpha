@@ -199,12 +199,15 @@ public class NovaDeliveryMethod : ISpellDeliveryMethod
 	{
 		var ctx = payload.Context;
 		if ( ctx == null || !ctx.Caster.IsValid() ) return;
+		// A top-level nova is centered on its caster, not the camera/aim origin.
+		// Triggered novas keep their impact origin so chained effects stay at the trigger point.
+		var novaOrigin = ctx.RecursionDepth == 0 ? ctx.Caster.WorldPosition : ctx.Origin;
 		var radius = payload.AoERadius > 0 ? payload.AoERadius : 150f;
 		// Shape prefab is authored with a 100-unit radius at scale 1.
-		SpellVfx.Spawn( payload.PrefabPath, ctx.Origin, Rotation.Identity, Vector3.One * (radius / SpellVfx.RefSize),
+		SpellVfx.Spawn( payload.PrefabPath, novaOrigin, Rotation.Identity, Vector3.One * (radius / SpellVfx.RefSize),
 			SpellVisualResolver.ResolveMaterial( ctx ) );
 		var hits = ctx.Caster.Scene.Trace
-			.Sphere( radius, ctx.Origin, ctx.Origin )
+			.Sphere( radius, novaOrigin, novaOrigin )
 			.IgnoreGameObjectHierarchy( ctx.Caster )
 			.RunAll();
 
@@ -217,16 +220,16 @@ public class NovaDeliveryMethod : ISpellDeliveryMethod
 
 			// Radial direction away from the blast origin, z preserved (upward bias added by ApplyKnockback).
 			var root = CombatMath.GetKnockbackRoot( hit.GameObject ) ?? hit.GameObject;
-			var radialDirection = root.WorldPosition - ctx.Origin;
+			var radialDirection = root.WorldPosition - novaOrigin;
 
 			// HitResolver deduplicates by actor-root via alreadyHit, fixing the multi-collider bug.
 			if ( HitResolver.Apply( ctx.Caster, hit.GameObject, baseDamage, radialDirection, alreadyHit, hit.HitPosition ) )
-				SpellEffectApplier.Apply( ctx, hit.GameObject, ctx.Origin );
+				SpellEffectApplier.Apply( ctx, hit.GameObject, novaOrigin );
 		}
 
 		if ( ctx.TriggerPayloadRunes != null && ctx.TriggerPayloadRunes.Count > 0 )
 		{
-			RuneEvaluator.ExecuteTriggerPayload( ctx, ctx.Origin, Vector3.Up, null );
+			RuneEvaluator.ExecuteTriggerPayload( ctx, novaOrigin, Vector3.Up, null );
 		}
 	}
 }

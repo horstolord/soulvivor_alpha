@@ -9,8 +9,8 @@ namespace Sandbox.Code.Presentation;
 /// </summary>
 public sealed class InventoryPanel
 {
-    public const int Columns = 9;
-    public const int Rows = 4;
+    public const int Columns = 10;
+    public const int Rows = 5;
 
     public List<InventorySlot> Slots { get; private set; } = new();
     public Dictionary<EquipmentSlot, InventoryItem> EquippedSlots { get; private set; } = new();
@@ -87,6 +87,12 @@ public sealed class InventoryPanel
         if ( slot?.Item?.Definition?.IsEquippable != true ) return;
 
         var equipmentSlot = NormalizeSlot( slot.Item.Definition.Equipment.Slot );
+        if ( equipmentSlot == EquipmentSlot.Ring1
+        	&& EquippedSlots.ContainsKey( EquipmentSlot.Ring1 )
+        	&& !EquippedSlots.ContainsKey( EquipmentSlot.Ring2 ) )
+        {
+        	equipmentSlot = EquipmentSlot.Ring2;
+        }
         EquipItemInSlot( slot, equipmentSlot );
     }
 
@@ -103,8 +109,10 @@ public sealed class InventoryPanel
         // Allow flasks to equip to either Flask1 or Flask2
         bool isFlaskSlotMatch = (normalizedTarget is EquipmentSlot.Flask1 or EquipmentSlot.Flask2)
                                 && (slot.Item.Definition.Equipment.Slot is EquipmentSlot.Flask1 or EquipmentSlot.Flask2 || slot.Item.Definition.Tags.Contains("flask"));
+        bool isRingSlotMatch = (normalizedTarget is EquipmentSlot.Ring1 or EquipmentSlot.Ring2)
+                               && (itemSlot is EquipmentSlot.Ring1 or EquipmentSlot.Ring2);
 
-        if ( !isFlaskSlotMatch && normalizedTarget != itemSlot ) return;
+        if ( !isFlaskSlotMatch && !isRingSlotMatch && normalizedTarget != itemSlot ) return;
 
         EquipItemInSlot( slot, normalizedTarget );
     }
@@ -322,8 +330,8 @@ public sealed class InventoryPanel
         // Forward to the gameplay EquipmentControl so stat modifiers are actually applied
         var def = itemToEquip.Definition;
         var instance = itemToEquip.Instance;
-        Log.Info( $"[Inventory] Equipping '{def?.Name}' — Definition.Stats.Armor={def?.Equipment?.Stats?.Armor:F1}, Mods={instance?.RolledMods?.Count ?? def?.Mods?.Count ?? 0}" );
-        Actors.Player.Local?.Equipment?.Equip( itemToEquip.Instance );
+        Log.Info( $"[Inventory] Equipping '{def?.Name}' — Definition.Stats.Armor={def?.Equipment?.Stats?.Armor:F1}, Implicits={instance?.ImplicitMods?.Count ?? 0}, Affixes={instance?.RolledMods?.Count ?? 0}" );
+        Actors.Player.Local?.Equipment?.Equip( itemToEquip.Instance, equipmentSlot );
 
         SelectedSlotId = null;
         draggingSlotId = null;
@@ -360,15 +368,8 @@ public sealed class InventoryPanel
         Slots[index].Item = InventoryItem.FromDefinition( definition, quantity );
     }
 
-    private static EquipmentSlot NormalizeSlot( EquipmentSlot slot )
-    {
-        return slot switch
-        {
-            EquipmentSlot.MainHand2 or EquipmentSlot.MainHand3 => EquipmentSlot.MainHand1,
-            EquipmentSlot.OffHand2 or EquipmentSlot.OffHand3 => EquipmentSlot.OffHand1,
-            _ => slot
-        };
-    }
+    // Melee and ranged weapons occupy distinct slots.
+    private static EquipmentSlot NormalizeSlot( EquipmentSlot slot ) => slot;
 }
 
 public sealed class InventorySlot
@@ -384,17 +385,16 @@ public sealed class InventoryItem
     public ItemDef Definition => Instance?.Definition;
     public string Name => Definition?.Name ?? "Unknown Item";
     public string Description => Definition?.Description ?? "";
-    public ItemRarity Rarity => Definition?.Rarity ?? ItemRarity.Common;
-    public string RarityClass => Rarity.ToString().ToLower();
+    public ItemRarity Rarity => Instance?.Rarity ?? Definition?.Rarity ?? ItemRarity.Common;
+    public string RarityClass => RarityStyle.CssClass( Rarity );
     public int Quantity { get; set; } = 1;
     public int RemainingCharges { get; set; }
     public int MaxCharges { get; set; }
     public InventoryItemStats Stats { get; init; } = new();
     public string IconGlyph { get; init; } = "?";
 
-    public IReadOnlyList<ModData> Mods => (Instance?.RolledMods != null && Instance.RolledMods.Count > 0)
-        ? Instance.RolledMods
-        : (Definition?.Mods ?? (IReadOnlyList<ModData>)System.Array.Empty<ModData>());
+    public IReadOnlyList<ModData> ImplicitMods => (IReadOnlyList<ModData>)Instance?.ImplicitMods ?? System.Array.Empty<ModData>();
+    public IReadOnlyList<ModData> AffixMods => (IReadOnlyList<ModData>)Instance?.RolledMods ?? System.Array.Empty<ModData>();
 
     public EquipmentStatBlock EquipmentStats => Definition?.Equipment?.Stats;
     public ConsumableData Consumable => Definition?.Consumable;
@@ -442,10 +442,18 @@ public sealed class InventoryItem
         if ( def == null ) return "Item";
         if ( def.Equipment != null && def.Equipment.Slot != EquipmentSlot.None )
         {
+            if ( def.Tags?.Contains( "bow" ) == true ) return "Bow";
+            if ( def.Tags?.Contains( "polearm" ) == true ) return "Polearm";
+            if ( def.Tags?.Contains( "spear" ) == true ) return "Spear";
+            if ( def.Tags?.Contains( "hammer" ) == true || def.Tags?.Contains( "mace" ) == true ) return "Hammer / Mace";
+            if ( def.Tags?.Contains( "axe" ) == true ) return "Axe";
+            if ( def.Tags?.Contains( "sword" ) == true ) return "Sword";
+
             return def.Equipment.Slot switch
             {
-                EquipmentSlot.MainHand1 or EquipmentSlot.MainHand2 or EquipmentSlot.MainHand3 => "Main Hand Weapon",
-                EquipmentSlot.OffHand1 or EquipmentSlot.OffHand2 or EquipmentSlot.OffHand3 => "Off Hand / Shield",
+                EquipmentSlot.Melee => "Melee Weapon",
+                EquipmentSlot.Ranged => "Ranged Weapon",
+                EquipmentSlot.OffHand => "Off Hand / Shield",
                 EquipmentSlot.Head => "Head Armor",
                 EquipmentSlot.Chest => "Chest Armor",
                 EquipmentSlot.Hands => "Gloves / Hands",
@@ -490,7 +498,9 @@ public sealed class InventoryItem
             instance.RemainingCharges = charges;
         }
 
-        var mods = instance?.RolledMods ?? definition?.Mods;
+        var mods = (instance?.ImplicitMods ?? new List<ModData>())
+            .Concat( instance?.RolledMods ?? new List<ModData>() )
+            .ToList();
 
         return new InventoryItem
         {
@@ -503,7 +513,7 @@ public sealed class InventoryItem
             {
                 Attack = (int)(stats?.BaseDamage ?? 0f),
                 Defense = (int)(stats?.Armor ?? 0f),
-                Speed = (int)(mods?.Where( mod => mod.StatName == "Swiftness" ).Sum( mod => mod.Value ) ?? 0f)
+                Speed = (int)mods.Where( mod => mod.StatName == "Swiftness" ).Sum( mod => mod.Value )
             }
         };
     }
@@ -513,6 +523,13 @@ public sealed class InventoryItem
         if ( definition == null ) return "?";
 
         if ( definition.Tags.Contains( "sword" ) ) return "SW";
+        if ( definition.Tags.Contains( "bow" ) ) return "BW";
+        if ( definition.Tags.Contains( "polearm" ) ) return "PL";
+        if ( definition.Tags.Contains( "spear" ) ) return "SP";
+        if ( definition.Tags.Contains( "hammer" ) || definition.Tags.Contains( "mace" ) ) return "HM";
+        if ( definition.Tags.Contains( "axe" ) ) return "AX";
+        if ( definition.Tags.Contains( "ring" ) ) return "RG";
+        if ( definition.Tags.Contains( "amulet" ) ) return "AM";
         if ( definition.Tags.Contains( "armor" ) || definition.Equipment?.Slot == EquipmentSlot.Head ) return "HD";
         if ( definition.Tags.Contains( "flask" ) || definition.Equipment?.Slot is EquipmentSlot.Flask1 or EquipmentSlot.Flask2 ) return "FL";
         if ( definition.Tags.Contains( "potion" ) ) return "PT";

@@ -54,7 +54,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Plane",
-      "Position": "0,0,-1327.77417",
+      "Position": "0,0,-6060.69531",
       "Rotation": "0,0,0,1",
       "Scale": "300,300,100",
       "Tags": "solid,world",
@@ -1623,8 +1623,8 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Plane (3)",
-      "Position": "-18.694582,-9844.83496,1036.15234",
-      "Rotation": "0.49999997,-0.49999997,-0.49999997,-0.49999997",
+      "Position": "-1378.82092,-16483.2559,-6270.73779",
+      "Rotation": "-0.000926341629,-0.180801168,0.983252704,0.0228961743",
       "Scale": "100,300,1",
       "Tags": "",
       "Enabled": true,
@@ -1724,7 +1724,7 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               }
             }
@@ -2157,9 +2157,9 @@
           "__guid": "76c0e6b0-a461-4b1d-9103-192e7a2364b9",
           "__enabled": true,
           "Flags": 0,
-          "BurstWindow": 0.2,
+          "BurstWindow": 0.5,
           "Cooldown": 0.6,
-          "FootIkExitDuration": 0.4,
+          "FootIkExitDuration": 2,
           "IsSliding": false,
           "MinSpeedThreshold": 100,
           "OnComponentDestroy": null,
@@ -2168,10 +2168,10 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "SlideDuckedSpeed": 10,
-          "SlideDuration": 1,
-          "SpeedBoost": 750,
-          "StaminaCost": 0
+          "SlideDuckedSpeed": 100,
+          "SlideDuration": 60,
+          "SpeedBoost": 1000,
+          "StaminaCost": 5
         },
         {
           "__type": "Sandbox.Code.Systems.BlockControl",
@@ -4818,7 +4818,7 @@
               "Children": []
             },
             {
-              "__guid": "02da825a-793c-4d78-ba43-ae7790013327",
+              "__guid": "e4a44039-813c-4689-b8b6-1f3b24984914",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -4835,7 +4835,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "42f552c8-d2a2-4108-85e7-f01eb85da225",
+                  "__guid": "57864f8e-9b7c-402f-af31-1c5e77106dfb",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4885,7 +4885,7 @@
               "Children": []
             },
             {
-              "__guid": "1017ce67-aa55-4eee-a369-884a77287996",
+              "__guid": "c6dfb848-8a91-4e0c-a3c2-c1474aa01eae",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -4902,7 +4902,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "deffd071-75bf-46ee-b40d-9896e801ef38",
+                  "__guid": "093b76df-d6da-4c23-a543-7c4e3c6abbd6",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4952,7 +4952,7 @@
               "Children": []
             },
             {
-              "__guid": "f990e22e-92f0-4c1a-80f9-2a6acb5eb209",
+              "__guid": "ef66588a-abbf-4d60-b081-eae4e053dfa1",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -4969,7 +4969,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "3afea243-5a05-4221-8585-4eceb1ec0876",
+                  "__guid": "36cdf1e4-8697-4f19-9f40-1fbaef883b10",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5019,7 +5019,7 @@
               "Children": []
             },
             {
-              "__guid": "45e60bf7-4cd4-437e-a753-d1491e23d817",
+              "__guid": "4904a841-0fc3-495a-91f0-9be4668d6460",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -5036,7 +5036,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "94356cf5-bc54-40e2-a011-a32073168109",
+                  "__guid": "8e556054-0c65-4629-a970-c550a9a256a2",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5086,7 +5086,7 @@
               "Children": []
             },
             {
-              "__guid": "c7716a68-163d-408e-af06-bfade35a0d0e",
+              "__guid": "d6b3fe95-ae0a-440a-a198-907f840da93d",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -5103,7 +5103,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "4c5c8e86-07ce-4868-b011-76026ac11c35",
+                  "__guid": "937740f5-b1e3-4786-8106-68a4f8a42139",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5177,7 +5177,7 @@
               "Flags": 0,
               "ColliderFlags": 0,
               "Elasticity": null,
-              "End": "0,0,36",
+              "End": "0,0,41.7100105",
               "Friction": 0,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -5190,35 +5190,9 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Radius": 11.313708,
+              "Radius": 12.28371,
               "RollingResistance": null,
-              "Start": "0,0,60.6862907",
-              "Static": false,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            },
-            {
-              "__type": "Sandbox.BoxCollider",
-              "__guid": "d7b6b98b-ba7a-443f-ad15-109ff0fda8b6",
-              "__enabled": true,
-              "Flags": 0,
-              "Center": "0,0,18",
-              "ColliderFlags": 0,
-              "Elasticity": null,
-              "Friction": 0,
-              "IsTrigger": false,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "RollingResistance": null,
-              "Scale": "16,16,36",
+              "Start": "0,0,97.4762878",
               "Static": false,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
@@ -5292,7 +5266,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "12853c3c-ca12-45b7-8dc0-99865c09e79a": "fd9ab117-79e1-8fc3-9f1b-1c7899b6eaae"
+            "c5a05d1a-99c6-4c8f-9c58-9b7baa836682": "f4ddd91b-d018-8a65-91ec-cf37927f8833"
           }
         }
       ]
@@ -5543,7 +5517,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5592,7 +5566,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5671,7 +5645,7 @@
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                    "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                     "Path": "models/props/rock_scatter/rock_scatter.vmat"
                   }
                 }
@@ -5748,13 +5722,13 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "f24c3c1d-8973-4f38-872a-c830428234de",
+                    "Id": "f423d9df-1fa9-4a1e-8cc9-5dcc54dfc17f",
                     "Path": "models/sbox_props/metal_wheely_bin/metal_wheely_bin_parts.vmat"
                   }
                 }
@@ -5831,7 +5805,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5906,7 +5880,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5981,7 +5955,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -6056,7 +6030,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "22b7fee9-9a5e-4006-86d8-4387ed0f216a",
+                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -7761,6 +7735,123 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "d8f324e7-9509-4e75-8764-e239618b3fde",
+      "__version": 2,
+      "__Prefab": {
+        "Id": "7bd99691-3ddd-40ce-87ab-571aaa917773",
+        "Path": "skeleman.prefab"
+      },
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "e5d8b45d-54d1-4ec6-9c00-ac9f26767bb0"
+            },
+            "Property": "Position",
+            "Value": "-2948.05249,1349.53015,-347.416016"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "e5d8b45d-54d1-4ec6-9c00-ac9f26767bb0": "d8f324e7-9509-4e75-8764-e239618b3fde",
+        "099bc587-83ac-4469-b296-6b601ad66ad9": "7fe33b0c-79a3-41cd-9aa5-959a65498450",
+        "49810d0c-9644-4c6c-b2fb-4fda2828e7fd": "9104d502-cf12-48b6-803b-35f19de2fc0d",
+        "710fce2f-ace9-43d6-a343-f058224ad651": "56719f33-eaa7-4f15-8540-f40268a92ed8",
+        "df445b90-7234-4747-8558-579a927e5597": "5b7490f9-fe82-46fe-8afc-fa6c7c2f83ce",
+        "b6145a4d-b1b5-4d99-9339-b5acb4b13403": "e40f1317-52aa-445a-a3e9-219ec6ba8efe",
+        "65fa3539-ba82-4ae4-b277-42b9bf239d2b": "946f990d-a409-47b9-a6cd-1b820bd6230d",
+        "9e7a8189-d0a0-44cc-a66f-01c24cdf6de3": "9005a3ef-5ceb-4748-b991-7b4d524a5188",
+        "7a068ffb-9c02-4589-8833-220499924deb": "d9974ebf-01cd-452e-83a0-785b6737002e",
+        "83310874-5f68-4607-97e9-ef99442cbb73": "4b5cfe81-be39-40a8-bfd7-3bba022702a5",
+        "1288ba77-4598-4d5a-99dd-cfbeb4725b91": "9336245e-a6af-4cd0-a8b5-33461c22488b",
+        "f55eda7e-39a1-4abb-a7b2-b95ff431ee37": "85e86c3d-70eb-4745-a1a3-7ec6d1d52190",
+        "b874dd46-96e2-4611-8cd5-c095be9cad95": "06fb35a0-7dd6-43a8-9daf-f4c637336ab2",
+        "116d6b6e-cfc4-4591-a9b0-38006137a16a": "08a5f2d7-ca60-4745-ae11-6e3f41c9ee6e",
+        "3bae751b-4f07-4423-af17-ac11e2f43cf6": "cd4f7fb5-81cf-4208-a6ab-46afc9e5e85c",
+        "c0089d64-411c-4f53-9afd-2ce1f022afd8": "b4c55135-8bcf-4571-9853-8294caac8f2b",
+        "726723ad-6d1d-420f-ab38-ec441b21be13": "f11f11ac-2c8e-4dd4-9cdb-fe1a9dd2c2b0",
+        "f8794beb-ef4f-4629-9a6e-5d4f1381cdec": "11fec460-5494-4ff7-8abd-b345c72acf24",
+        "f0a04992-e4a8-4bbf-bee7-fedc14a61c44": "aaecf0a9-6a79-4c7a-a834-b167b2bbfa29",
+        "739a54c7-689e-4427-bd91-e198d14679a1": "0c6ffeb1-d2be-4046-9153-3e00c36d9541",
+        "3a8f7d20-929f-45a8-956e-130a391e2798": "f0304a19-ba7e-4481-8b5c-de722314e57c",
+        "02d1e351-9ff2-4dd7-a072-8b0812e7e140": "d2a9c436-b858-4c2e-98ce-e1a00f09025e",
+        "b046f492-adbf-497b-8fd2-c27ccf4620ac": "863be16e-05ed-4dff-ad64-a3a9d6222188",
+        "6d54e6f5-4f21-45b7-acc8-d2554a90f11b": "ae7243f3-6799-4b15-b401-1d8fe6b75885",
+        "6ba41de7-87df-4d94-ab11-9de1b7214f75": "6e03418b-2c73-401c-9a03-6660447df66f",
+        "bc8c1bc7-9ab9-4d51-b5a0-9f4ec02e74aa": "e6a84e3f-22bb-4c52-9080-52218be6c180",
+        "852fcb9e-9e01-4369-856d-cc9f3f3b755f": "66791e18-28af-4d12-b3fc-0465b4ea00e0",
+        "9795ebc9-e8b6-427c-836d-d8f513fa0b5c": "ce618b2a-c62d-4ad0-b54f-a9d35106bf3f",
+        "e10d42f9-534c-48c7-8da7-eefcba12d2cb": "58829e2f-da0c-4505-8279-f09ae1a9c55f",
+        "4855d005-fbdb-4207-a62b-d4230740e16a": "7027c94c-38ef-4464-8b52-63fe81e58842",
+        "67de70f6-a90c-4d2a-b0cc-bb815caa80bd": "87577626-a0ae-4410-bba8-fd18661e1322",
+        "8a320132-4157-4479-8ddb-a6288f3b6954": "dca8e258-0f0b-48d2-81d8-521e1e5236d8",
+        "c60bfca0-87b0-4386-9aa5-45c6423721d3": "9a5a97dd-2bc9-4bdc-8c99-4e8c72da5ab9",
+        "2f0b97e0-fd7d-4702-927c-42c4a008835e": "602aa7f4-9d4d-4dbe-9af8-362a789d027d",
+        "9bcaea0a-a43c-4976-81b2-478a0d14488f": "675f18c4-1066-40e6-9696-e42b29d3d08a",
+        "3a3ffdc6-4e0f-4df9-b79c-7034f453d4b1": "29173122-af56-41f6-9d62-6cf2c39bbab1",
+        "a94e08b8-876b-4180-bdde-33d5e8928f11": "cd9525f8-f514-40dc-b1d8-56fd6e84d06a",
+        "4377232a-2bbd-4cdf-9f38-6038a3e35b67": "e6d654db-cd05-4c74-8277-aab0c9f4173b",
+        "9b9f5222-4eec-44bf-99c5-fa418510046f": "f6d70b33-ad71-4a81-a802-fd56d1006a38",
+        "dac93a47-4274-45b2-b03b-51393f700e7b": "b0289ca9-e977-485d-9b88-29d2814b6907",
+        "fdbb8f15-43ef-4377-a714-7088a4c93eab": "b87c8491-1b94-49bf-aa40-4e2d222e55bc",
+        "d4e2abc4-67ae-4d4b-bd47-8b283ad3259a": "3c6aaa72-32a9-4739-a914-678cd2858ee5",
+        "bec7e6a6-8000-40eb-b656-31a1399930e1": "e7828b8f-0cae-446b-a5b1-652674848c95",
+        "00ae7876-12de-4cf7-80b2-ee923daa6952": "578db9a4-165e-4efb-b3f4-f4decbce496e",
+        "3af33e9c-e5ca-413a-9450-d6311f21879b": "aab4a542-e912-47ce-b68f-f7e3c2af95b2",
+        "d0ffe178-9ceb-4856-93da-cc89009cf431": "57d6bdef-b57b-4c71-a131-d79a235b4054",
+        "c7bab2e2-2f6f-473b-ac8e-47a1995ab611": "19f470e4-ca8c-44ac-925e-666ab36559a1",
+        "053ad41f-22ff-429f-aed8-68f1156f9eac": "4115bfa8-38ce-4c0c-8608-06c495ffef22",
+        "d6c3d4e6-01ed-4298-a24e-6876ac0dbf88": "ef4d0a78-7846-4f49-bbfd-30a47db76f00",
+        "03216056-d42f-4fd8-98a0-0e500babe4e1": "332bb523-a091-47f3-b8b7-6a43366308ce",
+        "39d8dd11-1ae2-4ee9-a89e-edff89f7d0d9": "6bd37878-adba-4396-a861-c3a8a2b1f9fb",
+        "04bf577a-3cf0-4cda-ab6b-28f81c387992": "eb1686cd-0ae2-4824-ad05-1f03863e9f79",
+        "4cfaef47-f7ed-4a5d-9919-b82938d8547c": "528aa2f0-f879-4edd-898a-4a9484e33cb7",
+        "c20bab92-8f3a-44e5-abdd-eb7f8df67d74": "f3c18cf2-8c1e-4864-9384-be1a5b468e2a",
+        "509d55dc-df99-401b-9d50-42091c054869": "92dae131-15fe-45b1-80b9-956626b4bb20",
+        "0c8ca8b6-f537-4945-bb4b-aafa2d0e7468": "707f0608-5693-417c-9780-3b812fdaaf96",
+        "5ac4caa1-f0b1-4814-9d91-56e7e012dac2": "4f10873f-14ee-4780-94c0-cc652d5f7fc8",
+        "2982cc7d-f8c4-4f84-abd4-540334427ab9": "5545b6b3-f582-46ed-93df-d14ab004ff76",
+        "84b79ab1-9646-41ac-9d6f-9af30b3dbcb8": "af568627-fdaf-4998-99dd-9722616c6568",
+        "8b17cd21-fe99-4bfa-b2f0-86e9bb86cf4c": "399239b8-bfba-4202-9fb9-ec2b50febb6f",
+        "04537485-d14f-418f-85a1-3415871723f9": "9931abbe-2502-4b55-83fa-07d44a2d0633",
+        "78cefc28-656e-459e-9bba-ebe8612e842a": "ad9b3874-4745-4dae-8fcb-98ee72652731",
+        "b27d6ebc-4c09-412b-8ccd-561992dc37d4": "6576adbe-c54f-4c0a-b391-6ffa496896fb",
+        "1fcef2b0-c609-4595-b9b6-c06b438ca16e": "cc3acb54-daa0-41f5-b302-b3ea94321da5",
+        "3ffac9c3-b17a-45c6-a37c-fe500506f2f6": "ca440bf7-dcfb-45b2-9cef-c7d504a0effd",
+        "69c4918c-2057-4c0e-a67b-582b0a491f85": "1156c50a-6545-485f-9f6d-3420e86d210c",
+        "6a22240e-d190-4bfb-8832-ba627a7a3fdf": "32cf5983-8ef3-4e12-b53a-0857bbe3b335",
+        "8d4f8727-46c6-4f15-b4ad-e0cc57f6426b": "8e9191cf-8326-448b-a4ca-806b63646797",
+        "699c7ea9-a553-40b1-bbeb-7abc02ea0b16": "61445442-2c24-45d5-89c3-df4478ea17f1",
+        "0991781b-d251-43eb-b4e7-44959a82c2aa": "b7c4f7cb-e7fe-410f-873e-56b4b5ebf488",
+        "bf876a11-4297-43e4-8b5f-e8ab6d04470f": "904121e4-ea64-4b16-bd51-11c242d450cc",
+        "a4573400-9c4e-41b2-b106-83326b6d482b": "ea74ea37-84cc-4973-9273-6aba897476f7",
+        "f202be6e-9370-4526-a7a5-b131ab488040": "6469f647-296e-4cbe-bae5-1cd7e2ae3de7",
+        "f5e30d17-ef4b-48d7-8bf2-9823eae15bbe": "12371687-6a48-4a04-bca3-538114d4423c",
+        "c73e17f9-75b6-4c11-a070-7de2a89450d1": "75374c3b-6ac2-4d1d-9881-8e50b98a0fa3",
+        "63e7c70f-13ef-4e06-be06-baa22ece7f82": "feda5ec6-93fe-4fa8-8413-835e0f18895a",
+        "e0077225-ab60-4412-8ce9-a355b908d769": "bbb8f096-c36e-4e9f-85a1-1239769c1121",
+        "bc511109-01c6-4b2d-a9e9-e8433d9c2b79": "16e67a0c-9576-4bd6-80c6-cb6916b48d51",
+        "693e8a9a-139a-488e-8f9c-c68618a631ca": "4b248f91-18e1-4f65-94a8-e30d4575841a",
+        "a5fe4029-12a8-495e-a69d-0db5587a1516": "aa79ce28-a29b-4aed-896f-64b76a378549",
+        "09ba0cea-22f3-4150-b985-79289fdd4df6": "722f752e-a8f8-4874-b717-164342de5c63",
+        "ed4f16cc-7e61-4c5f-ab44-83e6d31926a7": "3ed7eef6-b675-4698-845c-5aa1ba468721",
+        "4a084306-f7ee-477a-88fa-6b1ffdde36fe": "e2ce60e1-bf06-48ba-a9de-35bef44562bd",
+        "d80f95c2-be4d-4c80-99e0-4aa2ccedb595": "cd44352a-e1b2-4e25-a7b0-5d63f4359b3d",
+        "1c4000eb-0c86-45c9-be26-e6ea79862e8c": "570eb174-d1f1-4087-8ea8-47fea472119d",
+        "390a74bb-4a67-4cb0-897d-3bbb31fbcc09": "3650b190-491f-4797-af2f-edbdf5d786c8",
+        "e7833547-5ddb-400e-87fd-054c37399368": "a4dc43ec-3a99-4b9a-8a42-5f18469ce49e",
+        "d73b849a-5a38-4563-8395-9f89fabda0d5": "4af6a114-7073-49b7-8344-53439f19e9d8",
+        "e0bf7aff-7fc4-4f98-9c87-2555a7e15948": "b9a5b6cc-e84d-4da6-a45f-4a30428f478c",
+        "87729932-f28d-4c27-a14b-9555096fb4db": "22b8fde7-3502-4c6c-a885-038aec6cc0ab",
+        "e3c7e2d9-3d1e-49c9-95ce-85b49c3cf43c": "768d5030-d684-437c-850f-bbc1d6b6b64b",
+        "eee53bee-c382-4acc-8463-21d9e63d7960": "f039cc19-42e0-42b8-8e88-f11759f189ab"
+      }
     }
   ],
   "SceneProperties": {
@@ -7804,6 +7895,9 @@
   "ResourceVersion": 3,
   "Title": null,
   "Description": null,
-  "__references": [],
+  "__references": [
+    "5500studios.spinningblade#222193",
+    "facepunch.rock_scatter_03#143386"
+  ],
   "__version": 3
 }

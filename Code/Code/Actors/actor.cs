@@ -249,6 +249,23 @@ public class Actor : Component
 		OnHitReceived?.Invoke();
 		
 	}
+	/// <summary>
+	/// Engine built-in damage system lead in - collision.
+	/// </summary>
+	/// <param name="info"></param>
+	public void OnDamage( in DamageInfo info )
+	{
+		if (  StateComp?.CurrentState == ActorStateType.Dead ) return;
+
+		Log.Info( $"[ImpactDmg] {GameObject.Name} <- {info.Damage:F1} from {info.Attacker?.Name ?? "none"} tags=[{info.Tags}]" ); // temp
+
+		ApplyDamage( new DamageProfileDef
+		{
+			HealthDamage = info.Damage,
+			StaminaDamage = info.Damage * 1f, // temp, so big hits can stagger (poise uses this value)
+			Tags = new() { AttackTag.Physical }
+		}, info.Attacker );
+	}
 
 	// ============ DEATH ============
 	protected virtual async void OnKilled()

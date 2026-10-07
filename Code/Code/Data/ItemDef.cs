@@ -13,8 +13,10 @@ public sealed class ItemDef
 	public ItemRarity Rarity { get; init; }
 	public bool Stackable { get; init; }
 	public int MaxStack { get; init; } = 1;
+	public string WorldPrefabPath { get; init; }
 	public List<string> Tags { get; init; } = new();
-	public List<ModData> Mods { get; init; } = new();
+	/// <summary>Fixed stats this base type always has. Never rolled and never counts toward rarity.</summary>
+	public List<ModData> Implicits { get; init; } = new();
 	public EquipmentData Equipment { get; init; }
 	public ConsumableData Consumable { get; init; }
 	public CraftingData Crafting { get; init; }
@@ -25,8 +27,34 @@ public sealed class ItemDef
 public sealed class EquipmentData
 {
 	public EquipmentSlot Slot { get; init; }
+	public WeaponClass WeaponClass { get; init; }
+	public bool TwoHanded { get; init; }
 	public EquipmentStatBlock Stats { get; init; } = new();
 	public WeaponVisualDef WeaponVisual { get; init; } = new();
+	public RangedWeaponData RangedWeapon { get; init; }
+	public Systems.AttributeScalingDef Scaling { get; init; }
+}
+
+public enum WeaponClass
+{
+	None,
+	Sword,
+	Dagger,
+	Axe,
+	Hammer,
+	Mace,
+	Spear,
+	Polearm,
+	Bow,
+	Staff,
+	Catalyst
+}
+
+public sealed class RangedWeaponData
+{
+	public float DrawTime { get; init; } = 0.45f;
+	public string ProjectilePrefabPath { get; init; }
+	public Systems.ProjectileTemplate ProjectileTemplate { get; init; } = new();
 }
 public sealed class WeaponVisualDef
 {
@@ -73,9 +101,14 @@ public sealed class ItemInstance
 	public int StackCount { get; set; } = 1;
 	public int RemainingCharges { get; set; }
 	public int MaxCharges { get; set; }
+	/// <summary>This instance's rarity. Loot rolls it; hand-authored items copy it from the definition.</summary>
+	public ItemRarity Rarity { get; init; }
+	/// <summary>Copied from Definition.Implicits. Fixed values, applied alongside RolledMods.</summary>
+	public List<ModData> ImplicitMods { get; init; } = new();
+	/// <summary>Rarity affixes only, rolled by LootGenerator.</summary>
 	public List<ModData> RolledMods { get; init; } = new();
 
-	/// <summary>Wraps a hand-authored ItemDef with no procedural rolls — RolledMods mirrors Definition.Mods.</summary>
+	/// <summary>Wraps a hand-authored ItemDef with implicits only and no affixes.</summary>
 	public static ItemInstance FromDefinition( ItemDef def, int stackCount = 1 )
 	{
 		int charges = def?.Consumable?.Charges ?? 0;
@@ -85,8 +118,12 @@ public sealed class ItemInstance
 			StackCount = stackCount,
 			RemainingCharges = charges,
 			MaxCharges = charges,
-			RolledMods = new List<ModData>( def?.Mods ?? Enumerable.Empty<ModData>() )
+			Rarity = def?.Rarity ?? ItemRarity.Common,
+			ImplicitMods = CloneImplicits( def )
 		};
 	}
-}
 
+	/// <summary>Fresh copies so nothing can mutate the shared definition's values.</summary>
+	public static List<ModData> CloneImplicits( ItemDef def )
+		=> (def?.Implicits ?? new List<ModData>()).Select( m => new ModData( m.StatName, m.Value, m.Type ) ).ToList();
+}
