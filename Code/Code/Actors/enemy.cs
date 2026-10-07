@@ -27,6 +27,12 @@ public sealed class Enemy : Actor
 	private IEnemyBehavior _behavior;
 	private Vector3 _knockbackVelocity;
 
+	/// <summary>How far below the feet still counts as standing on something.</summary>
+	[Property] public float GroundCheckDistance { get; set; } = 14f;
+
+	/// <summary>False while falling / launched. Airborne enemies don't walk or attack — physics owns them.</summary>
+	public bool IsGrounded { get; private set; } = true;
+
 	protected override void OnStart()
 	{
 		base.OnStart();
@@ -83,6 +89,18 @@ public sealed class Enemy : Actor
 
 		Agent.MaxSpeed = StatSheet?.MoveSpeed?.Value ?? 120f;
 
+		// Walked off a ledge or got launched: the agent's velocity must not push the body sideways in
+		// mid-air (it glides instead of falling). Let the Rigidbody fall; AI resumes on landing.
+		IsGrounded = CheckGrounded();
+		if ( !IsGrounded )
+		{
+			Agent.Stop();
+			bodyRenderer?.Set( "f_speed", 0f );
+			bodyRenderer?.Set( "b_moving", false );
+			Agent.SetAgentPosition( GameObject.WorldPosition );
+			return;
+		}
+
 		// Don't let AI reposition mid-swing — CombatComponent already tracks per-attack
 		// CanMoveDuringStartup/Recovery, this just wasn't being read before.
 		if ( IsMovementLocked() )
@@ -110,6 +128,16 @@ public sealed class Enemy : Actor
 		}
 
 		Agent.SetAgentPosition( GameObject.WorldPosition );
+	}
+
+	private bool CheckGrounded()
+	{
+		var from = GameObject.WorldPosition + Vector3.Up * 6f;
+		var tr = Scene.Trace
+			.Ray( from, from + Vector3.Down * (6f + GroundCheckDistance) )
+			.IgnoreGameObjectHierarchy( GameObject )
+			.Run();
+		return tr.Hit;
 	}
 
 	/// <summary>

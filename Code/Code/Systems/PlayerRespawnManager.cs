@@ -94,29 +94,31 @@ public sealed class PlayerRespawnManager : Component
 			return;
 		}
 
-		// 1. Move to the spawn object (with a small lift so we don't clip the floor).
+		// 1. Revive FIRST: leaves the ragdoll (bodies are still at the death spot), clears stun flags,
+		//    resets state and refills pools. Same lookup the actor itself uses for ragdolling.
+		player.Revive();
+
+		// 2. Move to the spawn object (with a small lift so we don't clip the floor).
 		var position = GameObject.WorldPosition;
 		player.GameObject.WorldPosition = position + Vector3.Up * SpawnHeightOffset;
 
 		if ( MatchRotation )
 			player.GameObject.WorldRotation = GameObject.WorldRotation;
 
-		// 2. Reset any leftover controller velocity.
+		// 3. Kill leftover momentum. The player moves with PlayerController (a Rigidbody body), so the
+		//    old CharacterController-only reset never touched it.
 		var controller = player.Components.Get<CharacterController>( FindMode.EverythingInSelfAndDescendants );
 		if ( controller != null )
 			controller.Velocity = Vector3.Zero;
 
-		// 3. Restore state and resource pools.
-		if ( player.StateComp != null )
-			player.StateComp.CurrentState = ActorStateType.Idle;
-		//4. Restore from ragdoll
-		var ragdoll = player.Components.GetInChildrenOrSelf<IRagdollHandler>();
-		ragdoll?.ExitRagdoll();
+		foreach ( var body in player.Components.GetAll<Rigidbody>( FindMode.EverythingInSelfAndDescendants ) )
+		{
+			if ( !body.IsValid() ) continue;
+			body.Velocity = Vector3.Zero;
+			body.AngularVelocity = Vector3.Zero;
+		}
 
-		player.StatSheet?.FillCurrentPoolsToMax();
-		player.StatSheet?.RecalculateDerivedStats();
-
-		// 5. Refill flasks if configured.
+		// 4. Refill flasks if configured.
 		if ( RefillFlasksOnRespawn )
 			Presentation.UI.LocalInventory?.RefillFlasks( 99 );
 

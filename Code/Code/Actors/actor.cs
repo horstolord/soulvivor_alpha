@@ -8,7 +8,7 @@ using Sandbox.Code.World;
 
 namespace Sandbox.Code.Actors;
 
-public class Actor : Component
+public class Actor : Component, Component.IDamageable
 {
 	/// <summary>
 	/// Returns the mob preset ID to load from <see cref="MobRegistry"/>.
@@ -79,6 +79,30 @@ public class Actor : Component
 
 	private void Ragdoll() => _ragdoll?.EnterRagdoll();
 	private void RestoreFromRagdoll() => _ragdoll?.ExitRagdoll();
+
+	/// <summary>
+	/// Brings a dead/stunned actor fully back: leaves the ragdoll, clears every stun flag and timer,
+	/// refills the pools. Call this (not hand-rolled state resets) from respawn/revive code, because
+	/// IsStaggered is private and a death mid-stun would otherwise leave it stuck true — which silently
+	/// disables the heavy stun AND the death ragdoll on every later death.
+	/// </summary>
+	public void Revive()
+	{
+		IsStaggered = false;
+		_staminaStunTimer = 0f;
+		_poiseStaggerTimer = 0f;
+		RestoreFromRagdoll();
+
+		if ( StateComp != null )
+			StateComp.CurrentState = ActorStateType.Idle;
+
+		if ( StatSheet?.MaxHealth != null )
+		{
+			StatSheet.RecalculateDerivedStats();
+			StatSheet.FillCurrentPoolsToMax();
+			StatSheet.TimeSincePoiseDmg = 0f;
+		}
+	}
 
 	private async System.Threading.Tasks.Task InitializeActorAsync()
 	{
@@ -165,6 +189,10 @@ public class Actor : Component
 	public void ApplyDamage( DamageProfileDef damage, GameObject source = null )
 	{
 		if (StatSheet == null) return;
+
+		// Corpses can still be hit (arrows in flight, ranged AI still shooting). Re-running the damage
+		// path would call OnKilled again: duplicate OnDeath, soul orbs and loot drops.
+		if ( StateComp?.CurrentState == ActorStateType.Dead ) return;
 		
 		// Check evasion
 		float evasion = StatSheet.Evasion.Value;
@@ -340,6 +368,9 @@ public class Actor : Component
 
 	private void Regenerate( float dt )
 	{
+		// No health/stamina regen on corpses — it also kept running while waiting to respawn.
+		if ( StateComp?.CurrentState == ActorStateType.Dead ) return;
+
 		StatSheet.CurrentHealth  = MathF.Min( StatSheet.CurrentHealth  + StatSheet.HealthRegen.Value  * dt, StatSheet.MaxHealth.Value );
 		if ( ShouldRegenerateStamina )
 			StatSheet.CurrentStamina = MathF.Min( StatSheet.CurrentStamina + StatSheet.StaminaRegen.Value * dt, StatSheet.MaxStamina.Value );

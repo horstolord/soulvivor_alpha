@@ -43,6 +43,13 @@ public sealed class Player : Actor
 		
 	}
 
+	/// <summary>Temp diagnostic: if the player vanishes (e.g. after a ranged kill) this line tells us when.</summary>
+	protected override void OnDestroy()
+	{
+		Log.Warning( "[Player] Player component destroyed — the GameObject was removed from the scene." );
+		if ( Local == this ) Local = null;
+	}
+
 	protected override bool ShouldRegenerateStamina => Sprint == null || !Sprint.IsSprinting;
 
 	protected override void OnUpdate()
