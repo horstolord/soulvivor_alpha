@@ -82,7 +82,12 @@ public class StatSheet : Component
 	public Stat CostMultiplier { get; private set; } // Health/stamina/energy cost 100 = 1.0x
 	public Stat EffectDuration { get; private set; } // How long buffs/debuffs last (percent)
 	public Stat EffectPotency { get; private set; } // How strong buffs/debuffs are (percent)
-	
+
+	// ============ PROJECTILE MODS (bows & staves) ============
+	public Stat ProjectileCount { get; private set; } // Extra projectiles per shot/cast (flat count)
+	public Stat ProjectilePierce { get; private set; } // Extra targets a projectile passes through (flat count)
+	public Stat EchoChance { get; private set; } // Percent chance a shot/cast repeats itself once, for free
+
 	public void InitializeFromRegistry( string mobId )
 	{
 		// 1. Safely pull the master template from the dictionary
@@ -148,6 +153,11 @@ public class StatSheet : Component
 		CostMultiplier = new Stat( 100f ); // Default 1.0x cost
 		EffectDuration = new Stat( 100f ); // Default 1.0x duration
 		EffectPotency = new Stat( 100f ); // Default 1.0x potency
+
+		// Projectile mods: everything starts at zero, gear and buffs add to it
+		ProjectileCount = new Stat( 0f );
+		ProjectilePierce = new Stat( 0f );
+		EchoChance = new Stat( 0f );
 
 		// Fill current pools to max
 		RecalculateDerivedStats();
@@ -248,6 +258,11 @@ public class StatSheet : Component
 			"EffectDuration" => EffectDuration,
 			"EffectPotency" => EffectPotency,
 
+			// Projectile mods
+			"ProjectileCount" => ProjectileCount,
+			"ProjectilePierce" => ProjectilePierce,
+			"EchoChance" => EchoChance,
+
 			_ => null
 		};
 	}
@@ -288,5 +303,8 @@ public class StatSheet : Component
 		yield return ( "CostMultiplier", CostMultiplier );
 		yield return ( "EffectDuration", EffectDuration );
 		yield return ( "EffectPotency", EffectPotency );
+		yield return ( "ProjectileCount", ProjectileCount );
+		yield return ( "ProjectilePierce", ProjectilePierce );
+		yield return ( "EchoChance", EchoChance );
 	}
 }

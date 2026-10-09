@@ -150,6 +150,8 @@ public static class AttackData
 		{
 			Termination = ProjectileTerminationType.PierceCount,
 			PierceCount = 2,
+			StickOnHit = true,
+			KillsRefundPierce = true,
 			CollisionBoxSize = new Vector3( 6f, 6f, 6f ),
 			Speed = 2000f
 		}

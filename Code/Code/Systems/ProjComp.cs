@@ -11,6 +11,12 @@ public class ProjectileTemplate
     public ProjectileTerminationType Termination = ProjectileTerminationType.FirstHit;
     public int PierceCount = 1;
     public bool StickOnHit;
+    /// <summary>
+    /// A hit that kills its target (or lands on an already-dead actor) doesn't use up a pierce, so the
+    /// projectile carries on until it hits a survivor or a wall. Off by default so spell projectiles
+    /// still stop on their first hit.
+    /// </summary>
+    public bool KillsRefundPierce;
     public Vector3 CollisionBoxSize = new Vector3( 12f, 12f, 12f );
     public float Speed = 1000f; // motion components read this too
     public ProjectileTemplate Clone() => new ProjectileTemplate
@@ -19,9 +25,44 @@ public class ProjectileTemplate
 	    Termination = Termination,
 	    PierceCount = PierceCount,
 	    StickOnHit = StickOnHit,
+	    KillsRefundPierce = KillsRefundPierce,
 	    CollisionBoxSize = CollisionBoxSize,
 	    Speed = Speed
     };
+
+    /// <summary>
+    /// Adds extra targets the projectile can pass through (ProjectilePierce stat, spell BonusPierce).
+    /// A FirstHit template is upgraded to PierceCount; Timeout/Infinite already pass through everything.
+    /// </summary>
+    public void AddPierce( int extra )
+    {
+	    if ( extra <= 0 ) return;
+	    if ( Termination == ProjectileTerminationType.FirstHit )
+	    {
+		    Termination = ProjectileTerminationType.PierceCount;
+		    PierceCount = 1;
+	    }
+	    if ( Termination == ProjectileTerminationType.PierceCount )
+		    PierceCount += extra;
+    }
+}
+
+/// <summary>Shared numbers for the projectile-count and echo mods; one place to tune them.</summary>
+public static class ProjectileTuning
+{
+	/// <summary>Degrees between neighbouring projectiles in a fan (extra projectiles).</summary>
+	public const float FanAngle = 8f;
+	/// <summary>Seconds between a shot/cast and its echo.</summary>
+	public const float EchoDelay = 0.25f;
+	/// <summary>Damage of an echo relative to the original.</summary>
+	public const float EchoDamageMultiplier = 0.6f;
+
+	/// <summary>Yaw offset for projectile <paramref name="index"/> of <paramref name="count"/>, centred on the aim.</summary>
+	public static float FanYaw( int index, int count ) => (index - (count - 1) * 0.5f) * FanAngle;
+
+	/// <summary>True when a 0-100 chance roll succeeds.</summary>
+	public static bool Roll( float chancePercent )
+		=> chancePercent > 0f && Random.Shared.NextSingle() * 100f < chancePercent;
 }
 
 public class ProjectilePayload
@@ -79,18 +120,31 @@ public sealed class Projectile : Component
 	        .IgnoreGameObjectHierarchy( GameObject )
 	        .RunAll();
 
-        foreach ( var hit in hits )
+        // Nearest first: a wall behind an enemy must not end the projectile before the enemy is hit,
+        // and the pierce budget has to be spent on the closest targets.
+        foreach ( var hit in hits.OrderBy( h => h.Distance ) )
         {
-            if ( hit.GameObject == null || !hit.GameObject.IsValid() || hit.GameObject.Tags.Has( "noarrow" ) )
+            var target = hit.GameObject;
+            if ( target == null || !target.IsValid() || target.Tags.Has( "noarrow" ) )
                 continue;
 
-            if ( !OnHit( hit.GameObject ) )
-                continue;
+            var actor = CombatMath.ResolveActor( target );
+            bool solid = actor == null; // walls, props, terrain: anything that isn't an actor
+            bool wasDead = IsDead( actor );
 
-            if ( ShouldTerminateAfterHit() )
+            if ( !OnHit( target ) )
+                continue; // this actor was already hit by this projectile
+
+            // Pierce is only spent on living actors that survive (when KillsRefundPierce is set).
+            // Walls never count: they always stop the projectile instead.
+            bool refunded = !solid && Template.KillsRefundPierce && (wasDead || IsDead( actor ));
+            if ( !solid && !refunded )
+                _hitCount++;
+
+            if ( ShouldTerminateAfterHit( solid ) )
             {
                 if ( Template.StickOnHit )
-                    StickTo( hit.GameObject );
+                    StickTo( target );
                 else
                     GameObject.Destroy();
                 return;
@@ -128,9 +182,7 @@ public sealed class Projectile : Component
 		    return false;
 
 	    SpellEffectApplier.Apply( Payload?.SourceContext as SpellContext, target, GameObject.WorldPosition );
- 
-	    _hitCount++;
- 
+
 	    // Trigger Rune Sub-Spell Execution
 	    if ( Payload?.SourceContext is SpellContext spellCtx && spellCtx.TriggerPayloadRunes != null && spellCtx.TriggerPayloadRunes.Count > 0 )
 	    {
@@ -143,8 +195,18 @@ public sealed class Projectile : Component
 	    return true;
     }
 
-    private bool ShouldTerminateAfterHit()
+    private static bool IsDead( Actor actor ) => actor?.StateComp?.CurrentState == ActorStateType.Dead;
+
+    private bool ShouldTerminateAfterHit( bool hitSolid )
     {
+        // Timeout / Infinite projectiles pass through everything until their lifetime ends.
+        if ( Template.Termination is ProjectileTerminationType.Timeout or ProjectileTerminationType.Infinite )
+            return false;
+
+        // Pierce only applies to actors; a wall ends FirstHit and PierceCount projectiles alike.
+        if ( hitSolid )
+            return true;
+
         return Template.Termination switch
         {
             ProjectileTerminationType.FirstHit => _hitCount >= 1,

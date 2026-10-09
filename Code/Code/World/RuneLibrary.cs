@@ -209,6 +209,7 @@ public static class RuneLibrary
 		DisplayName = "Dual Cast",
 		Category = RuneCategory.Multicast,
 		MulticastDrawCount = 2,
+		MulticastDelay = 0.15f,
 		EnergyCost = 8f,
 		ModifierEffect = ApplyDualCastSpread
 	};

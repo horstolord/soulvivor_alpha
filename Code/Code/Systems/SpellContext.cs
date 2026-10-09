@@ -29,6 +29,8 @@ public class SpellContext : ICostable
 	public float DamageMultiplier = 1.0f;
 	public float SpeedMultiplier = 1.0f;
 	public int BonusPierce = 0;
+	/// <summary>Extra projectiles per multicast draw, fanned around the aim (ProjectileCount stat).</summary>
+	public int BonusProjectiles = 0;
 	public float SpreadAngle = 0f;
 	public bool EnableHoming = false;
 	public float HomingStrength = 0f;
@@ -47,6 +49,8 @@ public class SpellContext : ICostable
 
 	// Multicast / Branching Draw Count
 	public int MulticastCount = 1;
+	/// <summary>Seconds between one multicast draw and the next, so the repeats are actually visible.</summary>
+	public float MulticastDelay = 0f;
 
 	// Recursion Limit Safety
 	public int RecursionDepth = 0;
@@ -110,6 +114,7 @@ public class SpellContext : ICostable
 			DamageMultiplier = DamageMultiplier,
 			SpeedMultiplier = SpeedMultiplier,
 			BonusPierce = BonusPierce,
+			BonusProjectiles = BonusProjectiles,
 			SpreadAngle = SpreadAngle,
 			EnableHoming = EnableHoming,
 			HomingStrength = HomingStrength,
@@ -126,6 +131,7 @@ public class SpellContext : ICostable
 			TriggerPayloadRunes = new List<RuneDef>( TriggerPayloadRunes ),
 			Effects = Effects.ConvertAll( effect => effect?.Clone() ),
 			MulticastCount = MulticastCount,
+			MulticastDelay = MulticastDelay,
 			RecursionDepth = RecursionDepth
 		};
 	}

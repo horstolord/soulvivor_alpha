@@ -54,6 +54,7 @@ public sealed class CombatComponent : Component
 
 	protected override void OnUpdate()
 	{
+		UpdateEchoQueue();
 		UpdateCurrentAttack();
 	}
 
@@ -174,13 +175,57 @@ public sealed class CombatComponent : Component
 		Log.Info( $"Starting attack: {context.Attack.DisplayName} (startup={context.StartupTime:F2}s, recovery={context.RecoveryTime:F2}s, cooldown={context.CooldownTime:F2}s)" );
 	}
 
-	private void SpawnProjectile( AttackContext context )
+	/// <summary>Echo shots waiting to fire; they outlive the attack that rolled them.</summary>
+	private readonly List<(float Time, AttackContext Context)> _echoQueue = new();
+
+	/// <summary>
+	/// One shot: 1 + ProjectileCount projectiles fanned around the aim, then an Echo roll.
+	/// An echo is itself never echoed, so a high EchoChance can't chain.
+	/// </summary>
+	private void FireVolley( AttackContext context, bool isEcho = false )
+	{
+		var sheet = ResolveActor( context.Attacker )?.StatSheet;
+		int count = 1 + Math.Max( 0, (int)MathF.Round( sheet?.ProjectileCount?.Value ?? 0f ) );
+		float damageMultiplier = isEcho ? ProjectileTuning.EchoDamageMultiplier : 1f;
+
+		for ( int i = 0; i < count; i++ )
+			SpawnProjectile( context, count > 1 ? ProjectileTuning.FanYaw( i, count ) : 0f, damageMultiplier );
+
+		if ( !isEcho && ProjectileTuning.Roll( sheet?.EchoChance?.Value ?? 0f ) )
+			_echoQueue.Add( (Time.Now + ProjectileTuning.EchoDelay, context) );
+	}
+
+	private void UpdateEchoQueue()
+	{
+		for ( int i = _echoQueue.Count - 1; i >= 0; i-- )
+		{
+			var (time, context) = _echoQueue[i];
+			if ( Time.Now < time ) continue;
+			_echoQueue.RemoveAt( i );
+
+			var attacker = context.Attacker;
+			if ( !attacker.IsValid() ) continue;
+			if ( ResolveActor( attacker )?.StateComp?.CurrentState == ActorStateType.Dead ) continue;
+
+			// Player echoes follow the live camera (see SpawnProjectile); AI echoes fire from where the shooter stands now.
+			if ( context.TriggerType != AttackTriggerType.PlayerInput )
+			{
+				context.Origin = attacker.WorldPosition;
+				context.Facing = attacker.WorldRotation;
+			}
+			FireVolley( context, isEcho: true );
+		}
+	}
+
+	private void SpawnProjectile( AttackContext context, float yawOffset = 0f, float damageMultiplier = 1f )
 	{
 		var camera = context.TriggerType == AttackTriggerType.PlayerInput ? Scene.Camera : null;
 		var facing = camera?.WorldRotation ?? context.Facing;
 		var origin = camera != null
 			? camera.WorldPosition + facing.Forward * 20f
 			: context.Origin + ProjectileSpawnOffset;
+		// Extra projectiles fan out around the aim; every one of them spawns at the same point.
+		facing *= Rotation.From( 0f, yawOffset, 0f );
 		var spawnTransform = new Transform( origin, facing );
 		var config = new CloneConfig( spawnTransform, null, true );
 
@@ -206,6 +251,11 @@ public sealed class CombatComponent : Component
 			projGO = ArrowPrefab.Clone( config );
 		}
 
+		// Set explicitly as well: CloneConfig's rotation isn't reliable for a prefab that is already live,
+		// and the motion component reads WorldRotation on its first tick.
+		projGO.WorldPosition = origin;
+		projGO.WorldRotation = facing;
+
 		Log.Info( $"Cloned: {projGO.Name}, valid={projGO.IsValid()}" );
 		var projectile = projGO.Components.Get<Projectile>( FindMode.EnabledInSelfAndDescendants );
 		if ( projectile == null )
@@ -218,7 +268,23 @@ public sealed class CombatComponent : Component
 		var template = context.Attack.ProjectileTemplate.Clone();
 		var attacker = ResolveActor( context.Attacker );
 		if ( attacker != null )
+		{
 			template.Lifetime *= attacker.StatSheet.EffectDuration.Value / 100f;
+			template.AddPierce( (int)MathF.Round( attacker.StatSheet.ProjectilePierce?.Value ?? 0f ) );
+		}
+
+		var damage = context.Damage;
+		if ( MathF.Abs( damageMultiplier - 1f ) > 0.001f )
+		{
+			damage = new DamageProfileDef
+			{
+				HealthDamage = damage.HealthDamage * damageMultiplier,
+				StaminaDamage = damage.StaminaDamage,
+				KnockbackForce = damage.KnockbackForce,
+				Tags = damage.Tags,
+				IsCrit = damage.IsCrit
+			};
+		}
 
 		projectile.Template = template;
 		projectile.Payload = new ProjectilePayload
@@ -226,7 +292,7 @@ public sealed class CombatComponent : Component
 			Caster = context.Attacker,
 			// Base profile (pre-crit, pre-PhysicalForce). HitResolver.Apply resolves outgoing mods per hit,
 			// so a piercing arrow rolls crit independently per target — matching spell projectile behavior.
-			Damage = context.Damage,
+			Damage = damage,
 			SourceContext = context
 		};
 
@@ -249,7 +315,7 @@ public sealed class CombatComponent : Component
 			&& AttackElapsed >= CurrentAttack.StartupTime )
 		{
 			CurrentAttack.ProjectileSpawned = true;
-			SpawnProjectile( CurrentAttack );
+			FireVolley( CurrentAttack );
 		}
  
 		// Hit phases are authored relative to the end of startup, so offset by StartupTime.

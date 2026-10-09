@@ -85,6 +85,8 @@ public class RuneDef : ICostable
 
 	// Multicast Runes: Draw count for branching
 	public int MulticastDrawCount = 1;
+	/// <summary>Seconds between each draw of a multicast; 0 fires them all on the same frame.</summary>
+	public float MulticastDelay = 0f;
 
 	// Trigger Runes: Nested payload to evaluate on hit/expire
 	public List<RuneDef> TriggerNestedRunes = new();

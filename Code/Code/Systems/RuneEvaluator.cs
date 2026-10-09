@@ -47,6 +47,14 @@ public static class RuneEvaluator
 		float acuity = statSheet?.Acuity.Value ?? 0f;
 		float wisdom = statSheet?.Wisdom.Value ?? 0f;
 
+		// Gear bonuses (Projectile Pierce / Additional Projectiles) belong to the cast itself. Trigger
+		// sub-spells (depth > 0) don't inherit them, or a cluster bomb's children would multiply too.
+		if ( currentDepth == 0 && statSheet != null )
+		{
+			ctx.BonusPierce += Math.Max( 0, (int)MathF.Round( statSheet.ProjectilePierce?.Value ?? 0f ) );
+			ctx.BonusProjectiles += Math.Max( 0, (int)MathF.Round( statSheet.ProjectileCount?.Value ?? 0f ) );
+		}
+
 		int index = 0;
 		bool hasMethod = false;
 
@@ -80,6 +88,7 @@ public static class RuneEvaluator
 
 				case RuneCategory.Multicast:
 					ctx.MulticastCount = Math.Max( ctx.MulticastCount, rune.MulticastDrawCount );
+					ctx.MulticastDelay = Math.Max( ctx.MulticastDelay, rune.MulticastDelay );
 					break;
 
 				case RuneCategory.Trigger:
@@ -184,24 +193,42 @@ public static class RuneEvaluator
 
 	private static void CreatePayloadsForMethod( SpellContext ctx, RuneDef methodRune, List<SpellPayload> outPayloads )
 	{
-		int count = Math.Max( 1, ctx.MulticastCount );
-		for ( int i = 0; i < count; i++ )
+		// Each multicast draw is a volley: 1 + BonusProjectiles fanned around the aim. Only shapes that
+		// actually travel along an aim get extra projectiles; a beam or nova has nothing to fan.
+		int draws = Math.Max( 1, ctx.MulticastCount );
+		bool canFan = methodRune.DeliveryType is RuneDeliveryType.Projectile or RuneDeliveryType.Blast;
+		int volley = 1 + (canFan ? Math.Max( 0, ctx.BonusProjectiles ) : 0);
+
+		for ( int draw = 0; draw < draws; draw++ )
 		{
-			var payloadCtx = ctx.Clone();
-			var payload = new SpellPayload
+			// The stagger is per draw, so a whole volley leaves together and the next draw follows it.
+			float delay = draw * MathF.Max( 0f, ctx.MulticastDelay );
+
+			for ( int shot = 0; shot < volley; shot++ )
 			{
-				Context = payloadCtx,
-				DeliveryType = methodRune.DeliveryType,
-				ProjectileTemplate = methodRune.ProjectileTemplate,
-				PrefabPath = SpellVisualResolver.ResolvePrefab( payloadCtx.PrimaryElement, SpellVisualResolver.ShapeOf( methodRune.DeliveryType ), methodRune ),
-				BeamRange = methodRune.Range,
-				BeamVisualLength = methodRune.BeamVisualLength,
-				BeamRadius = methodRune.BeamRadius,
-				AoERadius = methodRune.AoERadius,
-				ConeAngle = methodRune.ConeAngle,
-				ConeRequiresLineOfSight = methodRune.ConeRequiresLineOfSight
-			};
-			outPayloads.Add( payload );
+				var payloadCtx = ctx.Clone();
+				if ( volley > 1 && payloadCtx.AimDirection.LengthSquared > 0.001f )
+				{
+					var fanned = Rotation.LookAt( payloadCtx.AimDirection.Normal ) * Rotation.From( 0f, ProjectileTuning.FanYaw( shot, volley ), 0f );
+					payloadCtx.AimDirection = fanned.Forward;
+				}
+
+				var payload = new SpellPayload
+				{
+					Context = payloadCtx,
+					DeliveryType = methodRune.DeliveryType,
+					ProjectileTemplate = methodRune.ProjectileTemplate,
+					PrefabPath = SpellVisualResolver.ResolvePrefab( payloadCtx.PrimaryElement, SpellVisualResolver.ShapeOf( methodRune.DeliveryType ), methodRune ),
+					BeamRange = methodRune.Range,
+					BeamVisualLength = methodRune.BeamVisualLength,
+					BeamRadius = methodRune.BeamRadius,
+					AoERadius = methodRune.AoERadius,
+					ConeAngle = methodRune.ConeAngle,
+					ConeRequiresLineOfSight = methodRune.ConeRequiresLineOfSight,
+					DeliveryDelay = delay
+				};
+				outPayloads.Add( payload );
+			}
 		}
 	}
 
@@ -228,9 +255,27 @@ public static class RuneEvaluator
 		{
 			foreach ( var payload in evalResult.Payloads )
 			{
-				ExecuteDelivery( payload );
+				Dispatch( payload );
 			}
 		}
+	}
+
+	/// <summary>
+	/// Delivers a payload now, or hands it to the caster's SpellComponent when it has a DeliveryDelay.
+	/// A payload with no scheduler to wait on is delivered immediately rather than lost.
+	/// </summary>
+	public static void Dispatch( SpellPayload payload )
+	{
+		if ( payload.DeliveryDelay > 0.001f )
+		{
+			var scheduler = payload.Context?.Caster?.Components.GetInAncestorsOrSelf<SpellComponent>();
+			if ( scheduler != null )
+			{
+				scheduler.QueueDelivery( payload );
+				return;
+			}
+		}
+		ExecuteDelivery( payload );
 	}
 
 	public static void ExecuteDelivery( SpellPayload payload )
