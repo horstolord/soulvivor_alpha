@@ -364,7 +364,7 @@ public static class ItemData
 	public static ItemDef halberd = CreateWeapon( "halberd", "Halberd", "polearm", 27f, 0.8f, 13f, 9f, 3, true );
 	public static ItemDef crossSpear = CreateWeapon( "cross_spear", "Cross Spear", "spear", 23f, 0.95f, 10f, 7f, 3, true );
 
-	public static ItemDef shortbow = CreateBow( "shortbow", "Shortbow", 12f, 1f, 4f, 2.5f, 1, 0.45f, 1.5f, 1f );
+	public static ItemDef shortbow = CreateBow( "shortbow", "Shortbow",12f, 1f, 4f, 2.5f, 1, 0.45f, 1.5f, 1f );
 	public static ItemDef simpleBow = CreateBow( "simple_bow", "Simple Bow", 11f, 1.1f, 4f, 2.5f, 1 );
 	public static ItemDef longBow = CreateBow( "long_bow", "Long Bow", 20f, 0.8f, 5f, 4f, 3 );
 	public static ItemDef compositeBow = CreateBow( "composite_bow", "Composite Bow", 18f, 1.1f, 5f, 3.5f, 3 );

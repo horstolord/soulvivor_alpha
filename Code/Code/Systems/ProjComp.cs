@@ -78,6 +78,7 @@ public sealed class Projectile : Component
 	        .IgnoreGameObjectHierarchy( Payload.Caster )
 	        .IgnoreGameObjectHierarchy( GameObject )
 	        .RunAll();
+	        
 
         foreach ( var hit in hits )
         {

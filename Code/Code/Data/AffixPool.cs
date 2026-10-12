@@ -120,7 +120,20 @@ public static class AffixPool
 		// Attack Range — weapon-only
 		new AffixDef { Id = "range_t1", GroupId = "melee_range", StatName = "Range", Tier = 1, MinLevel = 1,  MinValue = 5f,  MaxValue = 12f, Weight = 6f, RequiredTags = { "weapon" } },
 		new AffixDef { Id = "range_t2", GroupId = "melee_range", StatName = "Range", Tier = 2, MinLevel = 20, MinValue = 14f, MaxValue = 25f, Weight = 3f, RequiredTags = { "weapon" } },
+		
+		// Additional Projectiles — bows & staves only, deliberately rare
+		new AffixDef { Id = "proj_count_t1", GroupId = "proj_count", StatName = "ProjectileCount", Integer = true, Tier = 1, MinLevel = 15, MinValue = 1f, MaxValue = 1f, Weight = 3f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "proj_count_t2", GroupId = "proj_count", StatName = "ProjectileCount", Integer = true, Tier = 2, MinLevel = 45, MinValue = 2f, MaxValue = 2f, Weight = 1f, RequiredTags = { "bow", "staff" } },
 
+		// Pierce
+		new AffixDef { Id = "pierce_t1", GroupId = "pierce", StatName = "ProjectilePierce", Integer = true, Tier = 1, MinLevel = 8,  MinValue = 1f, MaxValue = 1f, Weight = 6f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "pierce_t2", GroupId = "pierce", StatName = "ProjectilePierce", Integer = true, Tier = 2, MinLevel = 30, MinValue = 2f, MaxValue = 2f, Weight = 3f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "pierce_t3", GroupId = "pierce", StatName = "ProjectilePierce", Integer = true, Tier = 3, MinLevel = 55, MinValue = 3f, MaxValue = 3f, Weight = 1f, RequiredTags = { "bow", "staff" } },
+
+		// Echo (chance to repeat) — weapon-class agnostic
+		new AffixDef { Id = "echo_t1", GroupId = "echo", StatName = "EchoChance", Tier = 1, MinLevel = 10, MinValue = 3f,  MaxValue = 6f,  Weight = 5f, RequiredTags = { "weapon", "staff" } },
+		new AffixDef { Id = "echo_t2", GroupId = "echo", StatName = "EchoChance", Tier = 2, MinLevel = 30, MinValue = 7f,  MaxValue = 12f, Weight = 3f, RequiredTags = { "weapon", "staff" } },
+		new AffixDef { Id = "echo_t3", GroupId = "echo", StatName = "EchoChance", Tier = 3, MinLevel = 50, MinValue = 13f, MaxValue = 20f, Weight = 1f, RequiredTags = { "weapon", "staff" } },
 		// ==========================================
 		// DEFENSE & RESISTANCES
 		// ==========================================

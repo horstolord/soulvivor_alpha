@@ -57,12 +57,7 @@ public class StatSheet : Component
 	public Stat WeaponDamage { get; private set; } // Flat bonus for attacks explicitly marked as weapon attacks
 	public Stat CritChance { get; private set; } // Percent
 	public Stat CritDamage { get; private set; } // Percent
-	public Stat Armor { get; private set; } // Damage reduction
-	public Stat BlockReduction {get; private set;}
-	public Stat ResistanceFire { get; private set; } // Percent
-	public Stat ResistanceFrost { get; private set; }
-	public Stat ResistanceAir { get; private set; }
-	public Stat ResistanceEarth { get; private set; }
+	
 
 	// ============ MOVEMENT STATS ============
 	public Stat MoveSpeed { get; private set; }
@@ -71,11 +66,23 @@ public class StatSheet : Component
 
 	// ============ MELEE COMBAT ============
 	public Stat PhysicalForce { get; private set; } // Knockback power
-	public Stat AttackSpeed { get; private set; } // Animation speed multiplier
+	public Stat AttackSpeed { get; private set; } // Need animation speed multiplier
 	public Stat Range { get; private set; } // Attack reach
+	
+	// =========== RANGED ===========
+	public Stat ProjectileCount { get; private set; }
+	public Stat ProjectilePierce {get; private set;}	
+	public Stat EchoChance { get; private set; }
+	
 
 	// ============ DEFENSIVE STATS ============
 	public Stat Evasion { get; private set; } // Percent chance to avoid attack
+	public Stat Armor { get; private set; } // Damage reduction
+	public Stat BlockReduction {get; private set;} // Percent
+	public Stat ResistanceFire { get; private set; } // Percent
+	public Stat ResistanceFrost { get; private set; }
+	public Stat ResistanceAir { get; private set; }
+	public Stat ResistanceEarth { get; private set; }
 
 	// ============ UTILITY STATS ============
 	public Stat CastSpeed {get; private set;} // scales spell wind-up duration
@@ -136,10 +143,14 @@ public class StatSheet : Component
 		AccelerationSpeed = new Stat( 100f + Swiftness.Value );
 		JumpPower = new Stat( 100f + Might.Value );
 
-		// Initialize melee combat stats
+		// Initialize  combat stats
 		PhysicalForce = new Stat( 100f ); // Default 1.0x knockback
 		AttackSpeed = new Stat( 100f ); // Default 1.0x
 		Range = new Stat( 100f );
+		
+		ProjectileCount = new Stat( 1f );
+		ProjectilePierce = new Stat( 0f );
+		EchoChance = new Stat( 0f );
 
 		// Initialize defensive stats
 		Evasion = new Stat( 0f );
@@ -237,7 +248,11 @@ public class StatSheet : Component
 			"PhysicalForce" => PhysicalForce,
 			"AttackSpeed" => AttackSpeed,
 			"Range" => Range,
-
+			
+			// Range
+			"ProjectileCount" =>  ProjectileCount,
+			"ProjectilePierce" =>  ProjectilePierce,
+			"EchoChance" => EchoChance,
 			// Defense
 			"Evasion" => Evasion,
 			"Armor" => Armor,
@@ -288,5 +303,8 @@ public class StatSheet : Component
 		yield return ( "CostMultiplier", CostMultiplier );
 		yield return ( "EffectDuration", EffectDuration );
 		yield return ( "EffectPotency", EffectPotency );
+		yield return ( "ProjectileCount", ProjectileCount );
+		yield return ( "ProjectilePierce", ProjectilePierce );
+		yield return ( "EchoChance", EchoChance ); 
 	}
 }

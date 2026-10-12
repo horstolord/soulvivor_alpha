@@ -14,7 +14,7 @@ public static class LootGenerator
 
 	private static readonly (ItemRarity Rarity, float Weight)[] RarityWeights =
 	{
-		(ItemRarity.Common, 100f), (ItemRarity.Magic, 45f), (ItemRarity.Rare, 18f),
+		(ItemRarity.Common, 60f), (ItemRarity.Magic, 45f), (ItemRarity.Rare, 18f),
 		(ItemRarity.Epic, 6f), (ItemRarity.Legendary, 1.5f), (ItemRarity.Mythical, 0.3f), (ItemRarity.Divine, 0.05f)
 	};
 
@@ -132,6 +132,7 @@ public static class LootGenerator
 
 			usedGroups.Add( picked.GroupId );
 			float value = Random.Shared.NextSingle() * (picked.MaxValue - picked.MinValue) + picked.MinValue;
+			if ( picked.Integer ) value = MathF.Round( value );
 			rolled.Add( new ModData( picked.StatName, value, picked.Type ) );
 		}
 

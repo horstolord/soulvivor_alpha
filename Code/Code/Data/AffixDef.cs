@@ -17,6 +17,7 @@ public class AffixDef
 	public float MinValue;
 	public float MaxValue;
 	public float Weight = 1f;
+	public bool Integer;
 	public ModifierType Type = ModifierType.Flat;
 	public HashSet<string> RequiredTags = new(); // matches ItemDef.Tags; empty = universal (any item)
 }
