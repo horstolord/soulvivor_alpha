@@ -196,5 +196,24 @@ public static class AffixPool
 		new AffixDef { Id = "eff_pot_t1", GroupId = "effect_potency", StatName = "EffectPotency", Tier = 1, MinLevel = 1,  MinValue = 4f,  MaxValue = 10f, Weight = 7f },
 		new AffixDef { Id = "eff_pot_t2", GroupId = "effect_potency", StatName = "EffectPotency", Tier = 2, MinLevel = 20, MinValue = 12f, MaxValue = 22f, Weight = 4f },
 		new AffixDef { Id = "eff_pot_t3", GroupId = "effect_potency", StatName = "EffectPotency", Tier = 3, MinLevel = 42, MinValue = 25f, MaxValue = 40f, Weight = 1f },
+
+		// ==========================================
+		// PROJECTILE MODS — bows & staves
+		// (the "staff" tag does nothing until a staff ItemDef carries it)
+		// ==========================================
+
+		// Additional Projectiles — flat count, fanned around the aim. Deliberately rare.
+		new AffixDef { Id = "proj_count_t1", GroupId = "proj_count", StatName = "ProjectileCount", Integer = true, Tier = 1, MinLevel = 15, MinValue = 1f, MaxValue = 1f, Weight = 3f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "proj_count_t2", GroupId = "proj_count", StatName = "ProjectileCount", Integer = true, Tier = 2, MinLevel = 45, MinValue = 2f, MaxValue = 2f, Weight = 1f, RequiredTags = { "bow", "staff" } },
+
+		// Pierce — extra targets a projectile passes through before stopping
+		new AffixDef { Id = "pierce_t1", GroupId = "pierce", StatName = "ProjectilePierce", Integer = true, Tier = 1, MinLevel = 8,  MinValue = 1f, MaxValue = 1f, Weight = 6f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "pierce_t2", GroupId = "pierce", StatName = "ProjectilePierce", Integer = true, Tier = 2, MinLevel = 30, MinValue = 2f, MaxValue = 2f, Weight = 3f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "pierce_t3", GroupId = "pierce", StatName = "ProjectilePierce", Integer = true, Tier = 3, MinLevel = 55, MinValue = 3f, MaxValue = 3f, Weight = 1f, RequiredTags = { "bow", "staff" } },
+
+		// Echo (%) — chance for a shot/cast to repeat once, free, at reduced damage
+		new AffixDef { Id = "echo_t1", GroupId = "echo", StatName = "EchoChance", Tier = 1, MinLevel = 10, MinValue = 3f,  MaxValue = 6f,  Weight = 5f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "echo_t2", GroupId = "echo", StatName = "EchoChance", Tier = 2, MinLevel = 30, MinValue = 7f,  MaxValue = 12f, Weight = 3f, RequiredTags = { "bow", "staff" } },
+		new AffixDef { Id = "echo_t3", GroupId = "echo", StatName = "EchoChance", Tier = 3, MinLevel = 50, MinValue = 13f, MaxValue = 20f, Weight = 1f, RequiredTags = { "bow", "staff" } },
 	};
 }

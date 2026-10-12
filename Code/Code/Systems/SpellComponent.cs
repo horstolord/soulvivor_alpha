@@ -27,6 +27,9 @@ public sealed class SpellComponent : Component
 	private PendingCast _pendingCast;
 	private bool _subscribedToActor;
 
+	/// <summary>Payloads waiting out a DeliveryDelay (multicast stagger, echo). They outlive the cast that made them.</summary>
+	private readonly List<(float Time, SpellPayload Payload)> _delayed = new();
+
 	private sealed class PendingCast
 	{
 		public SpellContext CostContext;
@@ -53,12 +56,14 @@ public sealed class SpellComponent : Component
 	protected override void OnDestroy()
 	{
 		if ( _subscribedToActor && _actor != null ) _actor.OnHitReceived -= HandleCasterHit;
+		_delayed.Clear();
 		DestroyCastVisuals();
 	}
 
 	protected override void OnUpdate()
 	{
 		CacheComponents();
+		UpdateDelayedDeliveries();
 		if ( _rechargeTimer > 0f )
 			_rechargeTimer = MathF.Max( 0f, _rechargeTimer - Time.Delta );
 
@@ -251,11 +256,67 @@ public sealed class SpellComponent : Component
 
 		if ( _actor != null ) _actor.PayCost( finalCost );
 		foreach ( var payload in cast.Payloads )
-			RuneEvaluator.ExecuteDelivery( payload );
+			RuneEvaluator.Dispatch( payload );
+		TryQueueEcho( cast.Payloads );
 
 		_rechargeTimer = Catalyst?.BaseRechargeTime ?? 1f;
 		if ( _actor?.StateComp != null && _actor.StateComp.CurrentState == ActorStateType.Casting )
 			_actor.StateComp.CurrentState = ActorStateType.Idle;
+	}
+
+	/// <summary>Called by RuneEvaluator.Dispatch for payloads that shouldn't fire on the frame the cast completes.</summary>
+	public void QueueDelivery( SpellPayload payload )
+		=> _delayed.Add( (Time.Now + MathF.Max( 0f, payload.DeliveryDelay ), payload) );
+
+	private void UpdateDelayedDeliveries()
+	{
+		if ( _delayed.Count == 0 ) return;
+
+		// Walk oldest-first so a volley keeps its order when several come due in the same frame.
+		// A delivery may queue more payloads (trigger sub-spells); they land at the end and wait their turn.
+		for ( int i = 0; i < _delayed.Count; )
+		{
+			var (time, payload) = _delayed[i];
+			if ( Time.Now < time ) { i++; continue; }
+			_delayed.RemoveAt( i );
+
+			var ctx = payload.Context;
+			if ( ctx == null || !ctx.Caster.IsValid() ) continue;
+			if ( _actor?.StateComp?.CurrentState == ActorStateType.Dead ) continue;
+
+			// The cast has already been paid for and can't be interrupted, but its origin keeps following the
+			// hand. Trigger sub-spells (depth > 0) keep their impact point.
+			if ( ctx.RecursionDepth == 0 && CastAnchor.IsValid() )
+				ctx.Origin = CastAnchor.WorldPosition;
+
+			RuneEvaluator.ExecuteDelivery( payload );
+		}
+	}
+
+	/// <summary>
+	/// Rolls EchoChance for a completed cast. On success the whole cast repeats once, free, after the original
+	/// sequence has finished, at reduced damage. An echo is never echoed.
+	/// </summary>
+	private void TryQueueEcho( List<SpellPayload> payloads )
+	{
+		if ( payloads == null || payloads.Count == 0 ) return;
+		if ( !ProjectileTuning.Roll( _actor?.StatSheet?.EchoChance?.Value ?? 0f ) ) return;
+
+		float sequenceLength = 0f;
+		foreach ( var payload in payloads )
+			sequenceLength = MathF.Max( sequenceLength, payload.DeliveryDelay );
+
+		foreach ( var payload in payloads )
+		{
+			// Buffs and imbues have nothing to repeat; echoing them would only refresh their duration for free.
+			if ( payload.DeliveryType is RuneDeliveryType.Self or RuneDeliveryType.Imbue ) continue;
+
+			var echo = payload;
+			echo.Context = payload.Context.Clone();
+			echo.Context.DamageMultiplier *= ProjectileTuning.EchoDamageMultiplier;
+			echo.DeliveryDelay = sequenceLength + ProjectileTuning.EchoDelay + payload.DeliveryDelay;
+			QueueDelivery( echo );
+		}
 	}
 
 	private void CancelCast()

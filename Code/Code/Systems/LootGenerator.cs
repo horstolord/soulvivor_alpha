@@ -132,6 +132,7 @@ public static class LootGenerator
 
 			usedGroups.Add( picked.GroupId );
 			float value = Random.Shared.NextSingle() * (picked.MaxValue - picked.MinValue) + picked.MinValue;
+			if ( picked.Integer ) value = MathF.Round( value );
 			rolled.Add( new ModData( picked.StatName, value, picked.Type ) );
 		}
 
