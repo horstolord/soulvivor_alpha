@@ -5,9 +5,38 @@ namespace Sandbox.Code.Systems;
 using System.Linq;
 using Actors;
 
+public enum AttackPhase
+{
+	Idle,
+	Startup,
+	Active,
+	Recovery
+}
+
 public sealed class CombatComponent : Component
 {
 	public AttackContext? CurrentAttack { get; private set; }
+	public AttackPhase CurrentPhase
+	{
+		get
+		{
+			if ( CurrentAttack == null ) return AttackPhase.Idle;
+
+			float activeElapsed = AttackElapsed - CurrentAttack.StartupTime;
+			if ( activeElapsed < 0f ) return AttackPhase.Startup;
+
+			float firstPhaseStart = CurrentAttack.HitPhases.Count == 0 ? 0f : float.MaxValue;
+			float latestPhaseEnd = 0f;
+			foreach ( var phase in CurrentAttack.HitPhases )
+			{
+				firstPhaseStart = MathF.Min( firstPhaseStart, phase.StartTime );
+				latestPhaseEnd = MathF.Max( latestPhaseEnd, phase.EndTime );
+			}
+
+			if ( activeElapsed < firstPhaseStart ) return AttackPhase.Startup;
+			return activeElapsed <= latestPhaseEnd ? AttackPhase.Active : AttackPhase.Recovery;
+		}
+	}
 
 	/// <summary>
 	/// True while the actor is actively in an attack (startup → recovery).
@@ -28,6 +57,7 @@ public sealed class CombatComponent : Component
 	private float AttackElapsed;
 	private float _cooldownTimer;
 	private HashSet<GameObject> _hitObjects = new();
+	private readonly Dictionary<HitPhaseDef, HashSet<GameObject>> _phaseHitObjects = new();
 	private readonly Dictionary<HitPhaseDef, (Vector3 Origin, Rotation Facing)> _phasePoses = new();
 
 	[Property] public GameObject ArrowPrefab { get; set; }
@@ -50,6 +80,28 @@ public sealed class CombatComponent : Component
 
 		StartAttack( context );
 		return true;
+	}
+
+	/// <summary>Cancels the current swing and applies a regular-swing lockout.</summary>
+	public void ResetSwing( float lockout = 0f )
+	{
+		if ( CurrentAttack != null )
+		{
+			var attacker = ResolveActor( CurrentAttack.Attacker );
+			if ( attacker?.StateComp != null && attacker.StateComp.CurrentState == ActorStateType.Attacking )
+				attacker.StateComp.CurrentState = ActorStateType.Idle;
+
+			CurrentAttack = null;
+			AttackElapsed = 0f;
+			_hitObjects.Clear();
+			_phaseHitObjects.Clear();
+			_phasePoses.Clear();
+
+			var renderer = Components.GetInParentOrSelf<SkinnedModelRenderer>() ?? Components.GetInChildren<SkinnedModelRenderer>();
+			renderer?.Set( "b_attack", false );
+		}
+
+		_cooldownTimer = MathF.Max( 0f, lockout );
 	}
 
 	protected override void OnUpdate()
@@ -111,6 +163,7 @@ public sealed class CombatComponent : Component
 					StartTime = phase.StartTime / attackSpeedMultiplier,
 					EndTime = phase.EndTime / attackSpeedMultiplier,
 					StopAfterFirstHit = phase.StopAfterFirstHit,
+					IndependentHits = phase.IndependentHits,
 					Shapes = (phase.Shapes ?? new List<HitShapeDef>())
 						.Select( shape => new HitShapeDef
 						{
@@ -165,6 +218,7 @@ public sealed class CombatComponent : Component
 		CurrentAttack = context;
 		AttackElapsed = 0f;
 		_hitObjects.Clear();
+		_phaseHitObjects.Clear();
 		_phasePoses.Clear();
 
 		var attacker = ResolveActor( context.Attacker );
@@ -355,6 +409,7 @@ public sealed class CombatComponent : Component
 			var renderer = Components.GetInParentOrSelf<SkinnedModelRenderer>() ?? Components.GetInChildren<SkinnedModelRenderer>();
 			renderer?.Set( "b_attack", false );
 			_hitObjects.Clear();
+			_phaseHitObjects.Clear();
 			_phasePoses.Clear();
 		}
 	}
@@ -378,18 +433,29 @@ public sealed class CombatComponent : Component
 
 	private void ExecuteHitPhase( AttackContext context, HitPhaseDef phase, (Vector3 Origin, Rotation Facing) pose )
 	{
+		var hitObjects = _hitObjects;
+		if ( phase.IndependentHits )
+		{
+			if ( !_phaseHitObjects.TryGetValue( phase, out hitObjects ) )
+			{
+				hitObjects = new HashSet<GameObject>();
+				_phaseHitObjects.Add( phase, hitObjects );
+			}
+		}
+
 		bool hitLanded = false;
 		foreach ( var shape in phase.Shapes )
 		{
 			if ( phase.StopAfterFirstHit && hitLanded )
 				break;
 
-			hitLanded |= ExecuteHitShape( context, shape, pose );
+			hitLanded |= ExecuteHitShape( context, shape, pose, hitObjects, phase.IndependentHits );
 		}
 	}
 
 	/// <summary>Returns true if at least one new target was hit this call.</summary>
-	private bool ExecuteHitShape( AttackContext context, HitShapeDef shape, (Vector3 Origin, Rotation Facing) pose )
+	private bool ExecuteHitShape( AttackContext context, HitShapeDef shape, (Vector3 Origin, Rotation Facing) pose,
+		HashSet<GameObject> hitObjects, bool independentHits )
 	{
 		var rotation = pose.Facing;
 		var worldOffset = rotation * shape.LocalOffset;
@@ -426,10 +492,12 @@ public sealed class CombatComponent : Component
 			var actorRoot = ResolveActorRoot( target );
 			var dedupKey = actorRoot ?? target;
 
-			if ( _hitObjects.Contains( dedupKey ) )
+			if ( hitObjects.Contains( dedupKey ) )
 				continue;
 
-			_hitObjects.Add( dedupKey );
+			hitObjects.Add( dedupKey );
+			if ( independentHits )
+				_hitObjects.Add( dedupKey );
 			ApplyHit( context, target, rotation.Forward, hit.HitPosition );
 			hitLanded = true;
 		}

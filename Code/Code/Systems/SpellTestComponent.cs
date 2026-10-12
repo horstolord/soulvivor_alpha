@@ -26,6 +26,9 @@ public sealed class SpellTestComponent : Component
 
 	protected override void OnUpdate()
 	{
+		// The player hotbar owns these keys once it is present; keep this harness usable elsewhere.
+		if ( Components.GetInAncestorsOrSelf<Actors.Player>()?.Hotbar != null ) return;
+
 		// Hotkeys to switch presets on the fly
 		if ( Input.Keyboard.Pressed( "1" ) ) LoadPreset( "fireball" );
 		if ( Input.Keyboard.Pressed( "2" ) ) LoadPreset( "empowered_fireball" );

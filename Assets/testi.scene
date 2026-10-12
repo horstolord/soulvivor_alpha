@@ -1724,7 +1724,7 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               }
             }
@@ -2320,6 +2320,48 @@
           "SittingOffsetHeight": 0,
           "SpecialMove": "None",
           "Target": null
+        },
+        {
+          "__type": "Sandbox.Code.Systems.TechniqueComponent",
+          "__guid": "b27ecf14-4c12-478c-8913-c6bff132346b",
+          "__enabled": true,
+          "Flags": 0,
+          "EarlyCancelLockout": 0.35,
+          "EarlyPressFiresTechnique": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Code.Systems.ChannelControl",
+          "__guid": "ea8a98a1-7211-45b3-b32f-f6371126cef2",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Code.Systems.TechniqueTestComponent",
+          "__guid": "1fb05bf6-18f6-43d7-8734-a4fd04ac3cc2",
+          "__enabled": true,
+          "Flags": 0,
+          "Key1": "Z",
+          "Key2": "X",
+          "Key3": "V",
+          "Key4": "T",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ],
       "Children": [
@@ -4818,7 +4860,7 @@
               "Children": []
             },
             {
-              "__guid": "e4a44039-813c-4689-b8b6-1f3b24984914",
+              "__guid": "0a2f78e1-5fb9-436d-b9a8-7a02235780e0",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -4835,7 +4877,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "57864f8e-9b7c-402f-af31-1c5e77106dfb",
+                  "__guid": "2b2e16c2-d616-4f28-9b8a-706730264fee",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4885,7 +4927,7 @@
               "Children": []
             },
             {
-              "__guid": "c6dfb848-8a91-4e0c-a3c2-c1474aa01eae",
+              "__guid": "14a61290-6eca-4ca9-b9b4-b8e162c622ff",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -4902,7 +4944,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "093b76df-d6da-4c23-a543-7c4e3c6abbd6",
+                  "__guid": "2df3d5a3-684d-4eab-b4c3-36e1a70ec259",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4952,7 +4994,7 @@
               "Children": []
             },
             {
-              "__guid": "ef66588a-abbf-4d60-b081-eae4e053dfa1",
+              "__guid": "c2044626-7ba2-4769-9de3-8e9e9dc2b64f",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -4969,7 +5011,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "36cdf1e4-8697-4f19-9f40-1fbaef883b10",
+                  "__guid": "b24e6e29-4f8f-4d65-a1c0-a2dbb3673bc3",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5019,7 +5061,7 @@
               "Children": []
             },
             {
-              "__guid": "4904a841-0fc3-495a-91f0-9be4668d6460",
+              "__guid": "f2eaaeeb-4675-4e86-8ca0-6cc022eb57d6",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -5036,7 +5078,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "8e556054-0c65-4629-a970-c550a9a256a2",
+                  "__guid": "dc501be8-9f58-4073-aeaf-cef9f93c035e",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5086,7 +5128,7 @@
               "Children": []
             },
             {
-              "__guid": "d6b3fe95-ae0a-440a-a198-907f840da93d",
+              "__guid": "30a55e97-fefc-4b5d-9f48-91a869e8020c",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -5103,7 +5145,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "937740f5-b1e3-4786-8106-68a4f8a42139",
+                  "__guid": "fc867b1c-2db0-4b93-82d3-d5a28ea5692f",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5177,7 +5219,7 @@
               "Flags": 0,
               "ColliderFlags": 0,
               "Elasticity": null,
-              "End": "0,0,41.7100105",
+              "End": "0,0,36",
               "Friction": 0,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -5190,9 +5232,35 @@
               "OnObjectTriggerExit": null,
               "OnTriggerEnter": null,
               "OnTriggerExit": null,
-              "Radius": 12.28371,
+              "Radius": 11.313708,
               "RollingResistance": null,
-              "Start": "0,0,97.4762878",
+              "Start": "0,0,60.6862907",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "7fe49a11-06c1-4d84-bba7-a3006296face",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "0,0,18",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": 0,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "16,16,36",
               "Static": false,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
@@ -5266,7 +5334,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "c5a05d1a-99c6-4c8f-9c58-9b7baa836682": "f4ddd91b-d018-8a65-91ec-cf37927f8833"
+            "2b9fab57-c61c-4ea8-86e7-2e8d49462169": "b7166173-b9b6-8ffc-963f-1b4780a5aabe"
           }
         }
       ]
@@ -5517,7 +5585,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5566,7 +5634,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5645,7 +5713,7 @@
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                    "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                     "Path": "models/props/rock_scatter/rock_scatter.vmat"
                   }
                 }
@@ -5722,13 +5790,13 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "f423d9df-1fa9-4a1e-8cc9-5dcc54dfc17f",
+                    "Id": "c4a80c41-b265-4740-a5eb-541d81ccc89a",
                     "Path": "models/sbox_props/metal_wheely_bin/metal_wheely_bin_parts.vmat"
                   }
                 }
@@ -5805,7 +5873,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5880,7 +5948,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5955,7 +6023,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -6030,7 +6098,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a02c4a4f-bcdf-4bb9-a7d5-7bc3872bca3d",
+                "Id": "3d9b358e-c381-4743-9225-6cdeddfa570a",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -7896,7 +7964,6 @@
   "Title": null,
   "Description": null,
   "__references": [
-    "5500studios.spinningblade#222193",
     "facepunch.rock_scatter_03#143386"
   ],
   "__version": 3

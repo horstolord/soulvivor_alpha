@@ -69,10 +69,7 @@ public class StatSheet : Component
 	public Stat AttackSpeed { get; private set; } // Need animation speed multiplier
 	public Stat Range { get; private set; } // Attack reach
 	
-	// =========== RANGED ===========
-	public Stat ProjectileCount { get; private set; }
-	public Stat ProjectilePierce {get; private set;}	
-	public Stat EchoChance { get; private set; }
+	
 	
 
 	// ============ DEFENSIVE STATS ============
@@ -259,10 +256,7 @@ public class StatSheet : Component
 			"AttackSpeed" => AttackSpeed,
 			"Range" => Range,
 			
-			// Range
-			"ProjectileCount" =>  ProjectileCount,
-			"ProjectilePierce" =>  ProjectilePierce,
-			"EchoChance" => EchoChance,
+			
 			// Defense
 			"Evasion" => Evasion,
 			"Armor" => Armor,

@@ -145,11 +145,13 @@ public sealed class SpellComponent : Component
 	/// Costs are checked and paid at completion.
 	/// </summary>
 	public bool CastSpell( Vector3 origin, Vector3 aimDirection, Vector3? targetPoint = null, float charge01 = 0f, bool useBankedCharge = true )
+		=> CastSpell( GetActiveRunes(), origin, aimDirection, targetPoint, charge01, useBankedCharge );
+
+	public bool CastSpell( List<RuneDef> runes, Vector3 origin, Vector3 aimDirection, Vector3? targetPoint = null,
+		float charge01 = 0f, bool useBankedCharge = true )
 	{
 		if ( !CanCast() ) return false;
-
-		var runes = GetActiveRunes();
-		if ( runes.Count == 0 ) return false;
+		if ( runes == null || runes.Count == 0 ) return false;
 
 		CacheComponents();
 		bool consumeBank = false;

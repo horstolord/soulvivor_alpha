@@ -38,6 +38,58 @@ public sealed class InventoryPanel
         return item;
     }
 
+    public InventoryItem FindItemById( string itemId, string instanceId = null )
+    {
+        if ( string.IsNullOrWhiteSpace( itemId ) ) return null;
+        return Slots.FirstOrDefault( s => MatchesItem( s.Item, itemId, instanceId ) )?.Item
+            ?? EquippedSlots.Values.FirstOrDefault( item => MatchesItem( item, itemId, instanceId ) );
+    }
+
+    public bool IsEquippedById( string itemId, string instanceId = null ) =>
+        !string.IsNullOrWhiteSpace( itemId )
+        && EquippedSlots.Values.Any( item => MatchesItem( item, itemId, instanceId ) );
+
+    public bool TryUseItemById( string itemId, string instanceId = null )
+    {
+        if ( string.IsNullOrWhiteSpace( itemId ) ) return false;
+        var inventorySlot = Slots.FirstOrDefault( s => MatchesItem( s.Item, itemId, instanceId ) );
+        var item = inventorySlot?.Item ?? FindItemById( itemId, instanceId );
+        if ( item?.Definition == null ) return false;
+
+        if ( item.IsFlask )
+        {
+            foreach ( var flaskSlot in new[] { EquipmentSlot.Flask1, EquipmentSlot.Flask2 } )
+            {
+                if ( MatchesItem( GetEquippedItem( flaskSlot ), itemId, instanceId ) )
+                    return UseFlask( flaskSlot );
+            }
+
+            if ( inventorySlot == null ) return false;
+            EquipItem( inventorySlot );
+            foreach ( var flaskSlot in new[] { EquipmentSlot.Flask1, EquipmentSlot.Flask2 } )
+            {
+                if ( MatchesItem( GetEquippedItem( flaskSlot ), itemId, instanceId ) )
+                    return UseFlask( flaskSlot );
+            }
+            return false;
+        }
+
+        if ( item.Definition.IsConsumable )
+            return inventorySlot != null && TryUseConsumable( inventorySlot );
+
+        if ( item.Definition.IsEquippable )
+        {
+            if ( inventorySlot != null )
+            {
+                EquipItem( inventorySlot );
+                return IsEquippedById( itemId, instanceId );
+            }
+            return true;
+        }
+
+        return false;
+    }
+
     public void OnSlotMouseDown( InventorySlot slot )
     {
         if ( slot.IsLocked ) return;
@@ -54,6 +106,12 @@ public sealed class InventoryPanel
 
         draggingSlotId = null;
     }
+
+    public InventoryItem DraggingItem => draggingSlotId.HasValue
+        ? Slots.FirstOrDefault( s => s.Id == draggingSlotId.Value )?.Item
+        : null;
+
+    public void CancelDrag() => draggingSlotId = null;
 
     public void SetHoveredItem( InventoryItem item )
     {
@@ -118,22 +176,28 @@ public sealed class InventoryPanel
     }
 
     public void UseConsumable( InventorySlot slot )
+        => TryUseConsumable( slot );
+
+    public bool TryUseConsumable( InventorySlot slot )
     {
-        if ( slot?.Item == null || !slot.Item.Definition.IsConsumable ) return;
+        if ( slot?.Item == null || !slot.Item.Definition.IsConsumable ) return false;
 
         var player = Actors.Player.Local;
-        if ( player == null ) return;
+        if ( player == null ) return false;
 
         bool used = player.UsePotion( slot.Item );
         if ( used )
         {
             slot.Item.Quantity--;
+            if ( slot.Item.Instance != null )
+                slot.Item.Instance.StackCount = slot.Item.Quantity;
             if ( slot.Item.Quantity <= 0 )
             {
                 slot.Item = null;
             }
             Revision++;
         }
+        return used;
     }
 
     public bool UseFlask( EquipmentSlot slot )
@@ -370,6 +434,10 @@ public sealed class InventoryPanel
 
     // Melee and ranged weapons occupy distinct slots.
     private static EquipmentSlot NormalizeSlot( EquipmentSlot slot ) => slot;
+
+    private static bool MatchesItem( InventoryItem item, string itemId, string instanceId ) =>
+        item?.Definition?.Id == itemId
+        && (string.IsNullOrWhiteSpace( instanceId ) || item.Instance?.InstanceId == instanceId);
 }
 
 public sealed class InventorySlot

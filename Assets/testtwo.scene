@@ -978,8 +978,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "spine_2",
-              "Position": "-22.5292377,0.553252518,0.0791674554",
-              "Rotation": "-0.00327071548,0.00592672825,-0.0532103181,-0.997418642",
+              "Position": "-28.1393871,0.568608165,0.0795949399",
+              "Rotation": "-0.00366520882,0.00594863296,-0.0529346168,-0.997431934",
               "Scale": "1.0002569,1.0002569,1.0002569",
               "Tags": "",
               "Enabled": true,
@@ -1352,8 +1352,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "head",
-              "Position": "-24.5341091,-2.04656792,-0.060170535",
-              "Rotation": "0.00143319368,9.87946987E-05,0.106732607,0.99310565",
+              "Position": "-30.2520809,-3.16188335,-0.0728215948",
+              "Rotation": "0.00148573518,-0.000130712986,0.126515687,0.990779638",
               "Scale": "1.00015318,1.00015306,1.00015306",
               "Tags": "",
               "Enabled": true,
@@ -1780,8 +1780,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_L",
-              "Position": "-0.195378259,-0.179790303,-2.02571774",
-              "Rotation": "0.0454560854,-0.0184720028,0.0510362461,0.994344592",
+              "Position": "-3.16998196,-1.2432102,4.04102468",
+              "Rotation": "-0.0114896279,0.672014475,0.0938230753,0.73020184",
               "Scale": "0.9938398,0.9938398,0.9938398",
               "Tags": "",
               "Enabled": true,
@@ -1998,8 +1998,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_L",
-              "Position": "10.0649977,0.275110811,0.0726673678",
-              "Rotation": "0.00750832446,-0.00233310834,0.160388574,0.98639971",
+              "Position": "10.064992,0.275091112,0.0726476535",
+              "Rotation": "0.0075083524,-0.00233313441,0.160388559,0.986399651",
               "Scale": "1.00070214,1.00070214,1.00070214",
               "Tags": "",
               "Enabled": true,
@@ -2217,8 +2217,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_L",
-              "Position": "7.73230267,-0.17984885,0.00793526135",
-              "Rotation": "-0.0429673791,0.0613099486,-0.0552530549,0.988408744",
+              "Position": "7.73231077,-0.179838911,0.00794903841",
+              "Rotation": "-0.0429673046,0.0613099933,-0.0552530289,0.988408804",
               "Scale": "0.997722208,0.997722208,0.997722208",
               "Tags": "",
               "Enabled": true,
@@ -3020,8 +3020,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_R",
-              "Position": "-0.173602939,-0.111583851,2.03466797",
-              "Rotation": "-0.0498026088,0.0191716328,0.0516285598,0.994097531",
+              "Position": "-3.19335556,-1.1792897,-4.0208931",
+              "Rotation": "0.008015275,-0.672134042,0.0913537443,0.73045814",
               "Scale": "0.993846297,0.993846297,0.993846297",
               "Tags": "",
               "Enabled": true,
@@ -3204,8 +3204,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_R",
-              "Position": "10.0648537,0.275146812,-0.0725575313",
-              "Rotation": "0.00749590993,-0.00233703479,-0.160382837,-0.986401021",
+              "Position": "10.0648565,0.275157034,-0.0725560412",
+              "Rotation": "0.00749589503,-0.00233703852,-0.160382807,-0.986400962",
               "Scale": "1.00070357,1.00070357,1.00070357",
               "Tags": "",
               "Enabled": true,
@@ -3454,8 +3454,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_R",
-              "Position": "7.73224688,-0.17969203,-0.00777147571",
-              "Rotation": "0.0197429061,-0.05088377,-0.0401330292,0.992652059",
+              "Position": "7.73223734,-0.179708391,-0.00777667994",
+              "Rotation": "0.0197428912,-0.0508837551,-0.040133059,0.992652059",
               "Scale": "0.997724414,0.997724414,0.997724414",
               "Tags": "",
               "Enabled": true,
@@ -5176,8 +5176,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_lower_L",
-              "Position": "14.3394642,-0.233258992,0.145974845",
-              "Rotation": "0.00120979548,-0.0146847218,-0.171034306,0.986794889",
+              "Position": "14.3394613,-0.233258992,0.145974651",
+              "Rotation": "0.00120984018,-0.0146847218,-0.171034262,0.98679471",
               "Scale": "0.998435438,0.998435438,0.998435438",
               "Tags": "",
               "Enabled": true,
@@ -5361,8 +5361,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "ankle_L",
-              "Position": "12.3605194,0.26375258,-0.180468366",
-              "Rotation": "-0.0346514136,0.0438369215,0.467601836,0.887208045",
+              "Position": "12.3605185,0.263750166,-0.180468366",
+              "Rotation": "-0.0346514434,0.0438369513,0.467601806,0.887207985",
               "Scale": "0.959744871,0.959744871,0.959744871",
               "Tags": "",
               "Enabled": true,
@@ -7690,6 +7690,48 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "SourceLevel": 1000
+        },
+        {
+          "__type": "Sandbox.Code.Systems.TechniqueComponent",
+          "__guid": "f6445c5e-6105-4468-b3a4-6dd33cb33fda",
+          "__enabled": true,
+          "Flags": 0,
+          "EarlyCancelLockout": 0.35,
+          "EarlyPressFiresTechnique": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Code.Systems.TechniqueTestComponent",
+          "__guid": "804bfc4d-7133-4489-8c7d-bcff16e8ec52",
+          "__enabled": true,
+          "Flags": 0,
+          "Key1": "Z",
+          "Key2": "X",
+          "Key3": "V",
+          "Key4": "T",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Code.Systems.ChannelControl",
+          "__guid": "22178399-575e-4df3-afc2-9b99090f59e0",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ],
       "Children": [
@@ -10188,7 +10230,7 @@
               "Children": []
             },
             {
-              "__guid": "ba084830-2972-47f7-9814-542bb1b1e286",
+              "__guid": "852b9a14-26e4-4b13-93e6-800d4affd9e1",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -10205,7 +10247,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "88b1bccd-e668-4da3-9101-601c4c2227cb",
+                  "__guid": "8403881f-cfb1-4259-b61d-51132da9856a",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10255,7 +10297,7 @@
               "Children": []
             },
             {
-              "__guid": "e4b64f97-5411-431e-9dd9-119d989dac9d",
+              "__guid": "0341ba3b-f314-4950-a59d-33cb8e914e6d",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -10272,7 +10314,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "725220be-7b8f-418e-b1aa-2943edb0d9fd",
+                  "__guid": "b750c866-aadb-4962-a06e-d70ecf68f9a7",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10322,7 +10364,7 @@
               "Children": []
             },
             {
-              "__guid": "b6bccfe9-f29d-4f6c-a286-aaf7373fd40e",
+              "__guid": "2677365f-f456-465b-906f-cfce53d70561",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -10339,7 +10381,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "49cdebd1-89c0-4da6-a6ce-bf441653a16e",
+                  "__guid": "3cf2a588-d6d1-4fd1-bb5c-841e69c723b5",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10389,7 +10431,7 @@
               "Children": []
             },
             {
-              "__guid": "6bc3fb54-ae4e-4d3e-9d96-10bed7a628e7",
+              "__guid": "7ac0a225-7f2d-449a-9b42-49bf47498422",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -10406,7 +10448,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "b30c19b9-a393-429d-b31a-f9203f9901be",
+                  "__guid": "f350e034-33c3-4cf3-aeab-485cc5a4b396",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10456,7 +10498,7 @@
               "Children": []
             },
             {
-              "__guid": "536d3b2e-df82-4be7-967c-9b2deffdf800",
+              "__guid": "40d5c3c9-c494-40e4-a7ba-b7a4e5d1788b",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -10473,7 +10515,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "53d7ccd6-a2a7-4189-a54c-800c9443786a",
+                  "__guid": "336e1d22-f7c0-4ded-adad-2b4e0a95d718",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10741,6 +10783,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -10911,6 +10954,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -11081,6 +11125,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -11251,6 +11296,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -11421,6 +11467,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -11591,6 +11638,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -11761,6 +11809,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -11931,6 +11980,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -12101,6 +12151,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -12271,6 +12322,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -12441,6 +12493,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -12611,6 +12664,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -12781,6 +12835,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -12951,6 +13006,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -13121,6 +13177,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -13291,6 +13348,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -13461,6 +13519,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -13631,6 +13690,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -13801,6 +13861,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -13971,6 +14032,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -14141,6 +14203,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -14311,6 +14374,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -14481,6 +14545,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -14651,6 +14716,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -14821,6 +14887,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -14991,6 +15058,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -15161,6 +15229,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -15331,6 +15400,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -15501,6 +15571,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -15671,6 +15742,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -15841,6 +15913,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -16011,6 +16084,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -16181,6 +16255,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -16351,6 +16426,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -16521,6 +16597,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -16691,6 +16768,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -16861,6 +16939,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -17031,6 +17110,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -17201,6 +17281,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -17371,6 +17452,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -17541,6 +17623,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -17711,6 +17794,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -17881,6 +17965,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -18051,6 +18136,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -18221,6 +18307,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -18391,6 +18478,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -18561,6 +18649,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -18731,6 +18820,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -18901,6 +18991,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -19071,6 +19162,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -19241,6 +19333,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -19411,6 +19504,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -19581,6 +19675,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -19751,6 +19846,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -19921,6 +20017,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -20091,6 +20188,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -20261,6 +20359,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -20431,6 +20530,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -20601,6 +20701,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -20771,6 +20872,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -20941,6 +21043,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -21111,6 +21214,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -21281,6 +21385,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -21451,6 +21556,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -21621,6 +21727,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -21791,6 +21898,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -21961,6 +22069,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -22131,6 +22240,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -22301,6 +22411,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -22471,6 +22582,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -22641,6 +22753,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -22811,6 +22924,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -22981,6 +23095,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -23151,6 +23266,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -23321,6 +23437,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -23491,6 +23608,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -23661,6 +23779,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -23831,6 +23950,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -24001,6 +24121,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -24171,6 +24292,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -24282,6 +24404,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -25379,7 +25502,7 @@
           "Flags": 12288,
           "Name": "pelvis",
           "Position": "-538.249207,-797.180237,-70.8676605",
-          "Rotation": "0.523122549,-0.475756079,0.523124278,0.475756466",
+          "Rotation": "0.523122609,-0.475756079,0.523124337,0.475756466",
           "Scale": "0.999999821,0.999999821,0.999999702",
           "Tags": "",
           "Enabled": true,
@@ -25593,8 +25716,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "spine_0",
-              "Position": "4.32406807,-0.00239094184,-0.000112370981",
-              "Rotation": "0.000258073211,-1.02818012E-06,-5.6296587E-05,0.999999166",
+              "Position": "4.32406855,-0.00239104126,-0.000112278569",
+              "Rotation": "0.000258103013,-1.02818012E-06,-5.63263893E-05,0.999999225",
               "Scale": "1.00000012,1.00000012,1.00000024",
               "Tags": "",
               "Enabled": true,
@@ -25737,8 +25860,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "spine_2",
-                      "Position": "12.3717413,0.00313381432,6.24693785E-05",
-                      "Rotation": "-0.000185310841,-0.000252306461,0.000364840031,0.999998212",
+                      "Position": "12.3717394,0.00313341687,6.24693785E-05",
+                      "Rotation": "-0.000185325742,-0.000252306461,0.000364854932,0.999998212",
                       "Scale": "0.999999702,0.999999702,0.999999702",
                       "Tags": "",
                       "Enabled": true,
@@ -26007,8 +26130,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "head",
-                              "Position": "11.3865433,-0.267929584,-0.0052583334",
-                              "Rotation": "7.73817301E-05,-0.000253811479,0.00030785799,-0.999999225",
+                              "Position": "11.3865442,-0.267929584,-0.0052583334",
+                              "Rotation": "7.73817301E-05,-0.000253885984,0.000307887793,-0.999999166",
                               "Scale": "0.999999821,0.999999821,0.999999821",
                               "Tags": "",
                               "Enabled": true,
@@ -26255,8 +26378,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "arm_upper_L",
-                              "Position": "4.84325123,-1.16352391,6.63799",
-                              "Rotation": "0.0256870091,0.909235597,0.0808852464,-0.407543182",
+                              "Position": "4.84325171,-1.16352367,6.63799047",
+                              "Rotation": "0.0256870389,0.909235716,0.0808852464,-0.407543212",
                               "Scale": "0.999999583,0.999999583,0.999999523",
                               "Tags": "",
                               "Enabled": true,
@@ -26399,8 +26522,8 @@
                                   "__version": 2,
                                   "Flags": 12288,
                                   "Name": "arm_lower_L",
-                                  "Position": "10.6462536,-0.0513080731,0.345038593",
-                                  "Rotation": "-8.19563866E-08,6.10947609E-07,0.148423672,0.988923371",
+                                  "Position": "10.6462536,-0.0513085201,0.345038116",
+                                  "Rotation": "-9.68575478E-08,5.81145287E-07,0.148423702,0.988923252",
                                   "Scale": "0.999999881,0.999999881,0.999999881",
                                   "Tags": "",
                                   "Enabled": true,
@@ -26544,8 +26667,8 @@
                                       "__version": 2,
                                       "Flags": 12288,
                                       "Name": "hand_L",
-                                      "Position": "8.10651588,-0.155241504,0.231279016",
-                                      "Rotation": "0.0916309282,-0.0330963507,0.0396788418,0.994451344",
+                                      "Position": "8.10651493,-0.155241355,0.231279299",
+                                      "Rotation": "0.0916308984,-0.0330963433,0.0396787897,0.994451344",
                                       "Scale": "0.999999702,0.999999702,0.999999702",
                                       "Tags": "",
                                       "Enabled": true,
@@ -27023,8 +27146,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "arm_upper_R",
-                              "Position": "4.83581638,-1.16566288,-6.64219856",
-                              "Rotation": "0.025584951,0.909429133,-0.0810336173,0.407087028",
+                              "Position": "4.83581638,-1.16566324,-6.64219856",
+                              "Rotation": "0.0255849808,0.909429193,-0.0810336471,0.407087058",
                               "Scale": "0.999999881,0.999999881,0.999999821",
                               "Tags": "",
                               "Enabled": true,
@@ -27149,8 +27272,8 @@
                                   "__version": 2,
                                   "Flags": 12288,
                                   "Name": "arm_lower_R",
-                                  "Position": "10.6462631,-0.0513323471,-0.345081359",
-                                  "Rotation": "-2.23517418E-08,4.76837158E-07,0.148424149,0.988924026",
+                                  "Position": "10.6462593,-0.0513315536,-0.345080644",
+                                  "Rotation": "7.4505806E-09,4.91738319E-07,0.148424119,0.988923907",
                                   "Scale": "0.999999881,0.999999881,1",
                                   "Tags": "",
                                   "Enabled": true,
@@ -27313,8 +27436,8 @@
                                       "__version": 2,
                                       "Flags": 12288,
                                       "Name": "hand_R",
-                                      "Position": "8.10651588,-0.155181214,-0.231390283",
-                                      "Rotation": "-0.0916311443,0.0330966264,0.0396786034,0.994451463",
+                                      "Position": "8.10651493,-0.15518041,-0.231388986",
+                                      "Rotation": "-0.0916311443,0.0330966115,0.0396786332,0.994451523",
                                       "Scale": "0.999999583,0.999999583,0.999999523",
                                       "Tags": "",
                                       "Enabled": true,
@@ -27799,8 +27922,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_upper_R",
-              "Position": "-0.317688078,-0.415755153,-4.11850595",
-              "Rotation": "-1.90734863E-06,0.999999344,3.42726707E-07,-7.30156898E-07",
+              "Position": "-0.317688197,-0.415755212,-4.11850595",
+              "Rotation": "-1.93715096E-06,0.999999404,3.27825546E-07,-6.85453415E-07",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -27925,8 +28048,8 @@
                   "__version": 2,
                   "Flags": 12288,
                   "Name": "leg_lower_R",
-                  "Position": "15.9545012,1.9868221E-06,3.69641384E-07",
-                  "Rotation": "-5.96046448E-07,1.63912773E-07,-0.0182808638,0.999833524",
+                  "Position": "15.9545012,1.58945772E-06,-7.39282768E-07",
+                  "Rotation": "-5.96046448E-07,1.93715096E-07,-0.0182808787,0.999833584",
                   "Scale": "0.999999881,0.999999881,1",
                   "Tags": "",
                   "Enabled": true,
@@ -28052,8 +28175,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "ankle_R",
-                      "Position": "13.7974558,0.0457215533,-3.88123453E-06",
-                      "Rotation": "8.04662704E-07,-7.15255737E-07,0.391497701,0.920179605",
+                      "Position": "13.7974539,0.0457223468,-4.06605523E-06",
+                      "Rotation": "8.34465027E-07,-7.4505806E-07,0.391497701,0.920179605",
                       "Scale": "1.00000012,1.00000012,1",
                       "Tags": "",
                       "Enabled": true,
@@ -28267,8 +28390,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_upper_L",
-              "Position": "-0.317665875,-0.415749997,4.11850166",
-              "Rotation": "-1.68383121E-06,0.999999106,2.98023224E-07,-6.40749931E-07",
+              "Position": "-0.317665964,-0.415749788,4.11850214",
+              "Rotation": "-1.71363354E-06,0.999999046,3.12924385E-07,-6.2584877E-07",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -28393,8 +28516,8 @@
                   "__version": 2,
                   "Flags": 12288,
                   "Name": "leg_lower_L",
-                  "Position": "15.9544907,-5.36441985E-05,-2.58748969E-06",
-                  "Rotation": "-2.74181366E-06,-5.81145287E-07,-0.0182816982,0.999833465",
+                  "Position": "15.9544897,-5.36441985E-05,-3.32677246E-06",
+                  "Rotation": "-2.74181366E-06,-5.96046448E-07,-0.0182816982,0.999833405",
                   "Scale": "1,1,1",
                   "Tags": "",
                   "Enabled": true,
@@ -28520,8 +28643,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "ankle_L",
-                      "Position": "13.7974739,0.045768436,-4.6205173E-06",
-                      "Rotation": "3.5315752E-06,-7.74860382E-07,0.39149791,0.920180082",
+                      "Position": "13.7974739,0.0457676426,-4.43569661E-06",
+                      "Rotation": "3.48687172E-06,-7.74860382E-07,0.39149791,0.920180023",
                       "Scale": "0.999999821,0.999999821,0.999999881",
                       "Tags": "",
                       "Enabled": true,
@@ -29023,6 +29146,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -29193,6 +29317,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -29363,6 +29488,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -29533,6 +29659,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -29703,6 +29830,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -29873,6 +30001,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -30043,6 +30172,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -30213,6 +30343,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -30383,6 +30514,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -30553,6 +30685,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -30723,6 +30856,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -30893,6 +31027,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -31063,6 +31198,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -31233,6 +31369,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -31403,6 +31540,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -31573,6 +31711,7 @@
             "StaminaCost": 0,
             "EnergyCost": 0
           },
+          "GroundCheckDistance": 14,
           "InitialLevel": 1,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -31664,7 +31803,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "f26d5755-d155-4449-a4dd-c2c2046a0ffe": "3fe8a166-e6d9-8346-b832-3fef4a20e604"
+            "a5ea1aba-b8ae-4591-a346-e6a6a5a83390": "e9dc6cea-7aed-81fe-bdbb-c7fcd0c4fc8f"
           }
         }
       ]
@@ -32913,8 +33052,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "spine_2",
-              "Position": "-22.5292397,0.553252876,0.0791903809",
-              "Rotation": "-0.00327071548,0.00592672825,-0.0532103181,-0.997418642",
+              "Position": "-28.1393909,0.568605185,0.0795949399",
+              "Rotation": "-0.00366520882,0.00594863296,-0.0529346168,-0.997431934",
               "Scale": "1.0002569,1.0002569,1.0002569",
               "Tags": "",
               "Enabled": true,
@@ -33287,8 +33426,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "head",
-              "Position": "-24.5341091,-2.04656792,-0.0602178574",
-              "Rotation": "0.00143322349,9.8824501E-05,0.106732726,0.99310559",
+              "Position": "-30.2520771,-3.16188478,-0.0728925765",
+              "Rotation": "0.00148566067,-0.000130772591,0.126515865,0.990779638",
               "Scale": "1.00012839,1.00012839,1.00012839",
               "Tags": "",
               "Enabled": true,
@@ -33715,8 +33854,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_L",
-              "Position": "-0.195394486,-0.179839984,-2.02564645",
-              "Rotation": "0.0454560854,-0.0184720028,0.0510362461,0.994344592",
+              "Position": "-3.1699264,-1.24324489,4.04104328",
+              "Rotation": "-0.0114896279,0.672014475,0.0938230753,0.73020184",
               "Scale": "0.9938398,0.9938398,0.9938398",
               "Tags": "",
               "Enabled": true,
@@ -33933,8 +34072,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_L",
-              "Position": "10.0649748,0.275107145,0.0726673678",
-              "Rotation": "0.00750832446,-0.00233310834,0.160388574,0.98639971",
+              "Position": "10.0649729,0.275096506,0.0726722032",
+              "Rotation": "0.0075083524,-0.00233313441,0.160388559,0.986399651",
               "Scale": "1.00070214,1.00070214,1.00070214",
               "Tags": "",
               "Enabled": true,
@@ -34152,8 +34291,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_L",
-              "Position": "7.73230267,-0.17984885,0.00793526135",
-              "Rotation": "-0.0429673791,0.0613099486,-0.0552530549,0.988408744",
+              "Position": "7.73230791,-0.179841131,0.00792524777",
+              "Rotation": "-0.0429673046,0.0613099933,-0.0552530289,0.988408804",
               "Scale": "0.997722208,0.997722208,0.997722208",
               "Tags": "",
               "Enabled": true,
@@ -34955,8 +35094,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_R",
-              "Position": "-0.173646793,-0.111595541,2.03469753",
-              "Rotation": "-0.0498026088,0.0191716328,0.0516285598,0.994097531",
+              "Position": "-3.19340396,-1.17930007,-4.02093267",
+              "Rotation": "0.008015275,-0.672134042,0.0913537443,0.73045814",
               "Scale": "0.993846297,0.993846297,0.993846297",
               "Tags": "",
               "Enabled": true,
@@ -35139,8 +35278,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_R",
-              "Position": "10.0648823,0.275107384,-0.072596401",
-              "Rotation": "0.0074958019,-0.0023370944,-0.160382718,-0.986400843",
+              "Position": "10.0648813,0.275107741,-0.0725845024",
+              "Rotation": "0.00749586523,-0.00233700871,-0.160382658,-0.986400843",
               "Scale": "1.00070357,1.00070357,1.00070357",
               "Tags": "",
               "Enabled": true,
@@ -35389,8 +35528,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_R",
-              "Position": "7.73227358,-0.179691285,-0.00779731059",
-              "Rotation": "0.0197428465,-0.0508837104,-0.0401329994,0.992652297",
+              "Position": "7.73228502,-0.179673076,-0.00779396528",
+              "Rotation": "0.0197428167,-0.0508837253,-0.0401329845,0.992652237",
               "Scale": "0.997724414,0.997724414,0.997724414",
               "Tags": "",
               "Enabled": true,
@@ -37111,8 +37250,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_lower_L",
-              "Position": "14.3394804,-0.233259723,0.145951882",
-              "Rotation": "0.00120984018,-0.0146847218,-0.171034262,0.98679471",
+              "Position": "14.3394766,-0.233258992,0.145951331",
+              "Rotation": "0.00120982528,-0.0146847218,-0.171034187,0.986794591",
               "Scale": "0.998435438,0.998435438,0.998435438",
               "Tags": "",
               "Enabled": true,
@@ -37296,8 +37435,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "ankle_L",
-              "Position": "12.3605165,0.263752759,-0.180491924",
-              "Rotation": "-0.0346514434,0.0438369513,0.467601806,0.887207985",
+              "Position": "12.3605165,0.263751835,-0.180492669",
+              "Rotation": "-0.0346514434,0.0438369513,0.467601746,0.887207985",
               "Scale": "0.959744871,0.959744871,0.959744871",
               "Tags": "",
               "Enabled": true,
@@ -40894,7 +41033,7 @@
               "Flags": 12288,
               "Name": "head",
               "Position": "6.25848884E-07,1.589661,3.14414547E-06",
-              "Rotation": "0.00264343712,-0.0314144269,0.0146821067,0.999399483",
+              "Rotation": "0.00264346646,-0.031414438,0.0146821104,0.999399543",
               "Scale": "0.99999994,0.99999994,0.99999994",
               "Tags": "",
               "Enabled": true,
@@ -42626,7 +42765,7 @@
               "IdValue": "495ce31b-f5bc-4892-b55a-dc75c9560a99"
             },
             "Property": "Rotation",
-            "Value": "-0.139569357,1.11758709E-07,-1.04829669E-05,-0.990209997"
+            "Value": "-0.139569357,1.2665987E-07,-1.04531646E-05,-0.990209997"
           },
           {
             "Target": {
@@ -42634,7 +42773,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Position",
-            "Value": "1.67886412E-06,1.52366626,-2.12589907E-06"
+            "Value": "1.65899598E-06,1.52366626,-2.11596489E-06"
           },
           {
             "Target": {
@@ -42642,7 +42781,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Rotation",
-            "Value": "-0.00544117019,2.08616257E-07,-3.27825546E-07,0.999985874"
+            "Value": "-0.00544123165,2.16066837E-07,-3.20374966E-07,0.999985874"
           },
           {
             "Target": {
@@ -42674,7 +42813,7 @@
               "IdValue": "089d07be-5a9c-4d17-beaf-43a6a99985e0"
             },
             "Property": "Rotation",
-            "Value": "0.020736089,0.00580418855,-0.00418973714,0.999763012"
+            "Value": "0.0207360871,0.00580418482,-0.00418974459,0.999763131"
           },
           {
             "Target": {
@@ -42690,7 +42829,7 @@
               "IdValue": "feb560c2-58b5-4984-b62b-e79617d7cfdd"
             },
             "Property": "Rotation",
-            "Value": "0.0026439745,-0.0314145088,0.0146818534,0.999392092"
+            "Value": "0.0026440639,-0.0314145125,0.0146818385,0.999392033"
           },
           {
             "Target": {
@@ -42877,7 +43016,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "49fc1ae0-adf8-4d84-8497-77a25b58315f",
+            "Id": "cd6d7492-13bc-4946-b05e-a48907431632",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -42904,7 +43043,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "49fc1ae0-adf8-4d84-8497-77a25b58315f",
+            "Id": "cd6d7492-13bc-4946-b05e-a48907431632",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -42932,7 +43071,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "49fc1ae0-adf8-4d84-8497-77a25b58315f",
+            "Id": "cd6d7492-13bc-4946-b05e-a48907431632",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43014,7 +43153,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "19c386c1-fc76-4f8a-bb08-d1fde3f4ef38",
+            "Id": "b8e9750f-c9fd-42d5-a692-d90e2cf2f8fc",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43041,7 +43180,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "19c386c1-fc76-4f8a-bb08-d1fde3f4ef38",
+            "Id": "b8e9750f-c9fd-42d5-a692-d90e2cf2f8fc",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43069,7 +43208,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "19c386c1-fc76-4f8a-bb08-d1fde3f4ef38",
+            "Id": "b8e9750f-c9fd-42d5-a692-d90e2cf2f8fc",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43164,7 +43303,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "500f6ace-a5be-454e-bb40-47d32b743338",
+            "Id": "3517ab64-38ca-4bf0-8f3e-9c6b5a3aacee",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43191,7 +43330,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "500f6ace-a5be-454e-bb40-47d32b743338",
+            "Id": "3517ab64-38ca-4bf0-8f3e-9c6b5a3aacee",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43219,7 +43358,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "500f6ace-a5be-454e-bb40-47d32b743338",
+            "Id": "3517ab64-38ca-4bf0-8f3e-9c6b5a3aacee",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43303,7 +43442,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "fff09fbb-5d55-4d42-afb2-13df040ea817",
+            "Id": "254f93cf-65b5-4c78-8e13-46551b6b6f29",
             "Path": "models workshop/double barrel/double-barrel.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43612,7 +43751,7 @@
               "IdValue": "495ce31b-f5bc-4892-b55a-dc75c9560a99"
             },
             "Property": "Rotation",
-            "Value": "-0.139569357,1.41561031E-07,-1.04382634E-05,-0.990209997"
+            "Value": "-0.139569357,1.41561031E-07,-1.04233623E-05,-0.990209997"
           },
           {
             "Target": {
@@ -43620,7 +43759,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Position",
-            "Value": "3.20871686E-06,1.52366984,-1.63912785E-06"
+            "Value": "3.1590464E-06,1.52366984,-1.63416075E-06"
           },
           {
             "Target": {
@@ -43628,7 +43767,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Rotation",
-            "Value": "-0.00544132106,2.30967999E-07,-3.20374966E-07,0.999985933"
+            "Value": "-0.00544138066,2.38418579E-07,-3.12924385E-07,0.999985993"
           },
           {
             "Target": {
@@ -43668,7 +43807,7 @@
               "IdValue": "089d07be-5a9c-4d17-beaf-43a6a99985e0"
             },
             "Property": "Rotation",
-            "Value": "0.0207360554,0.00580418296,-0.00418975204,0.99976325"
+            "Value": "0.0207360536,0.00580419414,-0.00418975204,0.99976331"
           },
           {
             "Target": {
@@ -43692,7 +43831,7 @@
               "IdValue": "feb560c2-58b5-4984-b62b-e79617d7cfdd"
             },
             "Property": "Rotation",
-            "Value": "0.00264406577,-0.0314145125,0.0146818236,0.999392033"
+            "Value": "0.0026440639,-0.0314144976,0.0146818087,0.999392033"
           },
           {
             "Target": {

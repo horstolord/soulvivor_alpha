@@ -15,6 +15,7 @@ public class HitPhaseDef
 	public float EndTime;
 	public List<HitShapeDef> Shapes = new();
 	public bool StopAfterFirstHit;
+	public bool IndependentHits;
 }
 
 

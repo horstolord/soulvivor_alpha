@@ -82,6 +82,40 @@
         <div class="menu-backdrop"></div>
     }
 
+    <div class="hotbar-root @(MenuOpen ? "menu-open" : "")">
+        <div class="hotbar-strip">
+            @for ( var i = 0; i < HotbarControl.SlotCount; i++ )
+            {
+                var index = i;
+                var hotbar = PlayerObject?.Hotbar;
+                var entry = hotbar?.GetEntry( index );
+                var usable = hotbar?.CanUseEntry( index ) == true;
+                var badge = hotbar?.GetItemBadge( index );
+
+                <div class="hotbar-slot @(usable ? "" : "dimmed") @(entry == null || entry.Type == HotbarEntryType.None ? "empty" : "")"
+                     onmousedown="@(() => HotbarMouseDown(index))"
+                     onmouseup="@(() => HotbarMouseUp(index))"
+                     onclick="@(() => HotbarClick(index))"
+                     onrightclick="@(() => HotbarRightClick(index))">
+                    <span class="hotbar-key">@hotbar?.GetKey(index)</span>
+                    @if ( entry != null && entry.Type != HotbarEntryType.None )
+                    {
+                        <span class="hotbar-type">@entry.Type</span>
+                        <span class="hotbar-label">@hotbar?.GetEntryLabel(index)</span>
+                        @if ( !string.IsNullOrEmpty( badge ) )
+                        {
+                            <span class="hotbar-badge">@badge</span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="hotbar-empty">+</span>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
     @if ( ActivePanel == UiPanel.Inventory )
     {
         <div class="inventory-screen">
@@ -405,6 +439,7 @@
 @code
 {
     public static InventoryPanel LocalInventory { get; private set; }
+    public static bool MenuOpen { get; private set; }
 
     public enum UiPanel
     {
@@ -416,6 +451,7 @@
     private readonly InventoryPanel InventoryState = new();
     private float TooltipX { get; set; }
     private float TooltipY { get; set; }
+    private int? HotbarDraggingSlot { get; set; }
 
     private readonly EquipmentSlotView[] LeftEquipmentSlots =
     {
@@ -454,6 +490,7 @@
     {
         base.OnStart();
         LocalInventory = InventoryState;
+        MenuOpen = ActivePanel != UiPanel.None;
     }
 
     protected override void OnUpdate()
@@ -514,6 +551,7 @@
 
         // FPS look needs a locked cursor. Any pointer-events:all panel with Auto/Visible
         // zeroes Input.AnalogLook — so only free the mouse while a menu is open.
+        MenuOpen = ActivePanel != UiPanel.None;
         Mouse.Visibility = ActivePanel == UiPanel.None
             ? MouseVisibility.Hidden
             : MouseVisibility.Visible;
@@ -533,8 +571,59 @@
         return slot?.Item?.Definition?.IsEquippable == true;
     }
 
+    void HotbarMouseDown( int index )
+    {
+        if ( !MenuOpen ) return;
+        InventoryState.CancelDrag();
+        HotbarDraggingSlot = index;
+    }
+
+    void HotbarMouseUp( int index )
+    {
+        if ( !MenuOpen ) return;
+
+        var item = InventoryState.DraggingItem;
+        if ( item != null )
+        {
+            if ( CanAssignToHotbar( item ) )
+                PlayerObject?.Hotbar?.SetItem( index, item );
+            InventoryState.CancelDrag();
+            HotbarDraggingSlot = null;
+            return;
+        }
+
+        if ( HotbarDraggingSlot.HasValue )
+        {
+            PlayerObject?.Hotbar?.SwapSlots( HotbarDraggingSlot.Value, index );
+            HotbarDraggingSlot = null;
+        }
+    }
+
+    void HotbarClick( int index )
+    {
+        if ( !MenuOpen )
+            PlayerObject?.Hotbar?.TryUseSlot( index );
+    }
+
+    void HotbarRightClick( int index )
+    {
+        if ( !MenuOpen ) return;
+        InventoryState.CancelDrag();
+        HotbarDraggingSlot = null;
+        PlayerObject?.Hotbar?.ClearSlot( index );
+    }
+
+    private static bool CanAssignToHotbar( InventoryItem item )
+    {
+        var definition = item?.Definition;
+        if ( definition == null ) return false;
+        if ( definition.IsConsumable ) return true;
+        return definition.Equipment?.Slot is EquipmentSlot.Melee or EquipmentSlot.Ranged or EquipmentSlot.OffHand;
+    }
+
     protected override int BuildHash()
     {
+        int hotbarHash = PlayerObject?.Hotbar?.GetVisualHash() ?? 0;
         if ( PlayerObject?.StatSheet == null )
         {
             return HashCode.Combine(
@@ -542,7 +631,8 @@
                 ActivePanel,
                 InventoryState.Revision,
                 TooltipX,
-                TooltipY
+                TooltipY,
+                hotbarHash
             );
         }
 
@@ -552,7 +642,8 @@
             StaminaWidth,
             EnergyWidth,
             stats.CurrentHealth,
-            HashCode.Combine( stats.CurrentStamina, stats.CurrentEnergy, TooltipX, TooltipY )
+            HashCode.Combine( stats.CurrentStamina, stats.CurrentEnergy, TooltipX, TooltipY ),
+            hotbarHash
         );
     }
 
@@ -590,6 +681,86 @@
     border-top: 1px solid rgba(120, 100, 75, 0.4);
     padding-top: 10px;
     margin-top: 4px;
+}
+
+.hotbar-root {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hotbar-strip {
+    position: absolute;
+    bottom: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    pointer-events: none;
+}
+
+.hotbar-slot {
+    position: relative;
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(16, 14, 12, 0.9);
+    border: 2px solid #6b5a45;
+    border-radius: 4px;
+    color: #dfd5c6;
+    pointer-events: none;
+}
+
+.hotbar-root.menu-open .hotbar-slot {
+    pointer-events: all;
+}
+
+.hotbar-slot.dimmed {
+    opacity: 0.42;
+}
+
+.hotbar-slot.empty {
+    border-style: dashed;
+}
+
+.hotbar-key {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    font-size: 11px;
+    color: #c2a878;
+}
+
+.hotbar-type {
+    margin-top: 8px;
+    font-size: 9px;
+    color: #a58b68;
+    text-transform: uppercase;
+}
+
+.hotbar-label {
+    max-width: 62px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.hotbar-badge {
+    position: absolute;
+    right: 4px;
+    bottom: 3px;
+    font-size: 10px;
+    color: #f0d69a;
+}
+
+.hotbar-empty {
+    color: #786b5a;
+    font-size: 18px;
 }
 
 .hud-section-label {

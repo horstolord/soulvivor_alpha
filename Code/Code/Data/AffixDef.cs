@@ -17,7 +17,6 @@ public class AffixDef
 	public float MinValue;
 	public float MaxValue;
 	public float Weight = 1f;
-	public bool Integer;
 	public ModifierType Type = ModifierType.Flat;
 	/// <summary>Round the rolled value to a whole number — for counts like extra projectiles or pierce.</summary>
 	public bool Integer;

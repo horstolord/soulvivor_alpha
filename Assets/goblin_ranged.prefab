@@ -21,9 +21,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "Cube",
-        "Position": "0,0,0",
+        "Position": "0,0,8.37856007",
         "Rotation": "0,0,0,1",
-        "Scale": "1,0.810000122,1.28999972",
+        "Scale": "5,5,6.73000908",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -100,6 +100,7 @@
               "StaminaCost": 0,
               "EnergyCost": 0
             },
+            "GroundCheckDistance": 14,
             "InitialLevel": 1,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -159,8 +160,8 @@
               "Roll": false
             },
             "Model": {
-              "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
-              "Path": "models/citizen/citizen.vmdl"
+              "Id": "a1ad2908-c260-460e-816b-aeaf28845b69",
+              "Path": "models/gobbo.vmdl"
             },
             "MotionEnabled": true,
             "OnComponentDestroy": null,
@@ -184,8 +185,11 @@
             "__guid": "e5e69b17-662c-4f14-93fa-3ac50478a3cd",
             "__enabled": true,
             "Flags": 0,
-            "AnimationGraph": null,
-            "BodyGroups": 341,
+            "AnimationGraph": {
+              "Id": "2a308a45-5886-40fa-b821-e28132395917",
+              "Path": "animgraphs/gobbo.vanmgrph"
+            },
+            "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
@@ -195,8 +199,8 @@
             "MaterialOverride": null,
             "Materials": null,
             "Model": {
-              "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
-              "Path": "models/citizen/citizen.vmdl"
+              "Id": "a1ad2908-c260-460e-816b-aeaf28845b69",
+              "Path": "models/gobbo.vmdl"
             },
             "Morphs": {},
             "OnComponentDestroy": null,
@@ -219,7 +223,7 @@
               "Looping": true,
               "Blending": false
             },
-            "Tint": "0.11667,1,0,1",
+            "Tint": "0,0.73333,1,1",
             "UseAnimGraph": true
           },
           {
@@ -234,7 +238,12 @@
               "component_type": "NavMeshAgent"
             },
             "Enemy": null,
-            "ModelCollider": null,
+            "ModelCollider": {
+              "_type": "component",
+              "component_id": "2b93116f-44f9-4d8c-a7eb-55814a7ce70a",
+              "go": "1f789af0-34ec-4414-9676-f3276f572e3c",
+              "component_type": "ModelCollider"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -263,10 +272,7 @@
             "Elasticity": null,
             "Friction": null,
             "IsTrigger": false,
-            "Model": {
-              "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
-              "Path": "models/citizen/citizen.vmdl"
-            },
+            "Model": null,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -279,60 +285,6 @@
             "OnTriggerExit": null,
             "RollingResistance": null,
             "Static": false,
-            "Surface": null,
-            "SurfaceVelocity": "0,0,0"
-          }
-        ],
-        "Children": []
-      },
-      {
-        "__guid": "03ff7757-4675-4613-bdbc-4e06e8eee7e2",
-        "__version": 2,
-        "Flags": 32768,
-        "Name": "Polygon",
-        "Position": "-101646.359,87172.3984,1054.09009",
-        "Rotation": "0,0,0,1",
-        "Scale": "1,1,1",
-        "Tags": "world",
-        "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkFlags": 0,
-        "NetworkOrphaned": 0,
-        "NetworkTransmit": true,
-        "OwnerTransfer": 1,
-        "Components": [
-          {
-            "__type": "Sandbox.MeshComponent",
-            "__guid": "5ccc3b28-3bb6-4630-b7d9-a01a9ab500b5",
-            "__enabled": true,
-            "Flags": 0,
-            "ColliderFlags": 0,
-            "Collision": "Mesh",
-            "Color": "1,1,1,1",
-            "Elasticity": null,
-            "Friction": null,
-            "HideInGame": false,
-            "IsTrigger": false,
-            "Mesh": {
-              "Data": "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",
-              "Materials": [
-                "mat/pack/g_tilesmassive.vmat"
-              ]
-            },
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "OnObjectTriggerEnter": null,
-            "OnObjectTriggerExit": null,
-            "OnTriggerEnter": null,
-            "OnTriggerExit": null,
-            "RenderType": "On",
-            "RollingResistance": null,
-            "SmoothingAngle": 40,
-            "Static": true,
             "Surface": null,
             "SurfaceVelocity": "0,0,0"
           }
@@ -368,8 +320,6 @@
   "MenuPath": null,
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
-  "__references": [
-    "goose.g_tilesmassive#9631"
-  ],
+  "__references": [],
   "__version": 2
 }

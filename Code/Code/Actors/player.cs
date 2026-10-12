@@ -12,6 +12,7 @@ public sealed class Player : Actor
 	public SprintControl Sprint { get; private set; }
 	public HeldWeaponControl Held { get; private set; }
 	public ChargeControl Charge { get; private set; }
+	public HotbarControl Hotbar { get; private set; }
 	private PlayerController _playerController;
 	
 	// Load the "player" / hero stat preset from MobRegistry
@@ -29,6 +30,7 @@ public sealed class Player : Actor
 		Slide = Components.GetOrCreate<SlideControl>();
 		Sprint = Components.GetOrCreate<SprintControl>();
 		Charge = Components.GetOrCreate<ChargeControl>();
+		Hotbar = Components.GetOrCreate<HotbarControl>();
 		_playerController = GameObject.Components.GetInAncestorsOrSelf<PlayerController>(  );
 		BodyRenderer ??= Components.GetInChildren<SkinnedModelRenderer>();
 		Held = Components.GetOrCreate<HeldWeaponControl>();
@@ -61,6 +63,12 @@ public sealed class Player : Actor
 		{
 			HandleCombatInput();
 		}
+	}
+
+	public bool TryUseAttack( AttackDef attack )
+	{
+		if ( Combat == null || attack == null || !Combat.CanAttack ) return false;
+		return TryPerformAttack( attack );
 	}
 	
 	private void HandleFlaskHotkeys()
@@ -100,6 +108,12 @@ public sealed class Player : Actor
 			Log.Info( $"[Flask] Restored {consumable.RestoreEnergy} Mana -> {StatSheet.CurrentEnergy}/{maxEnergy}" );
 		}
 
+		if ( consumable.RestoreStamina > 0f )
+		{
+			float maxStamina = StatSheet.MaxStamina?.Value ?? 100f;
+			StatSheet.CurrentStamina = System.MathF.Min( maxStamina, StatSheet.CurrentStamina + consumable.RestoreStamina );
+		}
+
 		if ( consumable.BuffEffect != null && Buffs != null )
 		{
 			Buffs.ApplyBuff( consumable.BuffEffect, StatSheet );
@@ -128,6 +142,12 @@ public sealed class Player : Actor
 		{
 			float maxEnergy = StatSheet.MaxEnergy?.Value ?? 100f;
 			StatSheet.CurrentEnergy = System.MathF.Min( maxEnergy, StatSheet.CurrentEnergy + consumable.RestoreEnergy );
+		}
+
+		if ( consumable.RestoreStamina > 0f )
+		{
+			float maxStamina = StatSheet.MaxStamina?.Value ?? 100f;
+			StatSheet.CurrentStamina = System.MathF.Min( maxStamina, StatSheet.CurrentStamina + consumable.RestoreStamina );
 		}
 
 		return true;
@@ -248,8 +268,10 @@ public sealed class Player : Actor
 		}
 	}
 
-	private void TryPerformAttack( AttackDef attack, float charge01 = 0f )
+	private bool TryPerformAttack( AttackDef attack, float charge01 = 0f )
 	{
+		if ( attack == null || Combat == null ) return false;
+
 		bool consumeBankedCharge = false;
 		if ( Charge != null && Charge.TryGetBankedCharge( out var bankedCharge ) )
 		{
@@ -276,8 +298,8 @@ public sealed class Player : Actor
 		bool started = Combat.TryStartAttack( request );
 		if ( started && consumeBankedCharge )
 			Charge.TryConsumeBankedCharge( out _ );
-		
 
+		return started;
 	}
 	private void DebugAttackAnimation( AttackDef attack )
 	{

@@ -273,12 +273,21 @@ public static class RuneLibrary
 		return true;
 	}
 
-	public static List<RuneDef> GetPreset( string presetName )
-	{
-		var key = presetName.ToLower();
-		if ( TryBuildElementPreset( key, out var elemental ) ) return elemental;
+	public static List<RuneDef> GetPreset( string presetName ) =>
+		TryGetPreset( presetName, out var runes ) ? runes : new List<RuneDef> { FireForce, ProjectileMethod };
 
-		return key switch
+	public static bool TryGetPreset( string presetName, out List<RuneDef> runes )
+	{
+		runes = null;
+		if ( string.IsNullOrWhiteSpace( presetName ) ) return false;
+		var key = presetName.ToLowerInvariant();
+		if ( TryBuildElementPreset( key, out var elemental ) )
+		{
+			runes = elemental;
+			return true;
+		}
+
+		runes = key switch
 		{
 			"fireball" => new List<RuneDef> { FireForce, ProjectileMethod },
 			"empowered_fireball" => new List<RuneDef> { EmpowerModifier, FireForce, ProjectileMethod },
@@ -293,7 +302,8 @@ public static class RuneLibrary
 			"launch" => new List<RuneDef> { FrostForce, Launch },
 			"ember_weapon" => new List<RuneDef> { FrostForce, ImbueMethod },
 			"shockwave" => new List<RuneDef> { FrostForce, ConeMethod },
-			_ => new List<RuneDef> { FireForce, ProjectileMethod }
+			_ => null
 		};
+		return runes != null;
 	}
 }

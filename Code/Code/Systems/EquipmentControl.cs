@@ -132,20 +132,7 @@ public class EquipmentControl : Component
 			statSheet.Armor.AddModifier( modifier );
 			entry.AppliedModifiers.Add( (statSheet.Armor, modifier) );
 		}
-
-		// 3) BaseAttackSpeed → AttackSpeed
-		if ( stats != null && stats.BaseAttackSpeed != 0f && stats.BaseAttackSpeed != 1f )
-		{
-			var attackSpeedStat = statSheet.GetStat( "AttackSpeed" );
-			if ( attackSpeedStat != null )
-			{
-				float delta = (stats.BaseAttackSpeed - 1f) * 100f;
-				var modifier = new StatModifier( delta, ModifierType.Flat, source: entry );
-				attackSpeedStat.AddModifier( modifier );
-				entry.AppliedModifiers.Add( (attackSpeedStat, modifier) );
-			}
-		}
-
+		
 		_slots[slot] = entry;
 
 		bool touchedAttribute = allMods.Any( m => IsAttributeStat( m.StatName ) );

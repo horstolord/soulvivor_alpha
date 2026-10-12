@@ -7,11 +7,11 @@
   "TerrainHeight": 10000,
   "Materials": [
     {
-      "Id": "883ad5f8-6da2-444e-a58b-397b25741afc",
+      "Id": "6b48d936-a796-4b92-8de1-a69acea0fbfe",
       "Path": "materials/clicker/rock_boulder_dry.tmat"
     },
     {
-      "Id": "e3938557-fa7f-4c0e-81b5-efe3451c4908",
+      "Id": "f5e580e6-1fec-4c88-a14f-1a577ea09b36",
       "Path": "materials/clicker/forest_ground_04.tmat"
     }
   ],
@@ -26,7 +26,7 @@
       "MipLodBias": 0,
       "MaxAnisotropy": 8,
       "BorderColor": "0,0,0,0",
-      "Index": 3
+      "Index": 2
     }
   },
   "ResourceVersion": 3,
