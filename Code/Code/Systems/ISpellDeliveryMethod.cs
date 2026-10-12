@@ -19,6 +19,8 @@ public struct SpellPayload
 	public float AoERadius;
 	public float ConeAngle;
 	public bool ConeRequiresLineOfSight;
+	/// <summary>Seconds after the cast completes before this payload is delivered (multicast stagger, echo).</summary>
+	public float DeliveryDelay;
 }
 
 public interface ISpellDeliveryMethod
@@ -35,7 +37,7 @@ public class ProjectileDeliveryMethod : ISpellDeliveryMethod
 
 		var template = payload.ProjectileTemplate?.Clone() ?? new ProjectileTemplate();
 		template.Speed *= ctx.SpeedMultiplier * ElementLibrary.Get( ctx.PrimaryElement ).ProjectileSpeedMultiplier;
-		template.PierceCount += ctx.BonusPierce;
+		template.AddPierce( ctx.BonusPierce ); // upgrades a FirstHit template; a bare += did nothing there
 
 		var rot = Rotation.LookAt( ctx.AimDirection );
 		if ( ctx.SpreadAngle > 0.01f )

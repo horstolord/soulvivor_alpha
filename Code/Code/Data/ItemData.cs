@@ -487,6 +487,8 @@ public static class ItemData
 					{
 						Termination = Systems.ProjectileTerminationType.PierceCount,
 						PierceCount = 2,
+						StickOnHit = true,        // sticks into the last target it doesn't kill, or a wall
+						KillsRefundPierce = true, // a kill doesn't use up a pierce
 						Speed = 1500f,
 						Lifetime = 5f,
 						CollisionBoxSize = new Vector3( 6f, 6f, 6f )

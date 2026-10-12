@@ -433,8 +433,8 @@ public sealed class InventoryItem
             "LightningDamage" => "Lightning Damage",
             "CritChance" => "Critical Chance",
             "CritDamage" => "Critical Multiplier",
+"ProjectileCount" => "Additional Projectiles",
             "ProjectilePierce" => "Projectile Pierce",
-            "ProjectileCount" => "Projectile Count",
             "EchoChance" => "Echo Chance",
             _ => statName
         };
