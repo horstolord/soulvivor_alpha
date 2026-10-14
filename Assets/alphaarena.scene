@@ -147,23 +147,23 @@
               "TerrainHeight": 10000,
               "Materials": [
                 {
-                  "Id": "8388c49d-0bfd-478e-9d67-364c8745f7a4",
+                  "Id": "dcfc878f-258a-4753-9f2e-eff1f96414ba",
                   "Path": "terrain/materials/rockbase.tmat"
                 },
                 {
-                  "Id": "430cff10-e97b-4ee1-ad04-7b82282aeb79",
+                  "Id": "c5662943-7d78-4603-a4e0-e2fbefc434e2",
                   "Path": "materials/terrain/terrain_soil.tmat"
                 },
                 {
-                  "Id": "b1a2d01a-fdc7-41a9-ad10-61fc13de655a",
+                  "Id": "74785b13-449c-43df-9d2b-0f158dbd292d",
                   "Path": "materials/terrain/terrain_dirt_a_rocky.tmat"
                 },
                 {
-                  "Id": "66c17cee-e4d3-4c97-b516-e8ff345a3412",
+                  "Id": "ac126604-2451-4f64-afda-22026f217b44",
                   "Path": "materials/terrain/terrain_grass_a.tmat"
                 },
                 {
-                  "Id": "6a4de53a-b3bd-42ee-b87b-b73810a31bab",
+                  "Id": "5fa6cbb2-ce00-4673-92d7-7cc4cd286a00",
                   "Path": "terrains/rock.tmat"
                 }
               ],
@@ -308,7 +308,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+            "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -530,13 +530,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "11d77608-7d38-414f-a61e-9207f1d5cc35",
+                "Id": "c78f4bfc-3245-4451-9042-44d53f06078d",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "4cddcf7e-731e-4843-8b81-ad7fa616c96c",
+            "Id": "ce078a0f-a49c-41fa-ae49-f8d18a3b1cc6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -686,7 +686,7 @@
       "__guid": "d06c7555-517e-4cc0-a653-10cbb40ce9d9",
       "__version": 2,
       "__Prefab": {
-        "Id": "2c87fb50-b2f4-487d-972c-8d3ff1679098",
+        "Id": "73503154-50c4-4e17-9cf3-a03d7ccf36d1",
         "Path": "spinningblade.prefab"
       },
       "__PrefabInstancePatch": {
@@ -719,7 +719,7 @@
         "a86124c5-f7e5-441d-b3ec-15d32ff95d85": "318d9ccc-480f-4a2f-9fae-9186cd370381",
         "98ca8bca-f09a-4a23-b470-f9379f13e1a7": "7ab486aa-3ed5-492d-a843-9a4aacb8079f",
         "433c631c-1548-4afc-b32a-8d9db9d30454": "82f70c2e-79b6-49b7-a4b3-7334c5579686",
-        "eb26ca7b-43f0-4c2c-9892-4384b581e613": "75f801e8-bad9-8bb3-970c-df6db39ae4c9",
+        "f80c7563-5937-4beb-8d4a-48ca349ae6ca": "b16adc7c-a1f4-8bd5-b862-0780f77425ff",
         "850de8c3-6fc7-432a-99d4-988e422f10a4": "3ecad119-4a4a-4567-93af-233a963657d4",
         "26e58540-9111-40fa-b599-40397d9319cf": "1d7b84fb-7b33-4a94-ba13-49dba194f516",
         "01ce64d8-644c-4d9b-81f0-14fb32fb7868": "8946c608-850c-4d43-af7f-7f5f28ce9263",
@@ -758,13 +758,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "11d77608-7d38-414f-a61e-9207f1d5cc35",
+                "Id": "c78f4bfc-3245-4451-9042-44d53f06078d",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "4cddcf7e-731e-4843-8b81-ad7fa616c96c",
+            "Id": "ce078a0f-a49c-41fa-ae49-f8d18a3b1cc6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -814,13 +814,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "11d77608-7d38-414f-a61e-9207f1d5cc35",
+                "Id": "c78f4bfc-3245-4451-9042-44d53f06078d",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "4cddcf7e-731e-4843-8b81-ad7fa616c96c",
+            "Id": "ce078a0f-a49c-41fa-ae49-f8d18a3b1cc6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -2064,13 +2064,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "11d77608-7d38-414f-a61e-9207f1d5cc35",
+                "Id": "c78f4bfc-3245-4451-9042-44d53f06078d",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "4cddcf7e-731e-4843-8b81-ad7fa616c96c",
+            "Id": "ce078a0f-a49c-41fa-ae49-f8d18a3b1cc6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -2153,7 +2153,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "7a35c049-c48a-4664-87dd-9db8c5785ee5",
+            "Id": "50ad22e8-602b-4856-bbd6-b254284eb822",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2304,7 +2304,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "dd700dd3-4a82-4eee-a194-5a42ce550fa1",
+            "Id": "5d351a44-a2f6-4011-8a92-a9737c2fd4a8",
             "Path": "materials/scratched_metal_01.vmat"
           },
           "OnComponentDestroy": null,
@@ -2455,7 +2455,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "7a35c049-c48a-4664-87dd-9db8c5785ee5",
+            "Id": "50ad22e8-602b-4856-bbd6-b254284eb822",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2606,7 +2606,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "7a35c049-c48a-4664-87dd-9db8c5785ee5",
+            "Id": "50ad22e8-602b-4856-bbd6-b254284eb822",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2721,7 +2721,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+            "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -2845,7 +2845,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -2959,7 +2959,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -3015,7 +3015,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3129,7 +3129,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -3185,7 +3185,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -3241,7 +3241,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3355,7 +3355,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -3411,7 +3411,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3509,7 +3509,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3607,7 +3607,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3705,7 +3705,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3819,7 +3819,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3917,7 +3917,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4031,7 +4031,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4145,7 +4145,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4243,7 +4243,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4341,7 +4341,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4439,7 +4439,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4537,7 +4537,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4651,7 +4651,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+              "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -4749,7 +4749,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4776,7 +4776,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4804,7 +4804,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4851,7 +4851,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4878,7 +4878,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4906,7 +4906,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4953,7 +4953,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4980,7 +4980,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -5008,7 +5008,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+            "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -5055,7 +5055,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+            "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -5107,7 +5107,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+            "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -5376,7 +5376,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5428,7 +5428,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5510,7 +5510,7 @@
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                    "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                     "Path": "models/props/rock_scatter/rock_scatter.vmat"
                   }
                 }
@@ -5590,13 +5590,13 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "600f8346-3c0f-4de7-8d3e-299b09036428",
+                    "Id": "1220af7d-8308-459a-b078-3ec88ccf2c20",
                     "Path": "models/sbox_props/metal_wheely_bin/metal_wheely_bin_parts.vmat"
                   }
                 }
@@ -5676,7 +5676,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5754,7 +5754,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5832,7 +5832,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5910,7 +5910,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4a331b02-74a9-40cb-b44e-ea4e8cfde563",
+                "Id": "e6cf72dc-72d5-4ffd-9492-43436c80ec37",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -6137,7 +6137,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "88a1bd82-ef3f-429f-9488-6d2bfa984628": "f39416b4-5315-8118-b8bb-cddb192741ec"
+            "9e4da348-6634-4071-b0ed-0544517b6a58": "0a22cbaa-4f05-89c7-b76b-c822f692d9fa"
           }
         }
       ]
@@ -9238,7 +9238,7 @@
               "Children": []
             },
             {
-              "__guid": "34cedd3c-7126-443d-b631-94a0b1785e8d",
+              "__guid": "6c42455f-fe91-4c14-b9dd-8e3a8e328b1f",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -9255,7 +9255,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "41027a27-c238-45f2-957f-2bd8e81571e7",
+                  "__guid": "931ca88d-c430-48ac-9bc8-65ec7dbf8c22",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9305,7 +9305,7 @@
               "Children": []
             },
             {
-              "__guid": "3d652472-ab20-48c3-8534-35ef1223103c",
+              "__guid": "9d68e166-ebe6-4404-9ac9-da401d8fcf6a",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -9322,7 +9322,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "5ef4fa94-2210-40ea-a703-1d6783627f7a",
+                  "__guid": "74e0ae4a-28da-4e08-8594-3f2635686807",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9372,7 +9372,7 @@
               "Children": []
             },
             {
-              "__guid": "b84115ca-05c4-4036-9367-39e31025db71",
+              "__guid": "72308c13-7374-4fcc-952e-cedfbf9d43d1",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -9389,7 +9389,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "fcb3966c-1962-48d4-8052-9cfc587f4a68",
+                  "__guid": "ce9c9ea5-769d-4fb4-ab2c-07c3206144a4",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9439,7 +9439,7 @@
               "Children": []
             },
             {
-              "__guid": "9986376b-0cda-44ed-91bd-474f3631f1bd",
+              "__guid": "adfc1498-6224-4fb1-bd53-401436a14a6e",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -9456,7 +9456,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "dd70c8d8-56d9-4c45-8fa6-799dd635ee3c",
+                  "__guid": "5bbe5bb8-9769-426d-9a18-5d41669befe3",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9506,7 +9506,7 @@
               "Children": []
             },
             {
-              "__guid": "ffcb98f8-43ef-432f-9c09-531ab6429c41",
+              "__guid": "278f3f6f-5fcf-4203-a79c-db90a9b11df0",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -9523,7 +9523,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "5fe7cbc9-bb7a-4e5b-9531-7b11e8e8f89b",
+                  "__guid": "d4f2af8d-47df-4d66-a4dd-09e81fc7c3e9",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9691,7 +9691,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "cdc740fb-9b50-490b-8c0b-c1f0703725cb",
+                "Id": "ff31c7cf-cc70-4b9d-8a49-14df44c646d5",
                 "Path": "materials/concrete/damage/concrete_damaged.vmat"
               },
               "Materials": null,
@@ -9743,7 +9743,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9770,7 +9770,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9798,7 +9798,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9845,7 +9845,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9872,7 +9872,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9900,7 +9900,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9947,7 +9947,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9974,7 +9974,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -10002,7 +10002,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "e6efc282-1290-4a72-abe9-115b994659bb",
+                "Id": "d0efdf83-13a8-4a57-94e7-7fe4273092e9",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -10080,7 +10080,7 @@
               "TerrainHeight": 10000,
               "Materials": [
                 {
-                  "Id": "8388c49d-0bfd-478e-9d67-364c8745f7a4",
+                  "Id": "dcfc878f-258a-4753-9f2e-eff1f96414ba",
                   "Path": "terrain/materials/rockbase.tmat"
                 }
               ],
@@ -10126,15 +10126,15 @@
       "EditorAutoUpdate": false,
       "AgentHeight": 30,
       "AgentRadius": 16,
-      "AgentStepSize": 25,
-      "AgentMaxSlope": 90,
+      "AgentStepSize": 50,
+      "AgentMaxSlope": 60,
       "ExcludedBodies": "",
       "IncludedBodies": "",
       "DeferGeneration": false,
       "CustomBounds": true,
       "Bounds": {
-        "Mins": "-294851.156,-4055.67065,-64.8000031",
-        "Maxs": "19981.2695,352754.469,23523.4609"
+        "Mins": "-2000,890.58374,-64.8000031",
+        "Maxs": "17004.1973,17759.6328,13035.8955"
       },
       "BakedDataPath": {
         "$reference_type": "filereference",

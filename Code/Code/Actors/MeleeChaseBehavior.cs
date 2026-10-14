@@ -18,10 +18,9 @@ public sealed class MeleeChaseBehavior : Component, IEnemyBehavior
 		self.FaceTarget();
  
 		float dist = self.DistanceToTarget;
-		if ( dist > StopRange )
-			self.Agent.MoveTo( self.Target.WorldPosition );
-		else
-			self.Agent.Stop();
+		if ( dist > StopRange ) self.MoveToward( self.Target.WorldPosition );
+		else self.StopMoving();
+		
  
 		if ( dist <= AttackRange && self.Combat?.CanAttack == true )
 			self.TryAttack( self.GetAttackType() );

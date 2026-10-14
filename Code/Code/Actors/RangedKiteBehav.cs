@@ -39,15 +39,16 @@ public sealed class RangedKiteBehavior : Component, IEnemyBehavior
 		if ( dist < PreferredMinRange )
 		{
 			var away = (self.GameObject.WorldPosition - self.Target.WorldPosition).WithZ( 0 ).Normal;
-			self.Agent.MoveTo( self.GameObject.WorldPosition + away * RetreatDistance );
+			self.MoveToward( self.GameObject.WorldPosition + away * RetreatDistance );  // too close
 		}
 		else if ( dist > PreferredMaxRange )
 		{
-			self.Agent.MoveTo( self.Target.WorldPosition );
+			self.MoveToward( self.Target.WorldPosition );                              // too far
+			
 		}
 		else
 		{
-			self.Agent.Stop(); // TODO: strafe instead of standing still, once basic kiting feels right
+			self.StopMoving();  // TODO: strafe instead of standing still, once basic kiting feels right
 		}
 
 		if ( dist <= PreferredMaxRange && self.Combat?.CanAttack == true && self.HasLineOfSight() )
