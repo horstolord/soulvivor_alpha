@@ -213,37 +213,41 @@ public sealed class Player : Actor
 
 			TryPerformAttack( rangedAttack );
 		}
-		if ( Input.Keyboard.Pressed( "F" ) )
-		{
-			if ( TryPerformAttack( AttackData.Kick, useBank: false ) )
-				ForceAction?.TryTrigger( ForceActionType.Kick );
-		}
 	}
 
 	private void HandleChargedAttackInput()
 	{
-		if ( Charge == null ) return;
-
-		if ( Charge.IsCharging )
+		// Only manage a charge this method started. A force-action gather also uses ChargeControl.
+		if ( _chargingAttack != null )
 		{
-			bool held = _chargeInput switch
+			if ( !Charge.IsCharging )
 			{
-				ChargeInput.Kick => Input.Keyboard.Down( "F" ),
-				ChargeInput.Weapon => Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" ),
-				_ => false
-			};
-			if ( held ) return; // still holding, ChargeControl.OnUpdate keeps ramping
+				// Interrupted (stagger/stun): drop our cached attack and fall through.
+				_chargingAttack = null;
+				_chargeInput = ChargeInput.None;
+			}
+			else
+			{
+				bool held = _chargeInput switch
+				{
+					ChargeInput.Kick => Input.Keyboard.Down( "F" ),
+					ChargeInput.Weapon => Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" ),
+					_ => false
+				};
+				if ( held ) return;
 
-			float charge01 = Charge.ReleaseCharge();
-			var releasedAttack = _chargingAttack;
-			var releasedInput = _chargeInput;
-			_chargingAttack = null;
-			_chargeInput = ChargeInput.None;
-			if ( releasedAttack == null ) return;
+				float charge01 = Charge.ReleaseCharge();
+				var releasedAttack = _chargingAttack;
+				var releasedInput = _chargeInput;
+				_chargingAttack = null;
+				_chargeInput = ChargeInput.None;
 
-			FireChargedAttack( releasedAttack, releasedInput, charge01 );
-			return;
+				FireChargedAttack( releasedAttack, releasedInput, charge01 );
+				return;
+			}
 		}
+
+		if ( Charge.IsCharging ) return; // someone else's charge (force-action gather)
 
 		bool weaponPressed = Input.Keyboard.Pressed( "attack1" ) || Input.Keyboard.Pressed( "mouse1" );
 		bool kickPressed = Input.Keyboard.Pressed( "F" );
@@ -261,7 +265,28 @@ public sealed class Player : Actor
 
 		if ( !Charge.CanStartCharge() ) return;
 
-		// ... rest unchanged (weaponHeld / kickHeld / StartCharge) ...
+		bool weaponHeld = Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" );
+		bool kickHeld = Input.Keyboard.Down( "F" );
+		if ( !weaponHeld && !kickHeld ) return;
+
+		// Resolve and cache the attack at charge start so equipment changes cannot alter a held swing.
+		var attack = weaponHeld
+			? Equipment?.GetWeaponAttackDef() ?? AttackData.Punch
+			: AttackData.Kick;
+		var chargeInput = weaponHeld ? ChargeInput.Weapon : ChargeInput.Kick;
+
+		float swiftness = StatSheet?.Swiftness.Value ?? 0f;
+		float swiftnessScale = attack.Scaling?.SwiftnessToChargeSpeed ?? 0f;
+		const float baseChargeSeconds = 1.0f; // TODO tune: time to max charge at 0 Swiftness scaling
+		float chargeSeconds = baseChargeSeconds / (1f + swiftness * swiftnessScale / 100f);
+		float rampRate = 1f / System.MathF.Max( 0.05f, chargeSeconds );
+
+		// Charge cost is incremental and additive to the attack cost paid on release.
+		if ( Charge.StartCharge( rampRate, attack.StaminaCost * 0.5f, attack.EnergyCost * 0.5f ) )
+		{
+			_chargingAttack = attack;
+			_chargeInput = chargeInput;
+		}
 	}
 
 	private void FireChargedAttack( AttackDef attack, ChargeInput input, float charge01 )

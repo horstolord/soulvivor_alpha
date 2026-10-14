@@ -24,6 +24,7 @@ public sealed class ForceActionControl : Component, PlayerController.IEvents
 	private ChargeControl _charge;
 	private SpellComponent _spells;
 	private CombatComponent _combat;
+	private bool _gathering; // true while this comp holds the charge
 
 	protected override void OnStart() => Cache();
 
@@ -43,7 +44,7 @@ public sealed class ForceActionControl : Component, PlayerController.IEvents
 		_charge ??= Components.GetInAncestorsOrSelf<ChargeControl>();
 		if ( _spells == null )
 		{
-			_spells = Components.GetInAncestorsOrSelf<SpellComponent>() ?? Components.GetOrCreate<SpellComponent>();
+			_spells = Components.GetInChildren<SpellComponent>() ?? Components.GetOrCreate<SpellComponent>();
 			if ( _spells != null ) _spells.OnSpellCast += HandleSpellCast;
 		}
 	}
@@ -69,16 +70,19 @@ public sealed class ForceActionControl : Component, PlayerController.IEvents
 
 		bool held = Input.Keyboard.Down( GatherKey );
 
-		if ( _charge.IsCharging )
+		if ( _gathering )
 		{
+			if ( !_charge.IsCharging ) { _gathering = false; return; } // interrupted (stagger etc.)
 			if ( held ) return;
+
+			_gathering = false;
 			if ( _charge.Charge01 >= MinBankCharge ) _charge.Bank();
 			else _charge.ReleaseCharge();
 			return;
 		}
 
-		if ( held && !_charge.HasBankedCharge && _charge.CanStartCharge() )
-			_charge.StartCharge( _spells.GetChargeRampRate() );
+		if ( held && !_charge.IsCharging && !_charge.HasBankedCharge && _charge.CanStartCharge() )
+			_gathering = _charge.StartCharge( _spells.GetChargeRampRate() );
 	}
 
 	void PlayerController.IEvents.OnJumped() => TryTrigger( ForceActionType.Jump );

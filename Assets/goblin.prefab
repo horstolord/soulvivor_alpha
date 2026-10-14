@@ -43,6 +43,7 @@
             "Gravity": true,
             "GravityScale": 1,
             "ImpactDamage": 0,
+            "InertiaScale": 1,
             "LinearDamping": 0,
             "Locking": {
               "X": false,
@@ -80,6 +81,7 @@
             "BoneMergeTarget": null,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
+            "DeformationMode": "Normal",
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": null,
@@ -95,13 +97,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "Parameters": {
-              "bools": {},
-              "ints": {},
-              "floats": {},
-              "vectors": {},
-              "rotations": {}
-            },
+            "Parameters": {},
             "PlaybackRate": 1,
             "RenderOptions": {
               "GameLayer": true,
@@ -809,6 +805,7 @@
               "StaminaCost": 0,
               "EnergyCost": 0
             },
+            "GroundCheckDistance": 14,
             "InitialLevel": 1,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -836,7 +833,6 @@
               "go": "fa42141d-d655-4299-877a-28f3325e4ce1",
               "component_type": "Enemy"
             },
-            "FocusBoost": 1.5,
             "ModelCollider": {
               "_type": "component",
               "component_id": "e52a9473-8eed-4aa3-84c1-2591bd9600ab",
@@ -915,6 +911,20 @@
             "Separation": 0.25,
             "UpdatePosition": false,
             "UpdateRotation": false
+          },
+          {
+            "__type": "Sandbox.Code.Presentation.HitFlashComp",
+            "__guid": "862bbd9a-6533-4bae-9460-833ffa63d4e0",
+            "__enabled": true,
+            "Flags": 0,
+            "Duration": 0.12,
+            "FlashColor": "1,0.2,0.15,1",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           }
         ],
         "Children": [
@@ -945,6 +955,7 @@
                 "Gravity": true,
                 "GravityScale": 1,
                 "ImpactDamage": 0,
+                "InertiaScale": 1,
                 "LinearDamping": 0,
                 "Locking": {
                   "X": false,
@@ -1172,8 +1183,8 @@
                         "__version": 2,
                         "Flags": 12288,
                         "Name": "chest",
-                        "Position": "1.21898293,2.16613746,0.849768996",
-                        "Rotation": "0.190477371,-5.81666827E-05,-0.224823326,0.955601037",
+                        "Position": "1.21898293,2.16613746,0.849768937",
+                        "Rotation": "0.190477371,-5.81592321E-05,-0.224823341,0.955601096",
                         "Scale": "1,1,1",
                         "Tags": "",
                         "Enabled": true,
@@ -1194,6 +1205,7 @@
                             "Gravity": true,
                             "GravityScale": 1,
                             "ImpactDamage": 0,
+                            "InertiaScale": 1,
                             "LinearDamping": 0,
                             "Locking": {
                               "X": false,
@@ -1404,8 +1416,8 @@
                                 "__version": 2,
                                 "Flags": 12288,
                                 "Name": "upperarm_r",
-                                "Position": "-0.000128778323,0.764583826,1.70548677",
-                                "Rotation": "0.836914957,1.2293458E-07,6.36624172E-05,0.547332823",
+                                "Position": "-0.000128842905,0.764583826,1.70548689",
+                                "Rotation": "0.836914957,1.15483999E-07,6.36652112E-05,0.547332823",
                                 "Scale": "1.00000012,1.00000012,1.00000012",
                                 "Tags": "",
                                 "Enabled": true,
@@ -1426,6 +1438,7 @@
                                     "Gravity": true,
                                     "GravityScale": 1,
                                     "ImpactDamage": 0,
+                                    "InertiaScale": 1,
                                     "LinearDamping": 0,
                                     "Locking": {
                                       "X": false,
@@ -1498,6 +1511,7 @@
                                     "EnableCollision": false,
                                     "Frequency": 1,
                                     "Friction": 0,
+                                    "LimitEnabled": null,
                                     "LocalFrame1": {
                                       "Position": "-1.13092399,8.13205433,-1.05521584",
                                       "Scale": "1,1,1",
@@ -1530,8 +1544,8 @@
                                     "__version": 2,
                                     "Flags": 12288,
                                     "Name": "lowerarm_r",
-                                    "Position": "7.50645995E-07,1.52366459,2.84736348E-06",
-                                    "Rotation": "-0.00544052105,1.06170774E-07,-2.95927748E-07,0.999985278",
+                                    "Position": "7.94107734E-07,1.52366447,2.73017213E-06",
+                                    "Rotation": "-0.00544050662,1.06170774E-07,-2.88709998E-07,0.999985278",
                                     "Scale": "1,1,1",
                                     "Tags": "",
                                     "Enabled": true,
@@ -1552,6 +1566,7 @@
                                         "Gravity": true,
                                         "GravityScale": 1,
                                         "ImpactDamage": 0,
+                                        "InertiaScale": 1,
                                         "LinearDamping": 0,
                                         "Locking": {
                                           "X": false,
@@ -1673,8 +1688,8 @@
                                 "__version": 2,
                                 "Flags": 12288,
                                 "Name": "upperarm_l",
-                                "Position": "-0.142278537,0.7612468,-1.76941919",
-                                "Rotation": "-0.845552266,0.0427475534,0.0360911675,0.530953288",
+                                "Position": "-0.142278567,0.761246562,-1.76941967",
+                                "Rotation": "-0.845552266,0.0427475572,0.0360911712,0.530953348",
                                 "Scale": "1,1,1",
                                 "Tags": "",
                                 "Enabled": true,
@@ -1695,6 +1710,7 @@
                                     "Gravity": true,
                                     "GravityScale": 1,
                                     "ImpactDamage": 0,
+                                    "InertiaScale": 1,
                                     "LinearDamping": 0,
                                     "Locking": {
                                       "X": false,
@@ -1767,6 +1783,7 @@
                                     "EnableCollision": false,
                                     "Frequency": 1,
                                     "Friction": 0,
+                                    "LimitEnabled": null,
                                     "LocalFrame1": {
                                       "Position": "0.631488264,4.83141851,-0.422430217",
                                       "Scale": "1,1,1",
@@ -1799,8 +1816,8 @@
                                     "__version": 2,
                                     "Flags": 12288,
                                     "Name": "lowerarm_l",
-                                    "Position": "1.8129748E-07,1.16670465,-4.29029296E-06",
-                                    "Rotation": "0.020736184,0.00580399949,-0.00418959558,0.999759316",
+                                    "Position": "1.8129748E-07,1.16670454,-4.37349127E-06",
+                                    "Rotation": "0.0207362007,0.00580400275,-0.00418959558,0.999759257",
                                     "Scale": "1.00000012,1.00000012,1.00000012",
                                     "Tags": "",
                                     "Enabled": true,
@@ -1821,6 +1838,7 @@
                                         "Gravity": true,
                                         "GravityScale": 1,
                                         "ImpactDamage": 0,
+                                        "InertiaScale": 1,
                                         "LinearDamping": 0,
                                         "Locking": {
                                           "X": false,
@@ -1942,8 +1960,8 @@
                                 "__version": 2,
                                 "Flags": 12288,
                                 "Name": "head",
-                                "Position": "-2.98023259E-08,1.58966172,-6.65585276E-07",
-                                "Rotation": "0.00264351442,-0.0314144157,0.0146821029,0.999395132",
+                                "Position": "-1.4901163E-08,1.58966136,-7.47541662E-07",
+                                "Rotation": "0.00264351396,-0.0314144194,0.0146821067,0.999395192",
                                 "Scale": "1,1,1",
                                 "Tags": "",
                                 "Enabled": true,
@@ -1964,6 +1982,7 @@
                                     "Gravity": true,
                                     "GravityScale": 1,
                                     "ImpactDamage": 0,
+                                    "InertiaScale": 1,
                                     "LinearDamping": 0,
                                     "Locking": {
                                       "X": false,
@@ -2165,6 +2184,7 @@
                         "Gravity": true,
                         "GravityScale": 1,
                         "ImpactDamage": 0,
+                        "InertiaScale": 1,
                         "LinearDamping": 0,
                         "Locking": {
                           "X": false,
@@ -2237,6 +2257,7 @@
                         "EnableCollision": false,
                         "Frequency": 1,
                         "Friction": 0,
+                        "LimitEnabled": null,
                         "LocalFrame1": {
                           "Position": "0.191111997,1.02446401,-0.563286066",
                           "Scale": "1,1,1",
@@ -2270,7 +2291,7 @@
                         "Flags": 12288,
                         "Name": "Shin_r",
                         "Position": "5.3644186E-07,1.57894802,3.97364317E-07",
-                        "Rotation": "0.0444973409,-0.00620985031,-0.0972260609,0.994247615",
+                        "Rotation": "0.0444973707,-0.00620985217,-0.0972260609,0.994247556",
                         "Scale": "1.00000012,1.00000012,1.00000012",
                         "Tags": "",
                         "Enabled": true,
@@ -2291,6 +2312,7 @@
                             "Gravity": true,
                             "GravityScale": 1,
                             "ImpactDamage": 0,
+                            "InertiaScale": 1,
                             "LinearDamping": 0,
                             "Locking": {
                               "X": false,
@@ -2393,8 +2415,8 @@
                     "__version": 2,
                     "Flags": 12288,
                     "Name": "Thigh_l",
-                    "Position": "-0.0485410541,-0.723367572,-0.974338353",
-                    "Rotation": "-0.87948215,0.366066605,-0.192695022,0.235319808",
+                    "Position": "-0.0485409573,-0.723367453,-0.974338531",
+                    "Rotation": "-0.87948221,0.366066664,-0.192695022,0.235319778",
                     "Scale": "1,1,1",
                     "Tags": "",
                     "Enabled": true,
@@ -2415,6 +2437,7 @@
                         "Gravity": true,
                         "GravityScale": 1,
                         "ImpactDamage": 0,
+                        "InertiaScale": 1,
                         "LinearDamping": 0,
                         "Locking": {
                           "X": false,
@@ -2487,6 +2510,7 @@
                         "EnableCollision": false,
                         "Frequency": 1,
                         "Friction": 0,
+                        "LimitEnabled": null,
                         "LocalFrame1": {
                           "Position": "-0.178763956,0.995135784,0.0661499873",
                           "Scale": "1,1,1",
@@ -2519,8 +2543,8 @@
                         "__version": 2,
                         "Flags": 12288,
                         "Name": "Shin_l",
-                        "Position": "9.93410794E-08,1.75773633,-8.64267406E-07",
-                        "Rotation": "0.0541284643,-0.00768566877,-0.0523889288,0.997129083",
+                        "Position": "3.97364346E-08,1.75773668,-7.15255794E-07",
+                        "Rotation": "0.0541285314,-0.00768566877,-0.0523889065,0.997129083",
                         "Scale": "1,1,1",
                         "Tags": "",
                         "Enabled": true,
@@ -2541,6 +2565,7 @@
                             "Gravity": true,
                             "GravityScale": 1,
                             "ImpactDamage": 0,
+                            "InertiaScale": 1,
                             "LinearDamping": 0,
                             "Locking": {
                               "X": false,

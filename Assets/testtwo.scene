@@ -494,6 +494,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -799,6 +800,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -978,8 +980,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "spine_2",
-              "Position": "-39.3596687,0.608559072,0.0805105418",
-              "Rotation": "-0.0044541657,0.00599244237,-0.0523831844,-0.997457862",
+              "Position": "-44.9697914,0.633155465,0.0809994116",
+              "Rotation": "-0.00484862924,0.00601434708,-0.0521073639,-0.997470379",
               "Scale": "1.0002569,1.0002569,1.0002569",
               "Tags": "",
               "Enabled": true,
@@ -1015,6 +1017,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -1352,8 +1355,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "head",
-              "Position": "-41.5319138,-6.07172298,-0.10734915",
-              "Rotation": "0.00158886611,-0.000589549541,0.165923119,0.98494637",
+              "Position": "-47.0758324,-7.86161757,-0.129216775",
+              "Rotation": "0.00163944066,-0.000818759203,0.185531646,0.981441379",
               "Scale": "1.00015318,1.00015306,1.00015306",
               "Tags": "",
               "Enabled": true,
@@ -1389,6 +1392,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -1780,8 +1784,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_L",
-              "Position": "6.28021336,0.323380351,1.60757816",
-              "Rotation": "-0.0781773999,0.757673681,0.0283135213,-0.642455995",
+              "Position": "0.605103314,0.19912219,-2.20842934",
+              "Rotation": "-0.0509014167,0.105297573,-0.0436188281,-0.989015222",
               "Scale": "0.9938398,0.9938398,0.9938398",
               "Tags": "",
               "Enabled": true,
@@ -1817,6 +1821,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -1921,6 +1926,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "12.8930216,-2.44808552E-06,-6.85463892E-05",
                 "Scale": "1,1,1",
@@ -1998,8 +2004,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_L",
-              "Position": "10.0650148,0.275063604,0.0726530477",
-              "Rotation": "0.0075083822,-0.00233311951,0.160388529,0.986399591",
+              "Position": "10.0649977,0.275058299,0.0726563483",
+              "Rotation": "0.00750838593,-0.00233311951,0.160388544,0.986399591",
               "Scale": "1.00070214,1.00070214,1.00070214",
               "Tags": "",
               "Enabled": true,
@@ -2035,6 +2041,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -2217,8 +2224,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_L",
-              "Position": "7.73229742,-0.17985183,0.00796966907",
-              "Rotation": "-0.0429672897,0.0613099337,-0.055253014,0.988409042",
+              "Position": "7.73229074,-0.179840818,0.00797032006",
+              "Rotation": "-0.0429672971,0.0613099337,-0.0552530438,0.988409102",
               "Scale": "0.997722208,0.997722208,0.997722208",
               "Tags": "",
               "Enabled": true,
@@ -2254,6 +2261,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -3020,8 +3028,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_R",
-              "Position": "6.27958107,0.386404425,-1.63370752",
-              "Rotation": "0.0806265771,-0.757416964,0.0246202648,-0.642615676",
+              "Position": "0.609181643,0.265506297,2.20822001",
+              "Rotation": "0.055062104,-0.103993662,-0.0447473824,-0.988884807",
               "Scale": "0.993846297,0.993846297,0.993846297",
               "Tags": "",
               "Enabled": true,
@@ -3057,6 +3065,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -3161,6 +3170,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "12.8931732,1.34646343E-05,-4.89623062E-06",
                 "Scale": "1,1,1",
@@ -3204,8 +3214,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_R",
-              "Position": "10.0648775,0.275160015,-0.0725305602",
-              "Rotation": "0.00749588013,-0.00233703852,-0.160382718,-0.986400843",
+              "Position": "10.064888,0.275138617,-0.07253135",
+              "Rotation": "0.00749588758,-0.00233704038,-0.160382718,-0.986400783",
               "Scale": "1.00070357,1.00070357,1.00070357",
               "Tags": "",
               "Enabled": true,
@@ -3241,6 +3251,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -3454,8 +3465,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_R",
-              "Position": "7.73226118,-0.179715082,-0.00779173477",
-              "Rotation": "0.019742921,-0.05088377,-0.0401331186,0.992652059",
+              "Position": "7.73227739,-0.179713964,-0.00778834289",
+              "Rotation": "0.0197429229,-0.0508837663,-0.0401330888,0.992652059",
               "Scale": "0.997724414,0.997724414,0.997724414",
               "Tags": "",
               "Enabled": true,
@@ -3491,6 +3502,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -4297,6 +4309,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -4401,6 +4414,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "18.6007519,-1.68559582E-05,8.5812153E-06",
                 "Scale": "1,1,1",
@@ -4481,6 +4495,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -4666,6 +4681,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -5029,6 +5045,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -5133,6 +5150,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "18.6010532,-6.25213797E-05,-4.65845587E-05",
                 "Scale": "1,1,1",
@@ -5176,8 +5194,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_lower_L",
-              "Position": "14.3394527,-0.233257502,0.145974845",
-              "Rotation": "0.00120985508,-0.0146847367,-0.171034172,0.986794472",
+              "Position": "14.3394499,-0.23325713,0.145974845",
+              "Rotation": "0.00120982528,-0.0146847516,-0.171034172,0.986794353",
               "Scale": "0.998435438,0.998435438,0.998435438",
               "Tags": "",
               "Enabled": true,
@@ -5213,6 +5231,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -5361,8 +5380,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "ankle_L",
-              "Position": "12.3605175,0.263748139,-0.180469856",
-              "Rotation": "-0.0346514583,0.0438369215,0.467601717,0.887207985",
+              "Position": "12.3605194,0.263748884,-0.180469677",
+              "Rotation": "-0.0346514434,0.0438369215,0.467601776,0.887208104",
               "Scale": "0.959744871,0.959744871,0.959744871",
               "Tags": "",
               "Enabled": true,
@@ -5398,6 +5417,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -7255,6 +7275,7 @@
           "__guid": "b1055a66-7b8e-40a8-9ea8-b892efac0ef1",
           "__enabled": true,
           "Flags": 0,
+          "__version": 1,
           "AccelerationTime": 0,
           "AimStrengthBody": 1,
           "AimStrengthEyes": 1,
@@ -7271,13 +7292,14 @@
           "BodyHeight": 72,
           "BodyMass": 10,
           "BodyRadius": 16,
-          "BrakePower": 0.15454546,
+          "BrakePower": 0.77272725,
           "CameraCollisionIgnore": "",
           "CameraOffset": "256,0,12",
           "ColliderObject": {
             "_type": "gameobject",
             "go": "f50bfa7a-fe59-4dae-8bc3-7d82add2e804"
           },
+          "CoyoteTime": 0.33,
           "DeaccelerationTime": 0,
           "DuckedHeight": 36,
           "DuckedSpeed": 70,
@@ -7334,6 +7356,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 50,
+          "InertiaScale": 1,
           "LinearDamping": 0.1,
           "Locking": {
             "X": false,
@@ -10222,7 +10245,7 @@
               "Children": []
             },
             {
-              "__guid": "4a87fc1e-c86a-44a6-8af7-3c7d49b9303c",
+              "__guid": "6ebc2ea1-e487-476a-b200-e02b56208c6b",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -10239,7 +10262,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "91070dc1-412a-4664-897d-6600bae6eaa1",
+                  "__guid": "e6f55392-640e-4bf8-b461-d775b9274afa",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10289,7 +10312,7 @@
               "Children": []
             },
             {
-              "__guid": "2a6c9343-196a-4f5f-9b9b-74b32dafa5e8",
+              "__guid": "0ec379a1-e675-495a-ba6e-f591d0084d55",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -10306,7 +10329,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "f41537a9-e1b8-46f8-a054-b8f4f267cab4",
+                  "__guid": "ff028f92-8bd7-45bc-ae5b-46f082d56b35",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10356,7 +10379,7 @@
               "Children": []
             },
             {
-              "__guid": "ac228620-7334-488e-8a82-8cdcbb1faf3c",
+              "__guid": "26143b3e-d670-4f67-954a-9b724a03124d",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -10373,7 +10396,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "39421063-a689-4d55-bd7a-056f44e22fc5",
+                  "__guid": "ab95659c-12de-4c1d-918a-ea608be0bc79",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10423,7 +10446,7 @@
               "Children": []
             },
             {
-              "__guid": "8898abe6-350c-4577-a1c1-c750f3e9f7ad",
+              "__guid": "b4b4d0b2-3ce0-4dd7-a069-60fbd0d8bfb1",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -10440,7 +10463,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "16064551-75a3-4d80-8739-5cd17b80783c",
+                  "__guid": "ffb46e4a-a307-4c63-a923-f2e007e0ae99",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10490,7 +10513,7 @@
               "Children": []
             },
             {
-              "__guid": "d5386661-2d5c-4294-8723-184bcf9fe21c",
+              "__guid": "74e3db82-00e0-430f-99e0-d50357fe8991",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -10507,7 +10530,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "35050c09-b3ff-4d7e-af0c-dedc01cc5fa4",
+                  "__guid": "1534fb57-dbf4-457f-acfc-7a34cfa96158",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10659,7 +10682,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -10715,6 +10741,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -10830,7 +10857,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -10886,6 +10916,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -11001,7 +11032,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -11057,6 +11091,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -11172,7 +11207,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -11228,6 +11266,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -11343,7 +11382,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -11399,6 +11441,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -11514,7 +11557,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -11570,6 +11616,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -11685,7 +11732,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -11741,6 +11791,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -11856,7 +11907,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -11912,6 +11966,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -12027,7 +12082,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -12083,6 +12141,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -12198,7 +12257,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -12254,6 +12316,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -12369,7 +12432,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -12425,6 +12491,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -12540,7 +12607,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -12596,6 +12666,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -12711,7 +12782,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -12767,6 +12841,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -12882,7 +12957,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -12938,6 +13016,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -13053,7 +13132,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -13109,6 +13191,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -13224,7 +13307,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -13280,6 +13366,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -13395,7 +13482,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -13451,6 +13541,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -13566,7 +13657,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -13622,6 +13716,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -13737,7 +13832,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -13793,6 +13891,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -13908,7 +14007,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -13964,6 +14066,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -14079,7 +14182,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -14135,6 +14241,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -14250,7 +14357,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -14306,6 +14416,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -14421,7 +14532,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -14477,6 +14591,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -14592,7 +14707,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -14648,6 +14766,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -14763,7 +14882,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -14819,6 +14941,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -14934,7 +15057,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -14990,6 +15116,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -15105,7 +15232,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -15161,6 +15291,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -15276,7 +15407,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -15332,6 +15466,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -15447,7 +15582,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -15503,6 +15641,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -15618,7 +15757,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -15674,6 +15816,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -15789,7 +15932,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -15845,6 +15991,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -15960,7 +16107,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -16016,6 +16166,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -16131,7 +16282,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -16187,6 +16341,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -16302,7 +16457,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -16358,6 +16516,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -16473,7 +16632,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -16529,6 +16691,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -16644,7 +16807,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -16700,6 +16866,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -16815,7 +16982,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -16871,6 +17041,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -16986,7 +17157,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -17042,6 +17216,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -17157,7 +17332,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -17213,6 +17391,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -17328,7 +17507,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -17384,6 +17566,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -17499,7 +17682,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -17555,6 +17741,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -17670,7 +17857,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -17726,6 +17916,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -17841,7 +18032,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -17897,6 +18091,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -18012,7 +18207,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -18068,6 +18266,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -18183,7 +18382,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -18239,6 +18441,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -18354,7 +18557,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -18410,6 +18616,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -18525,7 +18732,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -18581,6 +18791,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -18696,7 +18907,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -18752,6 +18966,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -18867,7 +19082,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -18923,6 +19141,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -19038,7 +19257,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -19094,6 +19316,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -19209,7 +19432,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -19265,6 +19491,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -19380,7 +19607,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -19436,6 +19666,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -19551,7 +19782,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -19607,6 +19841,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -19722,7 +19957,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -19778,6 +20016,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -19893,7 +20132,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -19949,6 +20191,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -20064,7 +20307,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -20120,6 +20366,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -20235,7 +20482,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -20291,6 +20541,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -20406,7 +20657,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -20462,6 +20716,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -20577,7 +20832,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -20633,6 +20891,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -20748,7 +21007,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -20804,6 +21066,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -20919,7 +21182,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -20975,6 +21241,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -21090,7 +21357,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -21146,6 +21416,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -21261,7 +21532,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -21317,6 +21591,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -21432,7 +21707,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -21488,6 +21766,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -21603,7 +21882,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -21659,6 +21941,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -21774,7 +22057,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -21830,6 +22116,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -21945,7 +22232,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -22001,6 +22291,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -22116,7 +22407,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -22172,6 +22466,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -22287,7 +22582,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -22343,6 +22641,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -22458,7 +22757,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -22514,6 +22816,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -22629,7 +22932,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -22685,6 +22991,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -22800,7 +23107,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -22856,6 +23166,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -22971,7 +23282,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -23027,6 +23341,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -23142,7 +23457,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -23198,6 +23516,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -23313,7 +23632,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -23369,6 +23691,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -23484,7 +23807,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -23540,6 +23866,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -23655,7 +23982,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -23711,6 +24041,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -23826,7 +24157,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -23882,6 +24216,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -23997,7 +24332,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -24053,6 +24391,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -24168,7 +24507,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -24224,6 +24566,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -24362,6 +24705,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -25494,7 +25838,7 @@
           "Flags": 12288,
           "Name": "pelvis",
           "Position": "-538.249207,-797.180237,-70.8676605",
-          "Rotation": "0.523122728,-0.475756079,0.523124456,0.475756466",
+          "Rotation": "0.523122787,-0.475756079,0.523124516,0.475756466",
           "Scale": "0.999999821,0.999999821,0.999999702",
           "Tags": "",
           "Enabled": true,
@@ -25515,6 +25859,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -25708,8 +26053,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "spine_0",
-              "Position": "4.32406759,-0.00239034579,-0.000112463393",
-              "Rotation": "0.000258073211,-1.11758709E-06,-5.63263893E-05,0.999999106",
+              "Position": "4.32406569,-0.00239044521,-0.000112278569",
+              "Rotation": "0.000258073211,-1.14738941E-06,-5.6296587E-05,0.999998987",
               "Scale": "1.00000012,1.00000012,1.00000024",
               "Tags": "",
               "Enabled": true,
@@ -25730,6 +26075,7 @@
                   "Gravity": true,
                   "GravityScale": 1,
                   "ImpactDamage": 0,
+                  "InertiaScale": 1,
                   "LinearDamping": 0,
                   "Locking": {
                     "X": false,
@@ -25852,8 +26198,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "spine_2",
-                      "Position": "12.3717365,0.00313321827,6.26541951E-05",
-                      "Rotation": "-0.000185325742,-0.000252336264,0.000364854932,0.999998212",
+                      "Position": "12.3717384,0.00313321827,6.26541951E-05",
+                      "Rotation": "-0.000185281038,-0.000252336264,0.000364840031,0.999998212",
                       "Scale": "0.999999702,0.999999702,0.999999702",
                       "Tags": "",
                       "Enabled": true,
@@ -25874,6 +26220,7 @@
                           "Gravity": true,
                           "GravityScale": 1,
                           "ImpactDamage": 0,
+                          "InertiaScale": 1,
                           "LinearDamping": 0,
                           "Locking": {
                             "X": false,
@@ -26122,8 +26469,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "head",
-                              "Position": "11.3865423,-0.267929971,-0.00525851827",
-                              "Rotation": "7.73817301E-05,-0.000254005194,0.000307887793,-0.999999166",
+                              "Position": "11.3865395,-0.267930388,-0.00525814854",
+                              "Rotation": "7.73519278E-05,-0.000254034996,0.000307887793,-0.999999166",
                               "Scale": "0.999999821,0.999999821,0.999999821",
                               "Tags": "",
                               "Enabled": true,
@@ -26144,6 +26491,7 @@
                                   "Gravity": true,
                                   "GravityScale": 1,
                                   "ImpactDamage": 0,
+                                  "InertiaScale": 1,
                                   "LinearDamping": 0,
                                   "Locking": {
                                     "X": false,
@@ -26370,8 +26718,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "arm_upper_L",
-                              "Position": "4.84325266,-1.16352355,6.63799191",
-                              "Rotation": "0.0256869793,0.909235954,0.0808852613,-0.407543421",
+                              "Position": "4.84325171,-1.16352344,6.63799191",
+                              "Rotation": "0.0256869793,0.909235895,0.0808852464,-0.407543421",
                               "Scale": "0.999999583,0.999999583,0.999999523",
                               "Tags": "",
                               "Enabled": true,
@@ -26392,6 +26740,7 @@
                                   "Gravity": true,
                                   "GravityScale": 1,
                                   "ImpactDamage": 0,
+                                  "InertiaScale": 1,
                                   "LinearDamping": 0,
                                   "Locking": {
                                     "X": false,
@@ -26464,6 +26813,7 @@
                                   "EnableCollision": false,
                                   "Frequency": 1,
                                   "Friction": 0,
+                                  "LimitEnabled": null,
                                   "LocalFrame1": {
                                     "Position": "11.7528753,-2.288818E-06,-6.88934233E-05",
                                     "Scale": "1,1,1",
@@ -26514,8 +26864,8 @@
                                   "__version": 2,
                                   "Flags": 12288,
                                   "Name": "arm_lower_L",
-                                  "Position": "10.6462536,-0.0513083711,0.345037013",
-                                  "Rotation": "-8.94069672E-08,5.96046448E-07,0.148423761,0.988923252",
+                                  "Position": "10.6462545,-0.0513082221,0.34503749",
+                                  "Rotation": "-5.96046448E-08,5.96046448E-07,0.148423791,0.988923192",
                                   "Scale": "0.999999881,0.999999881,0.999999881",
                                   "Tags": "",
                                   "Enabled": true,
@@ -26536,6 +26886,7 @@
                                       "Gravity": true,
                                       "GravityScale": 1,
                                       "ImpactDamage": 0,
+                                      "InertiaScale": 1,
                                       "LinearDamping": 0,
                                       "Locking": {
                                         "X": false,
@@ -26659,8 +27010,8 @@
                                       "__version": 2,
                                       "Flags": 12288,
                                       "Name": "hand_L",
-                                      "Position": "8.10651779,-0.155243188,0.231279895",
-                                      "Rotation": "0.0916308314,-0.033096306,0.0396786071,0.994451344",
+                                      "Position": "8.10651875,-0.155243248,0.231281102",
+                                      "Rotation": "0.0916308314,-0.033096306,0.0396785326,0.994451284",
                                       "Scale": "0.999999702,0.999999702,0.999999702",
                                       "Tags": "",
                                       "Enabled": true,
@@ -26681,6 +27032,7 @@
                                           "Gravity": true,
                                           "GravityScale": 1,
                                           "ImpactDamage": 0,
+                                          "InertiaScale": 1,
                                           "LinearDamping": 0,
                                           "Locking": {
                                             "X": false,
@@ -27138,8 +27490,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "arm_upper_R",
-                              "Position": "4.835814,-1.16566443,-6.64219999",
-                              "Rotation": "0.025585033,0.909429312,-0.0810336471,0.407087117",
+                              "Position": "4.83581209,-1.16566408,-6.64219904",
+                              "Rotation": "0.0255850032,0.909429312,-0.0810336769,0.407087088",
                               "Scale": "0.999999881,0.999999881,0.999999821",
                               "Tags": "",
                               "Enabled": true,
@@ -27160,6 +27512,7 @@
                                   "Gravity": true,
                                   "GravityScale": 1,
                                   "ImpactDamage": 0,
+                                  "InertiaScale": 1,
                                   "LinearDamping": 0,
                                   "Locking": {
                                     "X": false,
@@ -27232,6 +27585,7 @@
                                   "EnableCollision": false,
                                   "Frequency": 1,
                                   "Friction": 0,
+                                  "LimitEnabled": null,
                                   "LocalFrame1": {
                                     "Position": "11.7528763,1.25885044E-05,-4.92096069E-06",
                                     "Scale": "1,1,1",
@@ -27264,8 +27618,8 @@
                                   "__version": 2,
                                   "Flags": 12288,
                                   "Name": "arm_lower_R",
-                                  "Position": "10.6462612,-0.0513319522,-0.345080823",
-                                  "Rotation": "1.49011612E-08,4.91738319E-07,0.148424089,0.988923967",
+                                  "Position": "10.6462612,-0.0513327457,-0.345079601",
+                                  "Rotation": "0,4.61935997E-07,0.148424149,0.988924026",
                                   "Scale": "0.999999881,0.999999881,1",
                                   "Tags": "",
                                   "Enabled": true,
@@ -27286,6 +27640,7 @@
                                       "Gravity": true,
                                       "GravityScale": 1,
                                       "ImpactDamage": 0,
+                                      "InertiaScale": 1,
                                       "LinearDamping": 0,
                                       "Locking": {
                                         "X": false,
@@ -27428,8 +27783,8 @@
                                       "__version": 2,
                                       "Flags": 12288,
                                       "Name": "hand_R",
-                                      "Position": "8.10651493,-0.155180022,-0.231390655",
-                                      "Rotation": "-0.0916311592,0.0330966264,0.039678663,0.994451582",
+                                      "Position": "8.10651588,-0.155180022,-0.231390655",
+                                      "Rotation": "-0.0916311145,0.0330966413,0.039678663,0.994451642",
                                       "Scale": "0.999999583,0.999999583,0.999999523",
                                       "Tags": "",
                                       "Enabled": true,
@@ -27450,6 +27805,7 @@
                                           "Gravity": true,
                                           "GravityScale": 1,
                                           "ImpactDamage": 0,
+                                          "InertiaScale": 1,
                                           "LinearDamping": 0,
                                           "Locking": {
                                             "X": false,
@@ -27914,8 +28270,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_upper_R",
-              "Position": "-0.317688078,-0.415755272,-4.11850595",
-              "Rotation": "-1.96695328E-06,0.999999344,3.42726707E-07,-6.70552254E-07",
+              "Position": "-0.317688286,-0.415755302,-4.118505",
+              "Rotation": "-1.9967556E-06,0.999999285,3.87430191E-07,-6.85453415E-07",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -27936,6 +28292,7 @@
                   "Gravity": true,
                   "GravityScale": 1,
                   "ImpactDamage": 0,
+                  "InertiaScale": 1,
                   "LinearDamping": 0,
                   "Locking": {
                     "X": false,
@@ -28008,6 +28365,7 @@
                   "EnableCollision": false,
                   "Frequency": 1,
                   "Friction": 0,
+                  "LimitEnabled": null,
                   "LocalFrame1": {
                     "Position": "16.9303398,-1.57356208E-05,8.61167518E-06",
                     "Scale": "1,1,1",
@@ -28040,8 +28398,8 @@
                   "__version": 2,
                   "Flags": 12288,
                   "Name": "leg_lower_R",
-                  "Position": "15.9544992,2.78155107E-06,-1.47856554E-06",
-                  "Rotation": "-6.85453415E-07,2.08616257E-07,-0.0182808936,0.999833584",
+                  "Position": "15.9544992,3.57628005E-06,-2.58748969E-06",
+                  "Rotation": "-6.55651093E-07,2.5331974E-07,-0.0182808787,0.999833584",
                   "Scale": "0.999999881,0.999999881,1",
                   "Tags": "",
                   "Enabled": true,
@@ -28062,6 +28420,7 @@
                       "Gravity": true,
                       "GravityScale": 1,
                       "ImpactDamage": 0,
+                      "InertiaScale": 1,
                       "LinearDamping": 0,
                       "Locking": {
                         "X": false,
@@ -28167,8 +28526,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "ankle_R",
-                      "Position": "13.7974567,0.0457231402,-3.51159315E-06",
-                      "Rotation": "8.94069672E-07,-7.74860382E-07,0.391497731,0.920179904",
+                      "Position": "13.7974558,0.0457231402,-3.51159315E-06",
+                      "Rotation": "9.38773155E-07,-7.4505806E-07,0.391497701,0.920179844",
                       "Scale": "1.00000012,1.00000012,1",
                       "Tags": "",
                       "Enabled": true,
@@ -28189,6 +28548,7 @@
                           "Gravity": true,
                           "GravityScale": 1,
                           "ImpactDamage": 0,
+                          "InertiaScale": 1,
                           "LinearDamping": 0,
                           "Locking": {
                             "X": false,
@@ -28382,8 +28742,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_upper_L",
-              "Position": "-0.317665875,-0.415749788,4.11850214",
-              "Rotation": "-1.69873238E-06,0.999998987,2.98023224E-07,-6.10947609E-07",
+              "Position": "-0.317665577,-0.415749907,4.11850166",
+              "Rotation": "-1.69873238E-06,0.999998927,2.68220901E-07,-6.2584877E-07",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -28404,6 +28764,7 @@
                   "Gravity": true,
                   "GravityScale": 1,
                   "ImpactDamage": 0,
+                  "InertiaScale": 1,
                   "LinearDamping": 0,
                   "Locking": {
                     "X": false,
@@ -28476,6 +28837,7 @@
                   "EnableCollision": false,
                   "Frequency": 1,
                   "Friction": 0,
+                  "LimitEnabled": null,
                   "LocalFrame1": {
                     "Position": "16.9303207,-5.83648689E-05,-4.67491118E-05",
                     "Scale": "1,1,1",
@@ -28508,8 +28870,8 @@
                   "__version": 2,
                   "Flags": 12288,
                   "Name": "leg_lower_L",
-                  "Position": "15.9544897,-5.28494711E-05,-2.21784831E-06",
-                  "Rotation": "-2.71201134E-06,-5.36441803E-07,-0.0182816982,0.999833465",
+                  "Position": "15.9544897,-5.44389295E-05,-2.21784831E-06",
+                  "Rotation": "-2.68220901E-06,-4.91738319E-07,-0.0182816833,0.999833465",
                   "Scale": "1,1,1",
                   "Tags": "",
                   "Enabled": true,
@@ -28530,6 +28892,7 @@
                       "Gravity": true,
                       "GravityScale": 1,
                       "ImpactDamage": 0,
+                      "InertiaScale": 1,
                       "LinearDamping": 0,
                       "Locking": {
                         "X": false,
@@ -28635,8 +28998,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "ankle_L",
-                      "Position": "13.797472,0.0457668453,-4.25087592E-06",
-                      "Rotation": "3.4570694E-06,-7.74860382E-07,0.39149788,0.920179963",
+                      "Position": "13.7974701,0.0457660519,-4.43569661E-06",
+                      "Rotation": "3.42726707E-06,-8.34465027E-07,0.39149785,0.920179904",
                       "Scale": "0.999999821,0.999999821,0.999999881",
                       "Tags": "",
                       "Enabled": true,
@@ -28657,6 +29020,7 @@
                           "Gravity": true,
                           "GravityScale": 1,
                           "ImpactDamage": 0,
+                          "InertiaScale": 1,
                           "LinearDamping": 0,
                           "Locking": {
                             "X": false,
@@ -29022,7 +29386,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -29078,6 +29445,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -29193,7 +29561,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -29249,6 +29620,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -29364,7 +29736,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -29420,6 +29795,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -29535,7 +29911,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -29591,6 +29970,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -29706,7 +30086,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -29762,6 +30145,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -29877,7 +30261,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -29933,6 +30320,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -30048,7 +30436,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -30104,6 +30495,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -30219,7 +30611,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -30275,6 +30670,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -30390,7 +30786,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -30446,6 +30845,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -30561,7 +30961,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -30617,6 +31020,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -30732,7 +31136,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -30788,6 +31195,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -30903,7 +31311,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -30959,6 +31370,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -31074,7 +31486,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -31130,6 +31545,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -31245,7 +31661,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -31301,6 +31720,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -31416,7 +31836,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -31472,6 +31895,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -31587,7 +32011,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -31643,6 +32070,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -31795,7 +32223,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "bc3aa690-cacc-48e4-a145-e028e8a505b0": "526b79b2-8de4-872c-bbe5-f410f1b78288"
+            "88a1bd82-ef3f-429f-9488-6d2bfa984628": "c73a60d2-951c-8e01-8515-9a9207fac93f"
           }
         }
       ]
@@ -32105,9 +32533,6 @@
         "41a7de17-b1f1-4dfa-9a84-7619aa53ec1d": "e4d91939-0478-8f95-b476-ea12b8db5418",
         "9c4f42f6-9839-439d-a241-5bc6fd85efd7": "4e327d3f-d1a4-8396-817f-99381e957d54",
         "63d98aa6-fe55-45a9-bb39-0b27d0525603": "988b9aca-c1bf-848d-b09a-dc6fd76858bf",
-        "891fb2ba-cffe-415e-a8ce-afd95cb73550": "b9f65bc0-f1fb-8fff-b143-b1ad2818dd41",
-        "d304764c-01cc-4a7d-985a-dacb2b0d7620": "1efc6315-bb6e-8e1b-9e3e-8a1425f2e73a",
-        "c3c3610d-7533-453a-907c-129704ca07be": "ea7bcc11-3635-89e7-b0fb-87032e9f1d26",
         "d2bd412b-53a9-4995-b3dc-8d4118ae85e9": "8ed8bb27-4cb0-84c2-a6b3-3a244e2a2fd0",
         "7d6b5a47-a075-48f4-8e22-1c1470dcfa93": "7b8e3071-8805-8a2e-b549-9b8a5b4fecc9",
         "9212094a-918a-479d-8265-4a86359b1569": "7d525680-607c-8e39-8200-6d4bc6292925",
@@ -32120,6 +32545,9 @@
         "07fc3954-5277-4501-ae04-26c374e2a962": "4d6a7a8b-ec7b-8667-9559-8ab08fa980ff",
         "87beb2c2-3fd6-4098-ba06-c4835c0e00a1": "27158db8-6c4a-87a5-aead-5b97174df205",
         "596246b3-7b7a-46e1-ab87-dacabc404161": "8c160fd6-3846-80be-b15c-cc699a7c7ee7",
+        "891fb2ba-cffe-415e-a8ce-afd95cb73550": "b9f65bc0-f1fb-8fff-b143-b1ad2818dd41",
+        "d304764c-01cc-4a7d-985a-dacb2b0d7620": "1efc6315-bb6e-8e1b-9e3e-8a1425f2e73a",
+        "c3c3610d-7533-453a-907c-129704ca07be": "ea7bcc11-3635-89e7-b0fb-87032e9f1d26",
         "15969dfa-6b99-454e-8aad-986c3562c7f1": "11e4a7b0-43ad-8bb2-9b11-de03c1dd40fd"
       }
     },
@@ -32520,6 +32948,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -32825,6 +33254,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -33004,8 +33434,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "spine_2",
-              "Position": "-39.3596649,0.608558357,0.0804624707",
-              "Rotation": "-0.0044541657,0.00599244237,-0.0523831844,-0.997457862",
+              "Position": "-44.9697876,0.63315773,0.0809291452",
+              "Rotation": "-0.00484862924,0.00601434708,-0.0521073639,-0.997470379",
               "Scale": "1.0002569,1.0002569,1.0002569",
               "Tags": "",
               "Enabled": true,
@@ -33041,6 +33471,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -33378,8 +33809,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "head",
-              "Position": "-41.5319138,-6.07172441,-0.107465975",
-              "Rotation": "0.00158877671,-0.000589668751,0.165923268,0.984946251",
+              "Position": "-47.0758324,-7.861619,-0.129358739",
+              "Rotation": "0.00163933635,-0.000818878412,0.185531825,0.981441259",
               "Scale": "1.00012839,1.00012839,1.00012839",
               "Tags": "",
               "Enabled": true,
@@ -33415,6 +33846,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -33806,8 +34238,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_L",
-              "Position": "6.28015566,0.323317617,1.60758317",
-              "Rotation": "-0.0781773999,0.757673681,0.0283135213,-0.642455995",
+              "Position": "0.605088294,0.199072003,-2.20837379",
+              "Rotation": "-0.0509014167,0.105297573,-0.0436188281,-0.989015222",
               "Scale": "0.9938398,0.9938398,0.9938398",
               "Tags": "",
               "Enabled": true,
@@ -33843,6 +34275,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -33947,6 +34380,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "12.8930149,-2.44808439E-06,-6.85463601E-05",
                 "Scale": "1,1,1",
@@ -34024,8 +34458,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_L",
-              "Position": "10.0649672,0.27505523,0.0726580694",
-              "Rotation": "0.0075083822,-0.00233311951,0.160388529,0.986399591",
+              "Position": "10.0649719,0.275053084,0.0726578385",
+              "Rotation": "0.00750838593,-0.00233311951,0.160388544,0.986399591",
               "Scale": "1.00070214,1.00070214,1.00070214",
               "Tags": "",
               "Enabled": true,
@@ -34061,6 +34495,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -34243,8 +34678,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_L",
-              "Position": "7.73231792,-0.179846615,0.00792013668",
-              "Rotation": "-0.0429672897,0.0613099337,-0.055253014,0.988409042",
+              "Position": "7.73232794,-0.179852292,0.00791869592",
+              "Rotation": "-0.0429672971,0.0613099337,-0.0552530438,0.988409102",
               "Scale": "0.997722208,0.997722208,0.997722208",
               "Tags": "",
               "Enabled": true,
@@ -34280,6 +34715,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -35046,8 +35482,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_R",
-              "Position": "6.27961731,0.386363953,-1.63367903",
-              "Rotation": "0.0806265771,-0.757416964,0.0246202648,-0.642615676",
+              "Position": "0.609138489,0.265494585,2.2082603",
+              "Rotation": "0.055062104,-0.103993662,-0.0447473824,-0.988884807",
               "Scale": "0.993846297,0.993846297,0.993846297",
               "Tags": "",
               "Enabled": true,
@@ -35083,6 +35519,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -35187,6 +35624,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "12.8931599,1.34646207E-05,-4.89622562E-06",
                 "Scale": "1,1,1",
@@ -35230,8 +35668,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_R",
-              "Position": "10.0648794,0.275100291,-0.072593987",
-              "Rotation": "0.00749589503,-0.00233700871,-0.160382628,-0.986400902",
+              "Position": "10.0648804,0.275096208,-0.0725939423",
+              "Rotation": "0.00749589503,-0.00233700499,-0.160382569,-0.986400843",
               "Scale": "1.00070357,1.00070357,1.00070357",
               "Tags": "",
               "Enabled": true,
@@ -35267,6 +35705,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -35480,8 +35919,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_R",
-              "Position": "7.73228121,-0.179668799,-0.00779805426",
-              "Rotation": "0.0197427869,-0.0508837402,-0.0401329547,0.992652237",
+              "Position": "7.7322855,-0.179663777,-0.0077963816",
+              "Rotation": "0.0197427832,-0.0508837402,-0.0401329994,0.992652178",
               "Scale": "0.997724414,0.997724414,0.997724414",
               "Tags": "",
               "Enabled": true,
@@ -35517,6 +35956,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -36323,6 +36763,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -36427,6 +36868,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "18.6007519,-1.68559582E-05,8.5812153E-06",
                 "Scale": "1,1,1",
@@ -36507,6 +36949,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -36692,6 +37135,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -37055,6 +37499,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -37159,6 +37604,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "18.6010494,-6.25213725E-05,-4.65845551E-05",
                 "Scale": "1,1,1",
@@ -37202,8 +37648,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_lower_L",
-              "Position": "14.339469,-0.233257502,0.145951509",
-              "Rotation": "0.00120982528,-0.0146847516,-0.171034172,0.986794353",
+              "Position": "14.3394642,-0.2332564,0.145951688",
+              "Rotation": "0.00120982528,-0.0146847516,-0.171034187,0.986794233",
               "Scale": "0.998435438,0.998435438,0.998435438",
               "Tags": "",
               "Enabled": true,
@@ -37239,6 +37685,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -37387,8 +37834,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "ankle_L",
-              "Position": "12.3605194,0.26375109,-0.180492848",
-              "Rotation": "-0.0346514434,0.0438369215,0.467601776,0.887208104",
+              "Position": "12.3605213,0.263750345,-0.180492476",
+              "Rotation": "-0.0346514583,0.0438369215,0.467601836,0.887208164",
               "Scale": "0.959744871,0.959744871,0.959744871",
               "Tags": "",
               "Enabled": true,
@@ -37424,6 +37871,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -39386,47 +39834,48 @@
         "0262a6d9-9831-4fa7-bc08-65702e6f7eec": "057c18a2-c5ed-8bad-9b47-0a2d71f32be2",
         "fb9d2025-c46f-4a6a-a4ad-d7f52101616f": "3845ce46-8824-8d26-9528-7cb4a5780b29",
         "c45bc89d-bc94-4fbd-ac7f-9debf461302e": "27cc6483-8369-8ed5-9468-9fb745f36c46",
-        "5eea07d0-ff19-4d1c-b4e0-baa5c3afd39e": "5f2ea7b6-cd40-4711-992b-8f0f0902d6f0",
-        "c13c1843-019d-42ce-b775-cae91c97a127": "d96e7052-31f8-4d08-9e12-52b610d9c6c6",
+        "d916092f-2360-4d17-875d-9f2364d929be": "d8f13d33-07ad-86e3-ad97-f45fbd5fb5d8",
         "8aa0bcb2-f60e-45d4-9d34-619c9fdb763f": "9d88e135-208f-4a79-8c4e-0f415c46099c",
         "e52a9473-8eed-4aa3-84c1-2591bd9600ab": "75e4bc4b-ce86-4856-a356-be7a195249cb",
-        "0a00ddfb-7c7c-408c-94ea-e5692f0fa5d1": "2f0f5444-8584-4fbb-a088-83e8ec79bb3d",
-        "e519f161-ebc8-46e3-b032-17f674d67397": "4af741ce-ac9d-490c-b476-1967b89883bb",
-        "410c7163-4226-476b-a50b-8b872105f3c1": "9d5f1411-ffde-49c1-bb31-cf034f077798",
-        "31cd4221-b837-4a83-83e0-159b37639a75": "5ad88eb1-6059-47cc-905f-5b5fba91070c",
-        "71be086e-d6cb-456e-8b94-6bf1c91fa8a3": "bcf65186-5e15-4955-9fc9-d304f1699db9",
-        "105ebe81-b0e1-445d-8d56-08752260fdc2": "ffbab739-bfe2-81c3-a230-f1edd0969124",
-        "9a2b310a-c84f-4f31-bb87-cb59c18ca461": "ef8a71e9-4ba2-8ed5-bbc0-50545b40a984",
-        "6399aff2-da83-46e4-a04a-78cd9885272c": "4b46aea6-3b9f-8cf7-9cbf-1397094c98e2",
-        "1e5eccca-587d-4778-a35d-9ea47beb33b4": "b766d87a-9436-8f2e-b8c5-75c67f77776c",
         "8034fb07-8119-4442-826a-6d6025683a65": "a6e79880-65b7-885b-90ed-b24acd1f1c96",
         "21afc1f9-9bc1-4e1c-9a4c-4b10bf6b5e19": "f34ce8f0-9b77-86b4-90db-74b1ce8d3ba1",
-        "d916092f-2360-4d17-875d-9f2364d929be": "d8f13d33-07ad-86e3-ad97-f45fbd5fb5d8",
+        "c13c1843-019d-42ce-b775-cae91c97a127": "d96e7052-31f8-4d08-9e12-52b610d9c6c6",
+        "31cd4221-b837-4a83-83e0-159b37639a75": "5ad88eb1-6059-47cc-905f-5b5fba91070c",
+        "71be086e-d6cb-456e-8b94-6bf1c91fa8a3": "bcf65186-5e15-4955-9fc9-d304f1699db9",
+        "0a00ddfb-7c7c-408c-94ea-e5692f0fa5d1": "2f0f5444-8584-4fbb-a088-83e8ec79bb3d",
+        "2968dcab-1533-4a2c-b113-50a62008a4b8": "752147d3-867d-8812-8bdc-352c4d88edfa",
+        "64176579-843d-430b-af56-f7f114044049": "7836bded-c0ea-876d-a278-c3e402ab5cc8",
+        "59bed0d5-baa7-44cc-b13e-7c3f55b58762": "220fa0ed-6a69-8f6b-8c65-9a29791eb649",
+        "eb888c36-d30a-425b-994d-30d0fb16f079": "3b690f97-d3b6-8993-8cc9-3c69a6284be1",
+        "0b489d8d-8bd1-49b8-828c-7e661df4aa22": "0f64e87b-b409-8507-af61-353cd2c7c6ad",
+        "410c7163-4226-476b-a50b-8b872105f3c1": "9d5f1411-ffde-49c1-bb31-cf034f077798",
+        "105ebe81-b0e1-445d-8d56-08752260fdc2": "ffbab739-bfe2-81c3-a230-f1edd0969124",
+        "9a2b310a-c84f-4f31-bb87-cb59c18ca461": "ef8a71e9-4ba2-8ed5-bbc0-50545b40a984",
+        "abb3a631-2415-482f-86eb-8bfaa7b216ea": "a7cf30c2-715c-8c24-aa59-cb8c4f004204",
+        "aa3437d1-b631-41ed-b90d-f1a50192336a": "f37d6b6d-1ca8-8877-b4fe-c6d71c1520a2",
+        "ccf198f0-863a-434a-a0df-d925bc05cd55": "bb184435-ce11-8877-9f32-cfec1c0b035c",
         "29ce444e-590e-4237-a97b-aba7c289a6c5": "327b0123-013e-8b65-90c1-5145df62b46a",
         "ed592a86-ee8f-40ab-a863-a703492317a1": "f30e8b11-6c0b-8fa0-b5db-2e490254818c",
         "4c5c8657-6c72-4983-b87a-c463facee4c6": "6233bf01-6209-8708-b773-74041404745c",
         "df2c6f6d-8195-47b1-ad6c-f4f8c6eb125a": "ecdf95b3-2559-8190-9897-31cafb9161fd",
-        "ccf198f0-863a-434a-a0df-d925bc05cd55": "bb184435-ce11-8877-9f32-cfec1c0b035c",
+        "67a6ae15-990e-4864-b4c1-65f6dec8a105": "70b3ef60-0191-89bc-a97d-82c7809e6cd6",
         "bc8bd8de-5e9c-4bd0-a772-d26308d50c0e": "3103ca5f-f7ce-888d-9813-6594c7317d4d",
         "317d373e-6fa2-4696-8ee9-cf42daac74bc": "11d88c70-37a1-882a-b57e-a2b743875a17",
         "6521d278-dea9-4d16-ab67-b3ff48445a23": "e8d5926e-8608-8695-80f0-e115316e85c0",
         "d0141e38-7359-4870-a6b4-e5cf3ecf18ac": "46ac2dee-5a93-8f07-b424-3d2d8158e567",
-        "67a6ae15-990e-4864-b4c1-65f6dec8a105": "70b3ef60-0191-89bc-a97d-82c7809e6cd6",
-        "eb888c36-d30a-425b-994d-30d0fb16f079": "3b690f97-d3b6-8993-8cc9-3c69a6284be1",
-        "0b489d8d-8bd1-49b8-828c-7e661df4aa22": "0f64e87b-b409-8507-af61-353cd2c7c6ad",
-        "abb3a631-2415-482f-86eb-8bfaa7b216ea": "a7cf30c2-715c-8c24-aa59-cb8c4f004204",
-        "aa3437d1-b631-41ed-b90d-f1a50192336a": "f37d6b6d-1ca8-8877-b4fe-c6d71c1520a2",
-        "cdf7520b-5377-4dcb-8ad5-669ad7e142b5": "9b3c6a04-15ea-8e2d-bec6-e24aa0f0d9df",
-        "f42a29d6-9280-41f2-a3fb-9aa5b9715868": "91ebfaab-70ae-8d09-854c-24a0397bc5ab",
-        "380c7cec-878e-456a-bd4f-4ddf59335057": "1bfe4f3a-ba4e-88d0-9845-b616f955d66f",
+        "862bbd9a-6533-4bae-9460-833ffa63d4e0": "3bef2397-5693-8876-889e-f47067dd99c1",
+        "e519f161-ebc8-46e3-b032-17f674d67397": "4af741ce-ac9d-490c-b476-1967b89883bb",
+        "1e5eccca-587d-4778-a35d-9ea47beb33b4": "b766d87a-9436-8f2e-b8c5-75c67f77776c",
         "f23fca2f-ae4a-4d6b-9c9b-65e34de2d75f": "e9ece077-fe98-8500-a59c-6ad975e05ad7",
         "271a9906-b3df-4cb0-9179-f9cdbbf7a73f": "4fdeb56c-f54d-8695-a076-1b2a2141ca44",
-        "3823abc3-b26c-4265-93ab-f44020c35414": "c378c95a-34a1-867b-8309-efedc133f393",
-        "64176579-843d-430b-af56-f7f114044049": "7836bded-c0ea-876d-a278-c3e402ab5cc8",
-        "59bed0d5-baa7-44cc-b13e-7c3f55b58762": "220fa0ed-6a69-8f6b-8c65-9a29791eb649",
+        "cdf7520b-5377-4dcb-8ad5-669ad7e142b5": "9b3c6a04-15ea-8e2d-bec6-e24aa0f0d9df",
+        "6399aff2-da83-46e4-a04a-78cd9885272c": "4b46aea6-3b9f-8cf7-9cbf-1397094c98e2",
+        "380c7cec-878e-456a-bd4f-4ddf59335057": "1bfe4f3a-ba4e-88d0-9845-b616f955d66f",
         "d5447fda-6df3-455a-8d7d-04c191469d31": "ec1ae85c-181b-85b1-a612-7452e2f49563",
         "77c058c2-62f8-4ca2-ba1a-deed6c7e4c59": "684c7f9f-3c92-8290-ab4d-6415e01201e0",
-        "2968dcab-1533-4a2c-b113-50a62008a4b8": "752147d3-867d-8812-8bdc-352c4d88edfa"
+        "3823abc3-b26c-4265-93ab-f44020c35414": "c378c95a-34a1-867b-8309-efedc133f393",
+        "f42a29d6-9280-41f2-a3fb-9aa5b9715868": "91ebfaab-70ae-8d09-854c-24a0397bc5ab",
+        "5eea07d0-ff19-4d1c-b4e0-baa5c3afd39e": "5f2ea7b6-cd40-4711-992b-8f0f0902d6f0"
       }
     },
     {
@@ -39492,6 +39941,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -39859,6 +40309,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -40195,6 +40646,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -40299,6 +40751,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "-1.13092887,8.13209057,-1.0552206",
                 "Scale": "1,1,1",
@@ -40379,6 +40832,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -40600,6 +41054,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -40704,6 +41159,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "0.631484807,4.83139133,-0.422427833",
                 "Scale": "1,1,1",
@@ -40784,6 +41240,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -40969,7 +41426,7 @@
               "Flags": 12288,
               "Name": "head",
               "Position": "6.25848884E-07,1.589661,3.14414547E-06",
-              "Rotation": "0.00264343759,-0.0314144306,0.0146821178,0.999399722",
+              "Rotation": "0.00264343759,-0.0314144194,0.0146821178,0.999399781",
               "Scale": "0.99999994,0.99999994,0.99999994",
               "Tags": "",
               "Enabled": true,
@@ -41005,6 +41462,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -41328,6 +41786,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -41432,6 +41891,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "0.191111654,1.02446222,-0.563284993",
                 "Scale": "1,1,1",
@@ -41512,6 +41972,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -41702,6 +42163,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -41806,6 +42268,7 @@
               "EnableCollision": false,
               "Frequency": 1,
               "Friction": 0,
+              "LimitEnabled": null,
               "LocalFrame1": {
                 "Position": "-0.178764299,0.995137691,0.0661501139",
                 "Scale": "1,1,1",
@@ -41886,6 +42349,7 @@
               "Gravity": true,
               "GravityScale": 1,
               "ImpactDamage": 0,
+              "InertiaScale": 1,
               "LinearDamping": 0,
               "Locking": {
                 "X": false,
@@ -42693,7 +43157,7 @@
               "IdValue": "495ce31b-f5bc-4892-b55a-dc75c9560a99"
             },
             "Property": "Rotation",
-            "Value": "-0.139569357,1.41561031E-07,-1.04233623E-05,-0.990209997"
+            "Value": "-0.139569342,1.56462193E-07,-1.04233623E-05,-0.990209997"
           },
           {
             "Target": {
@@ -42701,7 +43165,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Position",
-            "Value": "1.54972076E-06,1.52366602,-2.0315249E-06"
+            "Value": "1.52985251E-06,1.52366602,-2.02159094E-06"
           },
           {
             "Target": {
@@ -42709,7 +43173,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Rotation",
-            "Value": "-0.00544138066,2.38418579E-07,-3.12924385E-07,0.999985993"
+            "Value": "-0.00544141233,2.38418579E-07,-3.12924385E-07,0.999985933"
           },
           {
             "Target": {
@@ -42741,7 +43205,7 @@
               "IdValue": "089d07be-5a9c-4d17-beaf-43a6a99985e0"
             },
             "Property": "Rotation",
-            "Value": "0.0207360536,0.00580419414,-0.00418975204,0.99976331"
+            "Value": "0.0207360834,0.00580420718,-0.00418974459,0.99976337"
           },
           {
             "Target": {
@@ -42757,7 +43221,7 @@
               "IdValue": "feb560c2-58b5-4984-b62b-e79617d7cfdd"
             },
             "Property": "Rotation",
-            "Value": "0.0026440639,-0.0314144976,0.0146818087,0.999392033"
+            "Value": "0.00264406577,-0.0314144827,0.0146817937,0.999392033"
           },
           {
             "Target": {
@@ -42875,47 +43339,48 @@
         "0262a6d9-9831-4fa7-bc08-65702e6f7eec": "ecbf4c21-5294-898e-8d9f-19aa210e8728",
         "fb9d2025-c46f-4a6a-a4ad-d7f52101616f": "822f989f-43f5-84a4-a6bc-88d0b8bd6285",
         "c45bc89d-bc94-4fbd-ac7f-9debf461302e": "7b600a2a-da72-8e28-a6f9-cf3a173d352b",
-        "5eea07d0-ff19-4d1c-b4e0-baa5c3afd39e": "9b1885b6-d38c-41dd-9644-e04bf6cb2cca",
-        "c13c1843-019d-42ce-b775-cae91c97a127": "708854c8-e2d4-4035-86da-bdf07378476a",
+        "d916092f-2360-4d17-875d-9f2364d929be": "bf43a36b-fce4-82c1-b3e7-1ab10e70a6f4",
         "8aa0bcb2-f60e-45d4-9d34-619c9fdb763f": "2164a0ad-b99d-4c6f-b47c-99c4207cab45",
         "e52a9473-8eed-4aa3-84c1-2591bd9600ab": "9537d61a-00c8-403d-9633-70845845476a",
-        "0a00ddfb-7c7c-408c-94ea-e5692f0fa5d1": "ba0264b3-fbd1-4835-a4e4-509a69c0ba7b",
-        "e519f161-ebc8-46e3-b032-17f674d67397": "9d931bbd-c31d-437a-b81f-46d6cb7789b7",
-        "410c7163-4226-476b-a50b-8b872105f3c1": "db813ee4-2149-424b-bfaa-bfd4edf08b3e",
-        "31cd4221-b837-4a83-83e0-159b37639a75": "1d4eb8c6-e1ef-477a-8529-511258ca5bf6",
-        "71be086e-d6cb-456e-8b94-6bf1c91fa8a3": "131b16e7-a77c-42ae-acc1-29be9042371c",
-        "105ebe81-b0e1-445d-8d56-08752260fdc2": "4857c0aa-6bd2-89a4-9476-7cf3c83d96a9",
-        "9a2b310a-c84f-4f31-bb87-cb59c18ca461": "3e6e03b8-f720-8070-b718-a94e3b261841",
-        "6399aff2-da83-46e4-a04a-78cd9885272c": "5b51f746-5f5f-8ad2-a73c-6702b42e44df",
-        "1e5eccca-587d-4778-a35d-9ea47beb33b4": "ea9a6b03-2622-8083-9285-e9b1e50cf128",
         "8034fb07-8119-4442-826a-6d6025683a65": "a2826cb7-af68-867b-be6e-8c8a6a6eb444",
         "21afc1f9-9bc1-4e1c-9a4c-4b10bf6b5e19": "cb7672eb-c2a1-8761-b683-bf280a81e35f",
-        "d916092f-2360-4d17-875d-9f2364d929be": "bf43a36b-fce4-82c1-b3e7-1ab10e70a6f4",
+        "c13c1843-019d-42ce-b775-cae91c97a127": "708854c8-e2d4-4035-86da-bdf07378476a",
+        "31cd4221-b837-4a83-83e0-159b37639a75": "1d4eb8c6-e1ef-477a-8529-511258ca5bf6",
+        "71be086e-d6cb-456e-8b94-6bf1c91fa8a3": "131b16e7-a77c-42ae-acc1-29be9042371c",
+        "0a00ddfb-7c7c-408c-94ea-e5692f0fa5d1": "ba0264b3-fbd1-4835-a4e4-509a69c0ba7b",
+        "2968dcab-1533-4a2c-b113-50a62008a4b8": "10e11514-1d66-863e-aca2-746fd5b9bfa6",
+        "64176579-843d-430b-af56-f7f114044049": "2d48a1ee-1628-8b34-9d28-3d35e25db668",
+        "59bed0d5-baa7-44cc-b13e-7c3f55b58762": "94bd9c59-134c-8878-9bde-779ba1a9504a",
+        "eb888c36-d30a-425b-994d-30d0fb16f079": "d2714696-60dc-85ff-8fce-5f5ac112f103",
+        "0b489d8d-8bd1-49b8-828c-7e661df4aa22": "6f0c6117-cfa0-812a-8652-29c94befbc39",
+        "410c7163-4226-476b-a50b-8b872105f3c1": "db813ee4-2149-424b-bfaa-bfd4edf08b3e",
+        "105ebe81-b0e1-445d-8d56-08752260fdc2": "4857c0aa-6bd2-89a4-9476-7cf3c83d96a9",
+        "9a2b310a-c84f-4f31-bb87-cb59c18ca461": "3e6e03b8-f720-8070-b718-a94e3b261841",
+        "abb3a631-2415-482f-86eb-8bfaa7b216ea": "28cae871-6b34-8861-8d0f-afe8faad268f",
+        "aa3437d1-b631-41ed-b90d-f1a50192336a": "d3944264-44f7-8862-ad8d-4d2c6a344d6c",
+        "ccf198f0-863a-434a-a0df-d925bc05cd55": "eb77993d-c3a1-83fc-9efb-7fec853ee268",
         "29ce444e-590e-4237-a97b-aba7c289a6c5": "55363fa4-f703-8986-9348-face88132ef2",
         "ed592a86-ee8f-40ab-a863-a703492317a1": "4c071254-0f0f-8788-882a-6d37371912d9",
         "4c5c8657-6c72-4983-b87a-c463facee4c6": "f8d887e7-eeda-8fc1-95c2-27f50667634d",
         "df2c6f6d-8195-47b1-ad6c-f4f8c6eb125a": "9b8ac122-d3e7-8d33-97b7-f449de9dd9cc",
-        "ccf198f0-863a-434a-a0df-d925bc05cd55": "eb77993d-c3a1-83fc-9efb-7fec853ee268",
+        "67a6ae15-990e-4864-b4c1-65f6dec8a105": "0659755f-1681-8553-b24f-b826407d08b1",
         "bc8bd8de-5e9c-4bd0-a772-d26308d50c0e": "bd5e7754-4afe-8051-aaaa-2e2dbf642982",
         "317d373e-6fa2-4696-8ee9-cf42daac74bc": "f9974c37-ebee-8308-832e-13cbb792d82b",
         "6521d278-dea9-4d16-ab67-b3ff48445a23": "26d22649-0c91-8fbd-a152-cac98f69d49e",
         "d0141e38-7359-4870-a6b4-e5cf3ecf18ac": "d5e804fa-ae96-88ae-baa5-f1e8f2a0d2bb",
-        "67a6ae15-990e-4864-b4c1-65f6dec8a105": "0659755f-1681-8553-b24f-b826407d08b1",
-        "eb888c36-d30a-425b-994d-30d0fb16f079": "d2714696-60dc-85ff-8fce-5f5ac112f103",
-        "0b489d8d-8bd1-49b8-828c-7e661df4aa22": "6f0c6117-cfa0-812a-8652-29c94befbc39",
-        "abb3a631-2415-482f-86eb-8bfaa7b216ea": "28cae871-6b34-8861-8d0f-afe8faad268f",
-        "aa3437d1-b631-41ed-b90d-f1a50192336a": "d3944264-44f7-8862-ad8d-4d2c6a344d6c",
-        "cdf7520b-5377-4dcb-8ad5-669ad7e142b5": "5bf0e8a8-aa07-8e1d-b2dd-1bba13df7e26",
-        "f42a29d6-9280-41f2-a3fb-9aa5b9715868": "8232c2c7-0140-843d-90be-40f06bb844cb",
-        "380c7cec-878e-456a-bd4f-4ddf59335057": "40c45228-e5cf-8e3c-8a34-0b9dbf281a1e",
+        "862bbd9a-6533-4bae-9460-833ffa63d4e0": "a8870788-0706-8c95-8162-8756387909fa",
+        "e519f161-ebc8-46e3-b032-17f674d67397": "9d931bbd-c31d-437a-b81f-46d6cb7789b7",
+        "1e5eccca-587d-4778-a35d-9ea47beb33b4": "ea9a6b03-2622-8083-9285-e9b1e50cf128",
         "f23fca2f-ae4a-4d6b-9c9b-65e34de2d75f": "fc56bfcf-9eb0-8973-978d-ab1e3d8faa99",
         "271a9906-b3df-4cb0-9179-f9cdbbf7a73f": "045ce9ea-293a-8961-bad0-1c6f767aaac1",
-        "3823abc3-b26c-4265-93ab-f44020c35414": "c43cde4a-a6bf-846c-a0f7-5a4bf5ba4233",
-        "64176579-843d-430b-af56-f7f114044049": "2d48a1ee-1628-8b34-9d28-3d35e25db668",
-        "59bed0d5-baa7-44cc-b13e-7c3f55b58762": "94bd9c59-134c-8878-9bde-779ba1a9504a",
+        "cdf7520b-5377-4dcb-8ad5-669ad7e142b5": "5bf0e8a8-aa07-8e1d-b2dd-1bba13df7e26",
+        "6399aff2-da83-46e4-a04a-78cd9885272c": "5b51f746-5f5f-8ad2-a73c-6702b42e44df",
+        "380c7cec-878e-456a-bd4f-4ddf59335057": "40c45228-e5cf-8e3c-8a34-0b9dbf281a1e",
         "d5447fda-6df3-455a-8d7d-04c191469d31": "98beca8d-ad84-8f20-8e04-5987ff1f6898",
         "77c058c2-62f8-4ca2-ba1a-deed6c7e4c59": "cf970583-4265-8317-91cb-aeb2d5d31ecb",
-        "2968dcab-1533-4a2c-b113-50a62008a4b8": "10e11514-1d66-863e-aca2-746fd5b9bfa6"
+        "3823abc3-b26c-4265-93ab-f44020c35414": "c43cde4a-a6bf-846c-a0f7-5a4bf5ba4233",
+        "f42a29d6-9280-41f2-a3fb-9aa5b9715868": "8232c2c7-0140-843d-90be-40f06bb844cb",
+        "5eea07d0-ff19-4d1c-b4e0-baa5c3afd39e": "9b1885b6-d38c-41dd-9644-e04bf6cb2cca"
       }
     },
     {
@@ -42944,7 +43409,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "9003ef32-1362-4d0a-8ca7-f2e9e2c57750",
+            "Id": "11be39ef-973c-4483-aeaf-282283581333",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -42971,7 +43436,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "9003ef32-1362-4d0a-8ca7-f2e9e2c57750",
+            "Id": "11be39ef-973c-4483-aeaf-282283581333",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -42999,7 +43464,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "9003ef32-1362-4d0a-8ca7-f2e9e2c57750",
+            "Id": "11be39ef-973c-4483-aeaf-282283581333",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43028,6 +43493,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -43081,7 +43547,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "3802aedc-196c-4808-9d51-96b2a3e9cd5c",
+            "Id": "0e9da359-1196-435f-b6a0-f8e4828bd6f4",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43108,7 +43574,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "3802aedc-196c-4808-9d51-96b2a3e9cd5c",
+            "Id": "0e9da359-1196-435f-b6a0-f8e4828bd6f4",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43136,7 +43602,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "3802aedc-196c-4808-9d51-96b2a3e9cd5c",
+            "Id": "0e9da359-1196-435f-b6a0-f8e4828bd6f4",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43165,6 +43631,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 25,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -43231,7 +43698,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "44c4d493-8f29-411f-bed6-9cf6a7a5ea15",
+            "Id": "1d741c23-ea85-4d9f-b12e-5d004bc9cedf",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43258,7 +43725,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "44c4d493-8f29-411f-bed6-9cf6a7a5ea15",
+            "Id": "1d741c23-ea85-4d9f-b12e-5d004bc9cedf",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43286,7 +43753,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "44c4d493-8f29-411f-bed6-9cf6a7a5ea15",
+            "Id": "1d741c23-ea85-4d9f-b12e-5d004bc9cedf",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43315,6 +43782,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 5,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -43370,7 +43838,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "ae4c62ce-1c2a-4e3b-afe7-304008bad12a",
+            "Id": "4bde3b60-913b-4201-af94-17ec518e50f5",
             "Path": "models workshop/double barrel/double-barrel.vmdl"
           },
           "OnComponentDestroy": null,
@@ -43418,7 +43886,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -43445,6 +43916,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -43478,7 +43950,10 @@
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": false,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -43510,7 +43985,10 @@
             "Yaw": false,
             "Roll": false
           },
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "MotionEnabled": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -43671,7 +44149,7 @@
               "IdValue": "495ce31b-f5bc-4892-b55a-dc75c9560a99"
             },
             "Property": "Rotation",
-            "Value": "-0.139569372,1.71363354E-07,-1.04010105E-05,-0.990209937"
+            "Value": "-0.139569342,1.67638063E-07,-1.04159117E-05,-0.990209818"
           },
           {
             "Target": {
@@ -43679,7 +44157,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Position",
-            "Value": "3.1590464E-06,1.5236702,-1.54972088E-06"
+            "Value": "3.1590464E-06,1.52367032,-1.63912785E-06"
           },
           {
             "Target": {
@@ -43687,7 +44165,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Rotation",
-            "Value": "-0.00544141233,2.5331974E-07,-3.27825546E-07,0.999985933"
+            "Value": "-0.00544146821,2.75671482E-07,-3.27825546E-07,0.999985874"
           },
           {
             "Target": {
@@ -43727,7 +44205,7 @@
               "IdValue": "089d07be-5a9c-4d17-beaf-43a6a99985e0"
             },
             "Property": "Rotation",
-            "Value": "0.0207360871,0.00580419041,-0.00418973714,0.999763429"
+            "Value": "0.020736089,0.00580418855,-0.00418973714,0.999763489"
           },
           {
             "Target": {
@@ -43751,7 +44229,7 @@
               "IdValue": "feb560c2-58b5-4984-b62b-e79617d7cfdd"
             },
             "Property": "Rotation",
-            "Value": "0.0026440639,-0.0314144827,0.0146817937,0.999391973"
+            "Value": "0.0026440341,-0.0314144939,0.0146817788,0.999391913"
           },
           {
             "Target": {
@@ -43876,47 +44354,48 @@
         "0262a6d9-9831-4fa7-bc08-65702e6f7eec": "b36a3e75-d248-4e0a-b7f4-a76cb9294ce9",
         "fb9d2025-c46f-4a6a-a4ad-d7f52101616f": "f26451db-f393-4203-bcf1-839f8437e75d",
         "c45bc89d-bc94-4fbd-ac7f-9debf461302e": "deaf0f36-6af7-4847-b417-73caebeb0aa6",
-        "5eea07d0-ff19-4d1c-b4e0-baa5c3afd39e": "362310cd-226f-4c87-a69f-78c30593ef68",
-        "c13c1843-019d-42ce-b775-cae91c97a127": "4eb1f5da-9601-4b81-8164-3edc259d192b",
+        "d916092f-2360-4d17-875d-9f2364d929be": "b59a0ce3-6a12-8c91-af8a-32c0ef691818",
         "8aa0bcb2-f60e-45d4-9d34-619c9fdb763f": "ea38873e-7099-4d77-a84f-fd8386a85cc6",
         "e52a9473-8eed-4aa3-84c1-2591bd9600ab": "a19bbe9c-3559-48a0-8e96-1feb6a3fcca0",
-        "0a00ddfb-7c7c-408c-94ea-e5692f0fa5d1": "1e92b337-6ddd-4098-9dd9-63eda3590df6",
-        "e519f161-ebc8-46e3-b032-17f674d67397": "0aa7ccf1-cd7e-4655-b433-80829c295b38",
-        "410c7163-4226-476b-a50b-8b872105f3c1": "14ada97f-6f7f-4934-a6d0-1c1c8ad8afaa",
-        "31cd4221-b837-4a83-83e0-159b37639a75": "78dfcb0c-e04c-456c-aec8-314c27fa9508",
-        "71be086e-d6cb-456e-8b94-6bf1c91fa8a3": "4af4f5eb-bf85-49c4-8ecc-b19d978418d2",
-        "105ebe81-b0e1-445d-8d56-08752260fdc2": "411146f5-ac8f-8eb6-b78b-5815179bcf93",
-        "9a2b310a-c84f-4f31-bb87-cb59c18ca461": "bc1d239b-904f-85c6-97fe-56f5cb4ac535",
-        "6399aff2-da83-46e4-a04a-78cd9885272c": "a6e43b5d-8f45-8d88-a6a1-4c9ba09814ad",
-        "1e5eccca-587d-4778-a35d-9ea47beb33b4": "916dee86-d1cb-867c-a7db-46601b3059bf",
         "8034fb07-8119-4442-826a-6d6025683a65": "8800cb39-2d1f-8993-b755-f2254d263318",
         "21afc1f9-9bc1-4e1c-9a4c-4b10bf6b5e19": "722121bc-0f04-8c49-b2e4-482f13015887",
-        "d916092f-2360-4d17-875d-9f2364d929be": "b59a0ce3-6a12-8c91-af8a-32c0ef691818",
+        "c13c1843-019d-42ce-b775-cae91c97a127": "4eb1f5da-9601-4b81-8164-3edc259d192b",
+        "31cd4221-b837-4a83-83e0-159b37639a75": "78dfcb0c-e04c-456c-aec8-314c27fa9508",
+        "71be086e-d6cb-456e-8b94-6bf1c91fa8a3": "4af4f5eb-bf85-49c4-8ecc-b19d978418d2",
+        "0a00ddfb-7c7c-408c-94ea-e5692f0fa5d1": "1e92b337-6ddd-4098-9dd9-63eda3590df6",
+        "2968dcab-1533-4a2c-b113-50a62008a4b8": "b4c23f87-41a3-8dcf-ac11-12e7bbb0102e",
+        "64176579-843d-430b-af56-f7f114044049": "131c9de5-52eb-8359-aeac-933599d4ccee",
+        "59bed0d5-baa7-44cc-b13e-7c3f55b58762": "81a310f4-7187-87de-b5f5-67e446ba29b7",
+        "eb888c36-d30a-425b-994d-30d0fb16f079": "18e30841-aba8-8cfc-873d-6c90db18c339",
+        "0b489d8d-8bd1-49b8-828c-7e661df4aa22": "191199ea-cd0c-880e-8bdc-0927f068054a",
+        "410c7163-4226-476b-a50b-8b872105f3c1": "14ada97f-6f7f-4934-a6d0-1c1c8ad8afaa",
+        "105ebe81-b0e1-445d-8d56-08752260fdc2": "411146f5-ac8f-8eb6-b78b-5815179bcf93",
+        "9a2b310a-c84f-4f31-bb87-cb59c18ca461": "bc1d239b-904f-85c6-97fe-56f5cb4ac535",
+        "abb3a631-2415-482f-86eb-8bfaa7b216ea": "5433b10d-6aaa-8c6a-9fa9-6763a76ee632",
+        "aa3437d1-b631-41ed-b90d-f1a50192336a": "8f44aa22-6234-8d36-a71f-058f5095526a",
+        "ccf198f0-863a-434a-a0df-d925bc05cd55": "dedf9384-91b8-8d2d-8c81-424dba6b0225",
         "29ce444e-590e-4237-a97b-aba7c289a6c5": "f018548a-8f17-8bee-992c-471c4527cbfb",
         "ed592a86-ee8f-40ab-a863-a703492317a1": "d5407bf2-3c2a-8452-ba44-cfb97eca37ec",
         "4c5c8657-6c72-4983-b87a-c463facee4c6": "098f6227-eb4a-8680-b08c-63add7f1b616",
         "df2c6f6d-8195-47b1-ad6c-f4f8c6eb125a": "a8d55b98-5381-8c96-86a4-2405532b3124",
-        "ccf198f0-863a-434a-a0df-d925bc05cd55": "dedf9384-91b8-8d2d-8c81-424dba6b0225",
+        "67a6ae15-990e-4864-b4c1-65f6dec8a105": "1d737047-4628-86f4-8d1d-c7ec57ba6925",
         "bc8bd8de-5e9c-4bd0-a772-d26308d50c0e": "d1f70429-490d-8a65-b0e1-e8a988651385",
         "317d373e-6fa2-4696-8ee9-cf42daac74bc": "9295dc67-f033-89fa-95e5-e6b9d26881e2",
         "6521d278-dea9-4d16-ab67-b3ff48445a23": "29abfb5e-6a74-8ba2-858a-e46bf76c8778",
         "d0141e38-7359-4870-a6b4-e5cf3ecf18ac": "55a5effb-f5e2-8cd4-81f2-1c5ab63b704d",
-        "67a6ae15-990e-4864-b4c1-65f6dec8a105": "1d737047-4628-86f4-8d1d-c7ec57ba6925",
-        "eb888c36-d30a-425b-994d-30d0fb16f079": "18e30841-aba8-8cfc-873d-6c90db18c339",
-        "0b489d8d-8bd1-49b8-828c-7e661df4aa22": "191199ea-cd0c-880e-8bdc-0927f068054a",
-        "abb3a631-2415-482f-86eb-8bfaa7b216ea": "5433b10d-6aaa-8c6a-9fa9-6763a76ee632",
-        "aa3437d1-b631-41ed-b90d-f1a50192336a": "8f44aa22-6234-8d36-a71f-058f5095526a",
-        "cdf7520b-5377-4dcb-8ad5-669ad7e142b5": "e2ad220d-4b5b-8ce8-9c62-5a2d63df3a49",
-        "f42a29d6-9280-41f2-a3fb-9aa5b9715868": "50612abc-4e23-8d63-9b4e-a09900314cca",
-        "380c7cec-878e-456a-bd4f-4ddf59335057": "e0246693-906d-86e6-a32e-662524040283",
+        "862bbd9a-6533-4bae-9460-833ffa63d4e0": "1d5ba14f-1bd7-87b1-b9c2-580e1e594d1f",
+        "e519f161-ebc8-46e3-b032-17f674d67397": "0aa7ccf1-cd7e-4655-b433-80829c295b38",
+        "1e5eccca-587d-4778-a35d-9ea47beb33b4": "916dee86-d1cb-867c-a7db-46601b3059bf",
         "f23fca2f-ae4a-4d6b-9c9b-65e34de2d75f": "49f34c16-8ac4-82e0-8a52-f4c456ffa45a",
         "271a9906-b3df-4cb0-9179-f9cdbbf7a73f": "330d9462-94ea-8fe7-ac28-e79d852c970d",
-        "3823abc3-b26c-4265-93ab-f44020c35414": "53b7f66c-1bed-8bd5-a637-56ebc7889554",
-        "64176579-843d-430b-af56-f7f114044049": "131c9de5-52eb-8359-aeac-933599d4ccee",
-        "59bed0d5-baa7-44cc-b13e-7c3f55b58762": "81a310f4-7187-87de-b5f5-67e446ba29b7",
+        "cdf7520b-5377-4dcb-8ad5-669ad7e142b5": "e2ad220d-4b5b-8ce8-9c62-5a2d63df3a49",
+        "6399aff2-da83-46e4-a04a-78cd9885272c": "a6e43b5d-8f45-8d88-a6a1-4c9ba09814ad",
+        "380c7cec-878e-456a-bd4f-4ddf59335057": "e0246693-906d-86e6-a32e-662524040283",
         "d5447fda-6df3-455a-8d7d-04c191469d31": "892c549b-c610-86d9-b2b5-4fceabfcd536",
         "77c058c2-62f8-4ca2-ba1a-deed6c7e4c59": "31f444d1-467f-81f2-9db1-dce9d2fce30d",
-        "2968dcab-1533-4a2c-b113-50a62008a4b8": "b4c23f87-41a3-8dcf-ac11-12e7bbb0102e"
+        "3823abc3-b26c-4265-93ab-f44020c35414": "53b7f66c-1bed-8bd5-a637-56ebc7889554",
+        "f42a29d6-9280-41f2-a3fb-9aa5b9715868": "50612abc-4e23-8d63-9b4e-a09900314cca",
+        "5eea07d0-ff19-4d1c-b4e0-baa5c3afd39e": "362310cd-226f-4c87-a69f-78c30593ef68"
       }
     },
     {
@@ -44009,7 +44488,10 @@
               }
             }
           },
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -44058,7 +44540,10 @@
             "Path": "frost_crystal.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -44111,7 +44596,10 @@
               }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -44157,7 +44645,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,

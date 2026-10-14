@@ -5,7 +5,7 @@ namespace Sandbox.Code.Presentation;
 public sealed class HitFlashComp : Component
 {
 	[Property] public Color FlashColor { get; set; } = new Color( 1f, 0.2f, 0.15f );
-	[Property] public float Duration { get; set; } = 0.12f;
+	[Property] public float Duration { get; set; } = 0.8f;
 
 	private Actor _actor;
 	private readonly List<(ModelRenderer Renderer, Color Original)> _captured = new();
