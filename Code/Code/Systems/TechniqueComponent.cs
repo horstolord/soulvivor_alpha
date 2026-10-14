@@ -64,7 +64,8 @@ public sealed class TechniqueComponent : Component
 
 	private void CacheComponents()
 	{
-		_actor ??= Components.GetInAncestorsOrSelf<Actor>();
+		// Prefer the most-derived actor when scenes contain both Actor and Player components.
+		_actor ??= CombatMath.ResolveActor( GameObject ) ?? Components.GetInAncestorsOrSelf<Actor>();
 		_combat ??= _actor?.Combat ?? Components.GetInAncestorsOrSelf<CombatComponent>();
 		_playerController ??= Components.GetInAncestorsOrSelf<PlayerController>();
 	}
@@ -324,6 +325,11 @@ public sealed class TechniqueComponent : Component
 	private (Vector3 origin, Rotation facing) ResolveAim()
 	{
 		var origin = _actor.GameObject.WorldPosition;
+		if ( _playerController != null && _actor is Player )
+		{
+			var eyes = _playerController.EyeAngles;
+			return (origin, Rotation.From( eyes.pitch, eyes.yaw, 0f ));
+		}
 		if ( _actor is Player && Scene.Camera != null )
 		{
 			var cam = Scene.Camera.WorldRotation;
