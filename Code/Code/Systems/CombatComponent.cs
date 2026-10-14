@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sandbox.Code.Presentation;
 
 namespace Sandbox.Code.Systems;
 using System.Linq;
@@ -53,6 +54,11 @@ public sealed class CombatComponent : Component
 	/// Convenience gate: both CurrentAttack and cooldown must be clear.
 	/// </summary>
 	public bool CanAttack => !IsAttacking && !IsOnCooldown;
+	/// <summary>Fired once per hit phase, on the first frame it is active (before its hit shapes run).</summary>
+	public event Action<AttackContext, HitPhaseDef> OnHitPhaseStarted;
+	private readonly HashSet<HitPhaseDef> _startedPhases = new();
+
+	private readonly HashSet<HitPhaseDef> _swingPhasesPlayed = new();
 
 	private float AttackElapsed;
 	private float _cooldownTimer;
@@ -94,8 +100,10 @@ public sealed class CombatComponent : Component
 			CurrentAttack = null;
 			AttackElapsed = 0f;
 			_hitObjects.Clear();
+			_startedPhases.Clear();
 			_phaseHitObjects.Clear();
 			_phasePoses.Clear();
+			_swingPhasesPlayed.Clear();
 
 			var renderer = Components.GetInParentOrSelf<SkinnedModelRenderer>() ?? Components.GetInChildren<SkinnedModelRenderer>();
 			renderer?.Set( "b_attack", false );
@@ -119,6 +127,7 @@ public sealed class CombatComponent : Component
 		// Live off StatSheet.AttackSpeed (buffs, loot affixes, etc.) rather than baked into the
 		// AttackDef at build time — mirrors how SpellComponent already reads CastSpeed live at cast time.
 		var attackSpeedMultiplier = MathF.Max( 0.01f, (attackerActor?.StatSheet?.AttackSpeed.Value ?? 100f) / 100f );
+		var rangeMultiplier = MathF.Max( 0.1f, (attackerActor?.StatSheet?.Range.Value ?? 100f) / 100f );
 
 		var baseDamage = new DamageProfileDef
 		{
@@ -165,13 +174,7 @@ public sealed class CombatComponent : Component
 					StopAfterFirstHit = phase.StopAfterFirstHit,
 					IndependentHits = phase.IndependentHits,
 					Shapes = (phase.Shapes ?? new List<HitShapeDef>())
-						.Select( shape => new HitShapeDef
-						{
-							CastType = shape.CastType,
-							LocalOffset = shape.LocalOffset,
-							SweepOffset = shape.SweepOffset,
-							BoxSize = shape.BoxSize
-						} )
+						.Select( shape => shape.ScaledReach( rangeMultiplier ) )
 						.ToList()
 				} )
 				.ToList(),
@@ -218,8 +221,10 @@ public sealed class CombatComponent : Component
 		CurrentAttack = context;
 		AttackElapsed = 0f;
 		_hitObjects.Clear();
+		_startedPhases.Clear();
 		_phaseHitObjects.Clear();
 		_phasePoses.Clear();
+		_swingPhasesPlayed.Clear();
 
 		var attacker = ResolveActor( context.Attacker );
 		attacker?.PayCost( context.Attack );
@@ -375,6 +380,13 @@ public sealed class CombatComponent : Component
 		// Hit phases are authored relative to the end of startup, so offset by StartupTime.
 		// A phase with StartTime=0.18 on a StartupTime=0.4 attack fires at t=0.58 from input.
 		float activeElapsed = AttackElapsed - CurrentAttack.StartupTime;
+		const float swingLead = 0.05f;
+
+		foreach ( var phase in CurrentAttack.HitPhases )
+		{
+			if ( activeElapsed >= phase.StartTime - swingLead && _swingPhasesPlayed.Add( phase ) )
+				SFXControl.PlaySwing( CurrentAttack );
+		}
  
 		if ( activeElapsed >= 0f )
 		{
@@ -382,10 +394,16 @@ public sealed class CombatComponent : Component
 			{
 				if ( activeElapsed >= phase.StartTime && activeElapsed <= phase.EndTime )
 				{
+					
 					if ( !_phasePoses.TryGetValue( phase, out var pose ) )
 					{
 						pose = CaptureHitPhasePose( CurrentAttack );
 						_phasePoses.Add( phase, pose );
+					}
+
+					if ( _startedPhases.Add( phase ) )
+					{
+						OnHitPhaseStarted?.Invoke( CurrentAttack, phase );
 					}
 
 					ExecuteHitPhase( CurrentAttack, phase, pose );
@@ -409,8 +427,10 @@ public sealed class CombatComponent : Component
 			var renderer = Components.GetInParentOrSelf<SkinnedModelRenderer>() ?? Components.GetInChildren<SkinnedModelRenderer>();
 			renderer?.Set( "b_attack", false );
 			_hitObjects.Clear();
+			_startedPhases.Clear();
 			_phaseHitObjects.Clear();
 			_phasePoses.Clear();
+			_swingPhasesPlayed.Clear();
 		}
 	}
 

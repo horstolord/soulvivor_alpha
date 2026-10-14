@@ -58,7 +58,8 @@ public static class ItemData
 				BaseDamage = 14,
 				BaseAttackSpeed = 2.0f,
 				PoiseDamage = 6,
-				Weight = 4
+				Weight = 4,
+				Range = 1f
 			},
 			WeaponVisual = new WeaponVisualDef{ PrefabPath = "models/Weapons/swordtest.prefab"}
 		},
@@ -220,7 +221,7 @@ public static class ItemData
 		{
 			Slot = EquipmentSlot.Melee,
 			WeaponClass = WeaponClass.Sword,
-			Stats = new EquipmentStatBlock { BaseDamage = 10, BaseAttackSpeed = 2f, PoiseDamage = 4, Weight = 3 },
+			Stats = new EquipmentStatBlock { BaseDamage = 10, BaseAttackSpeed = 2f, PoiseDamage = 4, Weight = 3, Range = 1f },
 			WeaponVisual = new WeaponVisualDef{ PrefabPath = "models/Weapons/sword1.prefab"}
 		},
 		Implicits = new()
@@ -239,7 +240,7 @@ public static class ItemData
 		{
 			Slot = EquipmentSlot.Melee,
 			WeaponClass = WeaponClass.Sword,
-			Stats = new EquipmentStatBlock { BaseDamage = 24, BaseAttackSpeed = 1f, PoiseDamage = 4, Weight = 3 },
+			Stats = new EquipmentStatBlock { BaseDamage = 24, BaseAttackSpeed = 1f, PoiseDamage = 4, Weight = 3, Range = 1f },
 			WeaponVisual = new WeaponVisualDef { PrefabPath = ItemPrefabPath( "weapons/melee", "longsword" ) }
 		},
 		Implicits = new()
@@ -262,7 +263,7 @@ public static class ItemData
 		{
 			Slot = EquipmentSlot.Melee,
 			WeaponClass = WeaponClass.Dagger,
-			Stats = new EquipmentStatBlock { BaseDamage = 8, BaseAttackSpeed = 3f, PoiseDamage = 4, Weight = 3 },
+			Stats = new EquipmentStatBlock { BaseDamage = 8, BaseAttackSpeed = 3f, PoiseDamage = 4, Weight = 3, Range = 0.5f },
 			WeaponVisual = new WeaponVisualDef { PrefabPath = ItemPrefabPath( "weapons/melee", "dagger" ) }
 		},
 		Implicits = new()
@@ -347,22 +348,22 @@ public static class ItemData
 	public static ItemDef deathPlate = CreateArmor( "death_plate", "Death Plate", "metal", 17f, 11f, 3 );
 	public static ItemDef chaosPlate = CreateArmor( "chaos_plate", "Chaos Plate", "metal", 16f, 12f, 3 );
 
-	public static ItemDef wornLongsword = CreateWeapon( "worn_longsword", "Worn Longsword", "sword", 16f, 1f, 6f, 5f, 1 );
-	public static ItemDef crudeMachete = CreateWeapon( "crude_machete", "Crude Machete", "sword", 13f, 1.25f, 5f, 3.5f, 3 );
-	public static ItemDef flintCleaver = CreateWeapon( "flint_cleaver", "Flint Cleaver", "axe", 19f, 0.9f, 8f, 6f, 3 );
-	public static ItemDef bastardSword = CreateWeapon( "bastard_sword", "Bastard Sword", "sword", 23f, 0.9f, 8f, 6.5f, 3, true );
-	public static ItemDef zweihaender = CreateWeapon( "zweihaender", "Zweihaender", "sword", 29f, 0.7f, 12f, 9f, 3, true );
-	public static ItemDef streitaxt = CreateWeapon( "streitaxt", "Streitaxt", "axe", 26f, 0.75f, 11f, 8f, 3, true );
+	public static ItemDef wornLongsword = CreateWeapon( "worn_longsword", "Worn Longsword", "sword", 16f, 1f, 6f, 5f, 1, range: 1f );
+	public static ItemDef crudeMachete = CreateWeapon( "crude_machete", "Crude Machete", "sword", 13f, 1.25f, 5f, 3.5f, 3, range: 1f );
+	public static ItemDef flintCleaver = CreateWeapon( "flint_cleaver", "Flint Cleaver", "axe", 19f, 0.9f, 8f, 6f, 3, range: 1.1f );
+	public static ItemDef bastardSword = CreateWeapon( "bastard_sword", "Bastard Sword", "sword", 23f, 0.9f, 8f, 6.5f, 3, true, range: 1f );
+	public static ItemDef zweihaender = CreateWeapon( "zweihaender", "Zweihaender", "sword", 29f, 0.7f, 12f, 9f, 3, true, range: 1f );
+	public static ItemDef streitaxt = CreateWeapon( "streitaxt", "Streitaxt", "axe", 26f, 0.75f, 11f, 8f, 3, true, range: 1.1f );
 
-	public static ItemDef shoddySledge = CreateWeapon( "shoddy_sledge", "Shoddy Sledge", "hammer", 17f, 0.8f, 11f, 8f, 1, true );
-	public static ItemDef maul = CreateWeapon( "maul", "Maul", "hammer", 28f, 0.65f, 17f, 12f, 3, true );
-	public static ItemDef morningStar = CreateWeapon( "morning_star", "Morning Star", "mace", 22f, 0.9f, 12f, 8f, 3 );
-	public static ItemDef blacksmithHammer = CreateWeapon( "blacksmith_hammer", "Blacksmith Hammer", "hammer", 20f, 0.85f, 14f, 9f, 3 );
+	public static ItemDef shoddySledge = CreateWeapon( "shoddy_sledge", "Shoddy Sledge", "hammer", 17f, 0.8f, 11f, 8f, 1, true, range: 0.9f );
+	public static ItemDef maul = CreateWeapon( "maul", "Maul", "hammer", 28f, 0.65f, 17f, 12f, 3, true, range: 1f );
+	public static ItemDef morningStar = CreateWeapon( "morning_star", "Morning Star", "mace", 22f, 0.9f, 12f, 8f, 3, range: 0.9f );
+	public static ItemDef blacksmithHammer = CreateWeapon( "blacksmith_hammer", "Blacksmith Hammer", "hammer", 20f, 0.85f, 14f, 9f, 3, range: 0.9f );
 
-	public static ItemDef splinteredSpear = CreateWeapon( "splintered_spear", "Splintered Spear", "spear", 13f, 1.1f, 7f, 4f, 1 );
-	public static ItemDef soldierSpear = CreateWeapon( "soldier_spear", "Soldier Spear", "spear", 20f, 1f, 9f, 6f, 3, true );
-	public static ItemDef halberd = CreateWeapon( "halberd", "Halberd", "polearm", 27f, 0.8f, 13f, 9f, 3, true );
-	public static ItemDef crossSpear = CreateWeapon( "cross_spear", "Cross Spear", "spear", 23f, 0.95f, 10f, 7f, 3, true );
+	public static ItemDef splinteredSpear = CreateWeapon( "splintered_spear", "Splintered Spear", "spear", 13f, 1.1f, 7f, 4f, 1, range: 1.25f );
+	public static ItemDef soldierSpear = CreateWeapon( "soldier_spear", "Soldier Spear", "spear", 20f, 1f, 9f, 6f, 3, true, range: 1.25f );
+	public static ItemDef halberd = CreateWeapon( "halberd", "Halberd", "polearm", 27f, 0.8f, 13f, 9f, 3, true, range: 1.35f );
+	public static ItemDef crossSpear = CreateWeapon( "cross_spear", "Cross Spear", "spear", 23f, 0.95f, 10f, 7f, 3, true, range: 1.25f );
 
 	public static ItemDef shortbow = CreateBow( "shortbow", "Shortbow",12f, 1f, 4f, 2.5f, 1, 0.45f, 1.5f, 1f );
 	public static ItemDef simpleBow = CreateBow( "simple_bow", "Simple Bow", 11f, 1.1f, 4f, 2.5f, 1 );
@@ -411,7 +412,7 @@ public static class ItemData
 		};
 	}
 
-	private static ItemDef CreateWeapon( string id, string name, string weaponType, float damage, float speed, float poise, float weight, int minLevel, bool twoHanded = false )
+	private static ItemDef CreateWeapon( string id, string name, string weaponType, float damage, float speed, float poise, float weight, int minLevel, bool twoHanded = false, float range = 1f )
 	{
 		var tags = new List<string> { "weapon", weaponType, "melee", "metal", $"tier{minLevel}" };
 		if ( twoHanded )
@@ -438,7 +439,8 @@ public static class ItemData
 					BaseAttackSpeed = speed,
 					PoiseDamage = poise,
 					Weight = weight,
-					Quality = 1f
+					Quality = 1f,
+					Range = range
 				},
 				WeaponVisual = new WeaponVisualDef { PrefabPath = ItemPrefabPath( "weapons/melee", id ) }
 			}

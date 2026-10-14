@@ -14,7 +14,7 @@ public sealed class Player : Actor
 	public ChargeControl Charge { get; private set; }
 	public HotbarControl Hotbar { get; private set; }
 	private PlayerController _playerController;
-	
+	public ForceActionControl ForceAction {get ; private set;}
 	// Load the "player" / hero stat preset from MobRegistry
 	protected override string GetMobPresetId() => "player";
 
@@ -26,11 +26,12 @@ public sealed class Player : Actor
 		base.OnStart();
 		MobRegistry.Initialize();
 		Local = this;
-		Combat = GameObject.Components.Get<CombatComponent>();
+		Combat = GameObject.Components.GetOrCreate<CombatComponent>();
 		Slide = Components.GetOrCreate<SlideControl>();
 		Sprint = Components.GetOrCreate<SprintControl>();
 		Charge = Components.GetOrCreate<ChargeControl>();
 		Hotbar = Components.GetOrCreate<HotbarControl>();
+		ForceAction = Components.GetOrCreate<ForceActionControl>();
 		_playerController = GameObject.Components.GetInAncestorsOrSelf<PlayerController>(  );
 		BodyRenderer ??= Components.GetInChildren<SkinnedModelRenderer>();
 		Held = Components.GetOrCreate<HeldWeaponControl>();
@@ -63,6 +64,8 @@ public sealed class Player : Actor
 		{
 			HandleCombatInput();
 		}
+		if ( Input.Keyboard.Pressed( "H" ) ) ForceAction?.TryTrigger( ForceActionType.Imbue );
+
 	}
 
 	public bool TryUseAttack( AttackDef attack )
@@ -210,6 +213,11 @@ public sealed class Player : Actor
 
 			TryPerformAttack( rangedAttack );
 		}
+		if ( Input.Keyboard.Pressed( "F" ) )
+		{
+			if ( TryPerformAttack( AttackData.Kick, useBank: false ) )
+				ForceAction?.TryTrigger( ForceActionType.Kick );
+		}
 	}
 
 	private void HandleChargedAttackInput()
@@ -224,7 +232,7 @@ public sealed class Player : Actor
 				ChargeInput.Weapon => Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" ),
 				_ => false
 			};
-			if ( held ) return; // still holding — keep ramping via ChargeControl.OnUpdate
+			if ( held ) return; // still holding, ChargeControl.OnUpdate keeps ramping
 
 			float charge01 = Charge.ReleaseCharge();
 			var releasedAttack = _chargingAttack;
@@ -233,47 +241,48 @@ public sealed class Player : Actor
 			_chargeInput = ChargeInput.None;
 			if ( releasedAttack == null ) return;
 
-			TryPerformAttack( releasedAttack, charge01 );
-			if ( releasedInput == ChargeInput.Weapon )
-			{
-				Held?.EnterUnarmedStance();
-				BodyRenderer?.Set( "b_attack", true );
-			}
+			FireChargedAttack( releasedAttack, releasedInput, charge01 );
+			return;
+		}
+
+		bool weaponPressed = Input.Keyboard.Pressed( "attack1" ) || Input.Keyboard.Pressed( "mouse1" );
+		bool kickPressed = Input.Keyboard.Pressed( "F" );
+
+		// Banked charge: fire instantly on the press edge, no hold needed.
+		// TryStartAttack validates state and cost; on failure the bank is kept.
+		if ( Charge.HasBankedCharge && (weaponPressed || kickPressed) )
+		{
+			if ( weaponPressed )
+				FireChargedAttack( Equipment?.GetWeaponAttackDef() ?? AttackData.Punch, ChargeInput.Weapon, 0f );
+			else
+				FireChargedAttack( AttackData.Kick, ChargeInput.Kick, 0f );
 			return;
 		}
 
 		if ( !Charge.CanStartCharge() ) return;
 
-		bool weaponHeld = Input.Keyboard.Down( "attack1" ) || Input.Keyboard.Down( "mouse1" );
-		bool kickHeld = Input.Keyboard.Down( "F" );
-		if ( !weaponHeld && !kickHeld ) return;
+		// ... rest unchanged (weaponHeld / kickHeld / StartCharge) ...
+	}
 
-		// Resolve and cache the attack at charge start so equipment changes cannot alter a held swing.
-		var attack = weaponHeld
-			? Equipment?.GetWeaponAttackDef() ?? AttackData.Punch
-			: AttackData.Kick;
-		var chargeInput = weaponHeld ? ChargeInput.Weapon : ChargeInput.Kick;
+	private void FireChargedAttack( AttackDef attack, ChargeInput input, float charge01 )
+	{
+		// The kick leaves the bank alone: its blast spends it when the hit phase starts.
+		bool isKick = input == ChargeInput.Kick;
+		if ( !TryPerformAttack( attack, charge01, useBank: !isKick ) ) return;
 
-		float swiftness = StatSheet?.Swiftness.Value ?? 0f;
-		float swiftnessScale = attack.Scaling?.SwiftnessToChargeSpeed ?? 0f;
-		const float baseChargeSeconds = 1.0f; // TODO tune: time to max charge at 0 Swiftness scaling
-		float chargeSeconds = baseChargeSeconds / (1f + swiftness * swiftnessScale / 100f);
-		float rampRate = 1f / System.MathF.Max( 0.05f, chargeSeconds );
-
-		// Charge cost is incremental and additive to the attack cost paid on release.
-		if ( Charge.StartCharge( rampRate, attack.StaminaCost * 0.5f, attack.EnergyCost * 0.5f ) )
+		if ( input == ChargeInput.Weapon )
 		{
-			_chargingAttack = attack;
-			_chargeInput = chargeInput;
+			Held?.EnterUnarmedStance();
+			BodyRenderer?.Set( "b_attack", true );
 		}
 	}
 
-	private bool TryPerformAttack( AttackDef attack, float charge01 = 0f )
+	private bool TryPerformAttack( AttackDef attack, float charge01 = 0f, bool useBank = true )
 	{
 		if ( attack == null || Combat == null ) return false;
 
 		bool consumeBankedCharge = false;
-		if ( Charge != null && Charge.TryGetBankedCharge( out var bankedCharge ) )
+		if ( useBank && Charge != null && Charge.TryGetBankedCharge( out var bankedCharge ) )
 		{
 			charge01 = System.Math.Clamp( charge01 + bankedCharge, 0f, 1f );
 			consumeBankedCharge = true;

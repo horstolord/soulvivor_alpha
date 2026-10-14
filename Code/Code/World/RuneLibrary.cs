@@ -238,12 +238,12 @@ public static class RuneLibrary
 		}
 	};
  
-	private static RuneDef ForceFor( string element ) => element switch
+	public static RuneDef ForceFor( RuneElementTag element ) => element switch
 	{
-		"fire" => FireForce,
-		"frost" => FrostForce,
-		"air" => AirForce,
-		"earth" => EarthForce,
+		RuneElementTag.Fire => FireForce,
+		RuneElementTag.Frost => FrostForce,
+		RuneElementTag.Air => AirForce,
+		RuneElementTag.Earth => EarthForce,
 		_ => null
 	};
 
@@ -266,7 +266,10 @@ public static class RuneLibrary
 		runes = null;
 		var parts = key.Split( '_' );
 		if ( parts.Length != 2 ) return false;
-		var force = ForceFor( parts[0] );
+		if ( !Enum.TryParse<RuneElementTag>( parts[0], ignoreCase: true, out var element )
+			|| !Enum.IsDefined( typeof( RuneElementTag ), element ) )
+			return false;
+		var force = ForceFor( element );
 		var method = MethodFor( parts[1] );
 		if ( force == null || method == null ) return false;
 		runes = new List<RuneDef> { force, method };

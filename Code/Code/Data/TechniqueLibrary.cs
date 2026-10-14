@@ -35,7 +35,7 @@ public static class TechniqueLibrary
 		}
 	};
 
-	/// <summary>Long wind-up, single huge hit. Committed: cannot be launched out of a swing.</summary>
+	/// <summary>Long wind-up, single huge hit. Can be launched out of a swing.</summary>
 	public static TechniqueDef MortalBlow => new TechniqueDef
 	{
 		Id = "mortal_blow",
@@ -43,9 +43,9 @@ public static class TechniqueLibrary
 		Description = "A slow, committed strike that hits enormously hard.",
 		Form = TechniqueForm.Swing,
 		StaminaCost = 28f,
-		Cooldown = 6f,
+		Cooldown = 2f,
 		SwingCooldown = 0.3f,
-		SwingReset = false,
+		SwingReset = true,
 		DamageMultiplier = 3.5f,
 		KnockbackMultiplier = 2.5f,
 		StaggerMultiplier = 3f,
@@ -91,7 +91,7 @@ public static class TechniqueLibrary
 			TickInterval = 0.3f,
 			StaminaPerSecond = 14f,
 			MoveSpeedPenaltyPercent = -35f,
-			MaxDuration = 6f,
+			MaxDuration = 666f,
 			EndLockout = 0.3f
 		},
 		Tags = new HashSet<AttackTag> { AttackTag.Melee, AttackTag.Slash, AttackTag.Physical }

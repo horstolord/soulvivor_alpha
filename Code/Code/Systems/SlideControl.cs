@@ -148,6 +148,7 @@ public sealed class SlideControl : Component
 		_playerController.IsDucking = true;
 
 		SetAnimationState( CitizenAnimationHelper.SpecialMoveStyle.Slide, 1f );
+		Components.GetInAncestorsOrSelf<ForceActionControl>()?.TryTrigger( ForceActionType.Slide );
 	}
 
 	public void EndSlide()
@@ -199,4 +200,5 @@ public sealed class SlideControl : Component
 			_bodyRenderer.Set( "duck", duckLevel );
 		}
 	}
+	
 }

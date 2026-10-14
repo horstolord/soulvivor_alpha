@@ -26,6 +26,8 @@ public sealed class SpellComponent : Component
 	private ChargeControl _chargeControl;
 	private PendingCast _pendingCast;
 	private bool _subscribedToActor;
+	/// <summary>Fired after a successful cast's payloads are dispatched, including instant casts.</summary>
+	public event Action<SpellContext> OnSpellCast;
 
 	/// <summary>Payloads waiting out a DeliveryDelay (multicast stagger, echo). They outlive the cast that made them.</summary>
 	private readonly List<(float Time, SpellPayload Payload)> _delayed = new();
@@ -40,6 +42,30 @@ public sealed class SpellComponent : Component
 		public float Elapsed;
 		public float CostMultiplier = 1f;
 		public float VisualProgress;
+	}
+	/// <summary>
+	/// Quick cast: no wind-up, no Casting state, no recharge. Pays cost and delivers immediately.
+	/// Returns false (nothing spent) if the sequence is invalid or unaffordable.
+	/// </summary>
+	public bool CastInstant( List<RuneDef> runes, Vector3 origin, Vector3 aimDirection, float charge01 = 0f )
+	{
+		CacheComponents();
+		if ( runes == null || runes.Count == 0 ) return false;
+
+		var eval = RuneEvaluator.EvaluateSequence( runes, GameObject, origin, aimDirection, null, charge01: charge01 );
+		if ( !eval.Success ) return false;
+
+		if ( _actor != null )
+		{
+			if ( !_actor.CanPayCost( eval.ConsolidatedContext ) ) return false;
+			_actor.PayCost( eval.ConsolidatedContext );
+		}
+
+		ResolveProjectileSpread( eval.Payloads );
+		foreach ( var payload in eval.Payloads )
+			RuneEvaluator.ExecuteDelivery( payload );
+		OnSpellCast?.Invoke( eval.ConsolidatedContext );
+		return true;
 	}
 
 	private sealed class CastVisualInstance
@@ -259,6 +285,7 @@ public sealed class SpellComponent : Component
 		if ( _actor != null ) _actor.PayCost( finalCost );
 		foreach ( var payload in cast.Payloads )
 			RuneEvaluator.Dispatch( payload );
+		OnSpellCast?.Invoke( cast.CostContext );
 		TryQueueEcho( cast.Payloads );
 
 		_rechargeTimer = Catalyst?.BaseRechargeTime ?? 1f;
@@ -292,6 +319,7 @@ public sealed class SpellComponent : Component
 				ctx.Origin = CastAnchor.WorldPosition;
 
 			RuneEvaluator.ExecuteDelivery( payload );
+			
 		}
 	}
 

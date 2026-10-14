@@ -8,6 +8,8 @@ using Sandbox.Code.Systems;
 
 public static class AttackData
 {
+	public const float ReferenceReach = 125f;
+
 	private enum MeleeWeaponStyle
 	{
 		Slash,
@@ -191,6 +193,7 @@ public static class AttackData
 					SwiftnessToHealthDamage = 1f
 				},
 				AnimationName = "attack_shoot",
+				SwingSound = weapon.Equipment?.WeaponVisual?.SwingSound,
 				LockFacing = true,
 				CanMoveDuringStartup = false,
 				CanMoveDuringRecovery = false,
@@ -201,6 +204,9 @@ public static class AttackData
 			};
 		}
 
+		// ItemData.Range is a multiplier of the reference reach (e.g. 0.5 = half reach).
+		float weaponReach = (stats.Range > 0f ? stats.Range : 1f) * ReferenceReach;
+		float weaponMult = weaponReach / ReferenceReach;
 		var style = GetMeleeWeaponStyle( equipment?.WeaponClass ?? WeaponClass.None );
 		var styleTag = style switch
 		{
@@ -232,6 +238,7 @@ public static class AttackData
 				BoxSize = new Vector3( 100f, 100f, 70f )
 			}
 		};
+		hitShape = hitShape.ScaledReach( weaponMult );
 
 		// Scale timing: higher attack speed → shorter windows
 		float startup  = 0.25f / speed;
@@ -265,6 +272,7 @@ public static class AttackData
 				SwiftnessToChargeSpeed = 1.5f  // TODO tune
 			},
 			AnimationName  = "b_attack",
+			SwingSound = weapon.Equipment?.WeaponVisual?.SwingSound,
 			LockFacing     = true,
 			CanMoveDuringStartup  = false,
 			CanMoveDuringRecovery = false,

@@ -30,6 +30,14 @@ public class HitShapeDef
 	public Vector3 LocalOffset;
 	public Vector3 SweepOffset;
 	public Vector3 BoxSize;
+
+	public HitShapeDef ScaledReach( float multiplier ) => new()
+	{
+		CastType = CastType,
+		LocalOffset = LocalOffset.WithX( LocalOffset.x * multiplier ),
+		SweepOffset = SweepOffset.WithX( SweepOffset.x * multiplier ),
+		BoxSize = BoxSize.WithX( BoxSize.x * multiplier )
+	};
 }
 
 public enum AttackTag
@@ -73,6 +81,8 @@ public class AttackDef : ICostable
 	public bool CanMoveDuringRecovery;
 	public string ProjectilePrefabPath;
 	public ProjectileTemplate ProjectileTemplate; //null=melee
+	public string SwingSound; // Soundevent path, null=silent
+	public string SwingVfxPrefab; // trail/arc
 }
 public class AttributeScalingDef
 {

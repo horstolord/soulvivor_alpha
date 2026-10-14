@@ -65,6 +65,7 @@ public sealed class WeaponVisualDef
 	public Vector3 LocalPosition { get; init; } = Vector3.Zero;
 	public Angles LocalRotation { get; init; } = Angles.Zero;
 	public float Scale { get; init; } = 1f;
+	public string SwingSound { get; init; }
 }
 public sealed class EquipmentStatBlock
 {
@@ -78,6 +79,7 @@ public sealed class EquipmentStatBlock
 	//public List<MaterialData> Material { get; init; }
 	public float Quality { get; init; }
 	public float Weight { get; init; }
+	public float Range { get; init; } // Multiplier of reference weapon reach; 0 = reference reach
 	
 }
 public sealed class ConsumableData
