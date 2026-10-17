@@ -74,7 +74,7 @@ public sealed class Enemy : Actor
 			Agent = Components.GetOrCreate<NavMeshAgent>();
 			Agent.UpdatePosition = false;
 			Agent.UpdateRotation = false;
-			Agent.Acceleration = MathF.Max( Agent.Acceleration, 1000f );
+			Agent.Acceleration = MathF.Max( Agent.Acceleration, 250f );
 			Agent.SetAgentPosition( GameObject.WorldPosition );
 		}
 
@@ -222,15 +222,19 @@ private void LogMovementDiagnostics( float speed, float planarSpeed )
 
 private void ProbeGround()
 {
+	float s = MathF.Max( 0.01f, GameObject.WorldScale.z );
 	var pos = GameObject.WorldPosition;
+	float feetZ = GameObject.GetBounds().Mins.z;   // verify: world-space bounds incl. children
+	var from = new Vector3( pos.x, pos.y, feetZ + GroundProbeUp * s );
+
 	var tr = Scene.Trace
-		.Ray( pos + Vector3.Up * GroundProbeUp, pos + Vector3.Down * GroundProbeDown )
+		.Ray( from, from + Vector3.Down * (GroundProbeUp + GroundProbeDown) * s )
 		.IgnoreGameObjectHierarchy( GameObject )
 		.Run();
 
-	bool valid = tr.Hit && !CombatMath.ResolveActorRoot( tr.GameObject ).IsValid(); // don't stand on heads
-	_groundGap = valid ? pos.z - tr.HitPosition.z : float.MaxValue;
-	IsGrounded = valid && _groundGap <= GroundedTolerance;
+	bool valid = tr.Hit && !CombatMath.ResolveActorRoot( tr.GameObject ).IsValid();
+	_groundGap = valid ? feetZ - tr.HitPosition.z : float.MaxValue;
+	IsGrounded = valid && _groundGap <= GroundedTolerance * s;
 }
 
 private void WalkStep( Vector3 wishDir, float speed, float dt )
@@ -243,9 +247,7 @@ private void WalkStep( Vector3 wishDir, float speed, float dt )
 	horizontal += (wishDir * speed - horizontal).ClampLength( Acceleration * dt );
 	vel = horizontal.WithZ( vel.z );
 
-	// Sink / hover correction through velocity, never teleport. Skip while being launched upward.
-	if ( IsGrounded && vel.z < 20f )
-		vel.z = Math.Clamp( -_groundGap * 10f, -200f, 200f );
+	
 
 	_body.Velocity = vel;
 }
@@ -259,6 +261,7 @@ private void ClimbStep( float speed )
 
 private void UpdateMoveMode( Vector3 directWish )
 {
+	var s = GameObject.WorldScale.z;
 	var pos = GameObject.WorldPosition;
 	var destination = _hasMoveTarget ? _moveTarget : Target.WorldPosition;
 	float targetDz = destination.z - pos.z;
@@ -277,7 +280,7 @@ private void UpdateMoveMode( Vector3 directWish )
 
 		if ( targetDz > MinTargetHeightAbove
 			&& directWish != Vector3.Zero
-			&& TryFindWall( pos + Vector3.Up * BodyHeight * 0.5f, directWish, out var normal ) )
+			&& TryFindWall( pos + Vector3.Up * ( BodyHeight * s ) * 0.5f, directWish, out var normal ) )
 		{
 			_wallNormal = normal;
 			SetMoveMode( EnemyMoveMode.Climb );
@@ -301,7 +304,7 @@ private void UpdateMoveMode( Vector3 directWish )
 			return;
 		}
 
-		if ( TryFindWall( pos + Vector3.Up * BodyHeight * 0.5f, -_wallNormal, out var nextNormal ) )
+		if ( TryFindWall( pos + Vector3.Up * (BodyHeight * s ) * 0.5f, -_wallNormal, out var nextNormal ) )
 		{
 			_wallNormal = nextNormal;
 			return;
@@ -325,7 +328,8 @@ private void UpdateMoveMode( Vector3 directWish )
 
 private bool HasDropAhead( Vector3 direction )
 {
-	var ahead = GameObject.WorldPosition + direction * (BodyRadius + WallCheckDistance);
+	var s = GameObject.WorldScale.z;
+	var ahead = GameObject.WorldPosition + direction * ((BodyRadius + WallCheckDistance)*s);
 	var trace = Scene.Trace
 		.Ray( ahead + Vector3.Up * GroundProbeUp, ahead - Vector3.Up * GroundProbeDown )
 		.IgnoreGameObjectHierarchy( GameObject )

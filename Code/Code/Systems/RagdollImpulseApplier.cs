@@ -6,6 +6,24 @@ public static class RagdollImpulseApplier
 {
 	public static bool BodiesReady( ModelPhysics physics ) =>
 		physics != null && physics.Bodies != null && physics.Bodies.Count > 0;
+	/// <summary>Hard cap on any velocity we hand to ragdoll bodies (units/s). Tune.</summary>
+	public const float MaxLaunchSpeed = 1200f;
+
+	private static Vector3 ClampSpeed( Vector3 v ) =>
+		v.Length > MaxLaunchSpeed ? v.Normal * MaxLaunchSpeed : v;
+
+	/// <summary>Call once per ragdoll entry, after bodies exist.</summary>
+	public static void Stabilize( ModelPhysics physics, float angularDamping = 3f )
+	{
+		if ( !BodiesReady( physics ) ) return;
+		foreach ( var body in physics.Bodies )
+		{
+			var rb = body.Component;
+			if ( !rb.IsValid() ) continue;
+			rb.AngularDamping = angularDamping;
+			rb.EnhancedCcd = true;
+		}
+	}
 
 	/// <summary>
 	/// Sets every bone body to the same linear velocity. Used right after ragdolling so the
@@ -18,7 +36,7 @@ public static class RagdollImpulseApplier
 		foreach ( var body in physics.Bodies )
 		{
 			var rb = body.Component;
-			if ( rb.IsValid() ) rb.Velocity = velocity;
+			if ( rb.IsValid() ) rb.Velocity = ClampSpeed(velocity);
 		}
 	}
 
@@ -45,8 +63,8 @@ public static class RagdollImpulseApplier
 		}
 
 		if ( nearest == null ) return false;
-
-		nearest.ApplyImpulse( impulse );
+		var deltaV = ClampSpeed( impulse / nearest.Mass );
+		nearest.ApplyImpulse( deltaV * nearest.Mass );
 		return true;
 	}
 }

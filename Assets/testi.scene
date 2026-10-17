@@ -83,7 +83,10 @@
               }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -193,7 +196,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -265,7 +271,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -337,7 +346,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -409,7 +421,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -481,7 +496,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -553,7 +571,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -625,7 +646,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -697,7 +721,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -769,7 +796,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -844,7 +874,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -917,7 +950,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -989,7 +1025,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1061,7 +1100,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1133,7 +1175,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1205,7 +1250,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1277,7 +1325,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1349,7 +1400,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1421,7 +1475,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1496,7 +1553,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1572,7 +1632,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1646,10 +1709,16 @@
           "MaterialOverride": null,
           "Materials": {
             "indexed": {
-              "0": "dev/helper/testgrid.vmat"
+              "0": {
+                "Id": "7957b8b8-0023-0000-0000-008000000000",
+                "Path": "dev/helper/testgrid.vmat"
+              }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1724,12 +1793,15 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1796,6 +1868,7 @@
           "__guid": "4ebde4c6-0c1d-44e2-a111-97bb6fc73f47",
           "__enabled": true,
           "Flags": 0,
+          "__version": 1,
           "AccelerationTime": 2,
           "AimStrengthBody": 1,
           "AimStrengthEyes": 1,
@@ -1810,15 +1883,16 @@
           },
           "BodyCollisionTags": null,
           "BodyHeight": 72,
-          "BodyMass": 10,
+          "BodyMass": 244,
           "BodyRadius": 16,
-          "BrakePower": 0.15454546,
+          "BrakePower": 0.77272725,
           "CameraCollisionIgnore": "",
           "CameraOffset": "256,0,12",
           "ColliderObject": {
             "_type": "gameobject",
             "go": "87cc6f05-f75d-4e29-91fe-e1a1df79f232"
           },
+          "CoyoteTime": 0.33,
           "DeaccelerationTime": 2,
           "DuckedHeight": 36,
           "DuckedSpeed": 70,
@@ -1875,6 +1949,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0.1,
           "Locking": {
             "X": false,
@@ -1885,7 +1960,7 @@
             "Roll": true
           },
           "MassCenterOverride": "0,0,36",
-          "MassOverride": 10,
+          "MassOverride": 250,
           "MinImpactDamageSpeed": 500,
           "MotionEnabled": true,
           "OnComponentDestroy": null,
@@ -1894,7 +1969,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "OverrideMassCenter": true,
+          "OverrideMassCenter": false,
           "RigidbodyFlags": "DisableCollisionSounds",
           "SleepThreshold": 2,
           "StartAsleep": false
@@ -2280,7 +2355,10 @@
             "Yaw": false,
             "Roll": false
           },
-          "Model": null,
+          "Model": {
+            "Id": "161d0b00-c517-4044-989d-b679dab75a28",
+            "Path": "models/citizen_human/citizen_human_male.vmdl"
+          },
           "MotionEnabled": true,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -2289,7 +2367,12 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "PhysicsWereCreated": false,
-          "Renderer": null,
+          "Renderer": {
+            "_type": "component",
+            "component_id": "b6bdd189-7b68-424a-ab63-0dd03286349e",
+            "go": "c3f29ab8-1bb6-4d2d-8f1e-f923c9f196ab",
+            "component_type": "SkinnedModelRenderer"
+          },
           "RigidbodyFlags": 0,
           "StartAsleep": false
         },
@@ -2400,7 +2483,9 @@
                 "Id": "161d0b00-c517-4044-989d-b679dab75a28",
                 "Path": "models/citizen_human/citizen_human_male.vmdl"
               },
-              "Morphs": {},
+              "Morphs": {
+                "tongueOut": 0
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -4860,7 +4945,7 @@
               "Children": []
             },
             {
-              "__guid": "ce005ab4-1d32-4e69-b249-5ec14a496419",
+              "__guid": "64febbba-054f-4cd6-991f-8da75b99b302",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -4877,7 +4962,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "e883793d-8b5f-4d60-b24e-8ba1034ebaa9",
+                  "__guid": "e853f45c-a652-4922-a43a-046f477ac12b",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4927,7 +5012,7 @@
               "Children": []
             },
             {
-              "__guid": "0df0ef04-bdde-416e-a3de-297dadec9b0f",
+              "__guid": "368f2d53-f628-436b-9a24-3a264bcee71f",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -4944,7 +5029,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "df0f28b5-c4af-46f3-a1d0-e0a943faf154",
+                  "__guid": "a90cea5d-5328-4f4f-83e9-920fe04614b2",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -4994,7 +5079,7 @@
               "Children": []
             },
             {
-              "__guid": "cf1ccf12-d106-49e3-9512-d5ac41faa814",
+              "__guid": "8aed9a1b-62a5-41d9-bfb2-0240b2324e5b",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -5011,7 +5096,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "4a37d3b0-f8ed-4b26-8e91-55bb52ca2c36",
+                  "__guid": "6423b70b-a6c5-4f93-853c-bae03b32124d",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5061,7 +5146,7 @@
               "Children": []
             },
             {
-              "__guid": "32287e00-8a3d-442a-9820-65b6cb5d708e",
+              "__guid": "b506103d-924a-4a26-8b1d-41e83b0f3581",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -5078,7 +5163,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "176f547f-5e02-48e8-a698-b4cb2f2c75b8",
+                  "__guid": "d0a7eeea-ab30-4179-9f92-602b744183ee",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5128,7 +5213,7 @@
               "Children": []
             },
             {
-              "__guid": "b472e35c-277b-4935-a882-86e2eccc2297",
+              "__guid": "0d597655-42ed-404e-9aa7-fd888fc08405",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -5145,7 +5230,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "481b6604-04ec-46b1-bc04-74b43bb1f72f",
+                  "__guid": "cec4c82b-c1ef-4737-af44-2fed749568e2",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -5201,7 +5286,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Colliders",
-          "Position": "0,0,0",
+          "Position": "0,0,27.4566631",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
@@ -5219,7 +5304,7 @@
               "Flags": 0,
               "ColliderFlags": 0,
               "Elasticity": null,
-              "End": "0,0,36",
+              "End": "0,0,14.0699787",
               "Friction": 0,
               "IsTrigger": false,
               "OnComponentDestroy": null,
@@ -5234,7 +5319,7 @@
               "OnTriggerExit": null,
               "Radius": 11.313708,
               "RollingResistance": null,
-              "Start": "0,0,60.6862907",
+              "Start": "0,0,66.366272",
               "Static": false,
               "Surface": null,
               "SurfaceVelocity": "0,0,0"
@@ -5242,7 +5327,7 @@
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "7fe49a11-06c1-4d84-bba7-a3006296face",
-              "__enabled": true,
+              "__enabled": false,
               "Flags": 0,
               "Center": "0,0,18",
               "ColliderFlags": 0,
@@ -5292,8 +5377,8 @@
           "__enabled": true,
           "Flags": 0,
           "BaseCreditRate": 10,
-          "BaseEnemyCap": 6,
-          "CapGrowthPerMin": 2,
+          "BaseEnemyCap": 10,
+          "CapGrowthPerMin": 20,
           "MaxCredits": 150,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -5334,7 +5419,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "bc3aa690-cacc-48e4-a145-e028e8a505b0": "ee978104-d735-807b-b532-9abddcffecdb"
+            "b6cf7dcf-e3fd-4bfd-8fdb-58852153401c": "df7af110-121a-812a-aac0-6fb41399c61d"
           }
         }
       ]
@@ -5407,7 +5492,10 @@
                   "LoopEnd": -1,
                   "Frames": [
                     {
-                      "Texture": "textures/shapes/heart1.vtex",
+                      "Texture": {
+                        "Id": "20e9d86c-0789-4856-980d-bb4165ddf273",
+                        "Path": "textures/shapes/heart1.vtex"
+                      },
                       "BroadcastMessages": []
                     }
                   ]
@@ -5469,6 +5557,7 @@
           "Gravity": true,
           "GravityScale": 1,
           "ImpactDamage": 0,
+          "InertiaScale": 1,
           "LinearDamping": 0,
           "Locking": {
             "X": false,
@@ -5538,9 +5627,15 @@
               "CreateAttachments": false,
               "LodOverride": null,
               "MaterialGroup": null,
-              "MaterialOverride": "materials/dev/simple/floor_simple_128.vmat",
+              "MaterialOverride": {
+                "Id": "b57d6ed6-820e-4d6d-a258-2a6cb56c98c1",
+                "Path": "materials/dev/simple/floor_simple_128.vmat"
+              },
               "Materials": null,
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -5585,11 +5680,14 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -5634,11 +5732,14 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -5713,12 +5814,15 @@
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                    "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                     "Path": "models/props/rock_scatter/rock_scatter.vmat"
                   }
                 }
               },
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -5790,18 +5894,21 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "d3cc06f4-feb1-4db2-981d-7fa5499c8bf5",
+                    "Id": "59a3ee01-bf8b-4cdd-8189-03eefd778885",
                     "Path": "models/sbox_props/metal_wheely_bin/metal_wheely_bin_parts.vmat"
                   }
                 }
               },
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -5873,11 +5980,14 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -5948,11 +6058,14 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -6023,11 +6136,14 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -6098,11 +6214,14 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "0a93e365-ec3b-410f-9542-7b3fc5758d8a",
+                "Id": "463eca28-deea-400e-aec4-82ab121ae933",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -6175,10 +6294,16 @@
               "MaterialOverride": null,
               "Materials": {
                 "indexed": {
-                  "0": "materials/dev/simple/floor_simple_128.vmat"
+                  "0": {
+                    "Id": "b57d6ed6-820e-4d6d-a258-2a6cb56c98c1",
+                    "Path": "materials/dev/simple/floor_simple_128.vmat"
+                  }
                 }
               },
-              "Model": "models/dev/box.vmdl",
+              "Model": {
+                "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                "Path": "models/dev/box.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -6221,9 +6346,15 @@
                   "CreateAttachments": false,
                   "LodOverride": null,
                   "MaterialGroup": null,
-                  "MaterialOverride": "materials/dev/simple/floor_simple_128.vmat",
+                  "MaterialOverride": {
+                    "Id": "b57d6ed6-820e-4d6d-a258-2a6cb56c98c1",
+                    "Path": "materials/dev/simple/floor_simple_128.vmat"
+                  },
                   "Materials": null,
-                  "Model": "models/dev/box.vmdl",
+                  "Model": {
+                    "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+                    "Path": "models/dev/box.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -6271,13 +6402,22 @@
           "CreateAttachments": false,
           "LodOverride": null,
           "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/simple/floor_simple_128.vmat",
+          "MaterialOverride": {
+            "Id": "b57d6ed6-820e-4d6d-a258-2a6cb56c98c1",
+            "Path": "materials/dev/simple/floor_simple_128.vmat"
+          },
           "Materials": {
             "indexed": {
-              "0": "dev/helper/reflectivity_90b.vmat"
+              "0": {
+                "Id": "00000000-0023-0000-d0ed-eb0523000000",
+                "Path": "dev/helper/reflectivity_90b.vmat"
+              }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6357,7 +6497,10 @@
               }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6431,10 +6574,16 @@
           "MaterialOverride": null,
           "Materials": {
             "indexed": {
-              "0": "dev/helper/testgrid.vmat"
+              "0": {
+                "Id": "7957b8b8-0023-0000-0000-008000000000",
+                "Path": "dev/helper/testgrid.vmat"
+              }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6510,7 +6659,10 @@
             "Path": "karmanfire.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/sphere.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-f09f-a6f0fe7f0000",
+            "Path": "models/dev/sphere.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6653,10 +6805,16 @@
           "MaterialOverride": null,
           "Materials": {
             "indexed": {
-              "0": "materials/water/water_clear.vmat"
+              "0": {
+                "Id": "df60a655-d860-4e06-a4ea-5cbf797b8c4d",
+                "Path": "materials/water/water_clear.vmat"
+              }
             }
           },
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6752,7 +6910,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6827,7 +6988,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6903,7 +7067,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -6979,7 +7146,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7055,7 +7225,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7131,7 +7304,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7207,7 +7383,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7283,7 +7462,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7359,7 +7541,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7435,7 +7620,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7511,7 +7699,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7587,7 +7778,10 @@
             "Path": "earth_geode.vmat"
           },
           "Materials": null,
-          "Model": "models/dev/plane.vmdl",
+          "Model": {
+            "Id": "00000000-0000-0000-306d-2b8df8010000",
+            "Path": "models/dev/plane.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -7660,7 +7854,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/dev/box.vmdl",
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,

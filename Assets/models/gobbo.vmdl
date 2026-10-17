@@ -446,7 +446,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "chest"
-						mass_override = 20.0
+						mass_override = 200.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -457,7 +457,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "head"
-						mass_override = 8.0
+						mass_override = 80.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -468,7 +468,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "lowerarm_l"
-						mass_override = 5.0
+						mass_override = 50.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -479,7 +479,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "lowerarm_r"
-						mass_override = 6.0
+						mass_override = 60.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -490,7 +490,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "Pelvis"
-						mass_override = 8.0
+						mass_override = 80.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -501,7 +501,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "Shin_l"
-						mass_override = 5.0
+						mass_override = 50.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -512,7 +512,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "Shin_r"
-						mass_override = 5.0
+						mass_override = 50.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -523,7 +523,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "Thigh_l"
-						mass_override = 5.0
+						mass_override = 50.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -534,7 +534,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "Thigh_r"
-						mass_override = 5.0
+						mass_override = 50.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -545,7 +545,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "upperarm_l"
-						mass_override = 5.0
+						mass_override = 50.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
@@ -556,7 +556,7 @@
 					{
 						_class = "PhysicsBodyMarkup"
 						target_body = "upperarm_r"
-						mass_override = 5.0
+						mass_override = 50.0
 						inertia_scale = 1.0
 						linear_damping = 0.0
 						angular_damping = 0.0
