@@ -16,7 +16,7 @@ public class RuneEvaluationResult
 
 public static class RuneEvaluator
 {
-	public static RuneEvaluationResult EvaluateSequence( List<RuneDef> runes, GameObject caster, Vector3 origin, Vector3 aimDir, Vector3? targetPoint = null, int currentDepth = 0, float charge01 = 0f )
+	public static RuneEvaluationResult EvaluateSequence( List<RuneDef> runes, GameObject caster, Vector3 origin, Vector3 aimDir, Vector3? targetPoint = null, int currentDepth = 0, float charge01 = 0f, int procDepth = 0 )
 	{
 		var result = new RuneEvaluationResult();
 		if ( runes == null || runes.Count == 0 )
@@ -39,7 +39,8 @@ public static class RuneEvaluator
 			Origin = origin,
 			AimDirection = aimDir,
 			TargetPoint = targetPoint,
-			RecursionDepth = currentDepth
+			RecursionDepth = currentDepth,
+			ProcDepth = procDepth
 		};
 
 		var statSheet = caster?.Components.GetInAncestorsOrSelf<Actor>()?.StatSheet;
@@ -248,7 +249,8 @@ public static class RuneEvaluator
 			aimDir,
 			triggerOrigin + aimDir * 100f,
 			parentContext.RecursionDepth + 1,
-			parentContext.Charge01
+			parentContext.Charge01,
+			parentContext.ProcDepth
 		);
 
 		if ( evalResult.Success )

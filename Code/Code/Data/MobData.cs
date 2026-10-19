@@ -33,6 +33,7 @@ public class MobData
 	/// <summary>Base critical hit chance in percent (e.g. 5 = 5%).</summary>
 	public float CritChance { get; set; } = 5f;
 	public float CritChancePerLevel { get; set; } = 0.25f;
+	public float BoonDropChance { get; set; } = 1f;
 
 	public MobData Clone()
 	{
@@ -58,6 +59,7 @@ public class MobData
 			Poise          = Poise,
 			CritChance = CritChance,
 			CritChancePerLevel = CritChancePerLevel,
+			BoonDropChance = BoonDropChance
 		};
 	}
 }

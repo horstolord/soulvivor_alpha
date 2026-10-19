@@ -1,6 +1,7 @@
 @using Sandbox;
 @using Sandbox.UI;
 @using System;
+@using System.Linq;
 @using Sandbox.Code.Actors;
 @using Sandbox.Code.Data;
 @using Sandbox.Code.Systems;
@@ -434,12 +435,100 @@
             </div>
         </div>
     }
+
+    @if ( ShowBoonOffer )
+    {
+        var offer = CurrentBoonOffer;
+        var boons = PlayerBoons;
+
+        <div class="boon-backdrop"></div>
+
+        <div class="boon-screen">
+            <div class="boon-header">
+                <div class="boon-source">@offer.SourceLabel</div>
+                <div class="boon-title">Choose a Boon</div>
+                @if ( boons.PendingOfferCount > 1 )
+                {
+                    <div class="boon-pending">+@(boons.PendingOfferCount - 1) more waiting</div>
+                }
+            </div>
+
+            <div class="boon-cards">
+                @for ( int i = 0; i < offer.Choices.Count; i++ )
+                {
+                    var index = i;
+                    var boon = offer.Choices[i];
+                    var rarity = boon.Rarity.ToString().ToLower();
+                    var stacks = boons.GetStacks( boon.Id );
+                    var available = boons.CanAdd( boon );
+
+                    <div class="boon-card @rarity @(available ? "" : "maxed")"
+                         onclick="@(() => PickBoon( index ))">
+                        <div class="boon-card-rarity @rarity">@boon.Rarity</div>
+                        <div class="boon-card-name @rarity">@boon.DisplayName</div>
+                        <div class="boon-card-desc">@boon.Description</div>
+                        <div class="boon-card-stacks">@(!available ? "Maxed" : stacks > 0 ? $"Stack x{stacks} -> x{stacks + 1}" : "New boon")</div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
 </root>
 
 @code
 {
     public static InventoryPanel LocalInventory { get; private set; }
     public static bool MenuOpen { get; private set; }
+
+    /// <summary>True while any menu or boon offer is open. Player ignores combat input while this is set.</summary>
+    public static bool IsMenuOpen { get; private set; }
+
+    /// <summary>Time scale while a boon offer is open (near slow-mo, not a full pause).</summary>
+    [Property] public float OfferTimeScale { get; set; } = 0.05f;
+
+    private bool _offerSlowMo;
+
+    private BoonControl PlayerBoons => PlayerObject?.Boons;
+    private bool ShowBoonOffer => PlayerBoons?.HasPendingOffer == true;
+    private BoonOffer CurrentBoonOffer => PlayerBoons?.CurrentOffer;
+
+    void PickBoon( int index )
+    {
+        PlayerBoons?.ChooseBoon( index ); // returns false for a maxed choice — the card is greyed out anyway
+    }
+
+    private void HandleBoonOffer()
+    {
+        var boons = PlayerBoons;
+
+        // Offers are mandatory, so an offer where every choice is maxed would soft-lock the game: discard it.
+        if ( boons != null && boons.HasPendingOffer && !boons.CurrentOffer.Choices.Any( c => boons.CanAdd( c ) ) )
+            boons.SkipOffer();
+
+        bool open = ShowBoonOffer;
+
+        // The offer takes priority over inventory/skills.
+        if ( open && ActivePanel != UiPanel.None )
+        {
+            ActivePanel = UiPanel.None;
+            InventoryState.ClearHoveredItem( InventoryState.HoveredItem );
+        }
+
+        if ( open && !_offerSlowMo )
+        {
+            Scene.TimeScale = OfferTimeScale;
+            _offerSlowMo = true;
+        }
+        else if ( !open && _offerSlowMo )
+        {
+            Scene.TimeScale = 1f;
+            _offerSlowMo = false;
+        }
+    }
+
+    private int BoonHash() => HashCode.Combine(
+        PlayerBoons?.CurrentOffer,
+        PlayerBoons?.PendingOfferCount ?? 0 );
 
     public enum UiPanel
     {
@@ -533,12 +622,14 @@
             TooltipY = y;
         }
 
-        if ( Input.Pressed( "Inventory" ) )
+        HandleBoonOffer();
+
+        if ( !ShowBoonOffer && Input.Pressed( "Inventory" ) )
         {
             TogglePanel( UiPanel.Inventory );
         }
 
-        if ( Input.Pressed( "Skills" ) )
+        if ( !ShowBoonOffer && Input.Pressed( "Skills" ) )
         {
             TogglePanel( UiPanel.Skills );
         }
@@ -552,9 +643,9 @@
         // FPS look needs a locked cursor. Any pointer-events:all panel with Auto/Visible
         // zeroes Input.AnalogLook — so only free the mouse while a menu is open.
         MenuOpen = ActivePanel != UiPanel.None;
-        Mouse.Visibility = ActivePanel == UiPanel.None
-            ? MouseVisibility.Hidden
-            : MouseVisibility.Visible;
+        bool menuOpen = ActivePanel != UiPanel.None || ShowBoonOffer;
+        IsMenuOpen = menuOpen;
+        Mouse.Visibility = menuOpen ? MouseVisibility.Visible : MouseVisibility.Hidden;
     }
 
     void TogglePanel( UiPanel panel )
@@ -632,7 +723,8 @@
                 InventoryState.Revision,
                 TooltipX,
                 TooltipY,
-                hotbarHash
+                hotbarHash,
+                BoonHash()
             );
         }
 
@@ -643,7 +735,8 @@
             EnergyWidth,
             stats.CurrentHealth,
             HashCode.Combine( stats.CurrentStamina, stats.CurrentEnergy, TooltipX, TooltipY ),
-            hotbarHash
+            hotbarHash,
+            BoonHash()
         );
     }
 
@@ -1535,5 +1628,151 @@
     color: #dfd5c6;
     font-weight: 500;
     text-shadow: 1px 1px 1px black;
+}
+
+.boon-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    pointer-events: all;
+}
+
+.boon-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    pointer-events: none;
+}
+
+.boon-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.boon-source {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #a99b89;
+}
+
+.boon-title {
+    font-size: 34px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #f1e6d2;
+    text-shadow: 1px 1px 3px black;
+}
+
+.boon-pending {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8f8170;
+}
+
+.boon-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.boon-card {
+    width: 260px;
+    min-height: 340px;
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: rgba(16, 14, 12, 0.97);
+    border: 2px solid #6b5a45;
+    border-radius: 6px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+    color: #dfd5c6;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.boon-card:hover {
+    background: rgba(38, 32, 25, 0.98);
+}
+
+.boon-card.maxed {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.boon-card.maxed:hover {
+    background: rgba(16, 14, 12, 0.97);
+}
+
+.boon-card.common { border-color: #7a7266; }
+.boon-card.magic { border-color: #3f8dc5; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 16px rgba(63, 141, 197, 0.4); }
+.boon-card.rare { border-color: #d4af37; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 18px rgba(212, 175, 55, 0.45); }
+.boon-card.epic { border-color: #9d5fe8; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(157, 95, 232, 0.45); }
+.boon-card.legendary,
+.boon-card.mythical,
+.boon-card.divine { border-color: #e67e22; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 22px rgba(230, 126, 34, 0.5); }
+
+.boon-card-rarity {
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: 1px solid #574636;
+    background: rgba(30, 26, 22, 0.9);
+}
+
+.boon-card-rarity.common { color: #a8a095; }
+.boon-card-rarity.magic { color: #7dc4ff; }
+.boon-card-rarity.rare { color: #ffd700; }
+.boon-card-rarity.epic { color: #c996ff; }
+.boon-card-rarity.legendary,
+.boon-card-rarity.mythical,
+.boon-card-rarity.divine { color: #ffaa55; }
+
+.boon-card-name {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #f1e6d2;
+    text-shadow: 1px 1px 2px black;
+}
+
+.boon-card-name.magic { color: #7dc4ff; }
+.boon-card-name.rare { color: #ffd700; }
+.boon-card-name.epic { color: #c996ff; }
+.boon-card-name.legendary,
+.boon-card-name.mythical,
+.boon-card-name.divine { color: #ff9944; }
+
+.boon-card-desc {
+    flex-grow: 1;
+    padding-top: 12px;
+    border-top: 1px solid rgba(120, 95, 68, 0.35);
+    font-size: 14px;
+    line-height: 1.4;
+    font-style: italic;
+    text-align: center;
+    color: #beb09e;
+}
+
+.boon-card-stacks {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c9a66b;
 }
 </style>

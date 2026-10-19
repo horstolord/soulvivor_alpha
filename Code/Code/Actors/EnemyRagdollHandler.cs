@@ -101,17 +101,18 @@ public sealed class EnemyRagdollHandler : Component, IRagdollHandler
 		if ( _controller != null )
 			return _controller.Velocity;
 
-		// No controller: Enemy moves via WorldPosition, so the Rigidbody doesn't see that motion
-		// but does carry any knockback applied before this hit. The agent velocity covers the walk.
-		var v = _rootBody != null ? _rootBody.Velocity : Vector3.Zero;
+		// If root Rigidbody is present, its velocity already reflects current physics and WalkStep movement.
+		if ( _rootBody != null && _rootBody.IsValid() )
+			return _rootBody.Velocity;
+
 		var agent = Agent ?? (Enemy as Enemy)?.Agent;
-		if ( agent != null ) v += agent.Velocity;
-		return v;
+		return agent != null ? agent.Velocity : Vector3.Zero;
 	}
 
 	private void FlushPending()
 	{
 		if ( !RagdollImpulseApplier.BodiesReady( Physics ) ) return;
+		RagdollImpulseApplier.Stabilize( Physics );
 
 		if ( _hasPendingVelocity )
 			RagdollImpulseApplier.SetVelocity( Physics, _pendingVelocity );

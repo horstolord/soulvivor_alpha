@@ -135,7 +135,7 @@ public sealed class CombatComponent : Component
 				+ attackerSwiftness * attack.Scaling.SwiftnessToHealthDamage
 				+ (attackerActor?.StatSheet?.WeaponDamage.Value ?? 0f) * attack.WeaponDamageEffectiveness,
 			StaminaDamage = attack.Damage.StaminaDamage,
-			KnockbackForce = attack.Damage.KnockbackForce * attack.Scaling.MightToKnockbackForce,
+			KnockbackForce = attack.Damage.KnockbackForce + attackerMight * attack.Scaling.MightToKnockbackForce,
 			Tags = [..(attack.Tags ?? new HashSet<AttackTag>())]
 		};
 		// Timed weapon enchant (Ember Weapon etc.) only augments weapon attacks, not punches/kicks.

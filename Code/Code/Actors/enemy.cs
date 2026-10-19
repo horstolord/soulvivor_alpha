@@ -40,7 +40,6 @@ public sealed class Enemy : Actor
 	public NavMeshAgent Agent { get; private set; }
 	public SkinnedModelRenderer bodyRenderer { get; set; }
 	private IEnemyBehavior _behavior;
-	private Vector3 _knockbackVelocity;
 	public EnemyMoveMode MoveMode { get; private set; } = EnemyMoveMode.Walk;
 	public bool IsGrounded { get; private set; }
 
@@ -246,8 +245,6 @@ private void WalkStep( Vector3 wishDir, float speed, float dt )
 	var horizontal = vel.WithZ( 0 );
 	horizontal += (wishDir * speed - horizontal).ClampLength( Acceleration * dt );
 	vel = horizontal.WithZ( vel.z );
-
-	
 
 	_body.Velocity = vel;
 }

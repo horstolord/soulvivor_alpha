@@ -19,4 +19,5 @@ public readonly struct DamageEvent
 	public bool Evaded { get; init; }
 	public bool Blocked { get; init; }
 	public bool Killed { get; init; }
+	public int ProcDepth {get; init;}
 }

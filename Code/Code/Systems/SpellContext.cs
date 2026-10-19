@@ -55,6 +55,7 @@ public class SpellContext : ICostable
 	// Recursion Limit Safety
 	public int RecursionDepth = 0;
 	public const int MaxRecursionDepth = 4;
+	public int ProcDepth = 0;
 
 	/// <summary>
 	/// Constructs the base (pre-crit, pre-PhysicalForce) damage profile from this context.
@@ -68,7 +69,8 @@ public class SpellContext : ICostable
 			HealthDamage  = AccumulatedDamage.HealthDamage * DamageMultiplier,
 			StaminaDamage = AccumulatedDamage.StaminaDamage,
 			KnockbackForce = AccumulatedDamage.KnockbackForce,
-			Tags = AttackTags
+			Tags = AttackTags,
+			ProcDepth = ProcDepth
 		};
 	}
 
@@ -132,7 +134,8 @@ public class SpellContext : ICostable
 			Effects = Effects.ConvertAll( effect => effect?.Clone() ),
 			MulticastCount = MulticastCount,
 			MulticastDelay = MulticastDelay,
-			RecursionDepth = RecursionDepth
+			RecursionDepth = RecursionDepth,
+			ProcDepth = ProcDepth
 		};
 	}
 }

@@ -143,7 +143,7 @@ public class TechniqueContext : ICostable
 				+ (sheet?.Swiftness?.Value ?? 0f) * attack.Scaling.SwiftnessToHealthDamage
 				+ (sheet?.WeaponDamage?.Value ?? 0f) * attack.WeaponDamageEffectiveness,
 			StaminaDamage = attack.Damage.StaminaDamage,
-			KnockbackForce = attack.Damage.KnockbackForce * attack.Scaling.MightToKnockbackForce,
+			KnockbackForce = attack.Damage.KnockbackForce + might * attack.Scaling.MightToKnockbackForce,
 			Tags = new HashSet<AttackTag>( attack.Tags )
 		};
 

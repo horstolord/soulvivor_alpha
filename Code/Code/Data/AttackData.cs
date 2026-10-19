@@ -29,14 +29,14 @@ public static class AttackData
 		{
 			HealthDamage = 10f,
 			StaminaDamage = 24f,
-			KnockbackForce = 200f
+			KnockbackForce = 18000f
 		},
 		Scaling = new AttributeScalingDef
 		{
 			MightToHealthDamage = 2f,
 			MightToStaminaDamage = 2f,
 			MightToStaggerDamage = 3f,
-			MightToKnockbackForce = 100f,
+			MightToKnockbackForce = 200f,
 			MightToChargeBonus = 6f,      // TODO tune
 			SwiftnessToChargeSpeed = 1.5f // TODO tune
 		},
@@ -84,7 +84,7 @@ public static class AttackData
 		Damage =
 			new DamageProfileDef
 			{
-				HealthDamage = 5f, StaminaDamage = 5f,  KnockbackForce = 100f
+				HealthDamage = 5f, StaminaDamage = 5f,  KnockbackForce = 8000f
 			},
 		Scaling =
 			new AttributeScalingDef
@@ -92,9 +92,9 @@ public static class AttackData
 				MightToHealthDamage = 2f,
 				MightToStaminaDamage = 1f,
 				MightToStaggerDamage = 3f,
-				MightToKnockbackForce = 50f,
+				MightToKnockbackForce = 100f,
 				MightToChargeBonus = 4f,      // TODO tune
-				MightToChargeKnockback = 100f,
+				MightToChargeKnockback = 10f,
 				SwiftnessToChargeSpeed = 1.5f // TODO tune
 			},
 		AnimationName = "b_attack",
@@ -133,7 +133,7 @@ public static class AttackData
 		Damage = new DamageProfileDef
 		{
 			HealthDamage = 8f,
-			KnockbackForce = 500f
+			KnockbackForce = 6000f
 		},
 		Scaling = new AttributeScalingDef
 		{
@@ -258,7 +258,7 @@ public static class AttackData
 			{
 				HealthDamage  = stats.BaseDamage,
 				StaminaDamage = 12f,
-				KnockbackForce = 100f
+				KnockbackForce = 10000f
 			},
 			WeaponDamageEffectiveness = 1f,
 			Scaling = equipment?.Scaling ?? new AttributeScalingDef
@@ -266,9 +266,9 @@ public static class AttackData
 				MightToHealthDamage    = 2f,
 				MightToStaggerDamage   = 1f,
 				MightToStaminaDamage   = 0.5f,
-				MightToKnockbackForce  = 50f,
+				MightToKnockbackForce  = 150f,
 				MightToChargeBonus     = 6f,   // TODO tune
-				MightToChargeKnockback = 100f,
+				MightToChargeKnockback = 10f,
 				SwiftnessToChargeSpeed = 1.5f  // TODO tune
 			},
 			AnimationName  = "b_attack",

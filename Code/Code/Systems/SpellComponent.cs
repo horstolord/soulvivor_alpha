@@ -291,6 +291,7 @@ public sealed class SpellComponent : Component
 		_rechargeTimer = Catalyst?.BaseRechargeTime ?? 1f;
 		if ( _actor?.StateComp != null && _actor.StateComp.CurrentState == ActorStateType.Casting )
 			_actor.StateComp.CurrentState = ActorStateType.Idle;
+		_actor?.Procs?.Raise( new ProcEvent { Trigger = ProcTrigger.Cast, Position = GameObject.WorldPosition, Tags = cast.CostContext.AttackTags } );
 	}
 
 	/// <summary>Called by RuneEvaluator.Dispatch for payloads that shouldn't fire on the frame the cast completes.</summary>

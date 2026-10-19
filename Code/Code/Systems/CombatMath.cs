@@ -98,7 +98,8 @@ public static class CombatMath
 			StaminaDamage = baseDamage.StaminaDamage,
 			KnockbackForce = baseDamage.KnockbackForce + knockbackBonusAtMaxCharge * t,
 			Tags = baseDamage.Tags,
-			IsCrit = baseDamage.IsCrit
+			IsCrit = baseDamage.IsCrit,
+			ProcDepth = baseDamage.ProcDepth,
 		};
 	}
 
@@ -124,12 +125,22 @@ public static class CombatMath
 		{
 			if ( preventGrounding )
 				target.Components.GetInAncestorsOrSelf<PlayerController>()?.PreventGrounding( 0.5f );
-			controller.Punch( impulse );
+
+			float mass = target.Components.GetInAncestorsOrSelf<Rigidbody>()?.Mass ?? 80f;
+			controller.Punch( impulse / mass );
 			return;
 		}
 
-		var rigidbody = target.Components.GetInAncestorsOrSelf<Rigidbody>();
-		rigidbody?.ApplyImpulse( impulse );
+		// Resolve from the actor root, not the raw hit-target (which may be a bone-level collider).
+		var rbRoot = actor?.GameObject ?? target;
+		var rigidbody = rbRoot.Components.Get<Rigidbody>();
+		if ( rigidbody != null )
+		{
+			float mass = MathF.Max( 1f, rigidbody.Mass );
+			var deltaV = impulse / mass;
+			Log.Info( $"[ApplyKnockback] target={rbRoot?.Name} mass={mass:F0} impulse={impulse.Length:F0} deltaV={deltaV.Length:F0} vel_before={rigidbody.Velocity.Length:F0}" );
+			rigidbody.Velocity += deltaV;
+		}
 	}
 
 	/// <summary>Returns one stable object for deduplicating actor and compound-rigidbody hits.</summary>

@@ -9,7 +9,7 @@
   "PackageReferences": [],
   "EditorReferences": null,
   "Mounts": null,
-  "IsStandaloneOnly": false,
+  "IsStandaloneOnly": true,
   "AI": {
     "EnableMcpCommunication": true
   },

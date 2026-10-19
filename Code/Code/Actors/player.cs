@@ -12,6 +12,7 @@ public sealed class Player : Actor
 	public SprintControl Sprint { get; private set; }
 	public HeldWeaponControl Held { get; private set; }
 	public ChargeControl Charge { get; private set; }
+	public BoonControl Boons {get; private set;}
 	public HotbarControl Hotbar { get; private set; }
 	private PlayerController _playerController;
 	public ForceActionControl ForceAction {get ; private set;}
@@ -30,6 +31,7 @@ public sealed class Player : Actor
 		Slide = Components.GetOrCreate<SlideControl>();
 		Sprint = Components.GetOrCreate<SprintControl>();
 		Charge = Components.GetOrCreate<ChargeControl>();
+		Boons = Components.GetOrCreate<BoonControl>();
 		Hotbar = Components.GetOrCreate<HotbarControl>();
 		ForceAction = Components.GetOrCreate<ForceActionControl>();
 		_playerController = GameObject.Components.GetInAncestorsOrSelf<PlayerController>(  );
@@ -46,7 +48,7 @@ public sealed class Player : Actor
 		
 	}
 
-	/// <summary>Temp diagnostic: if the player vanishes (e.g. after a ranged kill) this line tells us when.</summary>
+	/// <summary>Temp diagnostic: if the player vanishes </summary>
 	protected override void OnDestroy()
 	{
 		Log.Warning( "[Player] Player component destroyed — the GameObject was removed from the scene." );
@@ -60,7 +62,7 @@ public sealed class Player : Actor
 		base.OnUpdate();
 		UpdatePlayerMovementStats();
 		HandleFlaskHotkeys();
-		if ( Combat.CanAttack )
+		if ( Combat.CanAttack && !HudPanel.IsMenuOpen )
 		{
 			HandleCombatInput();
 		}

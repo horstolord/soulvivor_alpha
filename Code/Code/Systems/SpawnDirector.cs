@@ -24,7 +24,7 @@ public class SpawnDirector : Component
 	[Property] public float MaxCredits       { get; set; } = 150f;
 
 	/// <summary>Minimum seconds between any two spawns.</summary>
-	[Property] public float SpawnCooldown    { get; set; } = 1.5f;
+	[Property] public float SpawnCooldown    { get; set; } = 0.1f;
 
 	/// <summary>Distance from the player to spawn enemies.</summary>
 	[Property] public float SpawnRadius      { get; set; } = 650f;

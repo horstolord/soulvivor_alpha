@@ -63,8 +63,25 @@ public static class RagdollImpulseApplier
 		}
 
 		if ( nearest == null ) return false;
-		var deltaV = ClampSpeed( impulse / nearest.Mass );
-		nearest.ApplyImpulse( deltaV * nearest.Mass );
+
+		float totalMass = 0f;
+		foreach ( var body in physics.Bodies )
+			if ( body.Component.IsValid() ) totalMass += body.Component.Mass;
+		if ( totalMass <= 0f ) return false;
+
+		// Physical deltaV = impulse / mass
+		var rootBody = physics.Components.GetInAncestorsOrSelf<Rigidbody>();
+		float mass = (rootBody != null && rootBody.Mass > 0f) ? rootBody.Mass : totalMass;
+		var deltaV = ClampSpeed( impulse / mass );
+		foreach ( var body in physics.Bodies )
+		{
+			var rb = body.Component;
+			if ( rb.IsValid() && rb.Mass > 0f )
+				rb.ApplyImpulse( deltaV * rb.Mass );
+		}
+
+// A little extra on the struck bone so hits still read directionally. Tune or remove.
+		nearest.ApplyImpulse( deltaV * nearest.Mass * 0.5f );
 		return true;
 	}
 }

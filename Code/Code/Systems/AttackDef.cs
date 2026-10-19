@@ -7,6 +7,7 @@ public class DamageProfileDef
 	public float KnockbackForce;
 	public HashSet<AttackTag> Tags = new();
 	public bool IsCrit;
+	public int ProcDepth;
 }
 
 public class HitPhaseDef

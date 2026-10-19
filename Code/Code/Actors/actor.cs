@@ -18,12 +18,14 @@ public class Actor : Component, Component.IDamageable
 	
 
 	[Property] public int InitialLevel { get; set; } = 1;
+	[Property] public MobRank Rank { get; set; } = MobRank.Normal;
 
 	public StatSheet      StatSheet { get; private set; }
 	public LevelComponent Leveling  { get; private set; }
 	public CombatComponent Combat;
 	public EquipmentControl Equipment { get; private set; }
 	public BuffComponent Buffs { get; private set; }
+	public ProcControl Procs { get; private set; }
 	private IRagdollHandler _ragdoll;
 	/// <summary>
 	/// Raised the frame the actor dies (before any destruction/drops).
@@ -73,6 +75,7 @@ public class Actor : Component, Component.IDamageable
 		Equipment = Components.GetOrCreate<EquipmentControl>();
 		StateComp = Components.GetOrCreate<ActorStateComp>();
 		Buffs     = Components.GetOrCreate<BuffComponent>();
+		Procs = Components.GetOrCreate<ProcControl>();
 		_ragdoll  = Components.GetInAncestorsOrSelf<IRagdollHandler>() ?? Components.GetInChildren<IRagdollHandler>();
 		_ = InitializeActorAsync();
 	}
@@ -160,6 +163,7 @@ public class Actor : Component, Component.IDamageable
 		StatSheet.FillCurrentPoolsToMax();
 
 		Log.Info( $"{GameObject.Name} → Lvl {newLevel} | HP={StatSheet.MaxHealth.Value:F0} Might={StatSheet.Might.Value:F1}" );
+		Procs?.Raise( new ProcEvent { Trigger = ProcTrigger.LevelUp, Position = GameObject.WorldPosition, Amount = newLevel } );
 	}
 
 	// ============ COMBAT COSTS ============
@@ -199,7 +203,9 @@ public class Actor : Component, Component.IDamageable
 		if ( evasion > 0f && Random.Shared.NextSingle() * 100f < evasion )
 		{
 			Log.Info( $"{GameObject.Name} EVADED the attack!" );
-			Damaged?.Invoke( new DamageEvent { Victim = this, Source = source, Evaded = true } );
+			var evadeEvent = new DamageEvent { Victim = this, Source = source, Evaded = true, ProcDepth = damage.ProcDepth};
+			Damaged?.Invoke( evadeEvent );
+			ProcControl.RaiseDamageEvents( evadeEvent );
 			return;
 		}
 		
@@ -258,7 +264,7 @@ public class Actor : Component, Component.IDamageable
 
 		Log.Info( $"{GameObject.Name} took {finalHealthDamage:F1} dmg — HP={StatSheet.CurrentHealth:F1}/{StatSheet.MaxHealth.Value:F1}" );
 		bool killed = StatSheet.CurrentHealth <= 0f;
-		Damaged?.Invoke( new DamageEvent
+		var hitEvent = new DamageEvent
 		{
 			Victim = this,
 			Source = source,
@@ -266,9 +272,11 @@ public class Actor : Component, Component.IDamageable
 			Tags = damage.Tags,
 			IsCrit = damage.IsCrit,
 			Blocked = blocked,
-			Killed = killed
-		} );
-
+			Killed = killed,
+			ProcDepth = damage.ProcDepth
+		};
+		Damaged?.Invoke( hitEvent );
+		ProcControl.RaiseDamageEvents( hitEvent );
 		if ( killed )
 		{
 			OnKilled();
@@ -290,7 +298,7 @@ public class Actor : Component, Component.IDamageable
 		ApplyDamage( new DamageProfileDef
 		{
 			HealthDamage = info.Damage,
-			StaminaDamage = info.Damage * 1f, // temp, so big hits can stagger (poise uses this value)
+			StaminaDamage = info.Damage * 1f, // poise uses this value
 			Tags = new() { AttackTag.Physical }
 		}, info.Attacker );
 	}
@@ -308,7 +316,7 @@ public class Actor : Component, Component.IDamageable
 			aicomponent.Enabled = false;
 			Player.Local?.OnEnemyKilled( this );
 		}
-		await Task.DelaySeconds(2.0f);
+		await Task.DelaySeconds(4.0f);
 		if (!this.IsValid()) return;
 
 		if ( ShouldDestroyOnDeath )
@@ -316,6 +324,8 @@ public class Actor : Component, Component.IDamageable
 			GameObject.Destroy();
 			SpawnSoulOrb();
 			SpawnLootDrop();
+			SpawnBoonDrop();
+			
 		}
 		else
 		{
@@ -355,6 +365,15 @@ public class Actor : Component, Component.IDamageable
 
 		var drop = dropGO.Components.Create<LootDrop>();
 		drop.Item = instance;
+	}
+	private void SpawnBoonDrop()
+	{
+		if ( this is not Enemy || _mobData == null ) return; // the player never drops boons
+
+		float chance = BoonGenerator.DropChanceFor( Rank, _mobData.BoonDropChance );
+		if ( Random.Shared.NextSingle() * 100f >= chance ) return;
+
+		BoonPickup.Spawn( Scene, GameObject.WorldPosition + Vector3.Up * 30f, BoonGenerator.RequestForDrop( Rank ) );
 	}
 
 

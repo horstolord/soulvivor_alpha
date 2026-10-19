@@ -36,7 +36,7 @@ public sealed class HotbarControl : Component
 
 	[Property] public List<HotbarEntry> Entries { get; set; } = new()
 	{
-		new() { Type = HotbarEntryType.Spell, Id = "fireball" },
+		new() { Type = HotbarEntryType.Spell, Id = "airball" },
 		new() { Type = HotbarEntryType.Spell, Id = "dual_frost_beam" },
 		new() { Type = HotbarEntryType.Spell, Id = "cluster_bomb" },
 		new() { Type = HotbarEntryType.Spell, Id = "raw_force" },
