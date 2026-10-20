@@ -29,10 +29,12 @@ public sealed class Enemy : Actor
 	[Property] public float MaxWallNormalZ { get; set; } = 0.3f;     // |normal.z| above this = floor/slope, not climbable
 	[Property] public float ClimbSpeedMultiplier { get; set; } = 0.4f;
 	[Property] public float MinTargetHeightAbove { get; set; } = 20f;
-	[Property] public float MantleBoost { get; set; } = 500f;
+	[Property] public float MantleBoost { get; set; } = 700f;
 	[Property] public float TraversalStuckTime { get; set; } = 0.75f;
 	[Property] public float ProgressSampleInterval { get; set; } = 0.25f;
 	[Property] public float ProgressDistance { get; set; } = 2f;
+	[Property] public float StuckShoveInterval { get; set; } = 0.75f;
+	[Property] public float StuckShoveVelocity { get; set; } = 180f;
 	[Property] public bool DebugMovement { get; set; }
 	[Property] public float MovementDebugInterval { get; set; } = 1f;
 
@@ -42,6 +44,14 @@ public sealed class Enemy : Actor
 	private IEnemyBehavior _behavior;
 	public EnemyMoveMode MoveMode { get; private set; } = EnemyMoveMode.Walk;
 	public bool IsGrounded { get; private set; }
+	/// <summary>Set by MobSpawner: the card this mob came from (so a splitter can spawn the same type).</summary>
+	public SpawnCard SourceCard { get; set; }
+ 
+	/// <summary>
+	/// Set by MobSpawner: how much bigger/smaller than the prefab this mob was cloned. Colliders follow the transform
+	/// scale, the NavMeshAgent does not, so OnStart multiplies its size by this.
+	/// </summary>
+	public float SpawnScale { get; set; } = 1f;
 
 	private Rigidbody _body;
 	private float _groundGap;
@@ -51,6 +61,8 @@ public sealed class Enemy : Actor
 	private Vector3 _lastProgressPosition;
 	private float _progressSampleTimer;
 	private float _stalledTime;
+	private float _stuckShoveCooldown;
+	private bool _agentPositionSyncPending;
 	private bool _dropLeftGround;
 	private float _nextMovementDebugTime;
 
@@ -74,6 +86,11 @@ public sealed class Enemy : Actor
 			Agent.UpdatePosition = false;
 			Agent.UpdateRotation = false;
 			Agent.Acceleration = MathF.Max( Agent.Acceleration, 250f );
+			if ( MathF.Abs( SpawnScale - 1f ) > 0.001f )
+			{
+				Agent.Radius *= SpawnScale;
+				Agent.Height *= SpawnScale;
+			}
 			Agent.SetAgentPosition( GameObject.WorldPosition );
 		}
 
@@ -118,6 +135,11 @@ public sealed class Enemy : Actor
 
 		_hasMoveTarget = false;
 		ProbeGround();
+		if ( _agentPositionSyncPending && IsGrounded && UseNavMesh && Agent != null )
+		{
+			Agent.SetAgentPosition( GameObject.WorldPosition );
+			_agentPositionSyncPending = false;
+		}
 		if ( !movementLocked )
 			_behavior?.Tick( this, dt );
 		else if ( MoveMode != EnemyMoveMode.Drop )
@@ -135,6 +157,7 @@ public sealed class Enemy : Actor
 			ClimbStep( speed );
 		else
 			WalkStep( MoveMode == EnemyMoveMode.Drop ? directWish : navMeshWish, speed, dt );
+		ApplyStuckShove( dt, movementLocked, directWish );
 
 		float planar = _body.Velocity.WithZ( 0 ).Length;
 		bodyRenderer?.Set( "f_speed", planar > 5f ? 1f : 0f );
@@ -153,7 +176,11 @@ private Vector3 GetWishDirection( float speed )
 	if ( UseNavMesh && Agent != null )
 	{
 		Agent.MaxSpeed = speed;
-		Agent.SetAgentPosition( GameObject.WorldPosition );
+		if ( !_agentPositionSyncPending || IsGrounded )
+		{
+			Agent.SetAgentPosition( GameObject.WorldPosition );
+			_agentPositionSyncPending = false;
+		}
 		Agent.MoveTo( _moveTarget );
 		var v = Agent.Velocity.WithZ( 0 );
 		return v.LengthSquared > 1f ? v.Normal : Vector3.Zero;
@@ -177,7 +204,8 @@ private Vector3 GetDirectWishDirection()
 private void UpdateTraversalProgress( float dt, bool movementLocked )
 {
 	var position = GameObject.WorldPosition;
-	if ( !UseNavMesh || MoveMode != EnemyMoveMode.Walk || !_hasMoveTarget || movementLocked )
+	if ( (MoveMode != EnemyMoveMode.Walk && MoveMode != EnemyMoveMode.Climb)
+		|| (MoveMode == EnemyMoveMode.Walk && !_hasMoveTarget) || movementLocked )
 	{
 		_stalledTime = 0f;
 		_progressSampleTimer = 0f;
@@ -189,8 +217,10 @@ private void UpdateTraversalProgress( float dt, bool movementLocked )
 	if ( _progressSampleTimer < MathF.Max( 0.05f, ProgressSampleInterval ) )
 		return;
 
-	float planarProgress = (position - _lastProgressPosition).WithZ( 0f ).Length;
-	if ( planarProgress >= MathF.Max( 0.1f, ProgressDistance ) )
+	float progress = MoveMode == EnemyMoveMode.Climb
+		? MathF.Abs( position.z - _lastProgressPosition.z )
+		: (position - _lastProgressPosition).WithZ( 0f ).Length;
+	if ( progress >= MathF.Max( 0.1f, ProgressDistance ) )
 		_stalledTime = 0f;
 	else
 		_stalledTime += _progressSampleTimer;
@@ -199,10 +229,38 @@ private void UpdateTraversalProgress( float dt, bool movementLocked )
 	_lastProgressPosition = position;
 }
 
+private void ApplyStuckShove( float dt, bool movementLocked, Vector3 directWish )
+{
+	var toTarget = Target.WorldPosition - GameObject.WorldPosition;
+	toTarget = toTarget.WithZ( 0f );
+	bool movingTowardTarget = toTarget.LengthSquared > 0.001f
+		&& Vector3.Dot( directWish, toTarget.Normal ) > 0f;
+
+	bool activelyClimbing = MoveMode == EnemyMoveMode.Climb;
+	if ( (MoveMode != EnemyMoveMode.Walk && !activelyClimbing)
+		|| (!activelyClimbing && (!_hasMoveTarget || !movingTowardTarget))
+		|| movementLocked || _stalledTime < TraversalStuckTime )
+	{
+		_stuckShoveCooldown = 0f;
+		return;
+	}
+
+	_stuckShoveCooldown -= dt;
+	if ( _stuckShoveCooldown > 0f )
+		return;
+
+	_stuckShoveCooldown = MathF.Max( 0.1f, StuckShoveInterval );
+	_body.Velocity = _body.Velocity.WithZ( MathF.Max( _body.Velocity.z, MathF.Max( 0f, StuckShoveVelocity ) ) );
+
+	if ( DebugMovement )
+		Log.Info( $"[EnemyMove] {GameObject.Name}: stuck shove ({StuckShoveVelocity:F0} up)" );
+}
+
 private void ResetTraversalProgress()
 {
 	_stalledTime = 0f;
 	_progressSampleTimer = 0f;
+	_stuckShoveCooldown = 0f;
 	_lastProgressPosition = GameObject.WorldPosition;
 }
 
@@ -215,7 +273,7 @@ private void LogMovementDiagnostics( float speed, float planarSpeed )
 	float navMeshSpeed = Agent != null ? Agent.Velocity.WithZ( 0f ).Length : 0f;
 	float swiftness = StatSheet?.Swiftness?.Value ?? 0f;
 	Log.Info( $"[EnemyMove] {GameObject.Name}: preset={PresetOverride}, mode={MoveMode}, navmesh={UseNavMesh}, state={StateComp?.CurrentState}, " +
-		$"swiftness={swiftness:F1}, moveStat={speed:F1}, agentSpeed={navMeshSpeed:F1}, bodySpeed={planarSpeed:F1}, " +
+		$"targeting={_hasMoveTarget}, agentResync={_agentPositionSyncPending}, swiftness={swiftness:F1}, moveStat={speed:F1}, agentSpeed={navMeshSpeed:F1}, bodySpeed={planarSpeed:F1}, " +
 		$"grounded={IsGrounded}, stalled={_stalledTime:F2}s" );
 }
 
@@ -258,7 +316,6 @@ private void ClimbStep( float speed )
 
 private void UpdateMoveMode( Vector3 directWish )
 {
-	var s = GameObject.WorldScale.z;
 	var pos = GameObject.WorldPosition;
 	var destination = _hasMoveTarget ? _moveTarget : Target.WorldPosition;
 	float targetDz = destination.z - pos.z;
@@ -277,7 +334,7 @@ private void UpdateMoveMode( Vector3 directWish )
 
 		if ( targetDz > MinTargetHeightAbove
 			&& directWish != Vector3.Zero
-			&& TryFindWall( pos + Vector3.Up * ( BodyHeight * s ) * 0.5f, directWish, out var normal ) )
+			&& TryFindWall( directWish, out var normal ) )
 		{
 			_wallNormal = normal;
 			SetMoveMode( EnemyMoveMode.Climb );
@@ -290,25 +347,19 @@ private void UpdateMoveMode( Vector3 directWish )
 
 	if ( MoveMode == EnemyMoveMode.Climb )
 	{
-		if ( _hasMoveTarget && targetDz < -MinTargetHeightAbove )
+		if ( targetDz < -MinTargetHeightAbove )
 		{
 			SetMoveMode( EnemyMoveMode.Drop );
 			return;
 		}
-		if ( !_hasMoveTarget || targetDz < MinTargetHeightAbove )
-		{
-			SetMoveMode( EnemyMoveMode.Walk );
-			return;
-		}
-
-		if ( TryFindWall( pos + Vector3.Up * (BodyHeight * s ) * 0.5f, -_wallNormal, out var nextNormal ) )
+		if ( TryFindWall( -_wallNormal, out var nextNormal ) )
 		{
 			_wallNormal = nextNormal;
 			return;
 		}
 
 		// Chest cleared the lip: hop over it and resume navmesh movement.
-		SetMoveMode( EnemyMoveMode.Walk );
+		SetMoveMode( EnemyMoveMode.Walk, syncAgentPosition: false );
 		_body.Velocity = -_wallNormal * (StatSheet?.MoveSpeed?.Value ?? 120f) + Vector3.Up * MantleBoost;
 		return;
 	}
@@ -341,13 +392,23 @@ private bool HasDropAhead( Vector3 direction )
 	return GameObject.WorldPosition.z - trace.HitPosition.z > GroundedTolerance;
 }
 
-private bool TryFindWall( Vector3 from, Vector3 dir, out Vector3 normal )
+private bool TryFindWall( Vector3 dir, out Vector3 normal )
 {
 	normal = default;
+	if ( dir.LengthSquared <= 0.001f ) return false;
+
+	var b = GameObject.GetBounds();
+	float height = b.Maxs.z - b.Mins.z;
+	var pos = GameObject.WorldPosition;
+	var chest = new Vector3( pos.x, pos.y, b.Mins.z + height * 0.5f );
+	var end = chest + dir.Normal * (BodyRadius + WallCheckDistance);
 	var tr = Scene.Trace
-		.Sphere( BodyRadius * 0.5f, from, from + dir * (BodyRadius + WallCheckDistance) )
+		.Sphere( BodyRadius * 0.5f, chest, end )
 		.IgnoreGameObjectHierarchy( GameObject )
 		.Run();
+
+	if ( DebugMovement )
+		DebugOverlay.Line( chest, end, tr.Hit ? Color.Green : Color.Red, duration: 0.1f );
 
 	if ( !tr.Hit || CombatMath.ResolveActorRoot( tr.GameObject ).IsValid() ) return false;
 	if ( MathF.Abs( tr.Normal.z ) > MaxWallNormalZ ) return false;
@@ -356,7 +417,7 @@ private bool TryFindWall( Vector3 from, Vector3 dir, out Vector3 normal )
 	return true;
 }
 
-private void SetMoveMode( EnemyMoveMode mode )
+private void SetMoveMode( EnemyMoveMode mode, bool syncAgentPosition = true )
 {
 	if ( MoveMode == mode ) return;
 
@@ -380,7 +441,11 @@ private void SetMoveMode( EnemyMoveMode mode )
 		_dropLeftGround = false;
 		ResetTraversalProgress();
 		if ( UseNavMesh && Agent != null )
-			Agent.SetAgentPosition( GameObject.WorldPosition );
+		{
+			_agentPositionSyncPending = !syncAgentPosition;
+			if ( syncAgentPosition )
+				Agent.SetAgentPosition( GameObject.WorldPosition );
+		}
 	}
 }
 

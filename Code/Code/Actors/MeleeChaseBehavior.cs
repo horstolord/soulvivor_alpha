@@ -19,11 +19,13 @@ public sealed class MeleeChaseBehavior : Component, IEnemyBehavior
  
 		float rangeScale = System.MathF.Max( 0.1f, (self.StatSheet?.Range?.Value ?? 100f) / 100f );
 		float dist = self.DistanceToTarget;
-		if ( dist > StopRange * rangeScale ) self.MoveToward( self.Target.WorldPosition );
+		bool heightMismatch = System.MathF.Abs( self.Target.WorldPosition.z - self.GameObject.WorldPosition.z )
+			> self.MinTargetHeightAbove;
+		if ( dist > StopRange * rangeScale || heightMismatch ) self.MoveToward( self.Target.WorldPosition );
 		else self.StopMoving();
 		
  
-		if ( dist <= AttackRange * rangeScale && self.Combat?.CanAttack == true )
+		if ( !heightMismatch && dist <= AttackRange * rangeScale && self.Combat?.CanAttack == true )
 			self.TryAttack( self.GetAttackType() );
 	}
 }

@@ -28,6 +28,14 @@ public sealed class ProcControl : Component
 	private int _dispatchDepth;
 	private bool _needsCompact;
 	private int _intervalCount;
+	private struct ScheduledEffect
+	{
+		public float DueTime;
+		public IProcEffect Effect;
+		public ProcContext Context;
+	}
+ 
+	private readonly List<ScheduledEffect> _scheduled = new();
 
 	// ============ PUBLIC API ============
 
@@ -62,6 +70,44 @@ public sealed class ProcControl : Component
 			if ( _dispatchDepth == 0 ) Compact();
 		}
 		return removed;
+	}
+	/// <summary>
+	/// Runs an effect after a delay with the given context. Ticks in OnUpdate and keeps running while the owner is
+	/// dead, until the corpse is destroyed (2s after death, see Actor.OnKilled) — plan death sequences inside that window.
+	/// </summary>
+	public void Schedule( float delay, IProcEffect effect, in ProcContext ctx )
+	{
+		if ( effect == null ) return;
+		_scheduled.Add( new ScheduledEffect { DueTime = Time.Now + MathF.Max( 0f, delay ), Effect = effect, Context = ctx } );
+	}
+ 
+	private void RunScheduled()
+	{
+		float now = Time.Now;
+		int guard = 256; // an effect that keeps rescheduling itself with 0 delay can't hang the frame
+ 
+		for ( int i = 0; i < _scheduled.Count && guard-- > 0; )
+		{
+			if ( _scheduled[i].DueTime > now )
+			{
+				i++;
+				continue;
+			}
+ 
+			var item = _scheduled[i];
+			_scheduled.RemoveAt( i ); // effects may Schedule more; appended entries are visited in this same loop
+			var ctx = item.Context;
+ 
+			try
+			{
+				item.Effect.Execute( ctx );
+			}
+			catch ( Exception e )
+			{
+				// If the s&box whitelist rejects Log here, use Console.WriteLine like in TryFire.
+				Log.Error( $"[ProcControl] A scheduled effect on proc '{ctx.Def?.Id}' threw: {e.Message}" );
+			}
+		}
 	}
 	/// <summary>Sets the potency of every proc granted by this source (boon stacks etc.) without resetting ICDs.</summary>
 	public void SetPotencyForSource( object source, float potency )
@@ -153,6 +199,7 @@ public sealed class ProcControl : Component
 
 	protected override void OnUpdate()
 	{
+		if ( _scheduled.Count > 0 ) RunScheduled();
 		if ( _intervalCount <= 0 ) return;
 		CacheActor();
 		if ( _actor == null ) return;

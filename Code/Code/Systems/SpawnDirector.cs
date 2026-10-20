@@ -34,6 +34,7 @@ public class SpawnDirector : Component
 
 	/// <summary>Additional enemies allowed per minute of play time.</summary>
 	[Property] public float CapGrowthPerMin  { get; set; } = 2f;
+	[Property] public float EliteChance { get; set; } = 5f;
 
 	// ============ RUNTIME ============
 	private float _credits       = 0f;
@@ -92,35 +93,19 @@ public class SpawnDirector : Component
 			return;
 		}
 
-		// 1. Resolve this card's own prefab by path (no Editor drag needed — same
-		//    convention as SoulOrb.OnStart / BeamDeliveryMethod.Deliver)
-		if ( !ResourceLibrary.TryGet<PrefabFile>( card.PrefabPath, out var prefabFile ) )
+		Vector3 spawnPos = PickSpawnPosition( player.GameObject.WorldPosition );
+ 
+		// Elite roll: costs the regular card price for now. MobSpawner applies preset, scale and affixes before enabling.
+		List<EliteAffixDef> affixes = null;
+		if ( Random.Shared.NextSingle() * 100f < EliteChance )
+			affixes = EliteAffixLibrary.RollAffixes();
+ 
+		var spawnedGo = MobSpawner.Spawn( Scene, new MobSpawnRequest { Card = card, Position = spawnPos, Affixes = affixes } );
+		if ( spawnedGo == null )
 		{
-			Log.Warning( $"[SpawnDirector] No prefab found at '{card.PrefabPath}' for card '{card.DisplayName}'!" );
-			_cooldownTimer = SpawnCooldown;
+			_cooldownTimer = SpawnCooldown; // MobSpawner already logged why (missing prefab etc.)
 			return;
 		}
-
-		// 2. Clone the prefab disabled using CloneConfig
-		Vector3 spawnPos = PickSpawnPosition( player.GameObject.WorldPosition );
-		var config = new CloneConfig( new Transform( spawnPos ), null, false );
-
-		var spawnedGO = SceneUtility.GetPrefabScene( prefabFile ).Clone( config );
-		spawnedGO.Name = card.DisplayName;
-
-		// 3. Apply the stat preset BEFORE waking the enemy up
-		var enemy = spawnedGO.Components.Get<Enemy>( FindMode.EverythingInSelfAndDescendants );
-		if ( enemy != null )
-		{
-			enemy.PresetOverride = card.MobPresetId;
-		}
-		else
-		{
-			Log.Warning( $"[SpawnDirector] Could not find Enemy component on cloned prefab for {card.DisplayName}!" );
-		}
-
-		// 4. Now enable the cloned GameObject
-		spawnedGO.Enabled = true;
 
 		_credits -= card.Cost;
 		_cooldownTimer = SpawnCooldown;

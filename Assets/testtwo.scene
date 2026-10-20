@@ -88,6 +88,21 @@
           "Shadows": true,
           "SkyColor": "0,0,0,0",
           "Visualizer": {}
+        },
+        {
+          "__type": "Sandbox.Code.Systems.EliteTestComponent",
+          "__guid": "f704f16e-3a1a-41b0-9743-6a2642025995",
+          "__enabled": true,
+          "Flags": 0,
+          "AffixIds": "volatile",
+          "Distance": 500,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PrefabPath": "goblin.prefab"
         }
       ],
       "Children": []
@@ -981,7 +996,7 @@
               "Flags": 12288,
               "Name": "spine_2",
               "Position": "-95.460144,0.996668875,0.0868561864",
-              "Rotation": "-0.00839878619,0.00621142983,-0.0496253967,-0.997573018",
+              "Rotation": "-0.00839878619,0.00621142983,-0.0496253967,-0.997572958",
               "Scale": "1.0002569,1.0002569,1.0002569",
               "Tags": "",
               "Enabled": true,
@@ -1355,8 +1370,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "head",
-              "Position": "-92.6165085,-33.6755714,-0.477917314",
-              "Rotation": "0.00206309557,-0.00285595655,0.357763141,0.932547927",
+              "Position": "-92.6165161,-33.6755829,-0.477913499",
+              "Rotation": "0.00206308067,-0.00285592675,0.357763112,0.932547927",
               "Scale": "1.00015318,1.00015306,1.00015306",
               "Tags": "",
               "Enabled": true,
@@ -1784,8 +1799,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_L",
-              "Position": "-2.68421054,-0.106058255,1.7277559",
-              "Rotation": "-0.00914444774,-0.459117323,-0.084284097,-0.880769014",
+              "Position": "-2.68421078,-0.106058255,1.7277565",
+              "Rotation": "-0.00914438814,-0.459117383,-0.0842840672,-0.880769074",
               "Scale": "0.9938398,0.993839741,0.99383986",
               "Tags": "",
               "Enabled": true,
@@ -2004,8 +2019,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_L",
-              "Position": "10.0649824,0.275045007,0.0726375729",
-              "Rotation": "0.00750844926,-0.0023330301,0.160388589,0.986399531",
+              "Position": "10.0649843,0.275045455,0.0726378113",
+              "Rotation": "0.0075084269,-0.00233304501,0.160388589,0.986399531",
               "Scale": "1.00070214,1.00070214,1.00070214",
               "Tags": "",
               "Enabled": true,
@@ -2224,8 +2239,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_L",
-              "Position": "7.7322278,-0.179821983,0.00795371458",
-              "Rotation": "-0.0429673009,0.0613099933,-0.0552529991,0.988409102",
+              "Position": "7.73222876,-0.179821983,0.00795395393",
+              "Rotation": "-0.0429672748,0.0613099933,-0.0552529395,0.988409042",
               "Scale": "0.997722208,0.997722208,0.997722208",
               "Tags": "",
               "Enabled": true,
@@ -3028,8 +3043,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_R",
-              "Position": "-2.70421767,-0.04510732,-1.76511967",
-              "Rotation": "0.0126851201,0.464555353,-0.083078824,-0.877989888",
+              "Position": "-2.70421839,-0.04510732,-1.76512003",
+              "Rotation": "0.0126851201,0.464555293,-0.0830787718,-0.877989888",
               "Scale": "0.993846297,0.993846297,0.993846178",
               "Tags": "",
               "Enabled": true,
@@ -3214,8 +3229,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_R",
-              "Position": "10.0649242,0.275077373,-0.0724974722",
-              "Rotation": "0.00749590248,-0.00233705342,-0.160382718,-0.986400723",
+              "Position": "10.064929,0.275078297,-0.0724996328",
+              "Rotation": "0.00749592483,-0.00233706832,-0.160382748,-0.986400843",
               "Scale": "1.00070357,1.00070357,1.00070357",
               "Tags": "",
               "Enabled": true,
@@ -3465,8 +3480,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_R",
-              "Position": "7.73226833,-0.179731265,-0.00779780652",
-              "Rotation": "0.0197430477,-0.050883688,-0.0401328504,0.992652059",
+              "Position": "7.73227024,-0.179731444,-0.00779660791",
+              "Rotation": "0.0197430365,-0.0508837253,-0.0401329249,0.992652059",
               "Scale": "0.997724414,0.997724354,0.997724354",
               "Tags": "",
               "Enabled": true,
@@ -5194,8 +5209,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_lower_L",
-              "Position": "14.3394117,-0.23330228,0.14599888",
-              "Rotation": "0.00120970607,-0.0146847218,-0.171033993,0.986793637",
+              "Position": "14.3394041,-0.23330161,0.14599888",
+              "Rotation": "0.00120970607,-0.014684692,-0.171033889,0.986793518",
               "Scale": "0.998435438,0.998435438,0.998435497",
               "Tags": "",
               "Enabled": true,
@@ -5380,8 +5395,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "ankle_L",
-              "Position": "12.3605337,0.263716161,-0.180485368",
-              "Rotation": "-0.0346513838,0.0438368618,0.467601895,0.887208223",
+              "Position": "12.3605356,0.263714373,-0.180486336",
+              "Rotation": "-0.0346513987,0.0438369215,0.467601895,0.887208223",
               "Scale": "0.959744871,0.959744871,0.959744871",
               "Tags": "",
               "Enabled": true,
@@ -7398,7 +7413,7 @@
             "Roll": true
           },
           "MassCenterOverride": "0,0,36",
-          "MassOverride": 10,
+          "MassOverride": 298,
           "MinImpactDamageSpeed": 500,
           "MotionEnabled": true,
           "OnComponentDestroy": null,
@@ -7571,6 +7586,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         },
         {
@@ -10279,7 +10295,7 @@
               "Children": []
             },
             {
-              "__guid": "c7e35afa-e175-4a48-92e9-6a2d4647e315",
+              "__guid": "05547c24-7001-4a2a-8c14-aee496e06ded",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -10296,7 +10312,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "3c375956-1f48-4edd-9631-2bf84bbda5a2",
+                  "__guid": "3dd9ad53-4152-4e7b-a205-a17075a55197",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10346,7 +10362,7 @@
               "Children": []
             },
             {
-              "__guid": "4fca53ca-fad4-4371-b42d-f43b39162f29",
+              "__guid": "ead3ad2f-2873-4778-8992-51bbc16d3ebd",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -10363,7 +10379,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "38cce420-0f3f-44c9-925a-badca81645c7",
+                  "__guid": "da1606f5-111e-4e2a-bcce-9323f7f816ad",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10413,7 +10429,7 @@
               "Children": []
             },
             {
-              "__guid": "e922342b-9a37-4a4c-9d85-48f4480bf99e",
+              "__guid": "6111092f-6037-498d-b009-be655bfc3db4",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -10430,7 +10446,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "f1e6bf8c-83a5-4f26-bf4e-6f84135a274f",
+                  "__guid": "bf52e63a-b8aa-43f0-b7a9-1821636f84eb",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10480,7 +10496,7 @@
               "Children": []
             },
             {
-              "__guid": "ea8f0304-8fc5-4a8b-9560-e3866fbe0ae2",
+              "__guid": "ea629d8a-27b6-4464-aad0-d37584235b0e",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -10497,7 +10513,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "f77a3ec6-86e5-4f04-86d0-bccec3ce3d22",
+                  "__guid": "150fb139-53df-414c-9a77-b68e8a29c43d",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10547,7 +10563,7 @@
               "Children": []
             },
             {
-              "__guid": "b9a3fa38-bf10-48f6-a9ec-118a15254f21",
+              "__guid": "9cb3036b-673f-4881-bc36-2fddac59d6f1",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -10564,7 +10580,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "62f08a55-8170-4583-8422-af67df8d3082",
+                  "__guid": "06e4b7c9-dd28-471c-8437-b27b1ccdd41a",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -10877,6 +10893,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -11070,6 +11087,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -11263,6 +11281,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -11456,6 +11475,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -11649,6 +11669,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -11842,6 +11863,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -12035,6 +12057,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -12228,6 +12251,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -12421,6 +12445,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -12614,6 +12639,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -12807,6 +12833,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -13000,6 +13027,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -13193,6 +13221,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -13386,6 +13415,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -13579,6 +13609,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -13772,6 +13803,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -13965,6 +13997,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -14158,6 +14191,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -14351,6 +14385,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -14544,6 +14579,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -14737,6 +14773,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -14930,6 +14967,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -15123,6 +15161,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -15316,6 +15355,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -15509,6 +15549,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -15702,7 +15743,28 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
+        },
+        {
+          "__type": "Sandbox.HighlightOutline",
+          "__guid": "73653af3-4533-463d-a7fc-d72c647b74c1",
+          "__enabled": true,
+          "Flags": 0,
+          "Color": "0.88837,0,0,1",
+          "InsideColor": "0,0,0,0",
+          "InsideObscuredColor": "0,0,0,0",
+          "Material": null,
+          "ObscuredColor": "0,0,0,0.4",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OverrideTargets": false,
+          "Targets": null,
+          "Width": 0.25
         }
       ],
       "Children": []
@@ -15895,6 +15957,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -16088,6 +16151,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -16281,6 +16345,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -16474,6 +16539,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -16667,6 +16733,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -16860,7 +16927,20 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
+        },
+        {
+          "__type": "Sandbox.Highlight",
+          "__guid": "a1c84659-1114-473f-be10-12969c2b1420",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ],
       "Children": []
@@ -17053,6 +17133,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -17246,6 +17327,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -17439,6 +17521,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -17632,6 +17715,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -17825,6 +17909,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -18018,6 +18103,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -18211,6 +18297,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -18404,6 +18491,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -18597,6 +18685,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -18790,6 +18879,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -18983,6 +19073,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -19176,6 +19267,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -19369,6 +19461,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -19562,6 +19655,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -19755,6 +19849,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -19948,6 +20043,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -20141,6 +20237,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -20334,6 +20431,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -20527,6 +20625,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -20720,6 +20819,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -20913,6 +21013,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -21106,6 +21207,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -21299,6 +21401,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -21492,6 +21595,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -21685,6 +21789,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -21878,6 +21983,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -22071,6 +22177,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -22264,6 +22371,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -22457,6 +22565,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -22650,6 +22759,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -22843,6 +22953,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -23036,6 +23147,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -23229,6 +23341,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -23422,6 +23535,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -23615,6 +23729,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -23808,6 +23923,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -24001,6 +24117,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -24194,6 +24311,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -24387,6 +24505,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -24580,6 +24699,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -24773,6 +24893,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -24966,6 +25087,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -25159,6 +25281,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -25352,6 +25475,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -25545,6 +25669,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -25738,6 +25863,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -25931,6 +26057,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -26124,6 +26251,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -26269,6 +26397,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         },
         {
@@ -27330,7 +27459,7 @@
           "Flags": 12288,
           "Name": "pelvis",
           "Position": "-538.249207,-797.180237,-70.8676605",
-          "Rotation": "0.523123205,-0.475756049,0.523124933,0.475756437",
+          "Rotation": "0.523123324,-0.475756049,0.523125052,0.475756437",
           "Scale": "0.999999821,0.999999821,0.999999702",
           "Tags": "",
           "Enabled": true,
@@ -27545,8 +27674,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "spine_0",
-              "Position": "4.32406282,-0.00239044521,-0.000112833033",
-              "Rotation": "0.000258103013,-1.17719173E-06,-5.6385994E-05,0.999999046",
+              "Position": "4.32406187,-0.00239064381,-0.000112925445",
+              "Rotation": "0.000258073211,-1.20699406E-06,-5.63263893E-05,0.999998927",
               "Scale": "1.00000012,1.00000012,1.00000024",
               "Tags": "",
               "Enabled": true,
@@ -27690,8 +27819,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "spine_2",
-                      "Position": "12.3717518,0.00313282083,6.41327642E-05",
-                      "Rotation": "-0.000185370445,-0.000252336264,0.000364661217,0.999998093",
+                      "Position": "12.3717508,0.00313242362,6.50568691E-05",
+                      "Rotation": "-0.00018543005,-0.000252321362,0.000364631414,0.999998033",
                       "Scale": "0.999999702,0.999999702,0.999999702",
                       "Tags": "",
                       "Enabled": true,
@@ -27961,8 +28090,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "head",
-                              "Position": "11.3865395,-0.267929375,-0.0052575944",
-                              "Rotation": "7.73668289E-05,-0.000254407525,0.000307872891,-0.999999225",
+                              "Position": "11.3865414,-0.267928392,-0.00525685493",
+                              "Rotation": "7.73668289E-05,-0.000254526734,0.000307872891,-0.999999106",
                               "Scale": "0.999999821,0.999999821,0.999999821",
                               "Tags": "",
                               "Enabled": true,
@@ -28210,8 +28339,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "arm_upper_L",
-                              "Position": "4.84325886,-1.16352379,6.6379962",
-                              "Rotation": "0.0256870091,0.909236073,0.0808852762,-0.4075436",
+                              "Position": "4.84325743,-1.1635232,6.63799572",
+                              "Rotation": "0.0256870389,0.909235954,0.080885306,-0.40754357",
                               "Scale": "0.999999583,0.999999583,0.999999523",
                               "Tags": "",
                               "Enabled": true,
@@ -28356,8 +28485,8 @@
                                   "__version": 2,
                                   "Flags": 12288,
                                   "Name": "arm_lower_L",
-                                  "Position": "10.6462631,-0.0513085201,0.345037758",
-                                  "Rotation": "-6.70552254E-08,6.40749931E-07,0.148423791,0.988923371",
+                                  "Position": "10.6462641,-0.0513065346,0.345037848",
+                                  "Rotation": "-4.47034836E-08,6.70552254E-07,0.148423851,0.988923371",
                                   "Scale": "0.999999881,0.999999881,0.999999881",
                                   "Tags": "",
                                   "Enabled": true,
@@ -28502,8 +28631,8 @@
                                       "__version": 2,
                                       "Flags": 12288,
                                       "Name": "hand_L",
-                                      "Position": "8.1065197,-0.155243292,0.231283039",
-                                      "Rotation": "0.0916309506,-0.0330962315,0.0396786369,0.994451702",
+                                      "Position": "8.1065197,-0.155243546,0.231282488",
+                                      "Rotation": "0.0916309878,-0.0330962464,0.0396786034,0.994451761",
                                       "Scale": "0.999999702,0.999999702,0.999999702",
                                       "Tags": "",
                                       "Enabled": true,
@@ -28982,8 +29111,8 @@
                               "__version": 2,
                               "Flags": 12288,
                               "Name": "arm_upper_R",
-                              "Position": "4.83581877,-1.16566348,-6.64220142",
-                              "Rotation": "0.0255849957,0.909429312,-0.0810336173,0.407087088",
+                              "Position": "4.83581686,-1.16566467,-6.64220095",
+                              "Rotation": "0.0255850255,0.909429193,-0.0810336471,0.407087058",
                               "Scale": "0.999999881,0.999999881,0.999999821",
                               "Tags": "",
                               "Enabled": true,
@@ -29110,8 +29239,8 @@
                                   "__version": 2,
                                   "Flags": 12288,
                                   "Name": "arm_lower_R",
-                                  "Position": "10.6462708,-0.0513343364,-0.345084786",
-                                  "Rotation": "3.7252903E-08,4.76837158E-07,0.148424089,0.988924026",
+                                  "Position": "10.6462717,-0.0513359234,-0.345083296",
+                                  "Rotation": "8.94069672E-08,4.76837158E-07,0.148424089,0.988924146",
                                   "Scale": "0.999999881,0.999999881,1",
                                   "Tags": "",
                                   "Enabled": true,
@@ -29275,8 +29404,8 @@
                                       "__version": 2,
                                       "Flags": 12288,
                                       "Name": "hand_R",
-                                      "Position": "8.1065197,-0.15517962,-0.231394172",
-                                      "Rotation": "-0.091631189,0.0330966711,0.0396787822,0.994452",
+                                      "Position": "8.10651875,-0.15517883,-0.23139371",
+                                      "Rotation": "-0.0916312337,0.0330965966,0.039678812,0.994452",
                                       "Scale": "0.999999583,0.999999583,0.999999523",
                                       "Tags": "",
                                       "Enabled": true,
@@ -29762,8 +29891,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_upper_R",
-              "Position": "-0.317687869,-0.415755719,-4.11850595",
-              "Rotation": "-1.9967556E-06,0.999999344,4.61935997E-07,-7.30156898E-07",
+              "Position": "-0.31768766,-0.415755808,-4.11850595",
+              "Rotation": "-1.9967556E-06,0.999999404,4.61935997E-07,-7.30156898E-07",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -29890,8 +30019,8 @@
                   "__version": 2,
                   "Flags": 12288,
                   "Name": "leg_lower_R",
-                  "Position": "15.9544992,-3.97364431E-07,-2.21784831E-06",
-                  "Rotation": "-6.55651093E-07,2.83122063E-07,-0.0182808936,0.999833465",
+                  "Position": "15.9544992,-1.9868221E-06,-2.21784831E-06",
+                  "Rotation": "-5.96046448E-07,2.83122063E-07,-0.0182809681,0.999833465",
                   "Scale": "0.999999881,0.999999881,1",
                   "Tags": "",
                   "Enabled": true,
@@ -30018,8 +30147,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "ankle_R",
-                      "Position": "13.797452,0.0457219481,-7.39282768E-07",
-                      "Rotation": "1.02818012E-06,-8.64267349E-07,0.391497493,0.920179904",
+                      "Position": "13.7974539,0.0457215533,7.39282768E-07",
+                      "Rotation": "1.05798244E-06,-8.04662704E-07,0.391497463,0.920179904",
                       "Scale": "1.00000012,1.00000012,1",
                       "Tags": "",
                       "Enabled": true,
@@ -30234,8 +30363,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_upper_L",
-              "Position": "-0.317665666,-0.415749311,4.11850166",
-              "Rotation": "-1.62422657E-06,0.999998868,2.38418579E-07,-6.40749931E-07",
+              "Position": "-0.317665368,-0.415748805,4.11850214",
+              "Rotation": "-1.62422657E-06,0.999998927,2.5331974E-07,-6.2584877E-07",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -30362,8 +30491,8 @@
                   "__version": 2,
                   "Flags": 12288,
                   "Name": "leg_lower_L",
-                  "Position": "15.9544878,-5.16573782E-05,-1.47856554E-06",
-                  "Rotation": "-2.65240669E-06,-3.12924385E-07,-0.0182818472,0.999833345",
+                  "Position": "15.9544859,-5.24521056E-05,-1.10892415E-06",
+                  "Rotation": "-2.59280205E-06,-2.83122063E-07,-0.0182818919,0.999833226",
                   "Scale": "1,1,1",
                   "Tags": "",
                   "Enabled": true,
@@ -30490,8 +30619,8 @@
                       "__version": 2,
                       "Flags": 12288,
                       "Name": "ankle_L",
-                      "Position": "13.7974653,0.0457608849,-5.17497938E-06",
-                      "Rotation": "3.47197056E-06,-8.04662704E-07,0.391497672,0.920179725",
+                      "Position": "13.7974653,0.0457600914,-5.72944145E-06",
+                      "Rotation": "3.54647636E-06,-8.04662704E-07,0.391497552,0.920179725",
                       "Scale": "0.999999821,0.999999821,0.999999881",
                       "Tags": "",
                       "Enabled": true,
@@ -31039,6 +31168,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -31232,6 +31362,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -31425,6 +31556,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -31618,6 +31750,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -31811,6 +31944,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -32004,6 +32138,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -32197,6 +32332,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -32390,6 +32526,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -32583,6 +32720,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -32776,6 +32914,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -32969,6 +33108,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -33162,6 +33302,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -33355,6 +33496,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -33548,6 +33690,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -33741,6 +33884,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -33934,6 +34078,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         }
       ],
@@ -33963,6 +34108,7 @@
           "BaseCreditRate": 10,
           "BaseEnemyCap": 6,
           "CapGrowthPerMin": 2,
+          "EliteChance": 5,
           "MaxCredits": 150,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -34003,7 +34149,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "cc304606-5626-40ad-85ea-1fe8b986d1c3": "3ea251d8-25e9-88a8-9d43-a3e1a7ce3ff0"
+            "dea86fde-1e69-4020-b21d-e2e6db2b1a76": "365b144f-7eb8-8e34-ae35-aae6f9154a79"
           }
         }
       ]
@@ -34016,7 +34162,69 @@
         "Path": "orc.prefab"
       },
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "cf55c919-f253-4b0f-ad0c-0afddac6d4af"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "0b093750-ea37-46b8-9c7b-dc852c1bfca1"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.Highlight",
+              "__guid": "cf55c919-f253-4b0f-ad0c-0afddac6d4af",
+              "__enabled": true,
+              "Flags": 0,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2f3bae29-5195-477b-a7db-d2d6476c22ea"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "0b093750-ea37-46b8-9c7b-dc852c1bfca1"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "cf55c919-f253-4b0f-ad0c-0afddac6d4af"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.HighlightOutline",
+              "__guid": "2f3bae29-5195-477b-a7db-d2d6476c22ea",
+              "__enabled": true,
+              "Flags": 0,
+              "Color": "1,1,1,1",
+              "InsideColor": "0,0,0,0",
+              "InsideObscuredColor": "0,0,0,0",
+              "Material": null,
+              "ObscuredColor": "0,0,0,0.4",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideTargets": false,
+              "Targets": null,
+              "Width": 0.25
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
@@ -35247,7 +35455,7 @@
               "Flags": 12288,
               "Name": "spine_2",
               "Position": "-95.460144,0.996619165,0.0865527913",
-              "Rotation": "-0.00839878619,0.00621142983,-0.0496253967,-0.997573018",
+              "Rotation": "-0.00839878619,0.00621142983,-0.0496253967,-0.997572958",
               "Scale": "1.0002569,1.0002569,1.0002569",
               "Tags": "",
               "Enabled": true,
@@ -35621,8 +35829,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "head",
-              "Position": "-92.6165848,-33.6756287,-0.478192002",
-              "Rotation": "0.00206306577,-0.00285604596,0.357763261,0.932547569",
+              "Position": "-92.6166,-33.6756401,-0.478184372",
+              "Rotation": "0.00206299126,-0.00285604596,0.357763261,0.932547688",
               "Scale": "1.00012839,1.00012839,1.00012839",
               "Tags": "",
               "Enabled": true,
@@ -36050,8 +36258,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_L",
-              "Position": "-2.68422532,-0.10611371,1.7278173",
-              "Rotation": "-0.00914444774,-0.459117323,-0.084284097,-0.880769014",
+              "Position": "-2.68422627,-0.10611371,1.72781789",
+              "Rotation": "-0.00914438814,-0.459117383,-0.0842840672,-0.880769074",
               "Scale": "0.9938398,0.993839741,0.99383986",
               "Tags": "",
               "Enabled": true,
@@ -36270,8 +36478,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_L",
-              "Position": "10.064971,0.274985194,0.0726848394",
-              "Rotation": "0.00750844926,-0.0023330301,0.160388589,0.986399531",
+              "Position": "10.0649719,0.274986058,0.0726822019",
+              "Rotation": "0.0075084269,-0.00233304501,0.160388589,0.986399531",
               "Scale": "1.00070214,1.00070214,1.00070214",
               "Tags": "",
               "Enabled": true,
@@ -36490,8 +36698,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_L",
-              "Position": "7.73237085,-0.179836929,0.00794843957",
-              "Rotation": "-0.0429673009,0.0613099933,-0.0552529991,0.988409102",
+              "Position": "7.73237133,-0.179836929,0.00794867892",
+              "Rotation": "-0.0429672748,0.0613099933,-0.0552529395,0.988409042",
               "Scale": "0.997722208,0.997722208,0.997722208",
               "Tags": "",
               "Enabled": true,
@@ -37294,8 +37502,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_upper_R",
-              "Position": "-2.70431542,-0.045160111,-1.76505768",
-              "Rotation": "0.0126851201,0.464555353,-0.083078824,-0.877989888",
+              "Position": "-2.70431614,-0.0451602228,-1.76505792",
+              "Rotation": "0.0126851201,0.464555293,-0.0830787718,-0.877989888",
               "Scale": "0.993846297,0.993846297,0.993846178",
               "Tags": "",
               "Enabled": true,
@@ -37480,8 +37688,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "arm_lower_R",
-              "Position": "10.064888,0.275020123,-0.0725617707",
-              "Rotation": "0.00749579072,-0.00233709812,-0.160382465,-0.986400843",
+              "Position": "10.0648918,0.275020719,-0.0725606903",
+              "Rotation": "0.00749577582,-0.00233712792,-0.160382465,-0.986400962",
               "Scale": "1.00070357,1.00070357,1.00070357",
               "Tags": "",
               "Enabled": true,
@@ -37731,8 +37939,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "hand_R",
-              "Position": "7.73228931,-0.17967394,-0.00778857572",
-              "Rotation": "0.0197428204,-0.0508837402,-0.0401330143,0.992652059",
+              "Position": "7.73228931,-0.179671347,-0.00778767653",
+              "Rotation": "0.0197428353,-0.0508837625,-0.0401330553,0.992651939",
               "Scale": "0.997724414,0.997724354,0.997724354",
               "Tags": "",
               "Enabled": true,
@@ -39460,8 +39668,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "leg_lower_L",
-              "Position": "14.3394251,-0.233302057,0.145969272",
-              "Rotation": "0.00120970607,-0.0146847218,-0.171034008,0.986793578",
+              "Position": "14.3394165,-0.233300045,0.14596951",
+              "Rotation": "0.00120973587,-0.0146846622,-0.171033919,0.986793399",
               "Scale": "0.998435438,0.998435438,0.998435497",
               "Tags": "",
               "Enabled": true,
@@ -39646,8 +39854,8 @@
               "__version": 2,
               "Flags": 12288,
               "Name": "ankle_L",
-              "Position": "12.3605289,0.263717264,-0.180516228",
-              "Rotation": "-0.0346513987,0.0438369215,0.467601925,0.887208343",
+              "Position": "12.3605289,0.263714582,-0.180513844",
+              "Rotation": "-0.0346514136,0.0438369215,0.467601925,0.887208223",
               "Scale": "0.959744871,0.959744871,0.959744871",
               "Tags": "",
               "Enabled": true,
@@ -41465,7 +41673,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Position",
-            "Value": "1.35898599E-05,1.52365756,1.01327907E-06"
+            "Value": "1.38779496E-05,1.52365804,1.1573236E-06"
           },
           {
             "Target": {
@@ -41553,7 +41761,7 @@
               "IdValue": "e6d00c89-2ff4-4440-bf3c-dcf03a8f25d7"
             },
             "Property": "Position",
-            "Value": "-8.30491354E-06,1.21092379,3.23851896E-06"
+            "Value": "-7.99695681E-06,1.21092451,3.4968059E-06"
           },
           {
             "Target": {
@@ -43254,7 +43462,7 @@
               "Flags": 12288,
               "Name": "head",
               "Position": "2.08616285E-07,1.58968127,5.37683661E-07",
-              "Rotation": "0.00264346646,-0.0314144045,0.0146821104,0.999400377",
+              "Rotation": "0.00264343759,-0.0314144194,0.0146821178,0.999400556",
               "Scale": "0.99999994,0.99999994,0.99999994",
               "Tags": "",
               "Enabled": true,
@@ -44985,7 +45193,7 @@
               "IdValue": "495ce31b-f5bc-4892-b55a-dc75c9560a99"
             },
             "Property": "Rotation",
-            "Value": "-0.139569566,2.19792128E-07,-1.04382634E-05,-0.99020946"
+            "Value": "-0.139569655,2.4959445E-07,-1.04606152E-05,-0.990209341"
           },
           {
             "Target": {
@@ -44993,7 +45201,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Position",
-            "Value": "-2.75174784E-06,1.52365875,-3.95377492E-06"
+            "Value": "-2.74181366E-06,1.52365911,-4.30643559E-06"
           },
           {
             "Target": {
@@ -45001,7 +45209,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Rotation",
-            "Value": "-0.0054416433,3.42726707E-07,-3.05473804E-07,0.999985874"
+            "Value": "-0.00544178672,4.02331352E-07,-2.90572643E-07,0.999985874"
           },
           {
             "Target": {
@@ -45049,7 +45257,7 @@
               "IdValue": "feb560c2-58b5-4984-b62b-e79617d7cfdd"
             },
             "Property": "Rotation",
-            "Value": "0.00264426693,-0.0314145461,0.0146817714,0.999391496"
+            "Value": "0.00264438987,-0.0314145684,0.0146817565,0.999391317"
           },
           {
             "Target": {
@@ -45237,7 +45445,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "8ed23d44-a4af-4e83-9377-e5d99e560d77",
+            "Id": "2aa6995b-9887-4768-9a93-8ccb99eb3ce7",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45264,7 +45472,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "8ed23d44-a4af-4e83-9377-e5d99e560d77",
+            "Id": "2aa6995b-9887-4768-9a93-8ccb99eb3ce7",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45292,7 +45500,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "8ed23d44-a4af-4e83-9377-e5d99e560d77",
+            "Id": "2aa6995b-9887-4768-9a93-8ccb99eb3ce7",
             "Path": "models/props/trim_sheets/crate/wooden_crate/wooden_crate_02.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45375,7 +45583,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "cdc4251f-7e82-485b-9fca-666222a92ecd",
+            "Id": "060abb28-c228-45d8-976f-31837f06a0f0",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45402,7 +45610,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "cdc4251f-7e82-485b-9fca-666222a92ecd",
+            "Id": "060abb28-c228-45d8-976f-31837f06a0f0",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45430,7 +45638,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "cdc4251f-7e82-485b-9fca-666222a92ecd",
+            "Id": "060abb28-c228-45d8-976f-31837f06a0f0",
             "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45527,7 +45735,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "b489295e-a7e5-4c9c-a72d-d306c945fc77",
+            "Id": "537df886-a75c-4acd-adfd-f70c88a43e0b",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45554,7 +45762,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "b489295e-a7e5-4c9c-a72d-d306c945fc77",
+            "Id": "537df886-a75c-4acd-adfd-f70c88a43e0b",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45582,7 +45790,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "b489295e-a7e5-4c9c-a72d-d306c945fc77",
+            "Id": "537df886-a75c-4acd-adfd-f70c88a43e0b",
             "Path": "models/props/baitbox/baitboxvmdl.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45667,7 +45875,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "42b00b3a-f620-4a4f-ae6e-159e13f38e0c",
+            "Id": "1fcfd68b-94d9-4ace-b65b-f35f6af79f12",
             "Path": "models workshop/double barrel/double-barrel.vmdl"
           },
           "OnComponentDestroy": null,
@@ -45841,7 +46049,72 @@
         "Path": "goblin.prefab"
       },
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "c246b529-523d-462f-b0a4-07ed8269cf3a"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "fa42141d-d655-4299-877a-28f3325e4ce1"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "954b7542-45dc-424e-b87e-9bb5a21f9c19"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.Highlight",
+              "__guid": "c246b529-523d-462f-b0a4-07ed8269cf3a",
+              "__enabled": false,
+              "Flags": 0,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "f2f09fc7-ad0d-4f71-9e7c-fb48d906b73b"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "fa42141d-d655-4299-877a-28f3325e4ce1"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "c246b529-523d-462f-b0a4-07ed8269cf3a"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.HighlightOutline",
+              "__guid": "f2f09fc7-ad0d-4f71-9e7c-fb48d906b73b",
+              "__enabled": true,
+              "Flags": 0,
+              "Color": "1,1,1,1",
+              "InsideColor": "0,0,0,0",
+              "InsideObscuredColor": "0,0,0,0",
+              "Material": null,
+              "ObscuredColor": "0,0,0,0.4",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideTargets": false,
+              "Targets": null,
+              "Width": 5.4100018
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -45938,7 +46211,7 @@
               "IdValue": "15940352-2e14-4bf1-9c4f-94e8e91800a5"
             },
             "Property": "Position",
-            "Value": "-1.40170259E-05,0.873467743,3.77173237E-05"
+            "Value": "-1.38729811E-05,0.873468101,3.77818942E-05"
           },
           {
             "Target": {
@@ -45962,7 +46235,7 @@
               "IdValue": "495ce31b-f5bc-4892-b55a-dc75c9560a99"
             },
             "Property": "Position",
-            "Value": "-3.7153568E-06,1.72054267,1.18215894E-06"
+            "Value": "-3.84450004E-06,1.72054243,1.11262023E-06"
           },
           {
             "Target": {
@@ -45970,7 +46243,7 @@
               "IdValue": "495ce31b-f5bc-4892-b55a-dc75c9560a99"
             },
             "Property": "Rotation",
-            "Value": "-0.139569655,2.4959445E-07,-1.04606152E-05,-0.990209341"
+            "Value": "-0.139569655,2.75671482E-07,-1.04829669E-05,-0.990209222"
           },
           {
             "Target": {
@@ -45978,7 +46251,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Position",
-            "Value": "1.57256927E-05,1.52367461,-3.05473827E-06"
+            "Value": "1.55369453E-05,1.52367425,-3.14911222E-06"
           },
           {
             "Target": {
@@ -45986,7 +46259,7 @@
               "IdValue": "7ecaefe6-3d9c-48dd-a11e-2c3d78ddf463"
             },
             "Property": "Rotation",
-            "Value": "-0.00544178672,4.02331352E-07,-2.90572643E-07,0.999985874"
+            "Value": "-0.00544187427,4.39584255E-07,-2.75671482E-07,0.999985874"
           },
           {
             "Target": {
@@ -45994,7 +46267,7 @@
               "IdValue": "0bf18dd1-9d28-4c53-bf2a-dac2c1ee55a7"
             },
             "Property": "Position",
-            "Value": "-2.19841841E-05,1.79004252,-1.75734385E-05"
+            "Value": "-2.26597022E-05,1.79004121,-1.80751122E-05"
           },
           {
             "Target": {
@@ -46018,7 +46291,7 @@
               "IdValue": "089d07be-5a9c-4d17-beaf-43a6a99985e0"
             },
             "Property": "Position",
-            "Value": "2.05983742E-05,1.16670156,-9.30577608E-06"
+            "Value": "2.11695842E-05,1.16670239,-8.44647548E-06"
           },
           {
             "Target": {
@@ -46042,7 +46315,7 @@
               "IdValue": "feb560c2-58b5-4984-b62b-e79617d7cfdd"
             },
             "Property": "Position",
-            "Value": "-3.10440919E-06,0.597940147,1.75337027E-06"
+            "Value": "-3.23106906E-06,0.597939909,1.64657854E-06"
           },
           {
             "Target": {
@@ -46050,7 +46323,7 @@
               "IdValue": "feb560c2-58b5-4984-b62b-e79617d7cfdd"
             },
             "Property": "Rotation",
-            "Value": "0.00264438987,-0.0314145684,0.0146817565,0.999391317"
+            "Value": "0.00264444575,-0.0314145833,0.0146817267,0.999391198"
           },
           {
             "Target": {
@@ -46066,7 +46339,7 @@
               "IdValue": "e6d00c89-2ff4-4440-bf3c-dcf03a8f25d7"
             },
             "Property": "Position",
-            "Value": "-1.35302544E-05,1.21091092,3.10689211E-06"
+            "Value": "-1.32819014E-05,1.21091139,3.32295895E-06"
           },
           {
             "Target": {
@@ -46090,7 +46363,7 @@
               "IdValue": "ad8db3c7-0de7-459c-b459-fb33d512c585"
             },
             "Property": "Position",
-            "Value": "-3.76502726E-06,1.57894695,-1.85469817E-05"
+            "Value": "-4.07298467E-06,1.57894647,-1.88847407E-05"
           },
           {
             "Target": {
@@ -46106,7 +46379,7 @@
               "IdValue": "0262a6d9-9831-4fa7-bc08-65702e6f7eec"
             },
             "Property": "Position",
-            "Value": "-3.33786011E-06,1.33933389,4.88013029E-06"
+            "Value": "-3.09944153E-06,1.33933437,5.0986805E-06"
           },
           {
             "Target": {
@@ -46130,7 +46403,7 @@
               "IdValue": "fb9d2025-c46f-4a6a-a4ad-d7f52101616f"
             },
             "Property": "Position",
-            "Value": "3.41733335E-06,1.75773942,-5.3644186E-07"
+            "Value": "3.89417028E-06,1.75773966,-1.78813949E-07"
           },
           {
             "Target": {

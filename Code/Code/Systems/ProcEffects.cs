@@ -51,6 +51,64 @@ public sealed class ChanceProcEffect : IProcEffect
 }
 
 /// <summary>
+/// Runs another effect after a delay, using the owner's ProcControl as the scheduler (it keeps ticking while the
+/// owner is dead, until the corpse is destroyed). Compose several of these for sequences (flash, flash, boom).
+/// </summary>
+public sealed class DelayedProcEffect : IProcEffect
+{
+	public float Delay = 1f;
+	public IProcEffect Inner;
+
+	public void Execute( in ProcContext ctx )
+	{
+		if ( Inner == null ) return;
+		ctx.Owner?.Procs?.Schedule( Delay, Inner, ctx );
+	}
+}
+
+/// <summary>Sets the owner's body tint. Used by FlashProcEffect for its on/off steps.</summary>
+public sealed class SetTintProcEffect : IProcEffect
+{
+	public Color Tint = Color.White;
+
+	public void Execute( in ProcContext ctx )
+	{
+		if ( !ctx.Owner.IsValid() ) return;
+		var renderer = ctx.Owner.Components.GetInChildren<SkinnedModelRenderer>();
+		if ( renderer.IsValid() ) renderer.Tint = Tint;
+	}
+}
+
+/// <summary>
+/// Flickers the owner's body tint Count times (telegraph, e.g. before a death explosion), then restores
+/// whatever tint it had when the effect started (so elite tints survive).
+/// </summary>
+public sealed class FlashProcEffect : IProcEffect
+{
+	/// <summary>Values above 1 may be clamped by the renderer; it should still read as a hot flash.</summary>
+	public Color FlashColor = new Color( 3f, 0.6f, 0.3f );
+	public int Count = 3;
+	public float Interval = 0.35f;
+	public float OnTime = 0.15f;
+
+	public void Execute( in ProcContext ctx )
+	{
+		var owner = ctx.Owner;
+		if ( !owner.IsValid() || owner.Procs == null ) return;
+
+		var renderer = owner.Components.GetInChildren<SkinnedModelRenderer>();
+		if ( !renderer.IsValid() ) return;
+
+		var restore = renderer.Tint;
+		for ( int i = 0; i < Count; i++ )
+		{
+			owner.Procs.Schedule( i * Interval, new SetTintProcEffect { Tint = FlashColor }, ctx );
+			owner.Procs.Schedule( i * Interval + OnTime, new SetTintProcEffect { Tint = restore }, ctx );
+		}
+	}
+}
+
+/// <summary>
 /// Applies a BuffDef. Modifier values are multiplied by Potency (boon stacks etc.), like SpellEffectApplier.
 /// RefreshExisting = true replaces a running copy (safe default); false stacks an independent copy per fire —
 /// BuffComponent has no stack cap, so only use it with an ICD or a short duration.
@@ -126,6 +184,8 @@ public sealed class CastRunesProcEffect : IProcEffect
 	public bool FromEventPosition = false;
 	/// <summary>Aim at ctx.Event.Other when there is one that isn't at the cast origin; else owner's forward.</summary>
 	public bool AimAtOther = true;
+	/// <summary>Scales the cast's AoE radius and beam/cone range (1 = as authored on the rune). Nova 750 x 0.35 is about 260.</summary>
+	public float RangeScale = 1f;
 
 	public void Execute( in ProcContext ctx )
 	{
@@ -146,8 +206,11 @@ public sealed class CastRunesProcEffect : IProcEffect
 			procDepth: ctx.Event.ProcDepth + 1 );
 		if ( !result.Success ) return;
 
-		foreach ( var payload in result.Payloads )
+		for ( int i = 0; i < result.Payloads.Count; i++ )
 		{
+			var payload = result.Payloads[i]; // struct copy: modify the copy, then deliver it
+			payload.AoERadius *= RangeScale;
+			payload.BeamRange *= RangeScale;
 			payload.Context.DamageMultiplier *= ctx.Potency;
 			RuneEvaluator.ExecuteDelivery( payload );
 		}

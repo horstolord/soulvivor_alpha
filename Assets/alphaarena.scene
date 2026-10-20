@@ -50,49 +50,6 @@
       "Children": []
     },
     {
-      "__guid": "0dc5040c-1a2c-46ca-8367-6b4cf4f70d65",
-      "__version": 2,
-      "Flags": 0,
-      "Name": "Directional Light",
-      "Position": "0,0,200",
-      "Rotation": "-0.245984167,0.593858242,0.293152541,0.707732737",
-      "Scale": "1,1,1",
-      "Tags": "light_directional,light",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkFlags": 0,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.DirectionalLight",
-          "__guid": "9cfb9779-c662-4466-a80e-2622ac87fc3f",
-          "__enabled": true,
-          "Flags": 0,
-          "ContactShadows": true,
-          "Contribution": "Diffuse, Specular, Transmissive",
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "ShadowBias": 0,
-          "ShadowCascadeCount": 4,
-          "ShadowCascadeSplitRatio": 0.91,
-          "ShadowHardness": 0,
-          "Shadows": true,
-          "SkyColor": "0,0,0,0",
-          "Visualizer": {}
-        }
-      ],
-      "Children": []
-    },
-    {
       "__guid": "16526ec4-6694-42e2-b260-463afa7071dc",
       "__version": 2,
       "Flags": 0,
@@ -147,23 +104,23 @@
               "TerrainHeight": 10000,
               "Materials": [
                 {
-                  "Id": "17249262-3651-4394-aabb-d43a8cecbfc7",
+                  "Id": "5175204f-5989-45fa-baf2-0da73c817695",
                   "Path": "terrain/materials/rockbase.tmat"
                 },
                 {
-                  "Id": "94926262-94df-4d02-ab70-cb74013ff3a1",
+                  "Id": "6352a7cd-6428-4911-9529-698e78f91efc",
                   "Path": "materials/terrain/terrain_soil.tmat"
                 },
                 {
-                  "Id": "32ed066a-15dd-4402-959a-6ff5adfd38fe",
+                  "Id": "2d31389f-41da-40c5-99e9-285a3efaab58",
                   "Path": "materials/terrain/terrain_dirt_a_rocky.tmat"
                 },
                 {
-                  "Id": "197802f7-ec10-4b77-8b11-c0a50eebf8fc",
+                  "Id": "49dcc9bc-ed76-44a4-b9eb-bbb6bc4a139e",
                   "Path": "materials/terrain/terrain_grass_a.tmat"
                 },
                 {
-                  "Id": "1af4e3ac-3f82-49e2-818c-270400af0ffb",
+                  "Id": "657aa702-d24d-4120-a2ed-4cab8c912db8",
                   "Path": "terrains/rock.tmat"
                 }
               ],
@@ -278,6 +235,31 @@
           "Static": true,
           "Surface": null,
           "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "5dbbb9f5-1535-4eca-b947-77610b0fb1d6",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
         }
       ],
       "Children": []
@@ -308,7 +290,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+            "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -530,13 +512,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "c5633c91-4ffc-4920-80a2-ca6dccbda2c7",
+                "Id": "900e464a-6b11-4b01-b339-c1f62f6fa0c5",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "428ca8f5-bf9d-4cfe-9b9d-d254e0da9d9a",
+            "Id": "49c545a0-7684-4115-9da2-778986fb95a6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -686,7 +668,7 @@
       "__guid": "d06c7555-517e-4cc0-a653-10cbb40ce9d9",
       "__version": 2,
       "__Prefab": {
-        "Id": "b6b81a58-99dd-4b45-8485-75e727359bc1",
+        "Id": "8164511f-d4ad-48a6-951e-685c32f6fcaf",
         "Path": "spinningblade.prefab"
       },
       "__PrefabInstancePatch": {
@@ -719,7 +701,7 @@
         "a86124c5-f7e5-441d-b3ec-15d32ff95d85": "318d9ccc-480f-4a2f-9fae-9186cd370381",
         "98ca8bca-f09a-4a23-b470-f9379f13e1a7": "7ab486aa-3ed5-492d-a843-9a4aacb8079f",
         "433c631c-1548-4afc-b32a-8d9db9d30454": "82f70c2e-79b6-49b7-a4b3-7334c5579686",
-        "faf5e632-1d51-4794-96a0-ff768ad37620": "29cddc5a-f5c9-80d3-9f52-85857f01a716",
+        "0b7370af-9626-4e67-9ac8-90d68b232075": "0892218e-3753-8154-bdea-fd35f968f8cd",
         "850de8c3-6fc7-432a-99d4-988e422f10a4": "3ecad119-4a4a-4567-93af-233a963657d4",
         "26e58540-9111-40fa-b599-40397d9319cf": "1d7b84fb-7b33-4a94-ba13-49dba194f516",
         "01ce64d8-644c-4d9b-81f0-14fb32fb7868": "8946c608-850c-4d43-af7f-7f5f28ce9263",
@@ -758,13 +740,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "c5633c91-4ffc-4920-80a2-ca6dccbda2c7",
+                "Id": "900e464a-6b11-4b01-b339-c1f62f6fa0c5",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "428ca8f5-bf9d-4cfe-9b9d-d254e0da9d9a",
+            "Id": "49c545a0-7684-4115-9da2-778986fb95a6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -814,13 +796,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "c5633c91-4ffc-4920-80a2-ca6dccbda2c7",
+                "Id": "900e464a-6b11-4b01-b339-c1f62f6fa0c5",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "428ca8f5-bf9d-4cfe-9b9d-d254e0da9d9a",
+            "Id": "49c545a0-7684-4115-9da2-778986fb95a6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -2064,13 +2046,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "c5633c91-4ffc-4920-80a2-ca6dccbda2c7",
+                "Id": "900e464a-6b11-4b01-b339-c1f62f6fa0c5",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "428ca8f5-bf9d-4cfe-9b9d-d254e0da9d9a",
+            "Id": "49c545a0-7684-4115-9da2-778986fb95a6",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -2153,7 +2135,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "586bc46f-574e-4c54-b383-21d7cd73762d",
+            "Id": "9515cacb-bb33-4ed8-8756-3d857d364b34",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2304,7 +2286,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "1b58e7b5-f7e4-4519-b202-b71005bf6663",
+            "Id": "15be5d78-d93f-4fd8-a364-f5c27ad6d58d",
             "Path": "materials/scratched_metal_01.vmat"
           },
           "OnComponentDestroy": null,
@@ -2455,7 +2437,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "586bc46f-574e-4c54-b383-21d7cd73762d",
+            "Id": "9515cacb-bb33-4ed8-8756-3d857d364b34",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2606,7 +2588,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "586bc46f-574e-4c54-b383-21d7cd73762d",
+            "Id": "9515cacb-bb33-4ed8-8756-3d857d364b34",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2721,7 +2703,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+            "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -2812,282 +2794,6 @@
       "Children": []
     },
     {
-      "__guid": "bb047a0b-c633-45cd-b005-d0aa409ca91c",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "9750.37598,10351.7314,5873.76758"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "bb047a0b-c633-45cd-b005-d0aa409ca91c",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "feb739c2-ed77-474f-8093-7e712ff69ec7",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "70cbcc07-043e-465f-b01a-d94afdff3a29",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "c34af762-30c7-4374-8a1f-dfd19eb074f0"
-      }
-    },
-    {
-      "__guid": "c1241ed3-46c0-4ab1-b925-7430a9386129",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (1)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "10735.6104,10341.3418,5825.51465"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "c1241ed3-46c0-4ab1-b925-7430a9386129",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "834d29cc-57e3-41b4-ba6e-41dd959bd96c",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "9267cad9-9a12-4c87-aa11-0cbaaaf758ef",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "1c71218c-1eee-4d4b-9ba1-87848e16dfa9"
-      }
-    },
-    {
-      "__guid": "6c344e29-9217-4ded-88c6-3765e219b99b",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (7)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "8744.56348,9332.36816,5873.15088"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "6c344e29-9217-4ded-88c6-3765e219b99b",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "eca9e410-cd8d-4859-a21d-4407b1fbc0e5",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "50fafe7d-1e80-4dcd-9b36-0e2a388b9953",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "76c39d65-fb56-4fa4-9c60-db58aab01022"
-      }
-    },
-    {
       "__guid": "1d545954-3e86-4650-bbd3-bb59b3046a4f",
       "__version": 2,
       "__Prefab": {
@@ -3129,7 +2835,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+              "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -3185,7 +2891,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+              "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -3197,176 +2903,6 @@
         "b51ab566-490c-4885-9f71-a5b004c6dc26": "ca652703-77b1-4709-b2d6-2782f6023f7c",
         "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "1bd6a8ba-821f-4a1a-96ec-bdb62de7cba0",
         "9ae54163-8ab9-4e27-8598-771443fd6c2b": "45be7c32-eba8-4250-b715-20d89b42aa1d"
-      }
-    },
-    {
-      "__guid": "456ee610-52af-4fea-b7d4-7fe7be26df8b",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (4)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "8737.69238,10341.2744,5857.63184"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "456ee610-52af-4fea-b7d4-7fe7be26df8b",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "0d2bc88c-6b05-42e6-ba36-78da6fffb71b",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "d2f83c66-4c44-44a1-a028-b1e2feabce33",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "44d39eb1-c30e-4281-849c-bbe1e48ecd76"
-      }
-    },
-    {
-      "__guid": "a315690f-90d2-4f4e-bd4c-8db27c190325",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (11)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "7750.80518,9312.39844,5841.08691"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "a315690f-90d2-4f4e-bd4c-8db27c190325",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "6a5e1535-84fa-48d9-816e-3e6655d90fb5",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "a6b58d13-e463-42bc-aca6-84dd329f364f",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "84f8827a-e3c2-4c1b-9f8d-c3c9d5ff17e0"
       }
     },
     {
@@ -3411,7 +2947,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+              "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3509,7 +3045,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+              "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3607,7 +3143,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+              "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3664,1066 +3200,6 @@
       }
     },
     {
-      "__guid": "afbac902-7ac6-4605-af2a-770926dc2450",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (15)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "11724.3096,9341.87598,5909.71436"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "afbac902-7ac6-4605-af2a-770926dc2450",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "cb539c48-a391-4a0c-80db-d78e076ec3df",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "883303f7-2b72-4484-8896-38654fe790e0",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "dea8b19d-3626-45e8-ad6a-3c40fe6cd113"
-      }
-    },
-    {
-      "__guid": "6afa54b8-d920-40c0-89fe-1a6265d565cd",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (14)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "10726.3906,9361.8457,5888.57861"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "6afa54b8-d920-40c0-89fe-1a6265d565cd",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "b115b837-da15-4f87-9232-064111aa6419",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "a207c5ab-ab18-4738-94e0-240c00e8d6ca",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "e15d4e6b-3b3d-443e-99b2-7e558be37560"
-      }
-    },
-    {
-      "__guid": "9da577db-56c3-42c3-89ee-d7428a7cf9a7",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (13)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "10732.2041,10361.1719,5894.88428"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "9da577db-56c3-42c3-89ee-d7428a7cf9a7",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "836ea2cb-5ae2-4c21-b88c-ab23c7508afd",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "836de572-0d6c-47db-8e40-79c2cf899f84",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "14c64279-d659-4623-9fb5-cdba0362664b"
-      }
-    },
-    {
-      "__guid": "e55990e7-2a0e-4874-8279-f559f10576b0",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (12)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "11717.4385,10350.7822,5894.19531"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "e55990e7-2a0e-4874-8279-f559f10576b0",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "e1e6a78a-af4c-4089-abb7-be29efa2ff92",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "1c794c1e-6d58-47bd-be18-2cd9e37232ac",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "580bd87a-b688-4286-a48d-dd6012a6a16c"
-      }
-    },
-    {
-      "__guid": "7afb8d7d-a152-4fef-86ab-65ff53ea6f89",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (19)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "13523.4512,9284.0332,5955.24463"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "7afb8d7d-a152-4fef-86ab-65ff53ea6f89",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "0289bf8f-e912-434e-9ce9-05b7415634ad",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "e6eace8f-8aa7-4f7f-b5cc-99fc4a41bd24",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "a06a581d-15b3-4908-9ee1-49c22b4a044b"
-      }
-    },
-    {
-      "__guid": "c0e2fc98-91d9-4071-a31f-e166cad7edf3",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (18)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "12525.5322,9304.00293,5934.10889"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "c0e2fc98-91d9-4071-a31f-e166cad7edf3",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "36a41d30-c051-47d7-af28-ef458e30f415",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "0b9d0b21-aaf5-4e7a-8396-c675dce432f7",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "73e21bce-f8d1-43d0-8266-9301f4042f9c"
-      }
-    },
-    {
-      "__guid": "839d20e4-9ad4-4de8-8cf9-b717e1a458ad",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (17)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "12531.3457,10303.3291,5940.41455"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "839d20e4-9ad4-4de8-8cf9-b717e1a458ad",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "bc04306d-2e51-4fbf-9a66-05221a13f4ed",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "aeccc8a8-6491-4408-aa45-be5f19f51353",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "dbd94606-c851-4ea9-a7cb-7a50d985c05b"
-      }
-    },
-    {
-      "__guid": "75ed0ded-be7a-4eba-8862-a87bbdc11d60",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (16)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "13516.5801,10292.9395,5939.72559"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "75ed0ded-be7a-4eba-8862-a87bbdc11d60",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "e3e36bb5-01ce-42b5-92d9-24ceb3a70597",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "6f47e8dd-b25e-467a-bf2b-d5f437df3792",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "389e7e1b-2a73-43eb-9c4b-13bceb7b2179"
-      }
-    },
-    {
-      "__guid": "49971077-ab0b-4510-9b2c-9c67900e7fba",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (2)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "10742.4814,9332.43555,5888.59766"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "49971077-ab0b-4510-9b2c-9c67900e7fba",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "33bc0065-3c8b-4a73-a46a-9bc55baf1db5",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "0bf85c86-e32f-4752-8120-65b96f5d6ee1",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "2d662f2c-1030-4ee5-8c1e-e4f1f805769d"
-      }
-    },
-    {
-      "__guid": "ad54bc9f-6abd-46fd-bebe-3793f58c9c9f",
-      "__version": 2,
-      "__Prefab": {
-        "Id": "7b9b9ed0-4db5-4147-99bf-954884c70b11",
-        "Path": "cube.prefab"
-      },
-      "__PrefabInstancePatch": {
-        "AddedObjects": [],
-        "RemovedObjects": [],
-        "PropertyOverrides": [
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Name",
-            "Value": "cube (3)"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Position",
-            "Value": "9744.5625,9352.40527,5867.46191"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "f8f51d11-e84e-494e-b617-178bc454c99d"
-            },
-            "Property": "Scale",
-            "Value": "20,20,0.310000211"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "b51ab566-490c-4885-9f71-a5b004c6dc26"
-            },
-            "Property": "MaterialOverride",
-            "Value": {
-              "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
-              "Path": "materials/concrete/damage/concrete_damaged.vmat"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Gravity",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "GravityScale",
-            "Value": 0
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "Locking",
-            "Value": {
-              "X": true,
-              "Y": true,
-              "Z": true,
-              "Pitch": true,
-              "Yaw": true,
-              "Roll": true
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MassOverride",
-            "Value": 1000
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dc916cf-9ae5-45b8-ae00-46adadd82c8c"
-            },
-            "Property": "MotionEnabled",
-            "Value": false
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "9ae54163-8ab9-4e27-8598-771443fd6c2b"
-            },
-            "Property": "Surface",
-            "Value": {
-              "Id": "ecb0d4d8-5c0e-4347-a4ab-11f0f6aaa0fc",
-              "Path": "surfaces/dirt.surface"
-            }
-          }
-        ],
-        "MovedObjects": []
-      },
-      "__PrefabIdToInstanceId": {
-        "f8f51d11-e84e-494e-b617-178bc454c99d": "ad54bc9f-6abd-46fd-bebe-3793f58c9c9f",
-        "b51ab566-490c-4885-9f71-a5b004c6dc26": "a68307b1-59c7-40e0-93b2-e342846aa87c",
-        "5dc916cf-9ae5-45b8-ae00-46adadd82c8c": "f6d4eb8b-29fd-43e4-a482-5050f4c485c3",
-        "9ae54163-8ab9-4e27-8598-771443fd6c2b": "adb61d72-ecb5-4d6e-9c1b-d0774e3025a6"
-      }
-    },
-    {
       "__guid": "c54dbdee-4e90-4489-886a-143f18bb7c21",
       "__version": 2,
       "Flags": 0,
@@ -4749,7 +3225,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4776,7 +3252,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4804,7 +3280,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4851,7 +3327,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4878,7 +3354,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4906,7 +3382,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4953,7 +3429,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -4980,7 +3456,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -5008,7 +3484,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+            "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -5055,7 +3531,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+            "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -5107,7 +3583,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+            "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -5277,6 +3753,21 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "RiseSpeed": 90
+        },
+        {
+          "__type": "Sandbox.Code.Systems.EliteTestComponent",
+          "__guid": "15068764-c30d-49ca-abeb-6fb6234eee5a",
+          "__enabled": true,
+          "Flags": 0,
+          "AffixIds": "volatile",
+          "Distance": 500,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PrefabPath": "goblin.prefab"
         }
       ],
       "Children": []
@@ -5376,7 +3867,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5428,7 +3919,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5510,7 +4001,7 @@
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                    "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                     "Path": "models/props/rock_scatter/rock_scatter.vmat"
                   }
                 }
@@ -5590,13 +4081,13 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "a5454480-af63-4eb5-93cc-b0430e80d1e2",
+                    "Id": "46c45006-e719-460a-984f-218f6f6ac595",
                     "Path": "models/sbox_props/metal_wheely_bin/metal_wheely_bin_parts.vmat"
                   }
                 }
@@ -5676,7 +4167,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5754,7 +4245,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5832,7 +4323,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -5910,7 +4401,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "4eed1641-067d-4ba8-9327-b3a4fe516d81",
+                "Id": "c4032f1a-36aa-453a-93d2-554aa0d0abfe",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -6097,6 +4588,7 @@
           "BaseCreditRate": 10,
           "BaseEnemyCap": 6,
           "CapGrowthPerMin": 2,
+          "EliteChance": 5,
           "MaxCredits": 150,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -6137,7 +4629,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "1e832ac3-9659-44cd-93c0-4a11536bf191": "39769b9a-a784-8680-bb25-67d91ada869a"
+            "338c3cda-b75f-4960-acaa-6cf9e5e9b01f": "e152c53c-05fc-8a17-be4a-2b431a78d50e"
           }
         }
       ]
@@ -6395,7 +4887,8 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "Rank": "Normal"
         },
         {
           "__type": "Sandbox.Code.Actors.Player",
@@ -6409,7 +4902,8 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "Rank": "Normal"
         },
         {
           "__type": "Sandbox.Code.Systems.CombatComponent",
@@ -6426,6 +4920,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "ProjectileFanDegrees": 8,
           "ProjectileSpawnOffset": "0,0,60"
         },
         {
@@ -6455,6 +4950,7 @@
           "ActivePanel": "None",
           "EnergyWidth": 100,
           "HealthWidth": 100,
+          "OfferTimeScale": 0.05,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -9238,7 +7734,7 @@
               "Children": []
             },
             {
-              "__guid": "96308ef8-8c24-4db8-ab13-6a902777fed8",
+              "__guid": "18aa6f57-905d-40ee-98d1-caa0f5d6563b",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -9255,7 +7751,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "e833fce9-dfd1-4408-9155-4cc0889264d4",
+                  "__guid": "48b7d71b-ac0a-45e6-91ab-79945278f2cb",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9305,7 +7801,7 @@
               "Children": []
             },
             {
-              "__guid": "ac876f7b-ee7f-4c98-a0c0-1075cd750102",
+              "__guid": "48425b98-5078-4706-b327-d197e23324c1",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -9322,7 +7818,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "f153d0ae-6b60-4709-bef5-af2ecd0a5c2f",
+                  "__guid": "391b5a59-e89a-4220-894a-5819fc17a643",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9372,7 +7868,7 @@
               "Children": []
             },
             {
-              "__guid": "80705161-1938-4cd5-b8dc-dfbfd17b8ccd",
+              "__guid": "aea46d46-9ae7-4769-97bc-692c1c89dfc1",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -9389,7 +7885,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "707b2bd9-6a76-418c-8bfa-68fdc0f28f9d",
+                  "__guid": "4b863bc1-ce25-463e-b079-0e1394d35050",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9439,7 +7935,7 @@
               "Children": []
             },
             {
-              "__guid": "bcadde19-f700-4313-abd0-cec5799cb1a8",
+              "__guid": "8918f027-e28e-42ca-b624-2a9abeaf0581",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -9456,7 +7952,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "a4ef04c1-e69a-47de-a7f5-8960a0a2bf06",
+                  "__guid": "43eb65a7-8ad0-488e-ba8b-edcda1766fcc",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9506,7 +8002,7 @@
               "Children": []
             },
             {
-              "__guid": "aea8405b-0a67-47a5-bd6c-fa82251ff1e0",
+              "__guid": "d60499df-0b00-488c-9e81-b4894df396ee",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -9523,7 +8019,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "333e823d-cf8d-42b4-bbfc-f22475c2773a",
+                  "__guid": "f1d5d43f-370e-4246-bcd3-5933d1ddb111",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -9691,7 +8187,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "9779f43b-5a0e-47a0-94b3-4f74476e2af5",
+                "Id": "bd38ff31-1db6-48e8-a90d-f1b30b39210c",
                 "Path": "materials/concrete/damage/concrete_damaged.vmat"
               },
               "Materials": null,
@@ -9743,7 +8239,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9770,7 +8266,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9798,7 +8294,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9845,7 +8341,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9872,7 +8368,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9900,7 +8396,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9947,7 +8443,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -9974,7 +8470,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -10002,7 +8498,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "a1f6e3b8-f90c-4d2f-864a-fa9568d59b9a",
+                "Id": "189e139e-12f8-4e6d-91a0-20ce39b14092",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -10080,7 +8576,7 @@
               "TerrainHeight": 10000,
               "Materials": [
                 {
-                  "Id": "17249262-3651-4394-aabb-d43a8cecbfc7",
+                  "Id": "5175204f-5989-45fa-baf2-0da73c817695",
                   "Path": "terrain/materials/rockbase.tmat"
                 }
               ],
@@ -10108,6 +8604,81 @@
           "SurfaceVelocity": "0,0,0",
           "TerrainHeight": 10000,
           "TerrainSize": 20000
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "0e0cb195-c7ad-4836-b602-d88ef88a0493",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Cube",
+      "Position": "9645.92285,9739.78223,7441.03223",
+      "Rotation": "0,0,0,1",
+      "Scale": "10,10,5",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8dd37b0b-6890-492e-9b48-db3c0ff94d8d",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": {
+            "Id": "8a84e5a0-01f8-0000-f0db-b088f8010000",
+            "Path": "models/dev/box.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "c0e568de-e605-4f39-b97f-f3cde84f5c58",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0,0",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
         }
       ],
       "Children": []
