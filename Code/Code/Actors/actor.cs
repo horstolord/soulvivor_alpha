@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sandbox;
 using Sandbox.Citizen;
@@ -34,6 +35,12 @@ public class Actor : Component, Component.IDamageable
 	public event Action OnDeath;
 	/// <summary>Raised for a hit that was not evaded, after any poise/stun state changes.</summary>
 	public event Action OnHitReceived;
+	/// <summary>
+	/// True once initialization and level setup have finished. Stat modifiers applied earlier are replaced;
+	/// subscribe to OnReady before applying mods when this is false.
+	/// </summary>
+	public bool IsReady { get; private set; }
+	public event Action OnReady;
 
 	/// <summary>
 	/// Whether the GameObject should be destroyed shortly after death. The player overrides this
@@ -138,6 +145,8 @@ public class Actor : Component, Component.IDamageable
 		Leveling.Initialize( _mobData, InitialLevel );
 
 		Log.Info( $"{GameObject.Name} ({_mobData.Name}) ready — HP={StatSheet.CurrentHealth:F0}, Lvl={Leveling.Level}" );
+		IsReady = true;
+		OnReady?.Invoke();
 	}
 
 
@@ -189,6 +198,13 @@ public class Actor : Component, Component.IDamageable
 	/// <summary>Raised once per hit with the final, post-mitigation result. Handlers must not throw.</summary>
 	public static event Action<DamageEvent> Damaged;
 
+	private static float ExtraElementDamage( float amount, Stat resistance, AttackTag tag, HashSet<AttackTag> tags )
+	{
+		if ( amount <= 0f ) return 0f;
+		tags.Add( tag );
+		return amount * MathF.Max( 0.05f, 1f - resistance.Value / 100f );
+	}
+
 	/// <param name="source">Attacker, if known. Optional so existing call sites keep compiling.</param>
 	public void ApplyDamage( DamageProfileDef damage, GameObject source = null )
 	{
@@ -226,6 +242,18 @@ public class Actor : Component, Component.IDamageable
 			float armorReduction = armor / (armor + 100f);
 			finalHealthDamage *= (1f-armorReduction);
 		}
+
+		// Elemental extras use their own resistance; armor only mitigates the physical part.
+		var eventTags = damage.Tags;
+		if ( damage.HasExtras )
+		{
+			eventTags = new HashSet<AttackTag>( damage.Tags ?? new HashSet<AttackTag>() );
+			finalHealthDamage += ExtraElementDamage( damage.ExtraFire, StatSheet.ResistanceFire, AttackTag.Fire, eventTags )
+			                     + ExtraElementDamage( damage.ExtraFrost, StatSheet.ResistanceFrost, AttackTag.Frost, eventTags )
+			                     + ExtraElementDamage( damage.ExtraAir, StatSheet.ResistanceAir, AttackTag.Air, eventTags )
+			                     + ExtraElementDamage( damage.ExtraEarth, StatSheet.ResistanceEarth, AttackTag.Earth, eventTags );
+		}
+
 		// Block mitigation — only Health is reduced; Stagger/Stamina still land through a guard.
 		bool blocked = false;
 		if ( StateComp != null && StateComp.CurrentState == ActorStateType.Blocking )
@@ -237,6 +265,9 @@ public class Actor : Component, Component.IDamageable
 				blocked = true;
 			}
 		}
+
+		// Generic damage-taken multiplier applies after armor, resistance, and block mitigation.
+		finalHealthDamage *= MathF.Max( 0f, StatSheet.DamageTakenMultiplier.Value / 100f );
 
 		// Apply health, stamina, and poise damage
 		StatSheet.CurrentHealth  = MathF.Max( 0f, StatSheet.CurrentHealth  - finalHealthDamage );
@@ -269,7 +300,7 @@ public class Actor : Component, Component.IDamageable
 			Victim = this,
 			Source = source,
 			Amount = finalHealthDamage,
-			Tags = damage.Tags,
+			Tags = eventTags,
 			IsCrit = damage.IsCrit,
 			Blocked = blocked,
 			Killed = killed,

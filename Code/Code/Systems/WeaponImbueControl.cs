@@ -43,14 +43,11 @@ public sealed class WeaponImbueControl : Component
 		if ( !IsActive || damage == null ) return damage;
 		var tags = new HashSet<AttackTag>( damage.Tags ?? new HashSet<AttackTag>() );
 		foreach ( var tag in _spec.Tags ) tags.Add( tag );
-		return new DamageProfileDef
-		{
-			HealthDamage = damage.HealthDamage + _spec.BonusHealthDamage,
-			StaminaDamage = damage.StaminaDamage,
-			KnockbackForce = damage.KnockbackForce + _spec.BonusKnockback,
-			Tags = tags,
-			IsCrit = damage.IsCrit
-		};
+		var result = damage.Clone();
+		result.HealthDamage += _spec.BonusHealthDamage;
+		result.KnockbackForce += _spec.BonusKnockback;
+		result.Tags = tags;
+		return result;
 	}
 
 	protected override void OnUpdate()

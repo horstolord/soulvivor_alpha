@@ -112,18 +112,7 @@ public class EquipmentControl : Component
 		var allMods = (instance.ImplicitMods ?? Enumerable.Empty<ModData>())
 			.Concat( instance.RolledMods ?? Enumerable.Empty<ModData>() )
 			.ToList();
-		foreach ( var mod in allMods )
-		{
-			var stat = statSheet.GetStat( mod.StatName );
-			if ( stat == null )
-			{
-				Log.Warning( $"[EquipmentControl] Item '{item.Name}' references unknown stat '{mod.StatName}'" );
-				continue;
-			}
-			var modifier = new StatModifier( mod.Value, mod.Type, source: entry );
-			stat.AddModifier( modifier );
-			entry.AppliedModifiers.Add( (stat, modifier) );
-		}
+		StatModApplier.Apply( statSheet, allMods, 1f, entry, entry.AppliedModifiers, item.Name );
 
 		// 2) EquipmentStatBlock.Armor → StatSheet.Armor (same role as BaseDamage for weapons)
 		if ( stats != null && stats.Armor != 0f )
@@ -135,7 +124,7 @@ public class EquipmentControl : Component
 		
 		_slots[slot] = entry;
 
-		bool touchedAttribute = allMods.Any( m => IsAttributeStat( m.StatName ) );
+		bool touchedAttribute = StatModApplier.TouchesAttribute( allMods );
 		if ( touchedAttribute )
 			statSheet.RecalculateDerivedStats();
 		OnEquipped?.Invoke( slot, instance);
@@ -196,9 +185,6 @@ public class EquipmentControl : Component
 		OnUnequipped?.Invoke( slot, entry.Item);
 		Log.Info( $"[EquipmentControl] Unequipped '{entry.Item?.Definition?.Name ?? "Item"}' from slot {slot}." );
 	}
-
-	private static bool IsAttributeStat( string name ) =>
-		name is "Might" or "Swiftness" or "Endurance" or "Will" or "Acuity" or "Wisdom";
 
 	// Melee and ranged weapons occupy distinct slots; neither needs remapping.
 	private static EquipmentSlot NormalizeSlot( EquipmentSlot slot ) => slot;

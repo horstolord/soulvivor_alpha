@@ -8,6 +8,30 @@ public class DamageProfileDef
 	public HashSet<AttackTag> Tags = new();
 	public bool IsCrit;
 	public int ProcDepth;
+
+	// Elemental components on top of HealthDamage. Filled in by CombatMath.BuildOutgoing from the attacker's
+	// PhysicalAs*/Added*Damage stats; each one is mitigated by its own resistance in Actor.ApplyDamage.
+	public float ExtraFire;
+	public float ExtraFrost;
+	public float ExtraAir;
+	public float ExtraEarth;
+
+	public bool HasExtras => ExtraFire > 0f || ExtraFrost > 0f || ExtraAir > 0f || ExtraEarth > 0f;
+
+	/// <summary>Shallow copy (Tags is shared, treat it as read-only). Use instead of hand-copying fields.</summary>
+	public DamageProfileDef Clone() => new()
+	{
+		HealthDamage = HealthDamage,
+		StaminaDamage = StaminaDamage,
+		KnockbackForce = KnockbackForce,
+		Tags = Tags,
+		IsCrit = IsCrit,
+		ProcDepth = ProcDepth,
+		ExtraFire = ExtraFire,
+		ExtraFrost = ExtraFrost,
+		ExtraAir = ExtraAir,
+		ExtraEarth = ExtraEarth
+	};
 }
 
 public class HitPhaseDef

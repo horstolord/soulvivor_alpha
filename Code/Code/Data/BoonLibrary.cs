@@ -31,6 +31,36 @@ public static class BoonLibrary
 		},
 		new BoonDef
 		{
+			Id = "test_ember_strikes", DisplayName = "Ember Strikes", Rarity = ItemRarity.Common,
+			Description = "TEST: +25% of physical damage as extra fire per stack.",
+			Modifiers = { new ModData( "PhysicalAsFire", 25f, ModifierType.Flat ) }
+		},
+		new BoonDef
+		{
+			Id = "test_flame_edge", DisplayName = "Flame Edge", Rarity = ItemRarity.Common,
+			Description = "TEST: +5 flat fire damage per hit per stack.",
+			Modifiers = { new ModData( "AddedFireDamage", 5f, ModifierType.Flat ) }
+		},
+		new BoonDef
+		{
+			Id = "test_twin_shot", DisplayName = "Twin Shot", Rarity = ItemRarity.Common,
+			Description = "TEST: +1 projectile per stack (arrows and projectile spells).",
+			Modifiers = { new ModData( "AdditionalProjectiles", 1f, ModifierType.Flat ) }
+		},
+		new BoonDef
+		{
+			Id = "test_long_reach", DisplayName = "Long Reach", Rarity = ItemRarity.Common,
+			Description = "TEST: +25% melee reach per stack.",
+			Modifiers = { new ModData( "Range", 25f, ModifierType.Percent ) }
+		},
+		new BoonDef
+		{
+			Id = "test_stone_skin", DisplayName = "Stone Skin", Rarity = ItemRarity.Common,
+			Description = "TEST: take 15% less damage per stack.",
+			Modifiers = { new ModData( "DamageTakenMultiplier", -15f, ModifierType.Flat ) }
+		},
+		new BoonDef
+		{
 			Id = "vampiric_touch", DisplayName = "Vampiric Touch", Rarity = ItemRarity.Magic,
 			Description = "Heal for 10% of damage dealt, per stack.",
 			Procs = { ProcExamples.Vampiric }

@@ -87,6 +87,20 @@ public class StatSheet : Component
 	public Stat EffectDuration { get; private set; } // How long buffs/debuffs last (percent)
 	public Stat EffectPotency { get; private set; } // How strong buffs/debuffs are (percent)
 
+	// ============ ELEMENTAL DAMAGE (outgoing, applies to Physical-tagged hits) ============
+	public Stat PhysicalAsFire { get; private set; } // percent of physical damage gained as extra fire
+	public Stat PhysicalAsFrost { get; private set; }
+	public Stat PhysicalAsAir { get; private set; }
+	public Stat PhysicalAsEarth { get; private set; }
+	public Stat AddedFireDamage { get; private set; } // flat extra fire damage per hit
+	public Stat AddedFrostDamage { get; private set; }
+	public Stat AddedAirDamage { get; private set; }
+	public Stat AddedEarthDamage { get; private set; }
+
+	// ============ MISC COMBAT ============
+	public Stat AdditionalProjectiles { get; private set; } // extra projectiles per projectile attack / spell (base 0)
+	public Stat DamageTakenMultiplier { get; private set; } // 100 = 1.0x, 50 = takes half
+
 	// ============ PROJECTILE MODS (bows & staves) ============
 	public Stat ProjectileCount { get; private set; } // Extra projectiles per shot/cast (flat count)
 	public Stat ProjectilePierce { get; private set; } // Extra targets a projectile passes through (flat count)
@@ -161,6 +175,16 @@ public class StatSheet : Component
 		CostMultiplier = new Stat( 100f ); // Default 1.0x cost
 		EffectDuration = new Stat( 100f ); // Default 1.0x duration
 		EffectPotency = new Stat( 100f ); // Default 1.0x potency
+		PhysicalAsFire = new Stat( 0f );
+		PhysicalAsFrost = new Stat( 0f );
+		PhysicalAsAir = new Stat( 0f );
+		PhysicalAsEarth = new Stat( 0f );
+		AddedFireDamage = new Stat( 0f );
+		AddedFrostDamage = new Stat( 0f );
+		AddedAirDamage = new Stat( 0f );
+		AddedEarthDamage = new Stat( 0f );
+		AdditionalProjectiles = new Stat( 0f );
+		DamageTakenMultiplier = new Stat( 100f );
 
 		// Projectile mods: everything starts at zero, gear and buffs add to it
 		ProjectileCount = new Stat( 0f );
@@ -267,6 +291,20 @@ public class StatSheet : Component
 			"EffectDuration" => EffectDuration,
 			"EffectPotency" => EffectPotency,
 
+			// Elemental damage
+			"PhysicalAsFire" => PhysicalAsFire,
+			"PhysicalAsFrost" => PhysicalAsFrost,
+			"PhysicalAsAir" => PhysicalAsAir,
+			"PhysicalAsEarth" => PhysicalAsEarth,
+			"AddedFireDamage" => AddedFireDamage,
+			"AddedFrostDamage" => AddedFrostDamage,
+			"AddedAirDamage" => AddedAirDamage,
+			"AddedEarthDamage" => AddedEarthDamage,
+
+			// Misc combat
+			"AdditionalProjectiles" => AdditionalProjectiles,
+			"DamageTakenMultiplier" => DamageTakenMultiplier,
+
 			// Projectile mods
 			"ProjectileCount" => ProjectileCount,
 			"ProjectilePierce" => ProjectilePierce,
@@ -312,6 +350,16 @@ public class StatSheet : Component
 		yield return ( "CostMultiplier", CostMultiplier );
 		yield return ( "EffectDuration", EffectDuration );
 		yield return ( "EffectPotency", EffectPotency );
+		yield return ( "PhysicalAsFire", PhysicalAsFire );
+		yield return ( "PhysicalAsFrost", PhysicalAsFrost );
+		yield return ( "PhysicalAsAir", PhysicalAsAir );
+		yield return ( "PhysicalAsEarth", PhysicalAsEarth );
+		yield return ( "AddedFireDamage", AddedFireDamage );
+		yield return ( "AddedFrostDamage", AddedFrostDamage );
+		yield return ( "AddedAirDamage", AddedAirDamage );
+		yield return ( "AddedEarthDamage", AddedEarthDamage );
+		yield return ( "AdditionalProjectiles", AdditionalProjectiles );
+		yield return ( "DamageTakenMultiplier", DamageTakenMultiplier );
 		yield return ( "ProjectileCount", ProjectileCount );
 		yield return ( "ProjectilePierce", ProjectilePierce );
 		yield return ( "EchoChance", EchoChance );

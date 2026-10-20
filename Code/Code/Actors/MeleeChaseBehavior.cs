@@ -17,12 +17,13 @@ public sealed class MeleeChaseBehavior : Component, IEnemyBehavior
 	{
 		self.FaceTarget();
  
+		float rangeScale = System.MathF.Max( 0.1f, (self.StatSheet?.Range?.Value ?? 100f) / 100f );
 		float dist = self.DistanceToTarget;
-		if ( dist > StopRange ) self.MoveToward( self.Target.WorldPosition );
+		if ( dist > StopRange * rangeScale ) self.MoveToward( self.Target.WorldPosition );
 		else self.StopMoving();
 		
  
-		if ( dist <= AttackRange && self.Combat?.CanAttack == true )
+		if ( dist <= AttackRange * rangeScale && self.Combat?.CanAttack == true )
 			self.TryAttack( self.GetAttackType() );
 	}
 }

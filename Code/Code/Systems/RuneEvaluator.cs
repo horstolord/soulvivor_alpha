@@ -129,7 +129,10 @@ public static class RuneEvaluator
 					}
 					float rangeScale = 1f + MathF.Max( 0f, acuity * (rune.Scaling?.AcuityToRange ?? 0f) / 100f );
 					int payloadStart = result.Payloads.Count;
-					CreatePayloadsForMethod( ctx, rune, result.Payloads );
+					int additionalProjectiles = currentDepth == 0 && rune.DeliveryType == RuneDeliveryType.Projectile
+						? Math.Max( 0, (int)MathF.Round( statSheet?.AdditionalProjectiles?.Value ?? 0f ) )
+						: 0;
+					CreatePayloadsForMethod( ctx, rune, result.Payloads, additionalProjectiles );
 					for ( int payloadIndex = payloadStart; payloadIndex < result.Payloads.Count; payloadIndex++ )
 					{
 						var payload = result.Payloads[payloadIndex];
@@ -192,13 +195,18 @@ public static class RuneEvaluator
 		return rune.Effect;
 	}
 
-	private static void CreatePayloadsForMethod( SpellContext ctx, RuneDef methodRune, List<SpellPayload> outPayloads )
+	private static void CreatePayloadsForMethod( SpellContext ctx, RuneDef methodRune, List<SpellPayload> outPayloads,
+		int additionalProjectiles = 0 )
 	{
 		// Each multicast draw is a volley: 1 + BonusProjectiles fanned around the aim. Only shapes that
 		// actually travel along an aim get extra projectiles; a beam or nova has nothing to fan.
 		int draws = Math.Max( 1, ctx.MulticastCount );
 		bool canFan = methodRune.DeliveryType is RuneDeliveryType.Projectile or RuneDeliveryType.Blast;
-		int volley = 1 + (canFan ? Math.Max( 0, ctx.BonusProjectiles ) : 0);
+		int volley = 1 + (canFan
+			? Math.Max( 0, ctx.BonusProjectiles ) + (methodRune.DeliveryType == RuneDeliveryType.Projectile
+				? Math.Max( 0, additionalProjectiles )
+				: 0)
+			: 0);
 
 		for ( int draw = 0; draw < draws; draw++ )
 		{

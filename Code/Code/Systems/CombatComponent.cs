@@ -68,6 +68,8 @@ public sealed class CombatComponent : Component
 
 	[Property] public GameObject ArrowPrefab { get; set; }
 	[Property] public Vector3 ProjectileSpawnOffset { get; set; } = new Vector3( 0f, 0f, 60f );
+	/// <summary>Angle between neighbouring projectiles when extra projectiles are granted.</summary>
+	[Property] public float ProjectileFanDegrees { get; set; } = 8f;
 
 	public bool TryStartAttack( AttackRequest request )
 	{
@@ -127,7 +129,7 @@ public sealed class CombatComponent : Component
 		// Live off StatSheet.AttackSpeed (buffs, loot affixes, etc.) rather than baked into the
 		// AttackDef at build time — mirrors how SpellComponent already reads CastSpeed live at cast time.
 		var attackSpeedMultiplier = MathF.Max( 0.01f, (attackerActor?.StatSheet?.AttackSpeed.Value ?? 100f) / 100f );
-		var rangeMultiplier = MathF.Max( 0.1f, (attackerActor?.StatSheet?.Range.Value ?? 100f) / 100f );
+		var rangeScale = MathF.Max( 0.1f, (attackerActor?.StatSheet?.Range.Value ?? 100f) / 100f );
 
 		var baseDamage = new DamageProfileDef
 		{
@@ -174,7 +176,13 @@ public sealed class CombatComponent : Component
 					StopAfterFirstHit = phase.StopAfterFirstHit,
 					IndependentHits = phase.IndependentHits,
 					Shapes = (phase.Shapes ?? new List<HitShapeDef>())
-						.Select( shape => shape.ScaledReach( rangeMultiplier ) )
+						.Select( shape => new HitShapeDef
+						{
+							CastType = shape.CastType,
+							LocalOffset = shape.LocalOffset * rangeScale,
+							SweepOffset = shape.SweepOffset * rangeScale,
+							BoxSize = shape.BoxSize * rangeScale
+						} )
 						.ToList()
 				} )
 				.ToList(),
@@ -238,17 +246,22 @@ public sealed class CombatComponent : Component
 	private readonly List<(float Time, AttackContext Context)> _echoQueue = new();
 
 	/// <summary>
-	/// One shot: 1 + ProjectileCount projectiles fanned around the aim, then an Echo roll.
+	/// One shot: base + projectile-count bonuses fanned around the aim, then an Echo roll.
 	/// An echo is itself never echoed, so a high EchoChance can't chain.
 	/// </summary>
 	private void FireVolley( AttackContext context, bool isEcho = false )
 	{
 		var sheet = ResolveActor( context.Attacker )?.StatSheet;
-		int count = 1 + Math.Max( 0, (int)MathF.Round( sheet?.ProjectileCount?.Value ?? 0f ) );
+		int count = 1
+			+ Math.Max( 0, (int)MathF.Round( sheet?.ProjectileCount?.Value ?? 0f ) )
+			+ Math.Max( 0, (int)MathF.Round( sheet?.AdditionalProjectiles?.Value ?? 0f ) );
 		float damageMultiplier = isEcho ? ProjectileTuning.EchoDamageMultiplier : 1f;
 
 		for ( int i = 0; i < count; i++ )
-			SpawnProjectile( context, count > 1 ? ProjectileTuning.FanYaw( i, count ) : 0f, damageMultiplier );
+		{
+			float yaw = count > 1 ? (i - (count - 1) * 0.5f) * ProjectileFanDegrees : 0f;
+			SpawnProjectile( context, yaw, damageMultiplier );
+		}
 
 		if ( !isEcho && ProjectileTuning.Roll( sheet?.EchoChance?.Value ?? 0f ) )
 			_echoQueue.Add( (Time.Now + ProjectileTuning.EchoDelay, context) );
@@ -335,14 +348,12 @@ public sealed class CombatComponent : Component
 		var damage = context.Damage;
 		if ( MathF.Abs( damageMultiplier - 1f ) > 0.001f )
 		{
-			damage = new DamageProfileDef
-			{
-				HealthDamage = damage.HealthDamage * damageMultiplier,
-				StaminaDamage = damage.StaminaDamage,
-				KnockbackForce = damage.KnockbackForce,
-				Tags = damage.Tags,
-				IsCrit = damage.IsCrit
-			};
+			damage = damage.Clone();
+			damage.HealthDamage *= damageMultiplier;
+			damage.ExtraFire *= damageMultiplier;
+			damage.ExtraFrost *= damageMultiplier;
+			damage.ExtraAir *= damageMultiplier;
+			damage.ExtraEarth *= damageMultiplier;
 		}
 
 		projectile.Template = template;

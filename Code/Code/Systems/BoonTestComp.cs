@@ -25,9 +25,6 @@ public sealed class BoonTestComponent : Component
 		if ( boons == null ) return;
 
 		if ( Input.Keyboard.Pressed( "K" ) ) QueueOffer( boons );
-		if ( Input.Keyboard.Pressed( "Z" ) ) Choose( boons, 0 );
-		if ( Input.Keyboard.Pressed( "X" ) ) Choose( boons, 1 );
-		if ( Input.Keyboard.Pressed( "V" ) ) Choose( boons, 2 );
 
 		if ( Input.Keyboard.Pressed( "M" ) )
 		{

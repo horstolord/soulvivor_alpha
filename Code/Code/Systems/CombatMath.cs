@@ -42,15 +42,43 @@ public static class CombatMath
 	public static DamageProfileDef BuildOutgoing( StatSheet attackerSheet, DamageProfileDef baseDamage )
 	{
 		if ( baseDamage == null ) return null;
-		var damage = RollCrit( attackerSheet, baseDamage );
+		var damage = RollCrit( attackerSheet, AddElementalExtras( attackerSheet, baseDamage ) );
 		if ( attackerSheet != null )
 		{
 			// DamageMultiplier is an outgoing multiplier (DamageBoost, Berserk, etc.).
 			// Applied here on the attacker side so buffs raise dealt damage, not taken damage.
-			damage.HealthDamage *= attackerSheet.DamageMultiplier.Value / 100f;
+			float multiplier = attackerSheet.DamageMultiplier.Value / 100f;
+			damage.HealthDamage *= multiplier;
+			damage.ExtraFire *= multiplier;
+			damage.ExtraFrost *= multiplier;
+			damage.ExtraAir *= multiplier;
+			damage.ExtraEarth *= multiplier;
 			damage.KnockbackForce *= attackerSheet.PhysicalForce.Value / 100f;
 		}
 		return damage;
+	}
+
+	/// <summary>Adds elemental bonuses to Physical-tagged hits; spells without that tag are untouched.</summary>
+	private static DamageProfileDef AddElementalExtras( StatSheet sheet, DamageProfileDef baseDamage )
+	{
+		if ( sheet == null || baseDamage.Tags == null || !baseDamage.Tags.Contains( AttackTag.Physical ) )
+			return baseDamage;
+
+		float physical = baseDamage.HealthDamage;
+		float fire = physical * sheet.PhysicalAsFire.Value / 100f + sheet.AddedFireDamage.Value;
+		float frost = physical * sheet.PhysicalAsFrost.Value / 100f + sheet.AddedFrostDamage.Value;
+		float air = physical * sheet.PhysicalAsAir.Value / 100f + sheet.AddedAirDamage.Value;
+		float earth = physical * sheet.PhysicalAsEarth.Value / 100f + sheet.AddedEarthDamage.Value;
+
+		if ( fire <= 0f && frost <= 0f && air <= 0f && earth <= 0f )
+			return baseDamage;
+
+		var result = baseDamage.Clone();
+		result.ExtraFire += MathF.Max( 0f, fire );
+		result.ExtraFrost += MathF.Max( 0f, frost );
+		result.ExtraAir += MathF.Max( 0f, air );
+		result.ExtraEarth += MathF.Max( 0f, earth );
+		return result;
 	}
 
 	/// Rolls crit from the attacker's sheet and returns a new damage profile
@@ -67,14 +95,14 @@ public static class CombatMath
 		bool isCrit = critChance > 0f && Random.Shared.NextSingle() * 100f < critChance;
 		float critMultiplier = isCrit ? (1f + attackerSheet.CritDamage.Value / 100f) : 1f;
 
-		return new DamageProfileDef
-		{
-			HealthDamage = baseDamage.HealthDamage * critMultiplier,
-			StaminaDamage = baseDamage.StaminaDamage,
-			KnockbackForce = baseDamage.KnockbackForce,
-			Tags = baseDamage.Tags,
-			IsCrit = isCrit
-		};
+		var result = baseDamage.Clone();
+		result.HealthDamage *= critMultiplier;
+		result.ExtraFire *= critMultiplier;
+		result.ExtraFrost *= critMultiplier;
+		result.ExtraAir *= critMultiplier;
+		result.ExtraEarth *= critMultiplier;
+		result.IsCrit = isCrit;
+		return result;
 	}
 
 	/// Scales a damage profile by charge progress. bonusAtMaxCharge is the extra HealthDamage
@@ -100,6 +128,10 @@ public static class CombatMath
 			Tags = baseDamage.Tags,
 			IsCrit = baseDamage.IsCrit,
 			ProcDepth = baseDamage.ProcDepth,
+			ExtraFire = baseDamage.ExtraFire,
+			ExtraFrost = baseDamage.ExtraFrost,
+			ExtraAir = baseDamage.ExtraAir,
+			ExtraEarth = baseDamage.ExtraEarth
 		};
 	}
 

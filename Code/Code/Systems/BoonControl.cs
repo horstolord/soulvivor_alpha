@@ -101,16 +101,10 @@ public sealed class BoonControl : Component
 
 		foreach ( var entry in _boons.Values )
 		{
-			foreach ( var (stat, modifier) in entry.AppliedModifiers )
-				stat.RemoveModifier( modifier );
-			entry.AppliedModifiers.Clear();
-
+			StatModApplier.Remove( entry.AppliedModifiers );
 			_actor?.Procs?.RemoveProcsFromSource( entry );
 
-			foreach ( var mod in entry.Def.Modifiers )
-			{
-				if ( IsAttributeStat( mod.StatName ) ) touchedAttribute = true;
-			}
+			if ( StatModApplier.TouchesAttribute( entry.Def.Modifiers ) ) touchedAttribute = true;
 			removed.Add( entry.Def );
 		}
 
@@ -184,26 +178,8 @@ public sealed class BoonControl : Component
 	{
 		// Stat modifiers: Stat caches its value and RemoveModifier/AddModifier mark it dirty, so rebuild
 		// them at value x stacks rather than mutating StatModifier.Value in place.
-		foreach ( var (stat, modifier) in entry.AppliedModifiers )
-			stat.RemoveModifier( modifier );
-		entry.AppliedModifiers.Clear();
-
-		bool touchedAttribute = false;
-		foreach ( var mod in entry.Def.Modifiers )
-		{
-			var stat = sheet.GetStat( mod.StatName );
-			if ( stat == null )
-			{
-				Log.Warning( $"[BoonControl] Boon '{entry.Def.DisplayName}' references unknown stat '{mod.StatName}'" );
-				continue;
-			}
-
-			var modifier = new StatModifier( mod.Value * entry.Stacks, mod.Type, source: entry );
-			stat.AddModifier( modifier );
-			entry.AppliedModifiers.Add( (stat, modifier) );
-
-			if ( IsAttributeStat( mod.StatName ) ) touchedAttribute = true;
-		}
+		StatModApplier.Remove( entry.AppliedModifiers );
+		StatModApplier.Apply( sheet, entry.Def.Modifiers, entry.Stacks, entry, entry.AppliedModifiers, entry.Def.DisplayName );
 
 		// Procs: registered once; later stacks only raise their potency (keeps ICDs and interval timers running).
 		if ( isNew )
@@ -216,7 +192,7 @@ public sealed class BoonControl : Component
 			_actor.Procs.SetPotencyForSource( entry, entry.Stacks );
 		}
 
-		if ( touchedAttribute )
+		if ( StatModApplier.TouchesAttribute( entry.Def.Modifiers ) )
 			sheet.RecalculateDerivedStats();
 	}
 
@@ -263,7 +239,4 @@ public sealed class BoonControl : Component
 		if ( _levelSubscribed && _actor?.Leveling != null )
 			_actor.Leveling.OnLevelUp -= HandleLevelUp;
 	}
-
-	private static bool IsAttributeStat( string name ) =>
-		name is "Might" or "Swiftness" or "Endurance" or "Will" or "Acuity" or "Wisdom";
 }
