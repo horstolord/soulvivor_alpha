@@ -1,3 +1,5 @@
+using Sandbox.Code.Actors;
+
 namespace Sandbox.Code.Data;
 
 /// <summary>
@@ -20,6 +22,7 @@ public class SpawnCard
 	/// <summary>Minimum difficulty value before this card becomes available.</summary>
 	public float  MinDifficulty { get; set; } = 0f;
 	public string DisplayName   { get; set; }
+	public MobRank Rank { get; set; } = MobRank.Normal;
 }
 
 /// <summary>
@@ -48,10 +51,19 @@ public static class SpawnCardRegistry
 			Weight        = 1f,
 			MinDifficulty = 0f,  // 
 		},
-		// Example new archetype. Swap PrefabPath for your real ranged prefab
+		new SpawnCard
+		{
+			MobPresetId   = "ogre",
+			PrefabPath    = "ogre.prefab",
+			DisplayName   = "Ogre Brute",
+			Cost          = 40f,
+			Weight        = 0.5f,
+			MinDifficulty = 0f,
+			Rank          = MobRank.Boss,
+		},
+		// Example new archetype. Swap PrefabPath for  real ranged prefab
 		// (Enemy + NavMeshAgent + CharacterController + CombatComponent with ArrowPrefab
-		// set + RangedKiteBehavior attached). Reusing goblin stats until you add a
-		// dedicated MobRegistry entry — cheap to change, just a string.
+		// set + RangedKiteBehavior attached). Reusing goblin stats 
 		new SpawnCard
 		{
 			MobPresetId   = "goblin",

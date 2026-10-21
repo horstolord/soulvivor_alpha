@@ -34,6 +34,8 @@ public class MobData
 	public float CritChance { get; set; } = 5f;
 	public float CritChancePerLevel { get; set; } = 0.25f;
 	public float BoonDropChance { get; set; } = 1f;
+	public float AttackSpeed { get; set; } = 100f;
+	public float Range { get; set; } = 100f;
 
 	public MobData Clone()
 	{
@@ -59,7 +61,9 @@ public class MobData
 			Poise          = Poise,
 			CritChance = CritChance,
 			CritChancePerLevel = CritChancePerLevel,
-			BoonDropChance = BoonDropChance
+			BoonDropChance = BoonDropChance,
+			AttackSpeed = AttackSpeed,
+			Range = Range
 		};
 	}
 }
@@ -138,6 +142,29 @@ public static class MobRegistry
 			ArmorPerLevel =  10f,
 			Poise          = 20f,
 			CritChance = 5f,
+			CritChancePerLevel = 0.25f
+		};
+
+		Library["ogre"] = new MobData
+		{
+			Name          = "Ogre Brute",
+			AttackSpeed  = 25f,
+			Range        = 125f,
+			Might         = 34f,
+			Swiftness     = 8f,
+			Endurance     = 36f,
+			BaseSoulValue = 75f,
+			SoulsToLevel  = 300f,
+			MightPerLevel     = 4f,
+			SwiftnessPerLevel = 0.25f,
+			EndurancePerLevel = 4f,
+			WillPerLevel      = 0.5f,
+			AcuityPerLevel    = 0.5f,
+			WisdomPerLevel    = 0.5f,
+			Armor             = 20f,
+			ArmorPerLevel     = 4f,
+			Poise             = 60f,
+			CritChance        = 5f,
 			CritChancePerLevel = 0.25f
 		};
 	}

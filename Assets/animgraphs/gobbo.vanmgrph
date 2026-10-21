@@ -725,13 +725,13 @@
 	}
 	m_previewModels = 
 	[
-		"models/gobbo.vmdl",
+		"models/ogre.vmdl",
 	]
 	m_boneMergeModels = [  ]
 	m_cameraSettings = 
 	{
 		m_flFov = 60.0
-		m_sLockBoneName = "Pelvis"
+		m_sLockBoneName = "spine"
 		m_bLockCamera = false
 		m_bViewModelCamera = false
 	}

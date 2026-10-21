@@ -15,7 +15,7 @@ public sealed class EliteControl : Component
 	/// <summary>Max health bonus per affix, added together (n affixes = +n x this percent). Placeholder.</summary>
 	[Property] public float HealthPercentPerAffix { get; set; } = 50f;
 
-	[Property] public float OutlineWidth { get; set; } = 1f;
+	[Property] public float OutlineWidth { get; set; } = 0.25f;
 
 	/// <summary>How strongly the body is tinted toward the primary affix colour (0..1).</summary>
 	[Property] public float TintStrength { get; set; } = 0.35f;

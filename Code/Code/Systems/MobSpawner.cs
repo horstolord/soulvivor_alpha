@@ -58,6 +58,7 @@ public static class MobSpawner
 			enemy.PresetOverride = card.MobPresetId;
 			enemy.SourceCard = card;
 			enemy.SpawnScale = scale;
+			enemy.Rank = card.Rank;
 
 			if ( affixes.Count > 0 )
 			{

@@ -161,8 +161,8 @@ public class StatSheet : Component
 
 		// Initialize  combat stats
 		PhysicalForce = new Stat( 100f ); // Default 1.0x knockback
-		AttackSpeed = new Stat( 100f ); // Default 1.0x
-		Range = new Stat( 100f );
+		AttackSpeed = new Stat( templateData.AttackSpeed ); // 100 = 1.0x
+		Range = new Stat( templateData.Range );
 		
 		ProjectileCount = new Stat( 1f );
 		ProjectilePierce = new Stat( 0f );
