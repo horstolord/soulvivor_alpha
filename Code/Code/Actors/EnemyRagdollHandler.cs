@@ -145,6 +145,10 @@ public sealed class EnemyRagdollHandler : Component, IRagdollHandler
 
 	public void ExitRagdoll()
 	{
+		Vector3? settle = null;
+		if ( _isRagdolled && Enemy != null && RagdollImpulseApplier.TryGetCenterOfMass( Physics, out var com ) )
+			settle = RagdollImpulseApplier.SnapToGround( Scene, com, Enemy.GameObject );
+
 		_isRagdolled = false;
 		_hasPending = false;
 		if ( Physics != null ) Physics.Enabled = false;
@@ -156,5 +160,7 @@ public sealed class EnemyRagdollHandler : Component, IRagdollHandler
 
 		if ( Enemy != null ) Enemy.Enabled = true;
 		if ( Agent != null ) Agent.Enabled = true;
+		if ( settle.HasValue ) Enemy.GameObject.WorldPosition = settle.Value;
+		if ( _rootBody != null ) _rootBody.Velocity = Vector3.Zero; // after the re-enable line
 	}
 }

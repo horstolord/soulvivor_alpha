@@ -7,6 +7,8 @@ public class DamageProfileDef
 	public float KnockbackForce;
 	public HashSet<AttackTag> Tags = new();
 	public bool IsCrit;
+	/// <summary>True for periodic status damage; prevents that damage from proccing statuses again.</summary>
+	public bool IsDot;
 	public int ProcDepth;
 
 	// Elemental components on top of HealthDamage. Filled in by CombatMath.BuildOutgoing from the attacker's
@@ -26,6 +28,7 @@ public class DamageProfileDef
 		KnockbackForce = KnockbackForce,
 		Tags = Tags,
 		IsCrit = IsCrit,
+		IsDot = IsDot,
 		ProcDepth = ProcDepth,
 		ExtraFire = ExtraFire,
 		ExtraFrost = ExtraFrost,
@@ -82,7 +85,8 @@ public enum AttackTag
 	Earth,
 	Physical,
 	Stab,
-	Smash
+	Smash,
+	Bleed
 }
 public class AttackDef : ICostable
 {

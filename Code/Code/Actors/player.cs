@@ -16,6 +16,7 @@ public sealed class Player : Actor
 	public HotbarControl Hotbar { get; private set; }
 	private PlayerController _playerController;
 	public ForceActionControl ForceAction {get ; private set;}
+	public SkillControl Skills {get; private set;}
 	// Load the "player" / hero stat preset from MobRegistry
 	protected override string GetMobPresetId() => "player";
 
@@ -37,6 +38,7 @@ public sealed class Player : Actor
 		_playerController = GameObject.Components.GetInAncestorsOrSelf<PlayerController>(  );
 		BodyRenderer ??= Components.GetInChildren<SkinnedModelRenderer>();
 		Held = Components.GetOrCreate<HeldWeaponControl>();
+		Skills = Components.GetOrCreate<SkillControl>();
 		Held.BodyRenderer ??= BodyRenderer;
 		if ( BodyRenderer is null )
 			Log.Warning( $"No BodyRenderer found on {GameObject.Name}" );

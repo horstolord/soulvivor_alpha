@@ -215,4 +215,17 @@ public sealed class CastRunesProcEffect : IProcEffect
 			RuneEvaluator.ExecuteDelivery( payload );
 		}
 	}
+	/// <summary>Grants skill XP: Flat + PerAmount x event Amount (damage dealt/taken, energy spent), times Potency.</summary>
+	public sealed class SkillXpProcEffect : IProcEffect
+	{
+		public string SkillId;
+		public float Flat;
+		public float PerAmount;
+
+		public void Execute( in ProcContext ctx )
+		{
+			var skills = ctx.Owner?.Components.Get<SkillControl>();
+			skills?.GainXp( SkillId, (Flat + ctx.Event.Amount * PerAmount) * ctx.Potency );
+		}
+	}
 }

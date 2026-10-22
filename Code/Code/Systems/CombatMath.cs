@@ -232,6 +232,9 @@ public static class HitResolver
 
 		var attackerSheet = CombatMath.ResolveActor( attacker )?.StatSheet;
 		var damage = CombatMath.BuildOutgoing( attackerSheet, baseDamage );
+		
+		var skills = attacker?.Components.GetInAncestorsOrSelf<SkillControl>();
+		if ( skills != null ) damage.HealthDamage *= skills.DamageMultiplier( damage.Tags );
 
 		Log.Info( $"[HitResolver] target={target.Name} health={damage.HealthDamage:F1} knockback={damage.KnockbackForce:F1} dir={direction} crit={damage.IsCrit}" );
 

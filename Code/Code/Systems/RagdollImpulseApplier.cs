@@ -84,4 +84,31 @@ public static class RagdollImpulseApplier
 		nearest.ApplyImpulse( deltaV * nearest.Mass * 0.5f );
 		return true;
 	}
+	public static bool TryGetCenterOfMass( ModelPhysics physics, out Vector3 com )
+	{
+		com = default;
+		if ( !BodiesReady( physics ) ) return false;
+
+		float total = 0f;
+		var sum = Vector3.Zero;
+		foreach ( var body in physics.Bodies )
+		{
+			var rb = body.Component;
+			if ( !rb.IsValid() || rb.Mass <= 0f ) continue;
+			sum += rb.WorldPosition * rb.Mass;
+			total += rb.Mass;
+		}
+		if ( total <= 0f ) return false;
+
+		com = sum / total;
+		return true;
+	}
+	public static Vector3 SnapToGround( Scene scene, Vector3 point, GameObject ignore )
+	{
+		var tr = scene.Trace
+			.Ray( point + Vector3.Up * 40f, point + Vector3.Down * 400f )
+			.IgnoreGameObjectHierarchy( ignore )
+			.Run();
+		return tr.Hit ? tr.HitPosition : point;
+	}
 }

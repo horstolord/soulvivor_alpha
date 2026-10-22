@@ -57,6 +57,8 @@ public class StatSheet : Component
 	public Stat WeaponDamage { get; private set; } // Flat bonus for attacks explicitly marked as weapon attacks
 	public Stat CritChance { get; private set; } // Percent
 	public Stat CritDamage { get; private set; } // Percent
+	public Stat StatusChance { get; private set; } // Percent; 100 = guaranteed one proc
+	public Stat StatusResistance { get; private set; } // Percent; reduces incoming status chance
 	
 
 	// ============ MOVEMENT STATS ============
@@ -147,6 +149,8 @@ public class StatSheet : Component
 		WeaponDamage = new Stat( 0f );
 		CritChance = new Stat( templateData.CritChance );
 		CritDamage = new Stat( 50f ); // Default 1.5x = 150%
+		StatusChance = new Stat( 0f );
+		StatusResistance = new Stat( 0f );
 		Armor = new Stat( templateData.Armor );
 		BlockReduction = new Stat(0f);
 		ResistanceFire = new Stat( 0f );
@@ -264,6 +268,8 @@ public class StatSheet : Component
 			"WeaponDamage" => WeaponDamage,
 			"CritChance" => CritChance,
 			"CritDamage" => CritDamage,
+			"StatusChance" => StatusChance,
+			"StatusResistance" => StatusResistance,
 			"BlockReduction" => BlockReduction,
 			"ResistanceFire" => ResistanceFire,
 			"ResistanceFrost" => ResistanceFrost,
@@ -333,6 +339,8 @@ public class StatSheet : Component
 		yield return ( "WeaponDamage", WeaponDamage );
 		yield return ( "CritChance", CritChance );
 		yield return ( "CritDamage", CritDamage );
+		yield return ( "StatusChance", StatusChance );
+		yield return ( "StatusResistance", StatusResistance );
 		yield return ( "Armor", Armor );
 		yield return ( "BlockReduction", BlockReduction );
 		yield return ( "ResistanceFire", ResistanceFire );

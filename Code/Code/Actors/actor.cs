@@ -26,6 +26,7 @@ public class Actor : Component, Component.IDamageable
 	public CombatComponent Combat;
 	public EquipmentControl Equipment { get; private set; }
 	public BuffComponent Buffs { get; private set; }
+	public StatusControl Statuses { get; private set; }
 	public ProcControl Procs { get; private set; }
 	private IRagdollHandler _ragdoll;
 	/// <summary>
@@ -58,6 +59,7 @@ public class Actor : Component, Component.IDamageable
 	// Heavy‑stun fields
 	private float _staminaStunTimer;
 	private const float STAMINA_ZERO_STUN_DURATION = 3f;
+	private float _stunDuration = STAMINA_ZERO_STUN_DURATION;
 
 	
 	public bool IsStaggered { get; private set; }
@@ -82,13 +84,24 @@ public class Actor : Component, Component.IDamageable
 		Equipment = Components.GetOrCreate<EquipmentControl>();
 		StateComp = Components.GetOrCreate<ActorStateComp>();
 		Buffs     = Components.GetOrCreate<BuffComponent>();
+		Statuses  = Components.GetOrCreate<StatusControl>();
 		Procs = Components.GetOrCreate<ProcControl>();
 		_ragdoll  = Components.GetInAncestorsOrSelf<IRagdollHandler>() ?? Components.GetInChildren<IRagdollHandler>();
+		Log.Info( $"[Ragdoll] {GameObject.Name}: handler lookup => {(_ragdoll == null ? "NULL" : _ragdoll.GetType().Name)}" );
 		_ = InitializeActorAsync();
 	}
 
-	private void Ragdoll() => _ragdoll?.EnterRagdoll();
-	private void RestoreFromRagdoll() => _ragdoll?.ExitRagdoll();
+	private void Ragdoll()
+	{
+		Log.Info( $"[Ragdoll] {GameObject.Name}: EnterRagdoll requested; handler={(_ragdoll == null ? "NULL" : _ragdoll.GetType().Name)}, state={StateComp?.CurrentState}" );
+		_ragdoll?.EnterRagdoll();
+	}
+
+	private void RestoreFromRagdoll()
+	{
+		Log.Info( $"[Ragdoll] {GameObject.Name}: ExitRagdoll requested; handler={(_ragdoll == null ? "NULL" : _ragdoll.GetType().Name)}, state={StateComp?.CurrentState}" );
+		_ragdoll?.ExitRagdoll();
+	}
 
 	/// <summary>
 	/// Brings a dead/stunned actor fully back: leaves the ragdoll, clears every stun flag and timer,
@@ -138,6 +151,7 @@ public class Actor : Component, Component.IDamageable
 
 		// InitializeFromRegistry replaces Stat instances — re-bind any already-equipped gear
 		Equipment?.ReapplyAll();
+		Components.GetInAncestorsOrSelf<SkillControl>()?.ApplyAll();
 
 		// 3. Level component — wire up level-up callback and apply initial level
 		Leveling = Components.GetOrCreate<LevelComponent>();
@@ -421,10 +435,13 @@ public class Actor : Component, Component.IDamageable
 		// No health/stamina regen on corpses — it also kept running while waiting to respawn.
 		if ( StateComp?.CurrentState == ActorStateType.Dead ) return;
 
-		StatSheet.CurrentHealth  = MathF.Min( StatSheet.CurrentHealth  + StatSheet.HealthRegen.Value  * dt, StatSheet.MaxHealth.Value );
+		StatSheet.CurrentHealth = MathF.Min( StatSheet.CurrentHealth + StatSheet.HealthRegen.Value * dt,
+			StatSheet.MaxHealth.Value );
 		if ( ShouldRegenerateStamina )
-			StatSheet.CurrentStamina = MathF.Min( StatSheet.CurrentStamina + StatSheet.StaminaRegen.Value * dt, StatSheet.MaxStamina.Value );
-		StatSheet.CurrentEnergy  = MathF.Min( StatSheet.CurrentEnergy  + StatSheet.EnergyRegen.Value  * dt, StatSheet.MaxEnergy.Value );
+			StatSheet.CurrentStamina = MathF.Min( StatSheet.CurrentStamina + StatSheet.StaminaRegen.Value * dt,
+				StatSheet.MaxStamina.Value );
+		StatSheet.CurrentEnergy = MathF.Min( StatSheet.CurrentEnergy + StatSheet.EnergyRegen.Value * dt,
+			StatSheet.MaxEnergy.Value );
 
 		// Poise refill timer
 		StatSheet.TimeSincePoiseDmg += dt;
@@ -452,7 +469,31 @@ public class Actor : Component, Component.IDamageable
 				IsStaggered = false;
 				RestoreFromRagdoll();
 			}
-		}	}
+		}
+	}
+	public void KnockDown( float duration )
+	{
+		if ( StateComp == null || StateComp.CurrentState == ActorStateType.Dead ) return;
+
+		// Already down: keep whichever is longer, remaining time or the new duration.
+		_stunDuration = IsStaggered
+			? MathF.Max( _stunDuration - _staminaStunTimer, duration )
+			: duration;
+		_staminaStunTimer = 0f;
+		IsStaggered = true;
+		StateComp.CurrentState = ActorStateType.Stunned;
+		Ragdoll();
+	}
+
+	/// Clears all knockdown/stun/death state. Call before teleporting on respawn.
+	public void ResetForRespawn()
+	{
+		IsStaggered = false;
+		_staminaStunTimer = 0f;
+		_poiseStaggerTimer = 0f;
+		RestoreFromRagdoll();
+		if ( StateComp != null ) StateComp.CurrentState = ActorStateType.Idle;
+	}
 
 	protected virtual bool ShouldRegenerateStamina => true;
 }

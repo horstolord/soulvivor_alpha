@@ -65,6 +65,8 @@ public sealed class Enemy : Actor
 	private bool _agentPositionSyncPending;
 	private bool _dropLeftGround;
 	private float _nextMovementDebugTime;
+	private float _noPathTime;
+	[Property] public float NoPathGrace { get; set; } = 0.5f;
 
 	/// <summary>How far below the feet still counts as standing on something.</summary>
 	[Property] public float GroundCheckDistance { get; set; } = 14f;
@@ -171,7 +173,7 @@ public void StopMoving() => _hasMoveTarget = false;
 
 private Vector3 GetWishDirection( float speed )
 {
-	if ( !_hasMoveTarget ) return Vector3.Zero;
+	if ( !_hasMoveTarget ) { _noPathTime = 0f; return Vector3.Zero; }
 
 	if ( UseNavMesh && Agent != null )
 	{
@@ -182,12 +184,16 @@ private Vector3 GetWishDirection( float speed )
 			_agentPositionSyncPending = false;
 		}
 		Agent.MoveTo( _moveTarget );
+
 		var v = Agent.Velocity.WithZ( 0 );
-		return v.LengthSquared > 1f ? v.Normal : Vector3.Zero;
+		if ( v.LengthSquared > 1f ) { _noPathTime = 0f; return v.Normal; }
+
+		// Agent has no usable path (platform island, no mesh): after a short grace, head straight for the target.
+		_noPathTime += Time.Delta;
+		return _noPathTime > NoPathGrace ? GetDirectWishDirection() : Vector3.Zero;
 	}
 
-	var d = (_moveTarget - GameObject.WorldPosition).WithZ( 0 );
-	return d.LengthSquared > 1f ? d.Normal : Vector3.Zero;
+	return GetDirectWishDirection();
 }
 
 private Vector3 GetDirectWishDirection()

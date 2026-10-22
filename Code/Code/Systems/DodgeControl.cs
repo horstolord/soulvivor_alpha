@@ -93,6 +93,7 @@ public sealed class DodgeControl : Component
 			: GameObject.WorldRotation.Forward.WithZ( 0 ).Normal;
 
 		IsDodging = true;
+		_actor?.Procs?.Raise( new ProcEvent { Trigger = ProcTrigger.Dodge, Position = GameObject.WorldPosition } );
 		TimeSinceDodge = 0f;
 		DodgeEndTime = DashDuration;
 
@@ -113,7 +114,7 @@ public sealed class DodgeControl : Component
 
 	private void ApplyIFrame()
 	{
-		_actor?.Procs?.Raise( new ProcEvent { Trigger = ProcTrigger.Dodge, Position = GameObject.WorldPosition } );
+		
 		if ( _statSheet?.Evasion == null ) return;
 
 		// Large flat modifier guarantees the existing evasion roll in Actor.ApplyDamage
