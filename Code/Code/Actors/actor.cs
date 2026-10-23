@@ -60,6 +60,7 @@ public class Actor : Component, Component.IDamageable
 	private float _staminaStunTimer;
 	private const float STAMINA_ZERO_STUN_DURATION = 3f;
 	private float _stunDuration = STAMINA_ZERO_STUN_DURATION;
+	private bool _stunRagdolled; // true while the ragdoll was entered by a stun/death (Frozen stuns without one)
 
 	
 	public bool IsStaggered { get; private set; }
@@ -112,6 +113,7 @@ public class Actor : Component, Component.IDamageable
 	public void Revive()
 	{
 		IsStaggered = false;
+		_stunRagdolled = false;
 		_staminaStunTimer = 0f;
 		_poiseStaggerTimer = 0f;
 		RestoreFromRagdoll();
@@ -148,6 +150,8 @@ public class Actor : Component, Component.IDamageable
 
 		// 2. Jetzt sicher laden und Werte initialisieren
 		StatSheet.InitializeFromRegistry( presetId );
+		if ( this is Player )
+			MetaProgression.ApplyAttributeBonuses( StatSheet );
 
 		// InitializeFromRegistry replaces Stat instances — re-bind any already-equipped gear
 		Equipment?.ReapplyAll();
@@ -220,23 +224,24 @@ public class Actor : Component, Component.IDamageable
 	}
 
 	/// <param name="source">Attacker, if known. Optional so existing call sites keep compiling.</param>
-	public void ApplyDamage( DamageProfileDef damage, GameObject source = null )
+	public DamageEvent ApplyDamage( DamageProfileDef damage, GameObject source = null )
 	{
-		if (StatSheet == null) return;
+		if (StatSheet == null) return default;
 
 		// Corpses can still be hit (arrows in flight, ranged AI still shooting). Re-running the damage
 		// path would call OnKilled again: duplicate OnDeath, soul orbs and loot drops.
-		if ( StateComp?.CurrentState == ActorStateType.Dead ) return;
+		if ( StateComp?.CurrentState == ActorStateType.Dead ) return default;
 		
 		// Check evasion
 		float evasion = StatSheet.Evasion.Value;
-		if ( evasion > 0f && Random.Shared.NextSingle() * 100f < evasion )
+		// Periodic ticks (IsDot) can't be dodged: i-frames and Evasion only avoid hits.
+		if ( !damage.IsDot && evasion > 0f && Random.Shared.NextSingle() * 100f < evasion )
 		{
 			Log.Info( $"{GameObject.Name} EVADED the attack!" );
 			var evadeEvent = new DamageEvent { Victim = this, Source = source, Evaded = true, ProcDepth = damage.ProcDepth};
 			Damaged?.Invoke( evadeEvent );
 			ProcControl.RaiseDamageEvents( evadeEvent );
-			return;
+			return evadeEvent;
 		}
 		
 		// DamageMultiplier belongs on the attacker side (applied in CombatMath.BuildOutgoing).
@@ -270,7 +275,7 @@ public class Actor : Component, Component.IDamageable
 
 		// Block mitigation — only Health is reduced; Stagger/Stamina still land through a guard.
 		bool blocked = false;
-		if ( StateComp != null && StateComp.CurrentState == ActorStateType.Blocking )
+		if ( !damage.IsDot && StateComp != null && StateComp.CurrentState == ActorStateType.Blocking )
 		{
 			float blockReduction = StatSheet.BlockReduction.Value;
 			if ( blockReduction > 0f )
@@ -283,28 +288,35 @@ public class Actor : Component, Component.IDamageable
 		// Generic damage-taken multiplier applies after armor, resistance, and block mitigation.
 		finalHealthDamage *= MathF.Max( 0f, StatSheet.DamageTakenMultiplier.Value / 100f );
 
-		// Apply health, stamina, and poise damage
+		// Apply health damage. Periodic ticks (IsDot) only ever touch health: no stamina/poise damage, no poise-timer
+		// reset, and no stun checks (a tick on a sprinter at 0 stamina must not ragdoll them).
 		StatSheet.CurrentHealth  = MathF.Max( 0f, StatSheet.CurrentHealth  - finalHealthDamage );
-		StatSheet.CurrentStamina = MathF.Max( 0f, StatSheet.CurrentStamina - damage.StaminaDamage );
-		StatSheet.CurrentPoise   = MathF.Max( 0f, StatSheet.CurrentPoise   - damage.StaminaDamage );
-		StatSheet.ResetPoiseTimer();
-
-		// Heavy stun when stamina reaches zero
-		if ( StatSheet.CurrentStamina <= 0f && !IsStaggered )
+		if ( !damage.IsDot )
 		{
-			IsStaggered = true;
-			StateComp.CurrentState = ActorStateType.Stunned;
-			_staminaStunTimer = 0f;
-			Ragdoll();
-			Log.Info( $"{GameObject.Name} stamina depleted: entering heavy stun (ragdoll)." );
-		}
+			StatSheet.CurrentStamina = MathF.Max( 0f, StatSheet.CurrentStamina - damage.StaminaDamage );
+			StatSheet.CurrentPoise   = MathF.Max( 0f, StatSheet.CurrentPoise   - damage.StaminaDamage );
+			StatSheet.ResetPoiseTimer();
 
-		// Short poise stagger stun
-		if ( StatSheet.CurrentPoise <= 0f && StateComp.CurrentState != ActorStateType.Stunned )
-		{
-			StateComp.CurrentState = ActorStateType.Staggered;
-			_poiseStaggerTimer = 0f;
-			Log.Info( $"{GameObject.Name} poise broken: entering stagger." );
+			// Heavy stun when stamina reaches zero
+			if ( StatSheet.CurrentStamina <= 0f && !IsStaggered )
+			{
+				ApplyStun( STAMINA_ZERO_STUN_DURATION );
+				Log.Info( $"{GameObject.Name} stamina depleted: entering heavy stun (ragdoll)." );
+			}
+
+			// Short poise stagger stun
+			if ( StatSheet.CurrentPoise <= 0f && StateComp.CurrentState != ActorStateType.Stunned )
+			{
+				// A poise break on a chilled enemy becomes Frozen (heavy stun) instead of a short stagger.
+				if ( Statuses != null && Statuses.TryFreezeOnPoiseBreak( source ) )
+					Log.Info( $"{GameObject.Name} poise broken while chilled: frozen." );
+				else
+				{
+					StateComp.CurrentState = ActorStateType.Staggered;
+					_poiseStaggerTimer = 0f;
+					Log.Info( $"{GameObject.Name} poise broken: entering stagger." );
+				}
+			}
 		}
 
 		Log.Info( $"{GameObject.Name} took {finalHealthDamage:F1} dmg — HP={StatSheet.CurrentHealth:F1}/{StatSheet.MaxHealth.Value:F1}" );
@@ -318,17 +330,20 @@ public class Actor : Component, Component.IDamageable
 			IsCrit = damage.IsCrit,
 			Blocked = blocked,
 			Killed = killed,
+			IsDot = damage.IsDot,
 			ProcDepth = damage.ProcDepth
 		};
 		Damaged?.Invoke( hitEvent );
-		ProcControl.RaiseDamageEvents( hitEvent );
+		// Ticks don't raise hit procs (HitTaken/HitDealt/Crit would fire every 0.5s per DoT). Remove the guard to allow it.
+		if ( !damage.IsDot ) ProcControl.RaiseDamageEvents( hitEvent );
 		if ( killed )
 		{
 			OnKilled();
-			if (!IsStaggered) Ragdoll();
+			if ( !_stunRagdolled ) { _stunRagdolled = true; Ragdoll(); }
 		}
-		OnHitReceived?.Invoke();
-		
+		// Ticks must not count as hits: SpellComponent.HandleCasterHit adds cast time/cost per OnHitReceived.
+		if ( !damage.IsDot ) OnHitReceived?.Invoke();
+		return hitEvent;
 	}
 	/// <summary>
 	/// Engine built-in damage system lead in - collision.
@@ -463,32 +478,44 @@ public class Actor : Component, Component.IDamageable
 		if ( StateComp.CurrentState == ActorStateType.Stunned )
 		{
 			_staminaStunTimer += dt;
-			if ( _staminaStunTimer >= STAMINA_ZERO_STUN_DURATION )
+			if ( _staminaStunTimer >= _stunDuration )
 			{
 				StateComp.CurrentState = ActorStateType.Idle;
 				IsStaggered = false;
-				RestoreFromRagdoll();
+				if ( _stunRagdolled ) { _stunRagdolled = false; RestoreFromRagdoll(); }
 			}
 		}
 	}
-	public void KnockDown( float duration )
+	/// <summary>
+	/// Heavy stun for <paramref name="duration"/> seconds (stamina-zero, KnockDown, Frozen). If already stunned the
+	/// longer of remaining/new time wins. ragdoll=false stuns in place (Frozen).
+	/// </summary>
+	public void ApplyStun( float duration, bool ragdoll = true )
 	{
 		if ( StateComp == null || StateComp.CurrentState == ActorStateType.Dead ) return;
 
-		// Already down: keep whichever is longer, remaining time or the new duration.
-		_stunDuration = IsStaggered
-			? MathF.Max( _stunDuration - _staminaStunTimer, duration )
-			: duration;
+		// IsStaggered also covers the separate short poise-stagger state. Only preserve a
+		// remaining timer when this actor is already in the heavy Stunned state.
+		float remaining = StateComp.CurrentState == ActorStateType.Stunned
+			? MathF.Max( 0f, _stunDuration - _staminaStunTimer )
+			: 0f;
+		_stunDuration = MathF.Max( remaining, duration );
 		_staminaStunTimer = 0f;
 		IsStaggered = true;
 		StateComp.CurrentState = ActorStateType.Stunned;
-		Ragdoll();
+		if ( ragdoll && !_stunRagdolled ) { _stunRagdolled = true; Ragdoll(); }
 	}
+
+	public void KnockDown( float duration ) => ApplyStun( duration );
+
+	/// <summary>Lets status effects (Shock) trigger the same reaction as a landed hit, e.g. SpellComponent.HandleCasterHit.</summary>
+	public void NotifyHitReceived() => OnHitReceived?.Invoke();
 
 	/// Clears all knockdown/stun/death state. Call before teleporting on respawn.
 	public void ResetForRespawn()
 	{
 		IsStaggered = false;
+		_stunRagdolled = false;
 		_staminaStunTimer = 0f;
 		_poiseStaggerTimer = 0f;
 		RestoreFromRagdoll();

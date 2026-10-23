@@ -20,6 +20,10 @@ public sealed class StatusControl : Component
 	private readonly Dictionary<StatusType, float> _tickTimers = new();
 	private Actor _actor;
 
+	/// <summary>Seconds an enemy is immune to new crowd control after one ends (no chain-stun-locking).</summary>
+	[Property] public float CcImmunityDuration { get; set; } = 3f;
+	private float _ccImmuneUntil;
+
 	public int GetStacks( StatusType type )
 	{
 		int count = 0;
@@ -42,6 +46,10 @@ public sealed class StatusControl : Component
 		if ( sheet?.MaxHealth == null ) return false; // stats not initialized yet
 		if ( _actor.StateComp?.CurrentState == ActorStateType.Dead ) return false;
 
+		bool enemy = _actor is Enemy;
+		if ( def.EnemyOnly && !enemy ) return false;
+		if ( def.IsCrowdControl && enemy && Time.Now < _ccImmuneUntil ) return false;
+
 		// Stack cap per type: a new proc replaces the one closest to expiring.
 		int count = 0;
 		StatusInstance oldest = null;
@@ -60,13 +68,17 @@ public sealed class StatusControl : Component
 			Def = def,
 			Source = source,
 			ExpiresAt = Time.Now + duration,
+			HitDamage = hitDamage,
+			Potency = potency,
 			DamagePerSecond = def.DamageFraction > 0f
 				? hitDamage * def.DamageFraction * potency / MathF.Max( 0.05f, def.Duration )
 				: 0f
 		};
 
-		foreach ( var m in def.Modifiers )
+		var mods = !enemy && def.PlayerModifiers != null ? def.PlayerModifiers : def.Modifiers;
+		foreach ( var m in mods )
 		{
+			if ( m.StatName is "MaxHealth" or "MaxStamina" or "MaxEnergy" or "MaxPoise" ) instance.AffectsPools = true;
 			var stat = sheet.GetStat( m.StatName );
 			if ( stat == null )
 			{
@@ -79,16 +91,35 @@ public sealed class StatusControl : Component
 			instance.AppliedModifiers.Add( (stat, modifier) );
 		}
 
+		_active.Add( instance );
+		if ( instance.AffectsPools ) sheet.RecalculateDerivedStats();
+
 		if ( def.PoiseDrainFraction > 0f && sheet.MaxPoise != null )
 		{
 			sheet.CurrentPoise = MathF.Max( 0f, sheet.CurrentPoise - sheet.MaxPoise.Value * def.PoiseDrainFraction * potency );
 			sheet.ResetPoiseTimer(); // otherwise the poise refill timer undoes the drain
+			if ( sheet.CurrentPoise <= 0f ) TryFreezeOnPoiseBreak( source ); // chill drained the last poise
 		}
 
-		_active.Add( instance );
-		if ( AffectsPools( def ) ) sheet.RecalculateDerivedStats();
-
+		def.Behavior?.OnApplied( _actor, instance );
 		StatusApplied?.Invoke( instance );
+		return true;
+	}
+
+	/// <summary>
+	/// Called by Actor when poise hits zero. While chilled (and not immune / not the player) the break becomes
+	/// Frozen instead of a short stagger: consumes the Chill stacks and refills poise. Returns true if it froze.
+	/// </summary>
+	public bool TryFreezeOnPoiseBreak( GameObject source = null )
+	{
+		if ( !Has( StatusType.Chill ) || !Apply( StatusLibrary.Frozen, source, 0f ) ) return false;
+
+		for ( int i = _active.Count - 1; i >= 0; i-- )
+			if ( _active[i].Def.Type == StatusType.Chill ) Remove( _active[i] );
+
+		var sheet = _actor.StatSheet;
+		sheet.CurrentPoise = sheet.MaxPoise.Value;
+		sheet.ResetPoiseTimer();
 		return true;
 	}
 
@@ -169,9 +200,13 @@ public sealed class StatusControl : Component
 
 		_active.Remove( instance );
 
-		if ( AffectsPools( instance.Def ) )
+		if ( instance.AffectsPools )
 			_actor?.StatSheet?.RecalculateDerivedStats();
 
+		if ( instance.Def.IsCrowdControl && _actor is Enemy )
+			_ccImmuneUntil = Time.Now + CcImmunityDuration;
+
+		instance.Def.Behavior?.OnExpired( _actor, instance );
 		StatusExpired?.Invoke( instance );
 	}
 
@@ -179,16 +214,6 @@ public sealed class StatusControl : Component
 	{
 		_actor ??= Components.GetInAncestorsOrSelf<Actor>();
 		return _actor != null;
-	}
-
-	private static bool AffectsPools( StatusDef def )
-	{
-		foreach ( var m in def.Modifiers )
-		{
-			if ( m.StatName is "MaxHealth" or "MaxStamina" or "MaxEnergy" or "MaxPoise" )
-				return true;
-		}
-		return false;
 	}
 }
 

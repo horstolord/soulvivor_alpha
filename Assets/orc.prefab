@@ -115,6 +115,7 @@
             "MaxWallNormalZ": 0.3,
             "MinTargetHeightAbove": 20,
             "MovementDebugInterval": 1,
+            "NoPathGrace": 0.5,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -124,6 +125,9 @@
             "PresetOverride": "",
             "ProgressDistance": 2,
             "ProgressSampleInterval": 0.25,
+            "Rank": "Normal",
+            "StuckShoveInterval": 0.75,
+            "StuckShoveVelocity": 180,
             "Target": null,
             "TraversalStuckTime": 0.75,
             "UseNavMesh": true,
@@ -155,6 +159,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
+            "ProjectileFanDegrees": 8,
             "ProjectileSpawnOffset": "0,0,60"
           },
           {

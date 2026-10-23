@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using Sandbox.Code.Actors;
 using Sandbox.Code.Data;
 
 namespace Sandbox.Code.Systems;
 
 /// <summary>
-/// Pass 1 ships Bleed/Burn/Chill/Shatter. The control statuses are declared so the enum stays stable,
-/// but have no StatusDef in StatusLibrary yet.
+/// Frozen is never rolled from a hit: it is the escalation of Chill (poise break while chilled).
 /// </summary>
 public enum StatusType { Bleed, Burn, Chill, Shatter, Fear, Frozen, Hypothermia, KnockUp, Shock, KnockDown }
 
@@ -41,6 +41,26 @@ public class StatusDef
 
 	/// <summary>Fraction of the target's MaxPoise drained on each application.</summary>
 	public float PoiseDrainFraction;
+
+	/// <summary>Stat debuffs used instead of Modifiers when the target is not an Enemy (e.g. Fear: damage debuff). Null = same as Modifiers.</summary>
+	public List<BuffModifier> PlayerModifiers;
+
+	// ---- Control ----
+	/// <summary>Takes control from the target (stun, launch, flee). Enemies only get an immunity window afterwards.</summary>
+	public bool IsCrowdControl;
+
+	/// <summary>Skipped entirely on non-enemies. Fear is not EnemyOnly: the player gets its PlayerModifiers.</summary>
+	public bool EnemyOnly;
+
+	/// <summary>Optional special effect on apply/expire. Stateless, shared between all instances.</summary>
+	public IStatusBehavior Behavior;
+}
+
+/// <summary>Same pattern as IProjectileMotion/IEnemyBehavior: data picks the implementation, no subclassing.</summary>
+public interface IStatusBehavior
+{
+	void OnApplied( Actor actor, StatusInstance instance );
+	void OnExpired( Actor actor, StatusInstance instance );
 }
 
 /// <summary>One proc of a status on one target. Several instances of a type can coexist (stacks).</summary>
@@ -50,5 +70,9 @@ public class StatusInstance
 	public GameObject Source;
 	public float ExpiresAt;
 	public float DamagePerSecond;
+	/// <summary>Post-crit health damage of the causing hit; behaviors (Shock arc) scale from it.</summary>
+	public float HitDamage;
+	public float Potency = 1f;
+	public bool AffectsPools;
 	public List<(Stat Stat, StatModifier Modifier)> AppliedModifiers = new();
 }

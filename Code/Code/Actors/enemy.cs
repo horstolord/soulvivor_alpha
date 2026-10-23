@@ -42,6 +42,8 @@ public sealed class Enemy : Actor
 	public NavMeshAgent Agent { get; private set; }
 	public SkinnedModelRenderer bodyRenderer { get; set; }
 	private IEnemyBehavior _behavior;
+	private IEnemyBehavior _behaviorOverride; // temporary replacement (Fear -> FleeBehavior)
+	public void SetBehaviorOverride( IEnemyBehavior behavior ) => _behaviorOverride = behavior;
 	public EnemyMoveMode MoveMode { get; private set; } = EnemyMoveMode.Walk;
 	public bool IsGrounded { get; private set; }
 	/// <summary>Set by MobSpawner: the card this mob came from (so a splitter can spawn the same type).</summary>
@@ -143,7 +145,7 @@ public sealed class Enemy : Actor
 			_agentPositionSyncPending = false;
 		}
 		if ( !movementLocked )
-			_behavior?.Tick( this, dt );
+			(_behaviorOverride ?? _behavior)?.Tick( this, dt );
 		else if ( MoveMode != EnemyMoveMode.Drop )
 			SetMoveMode( EnemyMoveMode.Walk );
 

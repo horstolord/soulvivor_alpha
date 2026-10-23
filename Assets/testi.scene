@@ -6698,6 +6698,18 @@
           "RespawnDelay": 2.5,
           "SpawnHeightOffset": 20
         },
+                {
+          "__type": "Sandbox.Code.Systems.RunStartInteractable",
+          "__guid": "c30eb3aa-97c2-44d4-a54c-6a95112e73c3",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
         {
           "__type": "Sandbox.AmbientLight",
           "__guid": "b17adba8-b917-42e2-ba49-e5e04ebf86f3",

@@ -67,5 +67,84 @@ public static class StatusLibrary
 		}
 	};
 
-	public static readonly StatusDef[] All = { Bleed, Burn, Chill, Shatter };
+	// Hypothermia: attrition on stamina. Zero stamina already triggers the existing heavy stun, so no extra CC here.
+	public static readonly StatusDef Hypothermia = new()
+	{
+		Type = StatusType.Hypothermia,
+		DisplayName = "Hypothermia",
+		RequiredTag = AttackTag.Frost,
+		ChanceScale = 0.8f,
+		Duration = 6f,
+		MaxStacks = 5,
+		Modifiers = new()
+		{
+			new BuffModifier( "MaxStamina", -8f, ModifierType.Percent ),
+			new BuffModifier( "StaminaRegen", -12f, ModifierType.Percent )
+		}
+	};
+
+	// Frozen: not rolled. StatusControl applies it when poise breaks while chilled (consumes the Chill stacks).
+	public static readonly StatusDef Frozen = new()
+	{
+		Type = StatusType.Frozen,
+		DisplayName = "Frozen",
+		Duration = 2.5f,
+		IsCrowdControl = true,
+		EnemyOnly = true,
+		Behavior = new FrozenBehavior()
+	};
+
+	// Fear: enemies flee; the player only gets a damage debuff.
+	public static readonly StatusDef Fear = new()
+	{
+		Type = StatusType.Fear,
+		DisplayName = "Fear",
+		RequiredTag = AttackTag.Fire,
+		ChanceScale = 0.6f,
+		Duration = 3f,
+		IsCrowdControl = true,
+		PlayerModifiers = new() { new BuffModifier( "DamageMultiplier", -8f, ModifierType.Percent ) },
+		Behavior = new FearBehavior()
+	};
+
+	// KnockUp: ragdoll launch. Physics does the rest.
+	public static readonly StatusDef KnockUp = new()
+	{
+		Type = StatusType.KnockUp,
+		DisplayName = "Knock Up",
+		RequiredTag = AttackTag.Air,
+		ChanceScale = 0.5f,
+		Duration = 1.5f,
+		IsCrowdControl = true,
+		EnemyOnly = true,
+		Behavior = new KnockUpBehavior()
+	};
+
+	// Shock: drains energy, delays casts (enemies), arcs to a neighbour. Instant effect; the instance is a short mark.
+	public static readonly StatusDef Shock = new()
+	{
+		Type = StatusType.Shock,
+		DisplayName = "Shock",
+		RequiredTag = AttackTag.Air,
+		ChanceScale = 0.8f,
+		Duration = 2f,
+		Behavior = new ShockBehavior()
+	};
+
+	// KnockDown: ragdoll stun, no launch.
+	public static readonly StatusDef KnockDown = new()
+	{
+		Type = StatusType.KnockDown,
+		DisplayName = "Knock Down",
+		RequiredTag = AttackTag.Earth,
+		ChanceScale = 0.5f,
+		Duration = 2.5f,
+		IsCrowdControl = true,
+		EnemyOnly = true,
+		Behavior = new KnockDownBehavior()
+	};
+
+	/// <summary>Everything that can be rolled from a hit tag. Frozen is deliberately absent.</summary>
+	public static readonly StatusDef[] All =
+		{ Bleed, Burn, Chill, Shatter, Hypothermia, Fear, KnockUp, Shock, KnockDown };
 }

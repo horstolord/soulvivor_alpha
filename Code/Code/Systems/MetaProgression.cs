@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Sandbox.Code.Actors;
 using Sandbox.Code.Data;
 
 namespace Sandbox.Code.Systems;
@@ -50,9 +51,24 @@ public static class MetaProgression
 	public static float GetAttributeBonus( string attribute ) =>
 		GetAllocation( attribute ) * MetaProgressionConfig.ValuePerPoint;
 
+	/// <summary>Applies permanent allocations after registry stats have been recreated.</summary>
+	public static void ApplyAttributeBonuses( StatSheet sheet )
+	{
+		if ( sheet == null ) return;
+		foreach ( var attribute in Attributes )
+		{
+			var stat = sheet.GetStat( attribute );
+			var bonus = GetAttributeBonus( attribute );
+			if ( stat != null && bonus > 0f )
+				stat.AddModifier( new StatModifier( bonus, ModifierType.Flat, source: typeof( MetaProgression ) ) );
+		}
+		sheet.RecalculateDerivedStats();
+		sheet.FillCurrentPoolsToMax();
+	}
+
 	// ============ MUTATIONS ============
 
-	/// <summary>Banks souls. Intended caller: the run-end state (to come). Not wired to SoulOrb: souls are only banked when a run ends.</summary>
+	/// <summary>Banks souls collected during a completed run.</summary>
 	public static void DepositSouls( float amount )
 	{
 		if ( amount <= 0f ) return;
@@ -71,6 +87,9 @@ public static class MetaProgression
 		Profile.Souls -= NextLevelCost;
 		Profile.SoulLevel++;
 		Profile.AttributeAllocations[attribute] = GetAllocation( attribute ) + 1;
+		var playerStat = Player.Local?.StatSheet?.GetStat( attribute );
+		playerStat?.AddModifier( new StatModifier( MetaProgressionConfig.ValuePerPoint, ModifierType.Flat, source: typeof( MetaProgression ) ) );
+		Player.Local?.StatSheet?.RecalculateDerivedStats();
 		Commit();
 		return true;
 	}

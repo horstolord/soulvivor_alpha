@@ -230,16 +230,24 @@ public static class HitResolver
 				return false; // already processed this actor this delivery
 		}
 
-		var attackerSheet = CombatMath.ResolveActor( attacker )?.StatSheet;
+		var attackerActor = CombatMath.ResolveActor( attacker );
+		var attackerSheet = attackerActor?.StatSheet;
 		var damage = CombatMath.BuildOutgoing( attackerSheet, baseDamage );
-		
+
 		var skills = attacker?.Components.GetInAncestorsOrSelf<SkillControl>();
 		if ( skills != null ) damage.HealthDamage *= skills.DamageMultiplier( damage.Tags );
 
 		Log.Info( $"[HitResolver] target={target.Name} health={damage.HealthDamage:F1} knockback={damage.KnockbackForce:F1} dir={direction} crit={damage.IsCrit}" );
 
 		var actor = CombatMath.ResolveActor( target );
-		actor?.ApplyDamage( damage, attacker );
+		if ( actor != null )
+		{
+			var result = actor.ApplyDamage( damage, attacker );
+
+			// Status roll, parallel to the crit roll. Skipped on evade/kill (Victim is null when nothing landed).
+			if ( result.Victim != null && !result.Evaded && !result.Killed )
+				StatusRoller.Roll( attackerActor, actor, damage, attacker );
+		}
 
 		// Damage may enter ragdoll; apply afterward so lethal/staggering hits reach its bone bodies.
 		// Active targets still receive the normal controller/rigidbody knockback.

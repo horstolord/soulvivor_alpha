@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Sandbox.Code.Actors;
+using Sandbox.Code.Systems;
 
 namespace Sandbox.Code.World;
 
@@ -69,6 +70,8 @@ public class SoulOrb : Component
 		if ( dist <= CollectRadius )
 		{
 			// Absorbed!
+			if ( _target is Player )
+				Scene.GetAllComponents<SpawnDirector>().FirstOrDefault( d => d.IsRunActive )?.RecordRunSouls( SoulValue );
 			_target.Leveling?.GainSouls( SoulValue );
 			Log.Info( $"[Souls] {_target.GameObject.Name} absorbed {SoulValue:F0} souls." );
 			GameObject.Destroy();

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Sandbox.Code.Actors;
 using Sandbox.Code.Data;
 
@@ -48,6 +49,14 @@ public static class MobSpawner
 		if ( MathF.Abs( scale - 1f ) > 0.001f )
 			go.WorldScale = go.WorldScale * scale;
 
+		if ( !TryFindGroundedPosition( scene, go, request.Position, out var groundedPosition ) )
+		{
+			Log.Warning( $"[MobSpawner] No walkable grounded spawn point found near {request.Position} for '{card.DisplayName}'." );
+			go.Destroy();
+			return null;
+		}
+		go.WorldPosition = groundedPosition;
+
 		var enemy = go.Components.Get<Enemy>( FindMode.EverythingInSelfAndDescendants );
 		if ( enemy == null )
 		{
@@ -73,5 +82,50 @@ public static class MobSpawner
 
 		go.Enabled = true;
 		return go;
+	}
+
+	/// <summary>
+	/// Places a disabled spawn clone on a nearby static, upward-facing surface before it is enabled.
+	/// The clone's bounds preserve authored root-to-feet offsets, avoiding a physics drop on spawn.
+	/// </summary>
+	public static bool TryFindGroundedPosition( Scene scene, GameObject spawnObject, Vector3 desiredPosition, out Vector3 groundedPosition )
+	{
+		groundedPosition = default;
+		if ( scene == null || spawnObject == null ) return false;
+
+		float rootToFeet = desiredPosition.z - spawnObject.GetBounds().Mins.z;
+		if ( !float.IsFinite( rootToFeet ) || rootToFeet < -512f || rootToFeet > 512f )
+			rootToFeet = 0f;
+
+		const int attempts = 12;
+		for ( int i = 0; i < attempts; i++ )
+		{
+			var candidate = desiredPosition;
+			if ( i > 0 )
+			{
+				float angle = Random.Shared.NextSingle() * MathF.Tau;
+				float radius = 24f + Random.Shared.NextSingle() * 96f;
+				candidate += new Vector3( MathF.Cos( angle ) * radius, MathF.Sin( angle ) * radius, 0f );
+			}
+
+			var from = candidate + Vector3.Up * 128f;
+			var to = candidate - Vector3.Up * 2048f;
+			var hits = scene.Trace.Ray( from, to )
+				.IgnoreGameObjectHierarchy( spawnObject )
+				.RunAll()
+				.OrderBy( hit => hit.Distance );
+
+			foreach ( var hit in hits )
+			{
+				if ( !hit.Hit || hit.GameObject == null || hit.Normal.z < 0.65f ) continue;
+				if ( hit.GameObject.Components.GetInAncestorsOrSelf<Actor>() != null ) continue;
+				if ( hit.GameObject.Components.GetInAncestorsOrSelf<Rigidbody>() != null ) continue;
+
+				groundedPosition = candidate.WithZ( hit.HitPosition.z + rootToFeet + 1f );
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

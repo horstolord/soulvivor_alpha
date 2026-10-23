@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Sandbox.Code.Actors;
 using Sandbox.Code.Data;
+using Sandbox.Code.World;
 
 namespace Sandbox.Code.Systems;
 
@@ -16,6 +17,12 @@ namespace Sandbox.Code.Systems;
 /// </summary>
 public class SpawnDirector : Component
 {
+	public enum RunPhase { WaitingForStart, Running, BossFight, Victory }
+
+	[Property] public float BossSpawnTime { get; set; } = 600f;
+	[Property] public float BossSpawnRetryInterval { get; set; } = 3f;
+	[Property] public string ExitPortalPrefabPath { get; set; } = "run_portal.prefab";
+
 	// ============ TUNING ============
 	/// <summary>Base credits earned per second at difficulty 1.0.</summary>
 	[Property] public float BaseCreditRate   { get; set; } = 2f;
@@ -40,6 +47,18 @@ public class SpawnDirector : Component
 	private float _credits       = 0f;
 	private float _elapsed       = 0f;   // total seconds since start
 	private float _cooldownTimer = 0f;
+	private float _bossRetryTimer;
+	private float _runSoulsCollected;
+	private RunPhase _phase = RunPhase.WaitingForStart;
+	private Enemy _boss;
+	private PlayerRespawnManager _spawnPoint;
+	private Vector3 _spawnPosition;
+	private Rotation _spawnRotation;
+	private bool _bossDeathHandled;
+
+	public RunPhase Phase => _phase;
+	public bool IsRunActive => _phase is RunPhase.Running or RunPhase.BossFight;
+	public bool CanStartRun => _phase == RunPhase.WaitingForStart;
 
 	/// <summary>
 	/// Difficulty scalar. Starts at 1.0 and ramps linearly.
@@ -54,15 +73,53 @@ public class SpawnDirector : Component
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
+		DrawGizmos();
+		if ( !IsRunActive ) return;
+
 		_elapsed += Time.Delta;
 		_cooldownTimer -= Time.Delta;
-		DrawGizmos();
+		_bossRetryTimer -= Time.Delta;
 
 		// Accumulate credits
 		_credits = MathF.Min( _credits + BaseCreditRate * Difficulty * Time.Delta, MaxCredits );
 
+		if ( _phase == RunPhase.Running && _elapsed >= BossSpawnTime && _bossRetryTimer <= 0f )
+			TrySpawnBoss();
+
 		if ( _cooldownTimer <= 0f )
 			TrySpawn();
+	}
+
+	public bool StartRun( GameObject interactor, PlayerRespawnManager spawnPoint )
+	{
+		if ( !CanStartRun || interactor?.Components.GetInAncestorsOrSelf<Player>() == null ) return false;
+
+		_spawnPoint = spawnPoint;
+		var anchor = spawnPoint?.GameObject;
+		_spawnPosition = anchor?.WorldPosition ?? interactor.WorldPosition;
+		_spawnRotation = anchor?.WorldRotation ?? interactor.WorldRotation;
+		_elapsed = 0f;
+		_credits = 0f;
+		_cooldownTimer = 0f;
+		_bossRetryTimer = 0f;
+		_runSoulsCollected = 0f;
+		_boss = null;
+		_bossDeathHandled = false;
+		_phase = RunPhase.Running;
+		Log.Info( "[SpawnDirector] Run started." );
+		return true;
+	}
+
+	/// <summary>Called when a soul orb is absorbed during this run. Tracks gross pickup value, including souls spent on in-run levels.</summary>
+	public void RecordRunSouls( float amount )
+	{
+		if ( IsRunActive && amount > 0f && float.IsFinite( amount ) )
+			_runSoulsCollected += amount;
+	}
+
+	protected override void OnDestroy()
+	{
+		if ( _boss != null ) _boss.OnDeath -= HandleBossDeath;
 	}
 
 	// ============ SPAWNING ============
@@ -75,7 +132,7 @@ public class SpawnDirector : Component
 
 		// Filter to difficulty eligible cards
 		var eligible = SpawnCardRegistry.All
-			.Where( c => c.MinDifficulty <= Difficulty )
+			.Where( c => c.Rank != MobRank.Boss && c.MinDifficulty <= Difficulty )
 			.ToList();
 
 		if ( eligible.Count == 0 ) return;
@@ -111,6 +168,92 @@ public class SpawnDirector : Component
 		_cooldownTimer = SpawnCooldown;
 
 		Log.Info( $"[SpawnDirector] Spawned {card.DisplayName} (cost {card.Cost}) | credits left: {_credits:F1}" );
+	}
+
+	private void TrySpawnBoss()
+	{
+		_bossRetryTimer = MathF.Max( 0.25f, BossSpawnRetryInterval );
+		var card = SpawnCardRegistry.All.FirstOrDefault( c => c.Rank == MobRank.Boss );
+		if ( card == null )
+		{
+			Log.Error( "[SpawnDirector] No Boss-rank SpawnCard is registered." );
+			return;
+		}
+
+		var player = Scene.GetAllComponents<Player>().FirstOrDefault();
+		if ( player == null ) return;
+
+		var spawned = MobSpawner.Spawn( Scene, new MobSpawnRequest
+		{
+			Card = card,
+			Position = PickSpawnPosition( player.GameObject.WorldPosition )
+		} );
+		if ( spawned == null ) return; // e.g. no grounded location; retry on the next interval
+
+		_boss = spawned.Components.Get<Enemy>( FindMode.EverythingInSelfAndDescendants );
+		if ( _boss == null )
+		{
+			spawned.Destroy();
+			Log.Error( $"[SpawnDirector] Boss prefab '{card.PrefabPath}' has no Enemy component." );
+			return;
+		}
+
+		_boss.OnDeath += HandleBossDeath;
+		_phase = RunPhase.BossFight;
+		Log.Info( $"[SpawnDirector] Boss spawned after {_elapsed:F0}s: {card.DisplayName}." );
+	}
+
+	private void HandleBossDeath()
+	{
+		if ( _bossDeathHandled || _phase != RunPhase.BossFight ) return;
+		_bossDeathHandled = true;
+		_phase = RunPhase.Victory; // stops all further enemy spawns immediately
+		if ( _boss != null ) _boss.OnDeath -= HandleBossDeath;
+
+		MetaProgression.DepositSouls( _runSoulsCollected );
+		SpawnExitPortal();
+		Log.Info( $"[SpawnDirector] Run won. Banked {_runSoulsCollected:F0} run souls." );
+	}
+
+	private void SpawnExitPortal()
+	{
+		if ( string.IsNullOrWhiteSpace( ExitPortalPrefabPath ) ||
+			!ResourceLibrary.TryGet<PrefabFile>( ExitPortalPrefabPath, out var prefab ) )
+		{
+			Log.Error( $"[SpawnDirector] Exit portal prefab '{ExitPortalPrefabPath}' was not found." );
+			return;
+		}
+
+		var position = _boss?.GameObject.WorldPosition ?? _spawnPosition;
+		var portal = SceneUtility.GetPrefabScene( prefab ).Clone(
+			new CloneConfig( new Transform( position, Rotation.Identity ), null, false ) );
+		var component = portal.Components.Get<RunExitPortal>( FindMode.EverythingInSelfAndDescendants );
+		if ( component == null )
+		{
+			portal.Destroy();
+			Log.Error( $"[SpawnDirector] Exit portal prefab '{ExitPortalPrefabPath}' has no RunExitPortal component." );
+			return;
+		}
+
+		component.Initialize( this, _spawnPoint );
+		portal.Enabled = true;
+	}
+
+	public void ReturnToSpawn()
+	{
+		if ( _phase != RunPhase.Victory ) return;
+		if ( _spawnPoint != null && _spawnPoint.IsValid() )
+			_spawnPoint.Respawn();
+		else
+			Log.Warning( "[SpawnDirector] No PlayerRespawnManager was captured; cannot return to the run start." );
+
+		_phase = RunPhase.WaitingForStart;
+		_elapsed = 0f;
+		_credits = 0f;
+		_cooldownTimer = 0f;
+		_runSoulsCollected = 0f;
+		_boss = null;
+		_spawnPoint = null;
 	}
 
 	// ============ HELPERS ============
@@ -152,7 +295,7 @@ public class SpawnDirector : Component
 
 		Gizmo.Draw.Color = Color.White;
 		Gizmo.Draw.ScreenText(
-			$"Director | Diff: {Difficulty:F2} | Credits: {_credits:F1}/{MaxCredits} | Enemies: {Scene.GetAllComponents<Enemy>().Count()}/{EnemyCap}",
+			$"Run: {_phase} | Diff: {Difficulty:F2} | Credits: {_credits:F1}/{MaxCredits} | Enemies: {Scene.GetAllComponents<Enemy>().Count()}/{EnemyCap}",
 			new Vector2( 10, 120 )
 		);
 	}

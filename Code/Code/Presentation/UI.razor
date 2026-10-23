@@ -5,6 +5,7 @@
 @using Sandbox.Code.Actors;
 @using Sandbox.Code.Data;
 @using Sandbox.Code.Systems;
+@using Sandbox.Code.World;
 @inherits PanelComponent
 
 <root class="ui-root">
@@ -436,6 +437,48 @@
         </div>
     }
 
+    @if ( ActivePanel == UiPanel.Shrine )
+    {
+        var shrineSheet = PlayerStatSheet;
+
+        <div class="test-panel shrine-panel">
+            <div class="test-panel-title">Soul Shrine</div>
+
+            <div class="shrine-summary">
+                <div class="shrine-stat">
+                    <div class="shrine-label">Soul Level</div>
+                    <div class="shrine-value">@MetaProgression.SoulLevel</div>
+                </div>
+                <div class="shrine-stat">
+                    <div class="shrine-label">Souls</div>
+                    <div class="shrine-value">@((int)MetaProgression.Souls)</div>
+                </div>
+                <div class="shrine-stat">
+                    <div class="shrine-label">Next Level</div>
+                    <div class="shrine-value">@(MetaProgression.IsMaxLevel ? "MAX" : ((int)MathF.Ceiling( MetaProgression.NextLevelCost )).ToString())</div>
+                </div>
+            </div>
+
+            <div class="shrine-rows">
+                @foreach ( var attr in MetaProgression.Attributes )
+                {
+                    var attribute = attr;
+                    var canBuy = MetaProgression.CanLevelUp( attribute );
+                    var live = shrineSheet?.GetStat( attribute )?.Value ?? 0f;
+
+                    <div class="shrine-row">
+                        <div class="shrine-attr">@attribute</div>
+                        <div class="shrine-attr-value">@((int)live)</div>
+                        <div class="shrine-attr-bonus">+@MetaProgression.GetAllocation( attribute )</div>
+                        <div class="shrine-btn @(canBuy ? "" : "disabled")" onclick="@(() => BuyLevel( attribute ))">+</div>
+                    </div>
+                }
+            </div>
+
+            <div class="shrine-talents">Talent points: @MetaProgression.TalentPointsFree / @MetaProgression.TalentPointsTotal</div>
+        </div>
+    }
+
     @if ( ShowBoonOffer )
     {
         var offer = CurrentBoonOffer;
@@ -478,6 +521,9 @@
 @code
 {
     public static InventoryPanel LocalInventory { get; private set; }
+
+    /// <summary>The active HUD, so world objects (shrines) can open panels. Null until OnStart.</summary>
+    public static UI Current { get; private set; }
     public static bool MenuOpen { get; private set; }
 
     /// <summary>True while any menu or boon offer is open. Player ignores combat input while this is set.</summary>
@@ -534,7 +580,8 @@
     {
         None,
         Inventory,
-        Skills
+        Skills,
+        Shrine
     }
 
     private readonly InventoryPanel InventoryState = new();
@@ -579,7 +626,28 @@
     {
         base.OnStart();
         LocalInventory = InventoryState;
+        Current = this;
         MenuOpen = ActivePanel != UiPanel.None;
+    }
+
+    protected override void OnDestroy()
+    {
+        if ( Current == this ) Current = null;
+    }
+
+    private SoulShrine _activeShrine;
+
+    public void OpenShrine( SoulShrine shrine )
+    {
+        if ( ShowBoonOffer ) return;
+        _activeShrine = shrine;
+        ActivePanel = UiPanel.Shrine;
+        InventoryState.ClearHoveredItem( InventoryState.HoveredItem );
+    }
+
+    void BuyLevel( string attribute )
+    {
+        MetaProgression.TryLevelUp( attribute );
     }
 
     protected override void OnUpdate()
@@ -632,6 +700,13 @@
         if ( !ShowBoonOffer && Input.Pressed( "Skills" ) )
         {
             TogglePanel( UiPanel.Skills );
+        }
+
+        if ( ActivePanel == UiPanel.Shrine &&
+             (_activeShrine == null || !_activeShrine.IsValid || PlayerObject == null ||
+              PlayerObject.WorldPosition.Distance( _activeShrine.WorldPosition ) > _activeShrine.MaxUseDistance) )
+        {
+            ActivePanel = UiPanel.None;
         }
 
         if ( Input.EscapePressed && ActivePanel != UiPanel.None )
@@ -721,6 +796,7 @@
                 false,
                 ActivePanel,
                 InventoryState.Revision,
+                MetaProgression.Revision,
                 TooltipX,
                 TooltipY,
                 hotbarHash,
@@ -730,7 +806,7 @@
 
         var stats = PlayerObject.StatSheet;
         return HashCode.Combine(
-            HashCode.Combine( true, ActivePanel, InventoryState.Revision, HealthWidth ),
+            HashCode.Combine( true, ActivePanel, InventoryState.Revision, MetaProgression.Revision, HealthWidth ),
             StaminaWidth,
             EnergyWidth,
             stats.CurrentHealth,
@@ -1564,6 +1640,112 @@
 
 .skills-panel {
     border-color: #4d6f9a;
+}
+
+.shrine-panel {
+    border-color: #b08d4a;
+    width: 520px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.shrine-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.shrine-stat {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #3a3025;
+    border-radius: 4px;
+}
+
+.shrine-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #a99b89;
+}
+
+.shrine-value {
+    font-size: 22px;
+    font-weight: bold;
+    color: #f1e6d2;
+}
+
+.shrine-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.shrine-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+}
+
+.shrine-attr {
+    flex-grow: 1;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #dfd5c6;
+}
+
+.shrine-attr-value {
+    width: 48px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f1e6d2;
+}
+
+.shrine-attr-bonus {
+    width: 48px;
+    font-size: 14px;
+    color: #4ade80;
+}
+
+.shrine-btn {
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f1e6d2;
+    background: #6b5a45;
+    border: 1px solid #b08d4a;
+    border-radius: 4px;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.shrine-btn:hover {
+    background: #8a7457;
+}
+
+.shrine-btn.disabled {
+    opacity: 0.3;
+    background: #2a241c;
+    border-color: #4a4034;
+}
+
+.shrine-talents {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #a99b89;
 }
 
 .test-panel-body {
