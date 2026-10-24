@@ -27,6 +27,8 @@ public class SpellContext : ICostable
 
 	// Active Modifier Stack (Mutated by Modifier Runes)
 	public float DamageMultiplier = 1.0f;
+	/// <summary>Per-cast multiplier on the caster's StatusChance; runes can tune this independently from damage.</summary>
+	public float StatusChanceMultiplier = 1.0f;
 	public float SpeedMultiplier = 1.0f;
 	public int BonusPierce = 0;
 	/// <summary>Extra projectiles per multicast draw, fanned around the aim (ProjectileCount stat).</summary>
@@ -69,6 +71,7 @@ public class SpellContext : ICostable
 			HealthDamage  = AccumulatedDamage.HealthDamage * DamageMultiplier,
 			StaminaDamage = AccumulatedDamage.StaminaDamage,
 			KnockbackForce = AccumulatedDamage.KnockbackForce,
+			StatusChanceMultiplier = StatusChanceMultiplier,
 			Tags = AttackTags,
 			ProcDepth = ProcDepth
 		};
@@ -114,6 +117,7 @@ public class SpellContext : ICostable
 			TotalCastDelay = TotalCastDelay,
 			Charge01 = Charge01,
 			DamageMultiplier = DamageMultiplier,
+			StatusChanceMultiplier = StatusChanceMultiplier,
 			SpeedMultiplier = SpeedMultiplier,
 			BonusPierce = BonusPierce,
 			BonusProjectiles = BonusProjectiles,

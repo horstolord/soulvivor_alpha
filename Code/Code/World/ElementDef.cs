@@ -5,7 +5,7 @@ using Sandbox.Code.Systems;
 namespace Sandbox.Code.World;
 
 /// <summary>What a spell spawns when it fires. Chosen from the Method rune's DeliveryType.</summary>
-public enum SpellShape { Projectile, Beam, Nova, Cone, Pulse, Imbue }
+public enum SpellShape { Projectile, Beam, Nova, Cone, Pulse }
 
 /// <summary>
 /// Per-element presentation + small tuning knobs. The Force rune decides the element
@@ -18,6 +18,8 @@ public sealed class ElementDef
 	/// <summary>Element material used on its elemental shape prefabs.</summary>
 	public string MaterialPath;
 
+	public string ImbueMaterialPath;
+
 	/// <summary>Element-specific prefab paths. Shapes not listed use the shared fallback.</summary>
 	public Dictionary<SpellShape, string> PrefabOverrides = new();
 
@@ -25,6 +27,8 @@ public sealed class ElementDef
 
 	private Material _material;
 	private bool _materialTried;
+	private Material _imbueMaterial;
+	private bool _imbueMaterialTried;
 
 	public Material GetMaterial()
 	{
@@ -33,6 +37,14 @@ public sealed class ElementDef
 		if ( !string.IsNullOrWhiteSpace( MaterialPath ) )
 			_material = Material.Load( MaterialPath );
 		return _material;
+	}
+	public Material GetImbueMaterial()
+	{
+		if ( string.IsNullOrWhiteSpace( ImbueMaterialPath ) ) return GetMaterial();
+		if ( _imbueMaterialTried ) return _imbueMaterial;
+		_imbueMaterialTried = true;
+		_imbueMaterial = Material.Load( ImbueMaterialPath );
+		return _imbueMaterial;
 	}
 }
 
@@ -45,8 +57,7 @@ public static class ElementLibrary
 		SpellShape.Nova => "spell_nova.prefab",
 		SpellShape.Cone => "spell_cone.prefab",
 		SpellShape.Pulse => "spell_pulse.prefab",
-		SpellShape.Imbue => "spell_imbue.prefab",
-		_ => null
+		_ => null	
 	};
 
 	public static readonly ElementDef Neutral = new() { Name = "Neutral" };
@@ -55,6 +66,7 @@ public static class ElementLibrary
 	{
 		Name = "Fire",
 		MaterialPath = "karmanfire.vmat",
+		ImbueMaterialPath = "karmanfiresheath.vmat",
 		PrefabOverrides = ElementPrefabs( "fire", "fireballin'.prefab" )
 	};
 
@@ -62,6 +74,7 @@ public static class ElementLibrary
 	{
 		Name = "Frost",
 		MaterialPath = "ice.vmat",
+		ImbueMaterialPath = "crystalsheath.vmat",
 		PrefabOverrides = ElementPrefabs( "frost", "frostballin'.prefab" )
 	};
 
@@ -69,6 +82,7 @@ public static class ElementLibrary
 	{
 		Name = "Air",
 		MaterialPath = "airforce.vmat",
+		ImbueMaterialPath = "lightning.vmat",
 		PrefabOverrides = ElementPrefabs( "air", "airballin'.prefab" )
 	};
 
@@ -77,6 +91,7 @@ public static class ElementLibrary
 		Name = "Earth",
 		MaterialPath = "earth_geode.vmat",
 		ProjectileSpeedMultiplier = 0.8333333f, // preserves the former 1000 vs 1200 projectile speeds
+		ImbueMaterialPath = "rocksheath.vmat",
 		PrefabOverrides = ElementPrefabs( "earth", "earthballin'.prefab" )
 	};
 
@@ -87,7 +102,6 @@ public static class ElementLibrary
 		[SpellShape.Nova] = element + "nova.prefab",
 		[SpellShape.Cone] = element + "cone.prefab",
 		[SpellShape.Pulse] = element + "pulse.prefab",
-		[SpellShape.Imbue] = element + "imbue.prefab"
 	};
 
 	public static ElementDef Get( RuneElementTag? tag ) => tag switch
@@ -110,7 +124,6 @@ public static class SpellVisualResolver
 		RuneDeliveryType.Nova => SpellShape.Nova,
 		RuneDeliveryType.AoE => SpellShape.Nova,
 		RuneDeliveryType.Cone => SpellShape.Cone,
-		RuneDeliveryType.Imbue => SpellShape.Imbue,
 		_ => SpellShape.Pulse
 	};
 
@@ -133,4 +146,7 @@ public static class SpellVisualResolver
 	/// <summary>A Force rune's VisualMaterial wins, then the element's material (may be null).</summary>
 	public static Material ResolveMaterial( SpellContext ctx )
 		=> ctx?.VisualMaterial ?? ElementLibrary.Get( ctx?.PrimaryElement ).GetMaterial();
+	/// <summary>Force rune's VisualMaterial wins, then the element's imbue material. Null = the shell's authored default.</summary>
+	public static Material ResolveImbueMaterial( SpellContext ctx )
+		=> ctx?.VisualMaterial ?? ElementLibrary.Get( ctx?.PrimaryElement ).GetImbueMaterial();
 }

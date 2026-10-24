@@ -48,7 +48,9 @@ public class SpawnDirector : Component
 	private float _elapsed       = 0f;   // total seconds since start
 	private float _cooldownTimer = 0f;
 	private float _bossRetryTimer;
-	private float _runSoulsCollected;
+	private float _runSoulsStart;
+	private static float PlayerSoulsGained => Player.Local?.Leveling?.TotalSoulsGained ?? 0f;
+	private float RunSouls => MathF.Max( 0f, PlayerSoulsGained - _runSoulsStart );
 	private RunPhase _phase = RunPhase.WaitingForStart;
 	private Enemy _boss;
 	private PlayerRespawnManager _spawnPoint;
@@ -102,21 +104,14 @@ public class SpawnDirector : Component
 		_credits = 0f;
 		_cooldownTimer = 0f;
 		_bossRetryTimer = 0f;
-		_runSoulsCollected = 0f;
+		_runSoulsStart = PlayerSoulsGained;
 		_boss = null;
 		_bossDeathHandled = false;
 		_phase = RunPhase.Running;
 		Log.Info( "[SpawnDirector] Run started." );
 		return true;
 	}
-
-	/// <summary>Called when a soul orb is absorbed during this run. Tracks gross pickup value, including souls spent on in-run levels.</summary>
-	public void RecordRunSouls( float amount )
-	{
-		if ( IsRunActive && amount > 0f && float.IsFinite( amount ) )
-			_runSoulsCollected += amount;
-	}
-
+	
 	protected override void OnDestroy()
 	{
 		if ( _boss != null ) _boss.OnDeath -= HandleBossDeath;
@@ -209,10 +204,10 @@ public class SpawnDirector : Component
 		_bossDeathHandled = true;
 		_phase = RunPhase.Victory; // stops all further enemy spawns immediately
 		if ( _boss != null ) _boss.OnDeath -= HandleBossDeath;
-
-		MetaProgression.DepositSouls( _runSoulsCollected );
+		float banked = RunSouls;
+		MetaProgression.DepositSouls( banked );
 		SpawnExitPortal();
-		Log.Info( $"[SpawnDirector] Run won. Banked {_runSoulsCollected:F0} run souls." );
+		Log.Info( $"[SpawnDirector] Run won. Banked {banked:F0} run souls." );
 	}
 
 	private void SpawnExitPortal()
@@ -251,7 +246,6 @@ public class SpawnDirector : Component
 		_elapsed = 0f;
 		_credits = 0f;
 		_cooldownTimer = 0f;
-		_runSoulsCollected = 0f;
 		_boss = null;
 		_spawnPoint = null;
 	}

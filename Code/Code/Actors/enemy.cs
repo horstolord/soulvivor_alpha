@@ -78,6 +78,7 @@ public sealed class Enemy : Actor
 	{
 		base.OnStart();
 		Combat = Components.Get<CombatComponent>();
+		Components.GetOrCreate<DarknessScaling>();
 
 		_body = Components.Get<Rigidbody>( FindMode.EverythingInSelfAndDescendants );
 		if ( _body.IsValid() )

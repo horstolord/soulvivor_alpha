@@ -9,8 +9,7 @@ public sealed class ImbueSpec
 	public float BonusHealthDamage;
 	public float BonusKnockback;
 	public float Duration;
-	public string FxPrefabPath;
-	public Material FxMaterial;
+	public Material FxMaterial; // null = shell keeps its authored default material
 }
 
 /// <summary>
@@ -19,9 +18,13 @@ public sealed class ImbueSpec
 /// </summary>
 public sealed class WeaponImbueControl : Component
 {
+	public const string ShellTag = "imbue_shell";
+
 	private ImbueSpec _spec;
 	private float _expiresAt;
-	private GameObject _fx;
+	private HeldWeaponControl _held;
+	private GameObject _syncedModel;       // weapon model the shell state was last applied to
+	private ModelRenderer _shellRenderer;
 
 	public bool IsActive => _spec != null && Time.Now < _expiresAt;
 	public float RemainingTime => IsActive ? _expiresAt - Time.Now : 0f;
@@ -32,9 +35,7 @@ public sealed class WeaponImbueControl : Component
 		if ( spec == null || spec.Duration <= 0f ) return;
 		_spec = spec;
 		_expiresAt = Time.Now + spec.Duration;
-		var weapon = GetWeaponModel();
-		_fx = SpellVfx.Spawn( spec.FxPrefabPath, (weapon ?? GameObject).WorldPosition, (weapon ?? GameObject).WorldRotation,
-			Vector3.One, spec.FxMaterial, weapon ?? GameObject, autoBurst: false );
+		SyncShell();
 	}
 
 	/// <summary>Adds the imbue to a weapon attack's damage profile. Imbue bonus is a single profile for now.</summary>
@@ -55,24 +56,43 @@ public sealed class WeaponImbueControl : Component
 		if ( _spec == null ) return;
 		if ( !IsActive ) { Clear(); return; }
 
-		// Follow the weapon if it was swapped or only appeared after the cast.
-		var weapon = GetWeaponModel();
-		if ( _fx.IsValid() && weapon.IsValid() && _fx.Parent != weapon )
-			_fx.SetParent( weapon, false );
+		// Re-applies after weapon swaps or a model that spawned late.
+		SyncShell();
 	}
 
 	protected override void OnDestroy() => Clear();
 
-	private GameObject GetWeaponModel()
+	private void SyncShell()
 	{
-		var held = Components.GetInAncestorsOrSelf<HeldWeaponControl>();
-		return held != null && held.HeldModel.IsValid() ? held.HeldModel : null;
+		_held ??= Components.GetInAncestorsOrSelf<HeldWeaponControl>();
+		var model = _held?.HeldModel;
+		if ( !model.IsValid() ) { _syncedModel = null; _shellRenderer = null; return; }
+		if ( model == _syncedModel ) return;
+
+		_syncedModel = model; // set first so a missing shell warns once per model, not per frame
+		_shellRenderer = model.Components
+			.GetAll<ModelRenderer>( FindMode.EverythingInSelfAndDescendants )
+			.FirstOrDefault( r => r.GameObject.Tags.Has( ShellTag ) );
+
+		if ( _shellRenderer == null )
+		{
+			Log.Warning( $"[Imbue] '{model.Name}' has no child tagged '{ShellTag}'." );
+			return;
+		}
+
+		_shellRenderer.MaterialOverride = _spec.FxMaterial;
+		_shellRenderer.GameObject.Enabled = true;
 	}
 
 	private void Clear()
 	{
-		if ( _fx.IsValid() ) _fx.Destroy();
-		_fx = null;
+		if ( _shellRenderer.IsValid() )
+		{
+			_shellRenderer.MaterialOverride = null;
+			_shellRenderer.GameObject.Enabled = false;
+		}
+		_shellRenderer = null;
+		_syncedModel = null;
 		_spec = null;
 	}
 }

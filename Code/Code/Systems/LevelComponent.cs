@@ -9,13 +9,14 @@ namespace Sandbox.Code.Systems;
 /// </summary>
 public class LevelComponent : Component
 {
-	public const int MaxLevel = 100;
+	public const int MaxLevel = 200;
 
 	// ============ STATE ============
 	public int   Level         { get; private set; } = 1;
 	public float CurrentSouls  { get; private set; } = 0f;
 	/// <summary>Souls needed to reach the next level.</summary>
 	public float SoulThreshold { get; private set; } = 10f;
+	public float TotalSoulsGained { get; private set; } = 0f; 
 
 	// ============ DATA ============
 	private MobData _data;
@@ -58,8 +59,8 @@ public class LevelComponent : Component
 	public void GainSouls( float amount )
 	{
 		if ( Level >= MaxLevel ) return;
-
 		CurrentSouls += amount;
+		if ( amount > 0f && float.IsFinite( amount ) ) TotalSoulsGained += amount;
 
 		// Handle multi-level bursts (e.g. massive orb pickup)
 		while ( CurrentSouls >= SoulThreshold && Level < MaxLevel )

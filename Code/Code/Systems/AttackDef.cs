@@ -9,6 +9,8 @@ public class DamageProfileDef
 	public bool IsCrit;
 	/// <summary>True for periodic status damage; prevents that damage from proccing statuses again.</summary>
 	public bool IsDot;
+	/// <summary>Multiplier on the attacker's StatusChance for this hit (1 = full chance).</summary>
+	public float StatusChanceMultiplier = 1f;
 	public int ProcDepth;
 
 	// Elemental components on top of HealthDamage. Filled in by CombatMath.BuildOutgoing from the attacker's
@@ -29,6 +31,7 @@ public class DamageProfileDef
 		Tags = Tags,
 		IsCrit = IsCrit,
 		IsDot = IsDot,
+		StatusChanceMultiplier = StatusChanceMultiplier,
 		ProcDepth = ProcDepth,
 		ExtraFire = ExtraFire,
 		ExtraFrost = ExtraFrost,
@@ -101,6 +104,8 @@ public class AttackDef : ICostable
 	public DamageProfileDef Damage = new();
 	/// <summary>Fraction of StatSheet.WeaponDamage added to health damage. Defaults to zero.</summary>
 	public float WeaponDamageEffectiveness;
+	/// <summary>Fraction of attacker StatusChance used by this weapon hit. Defaults to full chance.</summary>
+	public float StatusChanceEffectiveness = 1f;
 	public AttributeScalingDef Scaling = new();
 	public List<HitPhaseDef> HitPhases = new();
 	public HashSet<AttackTag> Tags = new();

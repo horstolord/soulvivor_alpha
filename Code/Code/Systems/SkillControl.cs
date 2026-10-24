@@ -23,6 +23,7 @@ public sealed class SkillControl : Component
 	{
 		_actor = Components.GetInAncestorsOrSelf<Actor>();
 		Load();
+		ApplyAll();
 		if ( _actor?.Procs != null )
 			foreach ( var def in SkillLibrary.All )
 			foreach ( var proc in def.XpSources )

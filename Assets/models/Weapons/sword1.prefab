@@ -5,8 +5,8 @@
     "Flags": 0,
     "Name": "sword1",
     "Position": "0,0,0",
-    "Rotation": "0,0,0,1",
-    "Scale": "1,1,1",
+    "Rotation": "0,-0,-0.823730826,0.566981077",
+    "Scale": "0.5,0.5,0.5",
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
@@ -45,7 +45,7 @@
             "Materials": null,
             "Model": {
               "Id": "b096c6a9-7b94-442c-aca0-0b7d0bf164c7",
-              "Path": "swordtest2.vmdl"
+              "Path": "models/weapons/swordtest2.vmdl"
             },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -73,7 +73,7 @@
             "IsTrigger": false,
             "Model": {
               "Id": "b096c6a9-7b94-442c-aca0-0b7d0bf164c7",
-              "Path": "swordtest2.vmdl"
+              "Path": "models/weapons/swordtest2.vmdl"
             },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -101,6 +101,7 @@
             "Gravity": true,
             "GravityScale": 1,
             "ImpactDamage": 0,
+            "InertiaScale": 1,
             "LinearDamping": 0,
             "Locking": {
               "X": false,
@@ -126,7 +127,60 @@
             "StartAsleep": false
           }
         ],
-        "Children": []
+        "Children": [
+          {
+            "__guid": "2003a45f-5079-41d2-aa98-941837ba1dd7",
+            "__version": 2,
+            "Flags": 0,
+            "Name": "swordtest2 (1)",
+            "Position": "0,0,0",
+            "Rotation": "0,0,0,1",
+            "Scale": "1.10000002,1.10000002,1",
+            "Tags": "imbue_shell",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkFlags": 0,
+            "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
+            "OwnerTransfer": 1,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "82111b80-46d3-4606-930a-3308b18416bd",
+                "__enabled": false,
+                "Flags": 0,
+                "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "LodOverride": null,
+                "MaterialGroup": null,
+                "MaterialOverride": {
+                  "Id": "aa4b0aa6-f12d-45a6-8688-61119a6feedd",
+                  "Path": "lightning.vmat"
+                },
+                "Materials": null,
+                "Model": {
+                  "Id": "b096c6a9-7b94-442c-aca0-0b7d0bf164c7",
+                  "Path": "models/weapons/swordtest2.vmdl"
+                },
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "0.62791,0.62791,0.62791,1"
+              }
+            ],
+            "Children": []
+          }
+        ]
       }
     ],
     "__properties": {

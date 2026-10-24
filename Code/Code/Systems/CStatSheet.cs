@@ -76,6 +76,7 @@ public class StatSheet : Component
 
 	// ============ DEFENSIVE STATS ============
 	public Stat Evasion { get; private set; } // Percent chance to avoid attack
+	public Stat DamageTaken {get; private set;}
 	public Stat Armor { get; private set; } // Damage reduction
 	public Stat BlockReduction {get; private set;} // Percent
 	public Stat ResistanceFire { get; private set; } // Percent
@@ -149,7 +150,8 @@ public class StatSheet : Component
 		WeaponDamage = new Stat( 0f );
 		CritChance = new Stat( templateData.CritChance );
 		CritDamage = new Stat( 50f ); // Default 1.5x = 150%
-		StatusChance = new Stat( 0f );
+		// Start at the same baseline as crit, but keep a separate stat so gear and effects can tune it independently.
+		StatusChance = new Stat( templateData.CritChance );
 		StatusResistance = new Stat( 0f );
 		Armor = new Stat( templateData.Armor );
 		BlockReduction = new Stat(0f);
@@ -174,6 +176,7 @@ public class StatSheet : Component
 
 		// Initialize defensive stats
 		Evasion = new Stat( 0f );
+		DamageTaken =  new Stat( 100f );
 
 		// Initialize utility stats
 		CostMultiplier = new Stat( 100f ); // Default 1.0x cost
@@ -290,7 +293,7 @@ public class StatSheet : Component
 			// Defense
 			"Evasion" => Evasion,
 			"Armor" => Armor,
-
+			"DamageTaken" => DamageTaken,
 			// Utility
 			"CastSpeed" => CastSpeed,
 			"CostMultiplier" => CostMultiplier,
@@ -354,6 +357,7 @@ public class StatSheet : Component
 		yield return ( "AttackSpeed", AttackSpeed );
 		yield return ( "Range", Range );
 		yield return ( "Evasion", Evasion );
+		yield return ("DamageTaken", DamageTaken );
 		yield return ( "CastSpeed", CastSpeed );
 		yield return ( "CostMultiplier", CostMultiplier );
 		yield return ( "EffectDuration", EffectDuration );

@@ -103,6 +103,7 @@ public class TechniqueContext : ICostable
 			},
 			// Non-zero for weapon attacks, so a timed weapon imbue (Ember Weapon) also augments techniques.
 			WeaponDamageEffectiveness = b.WeaponDamageEffectiveness,
+			StatusChanceEffectiveness = b.StatusChanceEffectiveness,
 			// Might's contribution scales with the technique too, otherwise the multiplier would only hit the flat part.
 			Scaling = new AttributeScalingDef
 			{
@@ -144,6 +145,7 @@ public class TechniqueContext : ICostable
 				+ (sheet?.WeaponDamage?.Value ?? 0f) * attack.WeaponDamageEffectiveness,
 			StaminaDamage = attack.Damage.StaminaDamage,
 			KnockbackForce = attack.Damage.KnockbackForce + might * attack.Scaling.MightToKnockbackForce,
+			StatusChanceMultiplier = attack.StatusChanceEffectiveness,
 			Tags = new HashSet<AttackTag>( attack.Tags )
 		};
 

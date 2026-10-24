@@ -6,7 +6,7 @@
     "Name": "earthnova",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
-    "Scale": "1,1,1",
+    "Scale": "1.08999991,1.13999987,-0.189999297",
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
@@ -21,9 +21,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "torus",
-        "Position": "0,0,-6.12326908",
+        "Position": "0,0,0",
         "Rotation": "0,0,0,1",
-        "Scale": "0.300000012,0.300000012,0.100000001",
+        "Scale": "0.530000269,0.530000269,0.530000269",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -42,8 +42,8 @@
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": {
-              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
-              "Path": "rocksolid.vmat"
+              "Id": "ea0b7fb4-1e70-4810-a5b8-4f462fc4bd5b",
+              "Path": "rocksheath.vmat"
             },
             "Materials": null,
             "Model": {
@@ -73,9 +73,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "torus (3)",
-        "Position": "0,0,-6.12326908",
+        "Position": "0,0,0",
         "Rotation": "0,0,0,1",
-        "Scale": "6.0199995,4.54999924,0.270001084",
+        "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -94,11 +94,14 @@
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": {
-              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
-              "Path": "rocksolid.vmat"
+              "Id": "ea0b7fb4-1e70-4810-a5b8-4f462fc4bd5b",
+              "Path": "rocksheath.vmat"
             },
             "Materials": null,
-            "Model": "models/editor/sun.vmdl",
+            "Model": {
+              "Id": "6f155851-7bac-4518-9dbd-961557451f42",
+              "Path": "models/editor/sun.vmdl"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -122,9 +125,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "torus (4)",
-        "Position": "0,0,-6.12326908",
+        "Position": "0,0,0",
         "Rotation": "0,0,0,1",
-        "Scale": "0.519999921,0.499999851,-0.0600000136",
+        "Scale": "0.530000269,0.530000269,0.530000269",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -143,8 +146,8 @@
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": {
-              "Id": "aff4354b-e951-4b9b-9a54-1337b80f3450",
-              "Path": "earth_geode.vmat"
+              "Id": "ea0b7fb4-1e70-4810-a5b8-4f462fc4bd5b",
+              "Path": "rocksheath.vmat"
             },
             "Materials": null,
             "Model": {
@@ -174,9 +177,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "torus (1)",
-        "Position": "0,0,-6.12326908",
+        "Position": "0,0,0",
         "Rotation": "0,0,0,1",
-        "Scale": "-0.10999997,-0.10999997,-0.10999997",
+        "Scale": "0.530000269,0.530000269,0.530000269",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -195,8 +198,8 @@
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": {
-              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
-              "Path": "rocksolid.vmat"
+              "Id": "ea0b7fb4-1e70-4810-a5b8-4f462fc4bd5b",
+              "Path": "rocksheath.vmat"
             },
             "Materials": null,
             "Model": {
@@ -226,9 +229,9 @@
         "__version": 2,
         "Flags": 0,
         "Name": "torus (2)",
-        "Position": "0,0,-6.12326908",
+        "Position": "0,0,0",
         "Rotation": "0,0,0,1",
-        "Scale": "0.959999382,0.749999762,0.0899998099",
+        "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -247,11 +250,14 @@
             "LodOverride": null,
             "MaterialGroup": null,
             "MaterialOverride": {
-              "Id": "4b9bc9a8-4710-4011-9e0f-306df45c45fd",
-              "Path": "rocksolid.vmat"
+              "Id": "ea0b7fb4-1e70-4810-a5b8-4f462fc4bd5b",
+              "Path": "rocksheath.vmat"
             },
             "Materials": null,
-            "Model": "models/editor/sun.vmdl",
+            "Model": {
+              "Id": "6f155851-7bac-4518-9dbd-961557451f42",
+              "Path": "models/editor/sun.vmdl"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,

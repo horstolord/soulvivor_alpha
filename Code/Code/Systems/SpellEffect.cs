@@ -86,8 +86,7 @@ public static class SpellEffectApplier
 						BonusHealthDamage = forceDamage * effect.Strength,
 						BonusKnockback = context.AccumulatedDamage.KnockbackForce * effect.Strength,
 						Duration = effect.Duration,
-						FxPrefabPath = SpellVisualResolver.ResolvePrefab( context.PrimaryElement, SpellShape.Imbue ),
-						FxMaterial = SpellVisualResolver.ResolveMaterial( context )
+						FxMaterial = SpellVisualResolver.ResolveImbueMaterial( context )
 					} );
 					break;
 			}

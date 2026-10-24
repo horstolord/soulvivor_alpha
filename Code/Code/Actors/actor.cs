@@ -28,6 +28,7 @@ public class Actor : Component, Component.IDamageable
 	public BuffComponent Buffs { get; private set; }
 	public StatusControl Statuses { get; private set; }
 	public ProcControl Procs { get; private set; }
+	public FieldExposure Exposure {get; private set;}
 	private IRagdollHandler _ragdoll;
 	/// <summary>
 	/// Raised the frame the actor dies (before any destruction/drops).
@@ -87,6 +88,7 @@ public class Actor : Component, Component.IDamageable
 		Buffs     = Components.GetOrCreate<BuffComponent>();
 		Statuses  = Components.GetOrCreate<StatusControl>();
 		Procs = Components.GetOrCreate<ProcControl>();
+		Exposure = Components.GetOrCreate<FieldExposure>();
 		_ragdoll  = Components.GetInAncestorsOrSelf<IRagdollHandler>() ?? Components.GetInChildren<IRagdollHandler>();
 		Log.Info( $"[Ragdoll] {GameObject.Name}: handler lookup => {(_ragdoll == null ? "NULL" : _ragdoll.GetType().Name)}" );
 		_ = InitializeActorAsync();
@@ -182,6 +184,7 @@ public class Actor : Component, Component.IDamageable
 		StatSheet.Wisdom.BaseValue    += _mobData.WisdomPerLevel;
 		StatSheet.Armor.BaseValue     += _mobData.ArmorPerLevel;
 		StatSheet.CritChance.BaseValue += _mobData.CritChancePerLevel;
+		StatSheet.StatusChance.BaseValue += _mobData.CritChancePerLevel;
 
 		// Recalculate HP, stamina, regen, etc. from new attribute totals
 		StatSheet.RecalculateDerivedStats();
@@ -283,6 +286,8 @@ public class Actor : Component, Component.IDamageable
 				finalHealthDamage *= MathF.Max( 0f, 1f - blockReduction / 100f );
 				blocked = true;
 			}
+			// Tankiness stat (darkness, buffs, items). Health only, like block.
+			finalHealthDamage *= MathF.Max( 0f, (StatSheet.DamageTaken?.Value ?? 100f) / 100f );
 		}
 
 		// Generic damage-taken multiplier applies after armor, resistance, and block mitigation.

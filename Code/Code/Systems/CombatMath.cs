@@ -127,6 +127,8 @@ public static class CombatMath
 			KnockbackForce = baseDamage.KnockbackForce + knockbackBonusAtMaxCharge * t,
 			Tags = baseDamage.Tags,
 			IsCrit = baseDamage.IsCrit,
+			IsDot = baseDamage.IsDot,
+			StatusChanceMultiplier = baseDamage.StatusChanceMultiplier,
 			ProcDepth = baseDamage.ProcDepth,
 			ExtraFire = baseDamage.ExtraFire,
 			ExtraFrost = baseDamage.ExtraFrost,

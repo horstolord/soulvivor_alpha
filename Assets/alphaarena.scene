@@ -22,7 +22,7 @@
           "__guid": "4ecaaf0c-4b0e-4fbd-9778-5e990ef4007a",
           "__enabled": true,
           "Flags": 0,
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "BackgroundColor": "0,0,0,1",
           "ClearFlags": "All",
           "EnablePostProcessing": true,
           "FieldOfView": 60,
@@ -43,7 +43,7 @@
           "RenderTexture": null,
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
-          "ZFar": 10000,
+          "ZFar": 19513,
           "ZNear": 10
         },
         {
@@ -116,23 +116,23 @@
               "TerrainHeight": 10000,
               "Materials": [
                 {
-                  "Id": "03857afe-c927-45b4-8ccc-dd8c6a8b9923",
+                  "Id": "cfea348f-9107-4e19-a1c1-82cbfdfd73e3",
                   "Path": "terrain/materials/rockbase.tmat"
                 },
                 {
-                  "Id": "6cfc0ae3-8d4e-4ee9-baf6-099c1bc38ff0",
+                  "Id": "1a8cfb10-b577-4219-a163-41c539a5b87e",
                   "Path": "materials/terrain/terrain_soil.tmat"
                 },
                 {
-                  "Id": "de609631-e15b-432b-8f15-4ffc122610e5",
+                  "Id": "01852b4c-d8de-4491-add4-6e3c3d229ca1",
                   "Path": "materials/terrain/terrain_dirt_a_rocky.tmat"
                 },
                 {
-                  "Id": "d036d5c2-3a00-492a-8826-2fd607b098f7",
+                  "Id": "2abda963-4314-4be9-9b7f-4ec30fab96c9",
                   "Path": "materials/terrain/terrain_grass_a.tmat"
                 },
                 {
-                  "Id": "79e2de98-cce1-45f3-bff1-359804a9b6fb",
+                  "Id": "d4bd61ae-968b-46ec-8a92-e60cd980f541",
                   "Path": "terrains/rock.tmat"
                 }
               ],
@@ -302,7 +302,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+            "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -524,13 +524,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "3c49caac-c092-4f8f-82db-bff992a3fc27",
+                "Id": "c989ba7d-eabf-47e5-b93d-ff5892d29b28",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "87fea7bd-26fd-4a17-9540-3c2bd7b6fcf0",
+            "Id": "1c41a619-6978-4d26-a228-05c18ee79597",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -547,19 +547,6 @@
           },
           "RenderType": "On",
           "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.AmbientLight",
-          "__guid": "fbd4ff04-2fb1-4895-bb13-02c275a14990",
-          "__enabled": true,
-          "Flags": 0,
-          "Color": "0.5,0.5,0.5,1",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null
         }
       ],
       "Children": []
@@ -680,7 +667,7 @@
       "__guid": "d06c7555-517e-4cc0-a653-10cbb40ce9d9",
       "__version": 2,
       "__Prefab": {
-        "Id": "5864d224-5207-49c7-9eac-20e749df8527",
+        "Id": "121dee0e-a58d-45c8-bebb-e0d8a516bfc4",
         "Path": "spinningblade.prefab"
       },
       "__PrefabInstancePatch": {
@@ -713,7 +700,7 @@
         "a86124c5-f7e5-441d-b3ec-15d32ff95d85": "318d9ccc-480f-4a2f-9fae-9186cd370381",
         "98ca8bca-f09a-4a23-b470-f9379f13e1a7": "7ab486aa-3ed5-492d-a843-9a4aacb8079f",
         "433c631c-1548-4afc-b32a-8d9db9d30454": "82f70c2e-79b6-49b7-a4b3-7334c5579686",
-        "afa816b6-b860-4b40-aff6-6d3d236e16fa": "920ae2fd-09b6-8b64-a74f-78d90a8337bc",
+        "9627b301-6536-4863-900e-d7134d18d006": "0ce5f2f2-9253-8347-ad80-7c2acd8aa64d",
         "850de8c3-6fc7-432a-99d4-988e422f10a4": "3ecad119-4a4a-4567-93af-233a963657d4",
         "26e58540-9111-40fa-b599-40397d9319cf": "1d7b84fb-7b33-4a94-ba13-49dba194f516",
         "01ce64d8-644c-4d9b-81f0-14fb32fb7868": "8946c608-850c-4d43-af7f-7f5f28ce9263",
@@ -752,13 +739,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "3c49caac-c092-4f8f-82db-bff992a3fc27",
+                "Id": "c989ba7d-eabf-47e5-b93d-ff5892d29b28",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "87fea7bd-26fd-4a17-9540-3c2bd7b6fcf0",
+            "Id": "1c41a619-6978-4d26-a228-05c18ee79597",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -808,13 +795,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "3c49caac-c092-4f8f-82db-bff992a3fc27",
+                "Id": "c989ba7d-eabf-47e5-b93d-ff5892d29b28",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "87fea7bd-26fd-4a17-9540-3c2bd7b6fcf0",
+            "Id": "1c41a619-6978-4d26-a228-05c18ee79597",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -2058,13 +2045,13 @@
           "Materials": {
             "indexed": {
               "0": {
-                "Id": "3c49caac-c092-4f8f-82db-bff992a3fc27",
+                "Id": "c989ba7d-eabf-47e5-b93d-ff5892d29b28",
                 "Path": "materials/generic/wall_brick_c_trim_noalpha.vmat"
               }
             }
           },
           "Model": {
-            "Id": "87fea7bd-26fd-4a17-9540-3c2bd7b6fcf0",
+            "Id": "1c41a619-6978-4d26-a228-05c18ee79597",
             "Path": "models/vista/buildings/towers/tower_01/vista_tower_01.vmdl"
           },
           "OnComponentDestroy": null,
@@ -2147,7 +2134,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "89ca7047-01e0-42f9-a3ff-85cd3efdc89d",
+            "Id": "132b9261-208d-49ae-a305-647855aab87e",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2298,7 +2285,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "82d0f132-322c-46fc-873f-7e40d313848e",
+            "Id": "11b4d946-cf29-4651-8d67-d242215e6b3e",
             "Path": "materials/scratched_metal_01.vmat"
           },
           "OnComponentDestroy": null,
@@ -2449,7 +2436,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "89ca7047-01e0-42f9-a3ff-85cd3efdc89d",
+            "Id": "132b9261-208d-49ae-a305-647855aab87e",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2600,7 +2587,7 @@
           "ControlPoints": [],
           "LegacyFakeSlack": 17.5,
           "Material": {
-            "Id": "89ca7047-01e0-42f9-a3ff-85cd3efdc89d",
+            "Id": "132b9261-208d-49ae-a305-647855aab87e",
             "Path": "mat/pack/g_tilesmassive.vmat"
           },
           "OnComponentDestroy": null,
@@ -2715,7 +2702,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+            "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -2847,7 +2834,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+              "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -2903,7 +2890,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+              "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           }
@@ -2959,7 +2946,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+              "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3057,7 +3044,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+              "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3155,7 +3142,7 @@
             },
             "Property": "MaterialOverride",
             "Value": {
-              "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+              "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
               "Path": "materials/concrete/damage/concrete_damaged.vmat"
             }
           },
@@ -3237,7 +3224,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3264,7 +3251,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3292,7 +3279,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3339,7 +3326,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3366,7 +3353,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3394,7 +3381,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3441,7 +3428,7 @@
           "IsStatic": true,
           "MaterialGroup": null,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3468,7 +3455,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3496,7 +3483,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+            "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
             "Path": "props/other/metal_stairs.vmdl"
           },
           "OnComponentDestroy": null,
@@ -3543,7 +3530,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+            "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -3595,7 +3582,7 @@
           "LodOverride": null,
           "MaterialGroup": null,
           "MaterialOverride": {
-            "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+            "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
             "Path": "materials/concrete/damage/concrete_damaged.vmat"
           },
           "Materials": null,
@@ -3705,7 +3692,7 @@
           "__guid": "d36e6311-6d1d-4594-93db-dd9a4e2c1f9e",
           "__enabled": true,
           "Flags": 0,
-          "Color": "0.03256,0.03256,0.03256,1",
+          "Color": "1,0.90233,0.90233,1",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -3893,7 +3880,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -3945,7 +3932,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -4027,7 +4014,7 @@
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                    "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                     "Path": "models/props/rock_scatter/rock_scatter.vmat"
                   }
                 }
@@ -4107,13 +4094,13 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": {
                 "indexed": {
                   "0": {
-                    "Id": "9c74fe35-07f8-447a-bbca-0a5d6cf3ada3",
+                    "Id": "423bf899-de37-45cd-a951-fab88119dc95",
                     "Path": "models/sbox_props/metal_wheely_bin/metal_wheely_bin_parts.vmat"
                   }
                 }
@@ -4193,7 +4180,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -4271,7 +4258,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -4349,7 +4336,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -4427,7 +4414,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "2a624dc0-019b-4c57-a2cf-2fcc33117421",
+                "Id": "6351689b-d02d-4594-872a-c7efdbfd1a94",
                 "Path": "models/props/rock_scatter/rock_scatter.vmat"
               },
               "Materials": null,
@@ -4612,9 +4599,9 @@
           "__enabled": true,
           "Flags": 0,
           "BaseCreditRate": 25,
-          "BaseEnemyCap": 6,
+          "BaseEnemyCap": 20,
           "BossSpawnRetryInterval": 3,
-          "BossSpawnTime": 200,
+          "BossSpawnTime": 60,
           "CapGrowthPerMin": 50,
           "EliteChance": 5,
           "ExitPortalPrefabPath": "run_portal.prefab",
@@ -4625,7 +4612,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "SpawnCooldown": 1.5,
+          "SpawnCooldown": 0,
           "SpawnRadius": 650
         }
       ],
@@ -4658,7 +4645,7 @@
             "MovedObjects": []
           },
           "__PrefabIdToInstanceId": {
-            "4412db0d-7099-44d7-954f-5bd6529ece2f": "2cf3d85f-6a47-8189-bf59-c77fea99b2b9"
+            "f93d82be-88b0-416d-85eb-baf87b81e7e4": "9ed5e687-7a27-80a9-b5c6-b5f5e9882b57"
           }
         }
       ]
@@ -4668,9 +4655,9 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Player Controller",
-      "Position": "9282.62988,9153.04492,11984.3311",
+      "Position": "9282.62988,9153.04492,12011.9873",
       "Rotation": "0,0,0,1",
-      "Scale": "1.20000005,1.20000005,1.20000005",
+      "Scale": "1,1,1",
       "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
@@ -5017,7 +5004,10 @@
           "__guid": "e0250589-73e0-4264-917b-5e09f76d87dd",
           "__enabled": true,
           "Flags": 0,
-          "CastAnchor": null,
+          "CastAnchor": {
+            "_type": "gameobject",
+            "go": "f0c727ce-0df8-439a-864d-572d7d837cdd"
+          },
           "HitCastCostPenaltyPercent": 0.1,
           "HitCastTimePenaltyPercent": 0.1,
           "MaxHitPenaltyMultiplier": 2,
@@ -5040,12 +5030,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "SpellComp": {
-            "_type": "component",
-            "component_id": "e0250589-73e0-4264-917b-5e09f76d87dd",
-            "go": "4311a173-b1c0-46c4-813c-709122a790e2",
-            "component_type": "SpellComponent"
-          }
+          "SpellComp": null
         },
         {
           "__type": "Sandbox.Code.Systems.SlideControl",
@@ -7763,7 +7748,7 @@
               "Children": []
             },
             {
-              "__guid": "659b3035-751d-41cb-a94b-695698e7ac66",
+              "__guid": "99f3aa8a-a23f-4b58-83f3-664cf1313fb2",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - black_boxers",
@@ -7780,7 +7765,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "a8ea581b-e4df-4785-bb62-6067ffb4a66c",
+                  "__guid": "e8999565-e98d-4f30-ac9c-e26812931b72",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -7830,7 +7815,7 @@
               "Children": []
             },
             {
-              "__guid": "98412b49-b48c-4459-9a88-7217d1ba3551",
+              "__guid": "0f0140f6-2b38-49df-8106-01ac5b291fee",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - tshirt",
@@ -7847,7 +7832,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "473473b8-fe25-48d2-b5a1-2fefe1e3e768",
+                  "__guid": "45b57351-0f71-4d60-8ce6-41cd095f93fc",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -7897,7 +7882,7 @@
               "Children": []
             },
             {
-              "__guid": "e1dcfc9a-9e79-4693-b7b9-6a694c2ace94",
+              "__guid": "63dce25a-9dc9-4070-889f-b021c4754249",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - flat_shoes",
@@ -7914,7 +7899,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "94e9c946-c1d6-4873-bb68-5a3341e5cb6c",
+                  "__guid": "44dcf825-04c1-48cb-9a48-3e97bc5bd1ae",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -7964,7 +7949,7 @@
               "Children": []
             },
             {
-              "__guid": "2b9e205e-268c-4aad-84e7-0f2ffd6843de",
+              "__guid": "8a83eb95-c64a-4854-b1c3-3ef4a93cd607",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - cardigan_colored",
@@ -7981,7 +7966,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "fde750cc-cee0-4183-ac57-8776fda19bbe",
+                  "__guid": "e3b93614-86b0-4561-a84c-8d6b5a49b8b0",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -8031,7 +8016,7 @@
               "Children": []
             },
             {
-              "__guid": "4bec4951-f26c-433e-b806-a28db35bcae7",
+              "__guid": "4edee57e-7c1f-4543-96fb-6b1af750e803",
               "__version": 2,
               "Flags": 0,
               "Name": "Clothing - nerdy_glasses",
@@ -8048,7 +8033,7 @@
               "Components": [
                 {
                   "__type": "Sandbox.SkinnedModelRenderer",
-                  "__guid": "7f2420f5-1629-403b-b698-c952ddfe3a8b",
+                  "__guid": "ca086157-2c43-4ee8-8741-bd11f5169da9",
                   "__enabled": true,
                   "Flags": 0,
                   "AnimationGraph": null,
@@ -8216,7 +8201,7 @@
               "LodOverride": null,
               "MaterialGroup": null,
               "MaterialOverride": {
-                "Id": "a9500162-c788-4ecc-9516-8dd3dd4d07c5",
+                "Id": "aef5defc-b615-4cd9-a168-cd1cde120a39",
                 "Path": "materials/concrete/damage/concrete_damaged.vmat"
               },
               "Materials": null,
@@ -8268,7 +8253,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8295,7 +8280,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8323,7 +8308,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8370,7 +8355,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8397,7 +8382,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8425,7 +8410,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8472,7 +8457,7 @@
               "IsStatic": true,
               "MaterialGroup": null,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8499,7 +8484,7 @@
               "MaterialOverride": null,
               "Materials": null,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8527,7 +8512,7 @@
               "Friction": null,
               "IsTrigger": false,
               "Model": {
-                "Id": "5124f8fc-4bcf-40b1-a65b-da7aa4aba095",
+                "Id": "dbb5466c-11aa-434b-b088-f5bdc013a533",
                 "Path": "props/other/metal_stairs.vmdl"
               },
               "OnComponentDestroy": null,
@@ -8555,9 +8540,9 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Terrain",
-      "Position": "-9812.50586,20692.1211,24863.166",
+      "Position": "-4771.63721,23348.584,35168.9531",
       "Rotation": "1,0,0,-4.37113883E-08",
-      "Scale": "2,2,2",
+      "Scale": "2.15999961,2.05999947,4.23999882",
       "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
@@ -8605,7 +8590,7 @@
               "TerrainHeight": 10000,
               "Materials": [
                 {
-                  "Id": "03857afe-c927-45b4-8ccc-dd8c6a8b9923",
+                  "Id": "cfea348f-9107-4e19-a1c1-82cbfdfd73e3",
                   "Path": "terrain/materials/rockbase.tmat"
                 }
               ],
@@ -8738,7 +8723,7 @@
           "IsStatic": false,
           "MaterialGroup": null,
           "Model": {
-            "Id": "773950ac-31f9-4bbe-b949-49cc7a0e99ff",
+            "Id": "81f4b02c-a35b-4209-aef4-aea0cad9cd59",
             "Path": "models/uf-rts/resource_tree2.vmdl"
           },
           "OnComponentDestroy": null,
@@ -8765,7 +8750,7 @@
           "MaterialOverride": null,
           "Materials": null,
           "Model": {
-            "Id": "773950ac-31f9-4bbe-b949-49cc7a0e99ff",
+            "Id": "81f4b02c-a35b-4209-aef4-aea0cad9cd59",
             "Path": "models/uf-rts/resource_tree2.vmdl"
           },
           "OnComponentDestroy": null,
@@ -8793,7 +8778,7 @@
           "Friction": null,
           "IsTrigger": false,
           "Model": {
-            "Id": "773950ac-31f9-4bbe-b949-49cc7a0e99ff",
+            "Id": "81f4b02c-a35b-4209-aef4-aea0cad9cd59",
             "Path": "models/uf-rts/resource_tree2.vmdl"
           },
           "OnComponentDestroy": null,
@@ -8862,6 +8847,540 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "71ee04b7-3538-4a50-a0fc-5888dc2a7e60",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "wall_torch (3)",
+      "Position": "12396.042,8933.77441,9262.58594",
+      "Rotation": "-0.674946785,-0,0,0.737866402",
+      "Scale": "1.11999869,1.11999869,1.11999869",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "e8911f77-363c-486f-b086-336cd65796a2",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnGibsCreated": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2c287833-a721-4f74-bad2-225f6cfe14a6",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": {
+            "Id": "00000000-0023-0000-10ef-430523000000",
+            "Path": "materials/dev/dev_metal_rough90.vmat"
+          },
+          "Materials": null,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "83aca974-0525-4778-a1d8-8c6e2d9ee9a1",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "abf15807-79b2-4368-ad5e-13699234a8a5",
+          "__enabled": false,
+          "Flags": 0,
+          "AngularDamping": 0,
+          "EnableImpactDamage": true,
+          "EnhancedCcd": false,
+          "Gravity": true,
+          "GravityScale": 1,
+          "ImpactDamage": 0,
+          "InertiaScale": 1,
+          "LinearDamping": 0,
+          "Locking": {
+            "X": false,
+            "Y": false,
+            "Z": false,
+            "Pitch": false,
+            "Yaw": false,
+            "Roll": false
+          },
+          "MassCenterOverride": "0,0,0",
+          "MassOverride": 0,
+          "MinImpactDamageSpeed": 500,
+          "MotionEnabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OverrideMassCenter": false,
+          "RigidbodyFlags": 0,
+          "SleepThreshold": 2,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.Code.World.FieldEmitter",
+          "__guid": "839f2d63-8269-4239-b974-aa756b64a343",
+          "__enabled": true,
+          "Flags": 0,
+          "Channel": "Light",
+          "Falloff": 1,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 5000,
+          "Strength": 0.8
+        },
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "89389a64-468f-4946-99e8-382e8a715a4a",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.08130081,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.65953,0.43256,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 5000,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "728b11fe-5b1d-4894-96ab-e8b21ccc351d",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "wall_torch (4)",
+      "Position": "12360.0156,10055.6768,9097.53809",
+      "Rotation": "-0.674946785,-0,0,0.737866402",
+      "Scale": "1.11999869,1.11999869,1.11999869",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "5b65cc24-8207-4916-a91d-df416efce5dd",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnGibsCreated": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "cda904c5-3696-4609-9ed0-fd82342d9862",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": {
+            "Id": "00000000-0023-0000-10ef-430523000000",
+            "Path": "materials/dev/dev_metal_rough90.vmat"
+          },
+          "Materials": null,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "1383680d-83cf-40ff-903a-b30fc7293a47",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "e746a102-8767-474e-96ef-dcd5fb3ad824",
+          "__enabled": false,
+          "Flags": 0,
+          "AngularDamping": 0,
+          "EnableImpactDamage": true,
+          "EnhancedCcd": false,
+          "Gravity": true,
+          "GravityScale": 1,
+          "ImpactDamage": 0,
+          "InertiaScale": 1,
+          "LinearDamping": 0,
+          "Locking": {
+            "X": false,
+            "Y": false,
+            "Z": false,
+            "Pitch": false,
+            "Yaw": false,
+            "Roll": false
+          },
+          "MassCenterOverride": "0,0,0",
+          "MassOverride": 0,
+          "MinImpactDamageSpeed": 500,
+          "MotionEnabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OverrideMassCenter": false,
+          "RigidbodyFlags": 0,
+          "SleepThreshold": 2,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.Code.World.FieldEmitter",
+          "__guid": "5a50b1c8-602a-4b51-a226-b1e44b5006be",
+          "__enabled": true,
+          "Flags": 0,
+          "Channel": "Light",
+          "Falloff": 1,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 5000,
+          "Strength": 0.8
+        },
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "187ecb1c-d98b-43cd-8653-1086560fa82e",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.08130081,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.65953,0.43256,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 5000,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "3393f4eb-b91d-4a2b-8934-a9bafd69320f",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "wall_torch (5)",
+      "Position": "12418.4395,8072.68652,9076.94531",
+      "Rotation": "-0.674946785,-0,0,0.737866402",
+      "Scale": "1.11999869,1.11999869,1.11999869",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "d25cad41-0000-4a26-bc5e-a07e3487af70",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnGibsCreated": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7a73df01-92e7-4e83-8ed5-b6ad01a4c13e",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": {
+            "Id": "00000000-0023-0000-10ef-430523000000",
+            "Path": "materials/dev/dev_metal_rough90.vmat"
+          },
+          "Materials": null,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "f7b249a7-1271-44c0-b843-90733a6cf6f6",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": {
+            "Id": "16cbfd45-ff4f-47ec-8e56-725fcc411b77",
+            "Path": "models/furniture/dungeon_props/wall_torch.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "5383c921-295e-4fe6-a657-80c79ee560d5",
+          "__enabled": false,
+          "Flags": 0,
+          "AngularDamping": 0,
+          "EnableImpactDamage": true,
+          "EnhancedCcd": false,
+          "Gravity": true,
+          "GravityScale": 1,
+          "ImpactDamage": 0,
+          "InertiaScale": 1,
+          "LinearDamping": 0,
+          "Locking": {
+            "X": false,
+            "Y": false,
+            "Z": false,
+            "Pitch": false,
+            "Yaw": false,
+            "Roll": false
+          },
+          "MassCenterOverride": "0,0,0",
+          "MassOverride": 0,
+          "MinImpactDamageSpeed": 500,
+          "MotionEnabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OverrideMassCenter": false,
+          "RigidbodyFlags": 0,
+          "SleepThreshold": 2,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.Code.World.FieldEmitter",
+          "__guid": "c62733e5-549a-4546-87c8-c09a1e49bef6",
+          "__enabled": true,
+          "Flags": 0,
+          "Channel": "Light",
+          "Falloff": 1,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 5000,
+          "Strength": 0.8
+        },
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "28d0ddd6-5935-45c6-9d2f-78047451b4f7",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.08130081,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.65953,0.43256,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 5000,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
@@ -8917,6 +9436,7 @@
     "facepunch.terrain_grass_a#310246",
     "facepunch.terrain_soil#310288",
     "facepunch.vistatower01a#311555",
+    "fish.wall_torch#89653",
     "garymax.rockbase#283961",
     "goose.g_tilesmassive#9631",
     "shovis.mosaicconcrete#269620",

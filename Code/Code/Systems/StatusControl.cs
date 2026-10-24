@@ -230,7 +230,7 @@ public static class StatusRoller
 		if ( attacker?.StatSheet?.StatusChance == null || target?.Statuses == null ) return;
 
 		var sheet = attacker.StatSheet;
-		float baseChance = sheet.StatusChance.Value;
+		float baseChance = sheet.StatusChance.Value * MathF.Max( 0f, damage.StatusChanceMultiplier );
 		if ( baseChance <= 0f ) return;
 
 		float resistScale = MathF.Max( 0f, 1f - (target.StatSheet?.StatusResistance?.Value ?? 0f) / 100f );
